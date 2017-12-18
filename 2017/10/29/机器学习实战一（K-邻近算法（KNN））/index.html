@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="机器学习," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：  计算复杂度高、空间复杂度高，占用存储空间    无法给出数据的内在含义   适用数">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习实战一（K-邻近算法（KNN））">
+<meta property="og:url" content="http://yoursite.com/2017/10/29/机器学习实战一（K-邻近算法（KNN））/index.html">
+<meta property="og:site_name" content="LEMON的博客">
+<meta property="og:description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：  计算复杂度高、空间复杂度高，占用存储空间    无法给出数据的内在含义   适用数据范围：数值型和标称型3. 懒惰算法： 此类学习技术在训练阶段仅仅把样本保存起来">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-18T15:26:55.805Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习实战一（K-邻近算法（KNN））">
+<meta name="twitter:description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：  计算复杂度高、空间复杂度高，占用存储空间    无法给出数据的内在含义   适用数据范围：数值型和标称型3. 懒惰算法： 此类学习技术在训练阶段仅仅把样本保存起来">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/29/机器学习实战一（K-邻近算法（KNN））/"/>
+
+
+
+
+
+  <title>机器学习实战一（K-邻近算法（KNN）） | LEMON的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LEMON的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/29/机器学习实战一（K-邻近算法（KNN））/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">机器学习实战一（K-邻近算法（KNN））</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-29T14:54:21+08:00">
+                2017-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习实战/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习实战</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><h4 id="1-原理："><a href="#1-原理：" class="headerlink" title="1. 原理："></a>1. 原理：</h4><ul>
+<li>工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测.</li>
+<li>通常k是不大于20的整数<h4 id="2-优缺点"><a href="#2-优缺点" class="headerlink" title="2. 优缺点"></a>2. 优缺点</h4></li>
+<li>优点：精度高、对异常值不敏感、无数据输入假定</li>
+<li>缺点：</li>
+<li><ul>
+<li>计算复杂度高、空间复杂度高，占用存储空间</li>
+</ul>
+</li>
+<li><ul>
+<li>无法给出数据的内在含义</li>
+</ul>
+</li>
+<li>适用数据范围：数值型和标称型<h4 id="3-懒惰算法："><a href="#3-懒惰算法：" class="headerlink" title="3. 懒惰算法："></a>3. 懒惰算法：</h4></li>
+<li>此类学习技术在训练阶段仅仅把样本保存起来</li>
+<li>==训练开支为零==，待收到测试样本后再进行处理<h3 id="二、算法流程"><a href="#二、算法流程" class="headerlink" title="二、算法流程"></a>二、算法流程</h3></li>
+</ul>
+<ol>
+<li>收集数据</li>
+<li>准备数据</li>
+<li>分析数据</li>
+<li>训练算法（不适合KNN算法，因为K是“懒惰算法”的著名代表）</li>
+<li>测试算法</li>
+<li>使用算法</li>
+</ol>
+<h3 id="三、算法框架"><a href="#三、算法框架" class="headerlink" title="三、算法框架"></a>三、算法框架</h3><h4 id="1-classify0-函数的4个输入参数："><a href="#1-classify0-函数的4个输入参数：" class="headerlink" title="1. classify0()函数的4个输入参数："></a>1. classify0()函数的4个输入参数：</h4><ul>
+<li>inX：用于分类的输入向量</li>
+<li>dataSet：用于输入的训练样本集</li>
+<li>labels：标签向量</li>
+<li>k：参数k用于选择最佳邻居的数目</li>
+</ul>
+<h4 id="2-使用欧氏距离公式"><a href="#2-使用欧氏距离公式" class="headerlink" title="2. 使用欧氏距离公式"></a>2. 使用欧氏距离公式</h4><ul>
+<li>计算两个向量点xA和xB之间的距离</li>
+<li>计算存在4个特征值的数据集的距离</li>
+</ul>
+<h4 id="3-在约会网站上使用算法"><a href="#3-在约会网站上使用算法" class="headerlink" title="3. 在约会网站上使用算法"></a>3. 在约会网站上使用算法</h4><ul>
+<li>海伦用三个属性来测试自己对于约会对象的喜爱程度<br>每年的飞行里程数<br>玩视频游戏所耗时间百分比<br>每周消费的冰激凌公升数<br>她积攒了一些数据，该数据保存在datingTestSet.txt中，共1000行。 </li>
+<li><p>准备数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def createDataSet():</span><br><span class="line">    group = array([[1.0, 1.1], [1.0, 1.0], [0, 0], [0, 0.1]])</span><br><span class="line">    labels = [&apos;A&apos;, &apos;A&apos;, &apos;B&apos;, &apos;B&apos;]</span><br><span class="line">    return group, labels</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>算法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">def classify0(inX,dataSet,labels,k):</span><br><span class="line">        #训练数据集的行数</span><br><span class="line">        dataSetSize=dataSet.shape[0]</span><br><span class="line">        #计算距离</span><br><span class="line">        #这里要说一下tile()函数，以后我们还会多次用到它</span><br><span class="line">        #tile(A,B)表示对A重复B次，B可以是int型也可以是数组形式</span><br><span class="line">        #如果B是int，表示在行方向上重复A，B次，列方向默认为1</span><br><span class="line">        #如果B是数组形式，tile(A,(B1,B2))表示在行方向上重复B1次，列方向重复B2次</span><br><span class="line">        diffMat=tile(inX,(dataSetSize,1))-dataSet</span><br><span class="line">        print(diffMat)</span><br><span class="line">        sqDiffMat=diffMat**2</span><br><span class="line">        print(sqDiffMat)</span><br><span class="line">        sqDistances=sqDiffMat.sum(axis=1)</span><br><span class="line">        distances=sqDistances**0.5</span><br><span class="line">        #排序，这里argsort()返回的是数据从小到大的索引值,这里这就是第几行数据</span><br><span class="line">        sortedDisIndicies =distances.argsort()</span><br><span class="line">        print(sortedDisIndicies)</span><br><span class="line">        classCount=&#123;&#125;</span><br><span class="line">        #选取距离最小的k个点，并统计每个类别出现的频率</span><br><span class="line">        #这里用到了字典get(key,default=None)返回键值key对应的值；</span><br><span class="line">        #如果key没有在字典里，则返回default参数的值，默认为None</span><br><span class="line">        for i in range(k):</span><br><span class="line">                voteIlabel=labels[sortedDisIndicies[i]]</span><br><span class="line">                classCount[voteIlabel]=classCount.get(voteIlabel,0)+1;</span><br><span class="line">        #逆序排序，找出出现频率最多的类别</span><br><span class="line">        sortedClassCount=sorted(classCount.items(),</span><br><span class="line">                                key=operator.itemgetter(1),reverse=True)</span><br><span class="line">        print(sortedClassCount)</span><br><span class="line">        return sortedClassCount[0][0]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>py3.5中iteritems改为items（上倒数第4行）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#进入python界面： </span><br><span class="line">&gt;&gt;&gt;import kNN </span><br><span class="line">&gt;&gt;&gt;group,labels=kNN.createDataSet() </span><br><span class="line">&gt;&gt;&gt;kNN.classify0([0,0],group,labels,3)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>读取txt的数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">def file2matrix(filename):</span><br><span class="line">        fr=open(filename)</span><br><span class="line">        #读取文件</span><br><span class="line">        arrayOLines=fr.readlines()</span><br><span class="line">        #文件行数</span><br><span class="line">        numberOfLines=len(arrayOLines)</span><br><span class="line">        #创建全0矩阵</span><br><span class="line">        returnMat=zeros((numberOfLines,3))</span><br><span class="line">        #标签向量</span><br><span class="line">        classLabelVector=[]</span><br><span class="line">        index=0</span><br><span class="line">        #遍历每一行，提取数据</span><br><span class="line">        for line in arrayOLines:</span><br><span class="line">                line=line.strip();</span><br><span class="line">                listFromLine=line.split(&apos;\t&apos;)</span><br><span class="line">                #前三列为属性信息</span><br><span class="line">                returnMat[index,:]=listFromLine[0:3]</span><br><span class="line">                #最后一列为标签信息</span><br><span class="line">                classLabelVector.append(int(listFromLine[-1]))</span><br><span class="line">                index +=1</span><br><span class="line">        return returnMat,classLabelVector</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 重新加载kNN，得倒解析数据 </span><br><span class="line">&gt;&gt;&gt;reload(kNN) </span><br><span class="line">&gt;&gt;&gt;datingDataMat,datingLabels=kNN.file2matrix(&apos;datingTestSet2.txt&apos;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>使用Matplotlib 创建散点图</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 命令行中输入</span><br><span class="line">&gt;&gt;&gt;import matplotlib </span><br><span class="line">&gt;&gt;&gt;import matplotlib.pyplot as plt </span><br><span class="line">&gt;&gt;&gt;from numpy import array </span><br><span class="line">&gt;&gt;&gt;fig = plt.figure() </span><br><span class="line">&gt;&gt;&gt;ax=fig.add_subplot(111) </span><br><span class="line">&gt;&gt;&gt;ax.scatter(datingDataMat[:,1],datingDataMat[:,2],15.0*array(datingLabels),15.0*array(datingLabels))</span><br><span class="line">&gt;&gt;&gt;plt.show()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用github存储图片并以markdown的链接形式显示<br>[图片上传失败…(image-2b31b0-1512123353929)]</p>
+</li>
+</ul>
+<h4 id="4-数据的归一化"><a href="#4-数据的归一化" class="headerlink" title="4. 数据的归一化"></a>4. 数据的归一化</h4><ul>
+<li>由于每个属性的取值数量级相差过大，会造成每个属性的权重不同，这显然是海伦不希望的。所以我们还要写一个函数实现数据归一化，公式如下:</li>
+<li>newValue=(oldValue-min)/(max-min) </li>
+<li>这个公式可以将特征值转化为0~1之间的值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#归一化特征值</span><br><span class="line">def autoNorm(dataSet):</span><br><span class="line">        #每列的最小值</span><br><span class="line">        minVals=dataSet.min(0)</span><br><span class="line">        #每列的最大值</span><br><span class="line">        maxVals=dataSet.max(0)</span><br><span class="line">        #最大值与最小值的差值</span><br><span class="line">        ranges=maxVals-minVals</span><br><span class="line">        normDataSet=zeros(shape(dataSet))</span><br><span class="line">        m=dataSet.shape[0]</span><br><span class="line">        #minVals是1*3的矩阵，使用tile函数复制成和dataSet同样大小的矩阵，方便计算</span><br><span class="line">        normDataSet=dataSet-tile(minVals,(m,1))</span><br><span class="line">        normDataSet=normDataSet/tile(ranges,(m,1))</span><br><span class="line">        return normDataSet,ranges,minVals</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;reload(kNN) </span><br><span class="line">&gt;&gt;&gt;normMat,ranges,minVals=kNN.autoNorm(datingDataMat)</span><br></pre></td></tr></table></figure>
+<h4 id="5-原始分类器"><a href="#5-原始分类器" class="headerlink" title="5. 原始分类器"></a>5. 原始分类器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#原始测试分类器</span><br><span class="line">def datingClassTest():</span><br><span class="line">        hoRatio=0.10</span><br><span class="line">        datingDataMat,datingLabels=file2matrix(&apos;datingTestSet2.txt&apos;)</span><br><span class="line">        normMat,ranges,minVals=autoNorm(datingDataMat)</span><br><span class="line">        m=normMat.shape(0)</span><br><span class="line">        #10%的数据用于测试数据集</span><br><span class="line">        numTestVecs=int(m*hoRatio)</span><br><span class="line">        errorCount=0.0</span><br><span class="line">        for i in range(numTestVecs):</span><br><span class="line">                classifierResults=classify0(normMat[i,:],normMat[numTestVecs:m,:], datingLabels[numTestVecs:m],3)</span><br><span class="line">                print(&quot;the classifier came back with: %d,the real answer id: %d&quot;%(classifierResults,datingLabels[i]))</span><br><span class="line">                if(classifierResults!=datingLabels[i]):errorCount +=1.0</span><br><span class="line">        print(&quot;the total error rate is: %f&quot; %(errorCount/float(numTestVecs)))</span><br></pre></td></tr></table></figure>
+<h4 id="6-接口"><a href="#6-接口" class="headerlink" title="6. 接口"></a>6. 接口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 约会网站预测函数</span><br><span class="line">def classifyPerson():</span><br><span class="line">        resultList=[&apos;not at all&apos;,&apos;in small doses&apos;,&apos;in large doses&apos;]</span><br><span class="line">        percentTats=float(input(&quot;在游戏上花费的时间占比( )?&quot;))</span><br><span class="line">        ffMiles=float(input(&quot;每年航空的里程数?&quot;))</span><br><span class="line">        iceCream=float(input(&quot;每年吃的冰淇淋（升）?&quot;))</span><br><span class="line">        datingDataMat,datingLabels=file2matrix(&apos;datingTestSet2.txt&apos;)</span><br><span class="line">        normMat, ranges, minVals=autoNorm(datingDataMat)</span><br><span class="line">        inArr=array([ffMiles,percentTats,iceCream])</span><br><span class="line">        classifierResult=classify0((inArr-minVals)/ranges,normMat,datingLabels,3)</span><br><span class="line">        print(&quot;你可能是属于以下这类人：&quot;,resultList[classifierResult - 1])</span><br></pre></td></tr></table></figure>
+<p>[图片上传失败…(image-77db49-1512123353929)]<br>[图片上传失败…(image-dd2d24-1512123353929)]</p>
+<h4 id="7-识别手写数字"><a href="#7-识别手写数字" class="headerlink" title="7. 识别手写数字"></a>7. 识别手写数字</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 将图片格式处理为一个向量（把一个32*32的二进制图形矩阵转换为1*1024的向量）,然后使用分类器处理图形信息</span><br><span class="line">def img2vector(filename):</span><br><span class="line">    # 创建一个1*1024的NumPy数组</span><br><span class="line">    returnVect = zeros((1,1024))</span><br><span class="line">    fr = open(filename)</span><br><span class="line">    # 循环读出文件的前32行，并将每行的头32个字符值存储在NumPy数组中，最后返回数组</span><br><span class="line">    for i in range(32):</span><br><span class="line">        lineStr = fr.readline()</span><br><span class="line">        for j in range(32):</span><br><span class="line">            returnVect[0,32*i+j] = int(lineStr[j])</span><br><span class="line">    return returnVect</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">def handwritingClassTest():</span><br><span class="line">    hwLabels = []</span><br><span class="line">    # 将trainingDigits目录中的文件存储在列表中</span><br><span class="line">    trainingFileList = listdir(&apos;trainingDigits&apos;)</span><br><span class="line">    # 获得文件数赋值给m</span><br><span class="line">    m = len(trainingFileList)</span><br><span class="line">    # 创建一个m行1024列的训练矩阵，每行数据存储一个图像</span><br><span class="line">    trainingMat = zeros((m,1024))</span><br><span class="line">    for i in range(m):</span><br><span class="line">        # 从文件名解析分类数字（eg：文件9_45.txt表示数字9的第45个实例）</span><br><span class="line">        fileNameStr = trainingFileList[i]</span><br><span class="line">        fileStr = fileNameStr.split(&apos;.&apos;)[0]     #take off .txt</span><br><span class="line">        classNumStr = int(fileStr.split(&apos;_&apos;)[0])</span><br><span class="line">        # 将类代码存储在 hwLabels向量中</span><br><span class="line">        hwLabels.append(classNumStr)</span><br><span class="line">        # 使用 img2vector函数载入图像</span><br><span class="line">        trainingMat[i,:] = img2vector(&apos;trainingDigits/%s&apos; % fileNameStr)</span><br><span class="line"></span><br><span class="line">    # 将testDigits目录中的文件存储在列表中，步骤同上</span><br><span class="line">    testFileList = listdir(&apos;testDigits&apos;)        #iterate through the test set</span><br><span class="line">    errorCount = 0.0</span><br><span class="line">    mTest = len(testFileList)</span><br><span class="line">    for i in range(mTest):</span><br><span class="line">        fileNameStr = testFileList[i]</span><br><span class="line">        fileStr = fileNameStr.split(&apos;.&apos;)[0]     #take off .txt</span><br><span class="line">        classNumStr = int(fileStr.split(&apos;_&apos;)[0])</span><br><span class="line">        vectorUnderTest = img2vector(&apos;testDigits/%s&apos; % fileNameStr)</span><br><span class="line">        # 不同的是要使用 classify0函数测试目录下的每个文件（文件中的值介于0-1之间，无需用autoNorm()函数</span><br><span class="line">        classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels, 3)</span><br><span class="line">        print(&quot;the classifier came back with: %d, the real answer is: %d&quot; % (classifierResult, classNumStr))</span><br><span class="line">        if (classifierResult != classNumStr): errorCount += 1.0</span><br><span class="line">    print(&quot;\nthe total number of errors is: %d&quot; % errorCount)</span><br><span class="line">    print(&quot;\nthe total error rate is: %f&quot; % (errorCount/float(mTest)))</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/ZHBIT92/deep_learn/tree/master/KNN" target="_blank" rel="noopener">github代码</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/29/w第一章-深度学习概论/" rel="prev" title="第一章-深度学习概论">
+                第一章-深度学习概论 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LEMON</p>
+              <p class="site-description motion-element" itemprop="description">记录生活点滴</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ZHBIT92" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/u/6f9b905040b9" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-globe"></i>简书</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、概述"><span class="nav-number">1.</span> <span class="nav-text">一、概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-原理："><span class="nav-number">1.1.</span> <span class="nav-text">1. 原理：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-优缺点"><span class="nav-number">1.2.</span> <span class="nav-text">2. 优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-懒惰算法："><span class="nav-number">1.3.</span> <span class="nav-text">3. 懒惰算法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、算法流程"><span class="nav-number">2.</span> <span class="nav-text">二、算法流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、算法框架"><span class="nav-number">3.</span> <span class="nav-text">三、算法框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-classify0-函数的4个输入参数："><span class="nav-number">3.1.</span> <span class="nav-text">1. classify0()函数的4个输入参数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-使用欧氏距离公式"><span class="nav-number">3.2.</span> <span class="nav-text">2. 使用欧氏距离公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-在约会网站上使用算法"><span class="nav-number">3.3.</span> <span class="nav-text">3. 在约会网站上使用算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-数据的归一化"><span class="nav-number">3.4.</span> <span class="nav-text">4. 数据的归一化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-原始分类器"><span class="nav-number">3.5.</span> <span class="nav-text">5. 原始分类器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-接口"><span class="nav-number">3.6.</span> <span class="nav-text">6. 接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-识别手写数字"><span class="nav-number">3.7.</span> <span class="nav-text">7. 识别手写数字</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LEMON</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>次
+</span>
+</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共字</span>
+</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/z16.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>

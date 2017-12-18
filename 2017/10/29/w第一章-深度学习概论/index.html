@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="深度学习,机器学习,神经网络," />
 
 
 
@@ -79,18 +79,26 @@
 
 
 
-<meta name="description" content="想法 看到人家的博客界面很漂亮，最近学习压力又大，就想自己写一个啦看到是用node.js的一个框架Hexo，简单又漂亮，还可以放在github上直接打开博客，那就直接上手吧。 hexo文档链接  安装首先安装依赖环境 搭建个人博客-hexo+github详细完整步骤 hexo安装失败(地址被“墙”)请参考-零基础免费搭">
-<meta name="keywords" content="Hexo">
+<meta name="description" content="1.2 什么是神经网络 ReLU函数（修正线性单元）：“修正”指的是取不小于0的值图右是单个神经元：输入面积-&amp;gt;computer运算-&amp;gt;输出价格 多个神经元叠加构成一个更大的神经网络 左边的是输入的特征（输入层-input layer）   中间的圆圈在神经网络中被称为“隐藏单元”（Hidd">
+<meta name="keywords" content="深度学习,机器学习,神经网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello Hexo(基本配置)">
-<meta property="og:url" content="http://yoursite.com/2017/12/04/Hello-Hexo/index.html">
+<meta property="og:title" content="第一章-深度学习概论">
+<meta property="og:url" content="http://yoursite.com/2017/10/29/w第一章-深度学习概论/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="想法 看到人家的博客界面很漂亮，最近学习压力又大，就想自己写一个啦看到是用node.js的一个框架Hexo，简单又漂亮，还可以放在github上直接打开博客，那就直接上手吧。 hexo文档链接  安装首先安装依赖环境 搭建个人博客-hexo+github详细完整步骤 hexo安装失败(地址被“墙”)请参考-零基础免费搭建个人博客-hexo+github 注：如用淘宝安装请改为cnpm instal">
+<meta property="og:description" content="1.2 什么是神经网络 ReLU函数（修正线性单元）：“修正”指的是取不小于0的值图右是单个神经元：输入面积-&amp;gt;computer运算-&amp;gt;输出价格 多个神经元叠加构成一个更大的神经网络 左边的是输入的特征（输入层-input layer）   中间的圆圈在神经网络中被称为“隐藏单元”（Hidden nuit）：每个的输入都来着四个特征，因此是让神经网络自己决定中间的数代表的含义（why，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-18T16:47:19.094Z">
+<meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-1.jpg">
+<meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-2.jpg">
+<meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-3.jpg">
+<meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-4.jpg">
+<meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-5.jpg">
+<meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-6.jpg">
+<meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-7.jpg">
+<meta property="og:updated_time" content="2017-12-18T15:14:05.209Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello Hexo(基本配置)">
-<meta name="twitter:description" content="想法 看到人家的博客界面很漂亮，最近学习压力又大，就想自己写一个啦看到是用node.js的一个框架Hexo，简单又漂亮，还可以放在github上直接打开博客，那就直接上手吧。 hexo文档链接  安装首先安装依赖环境 搭建个人博客-hexo+github详细完整步骤 hexo安装失败(地址被“墙”)请参考-零基础免费搭建个人博客-hexo+github 注：如用淘宝安装请改为cnpm instal">
+<meta name="twitter:title" content="第一章-深度学习概论">
+<meta name="twitter:description" content="1.2 什么是神经网络 ReLU函数（修正线性单元）：“修正”指的是取不小于0的值图右是单个神经元：输入面积-&amp;gt;computer运算-&amp;gt;输出价格 多个神经元叠加构成一个更大的神经网络 左边的是输入的特征（输入层-input layer）   中间的圆圈在神经网络中被称为“隐藏单元”（Hidden nuit）：每个的输入都来着四个特征，因此是让神经网络自己决定中间的数代表的含义（why，">
+<meta name="twitter:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-1.jpg">
 
 
 
@@ -120,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/04/Hello-Hexo/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/29/w第一章-深度学习概论/"/>
 
 
 
 
 
-  <title>Hello Hexo(基本配置) | LEMON的博客</title>
+  <title>第一章-深度学习概论 | LEMON的博客</title>
   
 
 
@@ -233,7 +241,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/04/Hello-Hexo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/29/w第一章-深度学习概论/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LEMON">
@@ -250,7 +258,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello Hexo(基本配置)</h1>
+          <h1 class="post-title" itemprop="name headline">第一章-深度学习概论</h1>
         
 
         <div class="post-meta">
@@ -262,8 +270,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-04T22:38:17+08:00">
-                2017-12-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-29T15:09:21+08:00">
+                2017-10-29
               </time>
             
 
@@ -285,8 +293,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo建站/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo建站</span>
+                  <a href="/categories/深度学习与神经网络-吴恩达/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习与神经网络(吴恩达)</span>
                   </a>
                 </span>
 
@@ -341,51 +349,20 @@
       
 
       
-        <h2 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h2><ul>
-<li>看到人家的博客界面很漂亮，最近学习压力又大，就想自己写一个啦<br>看到是用node.js的一个框架Hexo，简单又漂亮，还可以放在github上直接打开博客，那就直接上手吧。</li>
-<li>hexo文档<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">链接</a></li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="首先安装依赖环境"><a href="#首先安装依赖环境" class="headerlink" title="首先安装依赖环境"></a>首先安装依赖环境</h3><ul>
-<li><a href="http://www.jianshu.com/p/189fd945f38f" target="_blank" rel="noopener">搭建个人博客-hexo+github详细完整步骤</a></li>
-<li>hexo安装失败(地址被“墙”)请参考-<a href="http://blog.csdn.net/jzooo/article/details/46781805" target="_blank" rel="noopener">零基础免费搭建个人博客-hexo+github</a></li>
-<li>注：如用淘宝安装请改为<code>cnpm install</code></li>
-</ul>
-<h2 id="主题-可选"><a href="#主题-可选" class="headerlink" title="主题(可选)"></a>主题(可选)</h2><h3 id="人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技"><a href="#人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技" class="headerlink" title="人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技"></a>人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技</h3><ul>
-<li><p>在博客根目录下克隆next主题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后在hexo根目录下的配置文件<code>_config.yml</code>中把 theme 的主题改为next（theme字段在配置的最后面）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后就是我们的好习惯（其实只换了主题文章没换的话只要-s就好）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后就登录<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 查看效果（然后你会发现博客打开速度变得超快，后面我们再继续优化）</p>
-</li>
-<li>next提供了四个主题风格选择，个人喜好Gemini风格<br>步骤是：打开next下的配置文件<code>_config.yml</code>，找到这一段选择主题<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># ---------------------------------------------------------------</span><br><span class="line"># Scheme Settings</span><br><span class="line"># ---------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="把博客静态文件上传到github或coding上"><a href="#把博客静态文件上传到github或coding上" class="headerlink" title="把博客静态文件上传到github或coding上"></a>把博客静态文件上传到github或coding上</h2><h2 id="把源代码上传到coding-net上-可选"><a href="#把源代码上传到coding-net上-可选" class="headerlink" title="把源代码上传到coding.net上(可选)"></a>把源代码上传到coding.net上(可选)</h2><ul>
-<li>这里主要做的是把网页与源码分开，原因如下</li>
-</ul>
-<ol>
-<li>coding免费提供私人仓库，增加安全性(如私人未公开博客)</li>
-<li>上传源代码，可以确保博客完整不丢失，使更新方便(在其他电脑上也可以随时更新博客)</li>
+        <h3 id="1-2-什么是神经网络"><a href="#1-2-什么是神经网络" class="headerlink" title="1.2 什么是神经网络"></a>1.2 什么是神经网络</h3><ol>
+<li>ReLU函数（修正线性单元）：“修正”指的是取不小于0的值<br>图右是单个神经元：输入面积-&gt;computer运算-&gt;输出价格<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-1.jpg" alt=""></li>
+<li>多个神经元叠加构成一个更大的神经网络<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-2.jpg" alt=""></li>
+<li>左边的是输入的特征（输入层-input layer）</li>
 </ol>
-<h3 id="添加密匙"><a href="#添加密匙" class="headerlink" title="添加密匙"></a>添加密匙</h3><ul>
-<li><p>找到之前github生成的密匙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$cd ~/.ssh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行如下命令，将公钥的内容复制到系统粘贴板(clipboard)中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后放到coding个人配置的ssh中就ok啦</p>
-<h3 id="Hexo中上传到github"><a href="#Hexo中上传到github" class="headerlink" title="Hexo中上传到github"></a>Hexo中上传到github</h3><p>1.删除根目录和主题目录下的.git文件夹。2.修改根目录下的.gitignore文件为：/.deploy_git/public其实第一行留不留都一样，它是hexo默认的git配置文件夹，里面也有一个.git，使/.deploy_git里的文件无法被提交。public是每次hexo g新生成的静态博客文件，不需要同步。每次写完博客，hexo d之后再push一次就行</p>
-</li>
-</ul>
-<p>相关资料<br><a href="https://www.cnblogs.com/tengj/p/5352572.html" target="_blank" rel="noopener">https://www.cnblogs.com/tengj/p/5352572.html</a><br><a href="http://sobaigu.com/goodhexo-faq.html" target="_blank" rel="noopener">http://sobaigu.com/goodhexo-faq.html</a></p>
 <ul>
-<li>更新next到远程<br><a href="http://w4lle.com/2016/06/06/Hexo-themes/index.html" target="_blank" rel="noopener">http://w4lle.com/2016/06/06/Hexo-themes/index.html</a></li>
+<li>中间的圆圈在神经网络中被称为“隐藏单元”（Hidden nuit）：每个的输入都来着四个特征，因此是让神经网络自己决定中间的数代表的含义（why，这里为什么要这么说？）<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-3.jpg" alt=""><h3 id="1-3-用神经网络进行监督学习"><a href="#1-3-用神经网络进行监督学习" class="headerlink" title="1.3 用神经网络进行监督学习"></a>1.3 用神经网络进行监督学习</h3></li>
+<li>神经网络架构</li>
+<li>1.standard neural network architecture 通用标准的神经网络架构</li>
+<li><ol>
+<li>convolutional neural  network 卷积神经网络（CNN）<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-4.jpg" alt=""><br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-5.jpg" alt=""></li>
+</ol>
+</li>
+<li>数据<br>Structured Data ：结构化数据（数据库），意为着每个特征都有清晰的定义，如数据库表中值的定义<br>Unstructured  Data : 非结构化数据，图像、音频文本中的内容<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-6.jpg" alt=""><h3 id="1-4为什么深度学习流行起来"><a href="#1-4为什么深度学习流行起来" class="headerlink" title="1.4为什么深度学习流行起来"></a>1.4为什么深度学习流行起来</h3>数据量的增加<br>硬件设备的提升<br>算法的不断改进创新<br>规模推动深度学习的发展（神经网络性能随规模、数据的增长不断增长）<br>x轴代表训练的规模 ，y轴代表表现<br>数据集不大时，效果取决于手工设计的组件<br>在图形左边时，各个算法的效率不是很明确<br>ex： 但在大数据方面，足够的M（训练集）的支持使神经网络的效率领先其他算法<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-7.jpg" alt=""></li>
 </ul>
 
       
@@ -404,7 +381,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+          
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+          
+            <a href="/tags/神经网络/" rel="tag"><i class="fa fa-tag"></i> 神经网络</a>
           
         </div>
       
@@ -417,8 +398,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/04/NumPy（索引、array合并与分割）/" rel="next" title="NumPy（索引、array合并与分割）">
-                <i class="fa fa-chevron-left"></i> NumPy（索引、array合并与分割）
+              <a href="/2017/10/29/机器学习实战一（K-邻近算法（KNN））/" rel="next" title="机器学习实战一（K-邻近算法（KNN））">
+                <i class="fa fa-chevron-left"></i> 机器学习实战一（K-邻近算法（KNN））
               </a>
             
           </div>
@@ -427,8 +408,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/04/Hexo优化/" rel="prev" title="Hello优化相关">
-                Hello优化相关 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/02/机器学习实战二（决策树）/" rel="prev" title="机器学习实战二（决策树）">
+                机器学习实战二（决策树） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -577,7 +558,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#想法"><span class="nav-number">1.</span> <span class="nav-text">想法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先安装依赖环境"><span class="nav-number">2.1.</span> <span class="nav-text">首先安装依赖环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题-可选"><span class="nav-number">3.</span> <span class="nav-text">主题(可选)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技"><span class="nav-number">3.1.</span> <span class="nav-text">人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把博客静态文件上传到github或coding上"><span class="nav-number">4.</span> <span class="nav-text">把博客静态文件上传到github或coding上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把源代码上传到coding-net上-可选"><span class="nav-number">5.</span> <span class="nav-text">把源代码上传到coding.net上(可选)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加密匙"><span class="nav-number">5.1.</span> <span class="nav-text">添加密匙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo中上传到github"><span class="nav-number">5.2.</span> <span class="nav-text">Hexo中上传到github</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-什么是神经网络"><span class="nav-number">1.</span> <span class="nav-text">1.2 什么是神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-用神经网络进行监督学习"><span class="nav-number">2.</span> <span class="nav-text">1.3 用神经网络进行监督学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4为什么深度学习流行起来"><span class="nav-number">3.</span> <span class="nav-text">1.4为什么深度学习流行起来</span></a></li></ol></div>
             
 
           </div>

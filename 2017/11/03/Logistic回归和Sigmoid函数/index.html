@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="深度学习,机器学习,神经网络," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、概述1. 原理： 工作机制：2. 优缺点 优点：计算代价不高，易于理解和实现 缺点：  容易欠拟合，分类精度可能不高   适用数据范围：数值型和标称型数据  理论 二、算法流程 收集数据：anyway 准备数据：需要数值型(要进行距离计算)，结构化数据格式最佳 分析数据：anyway 训练算法：大部分时间将用于训练">
+<meta name="keywords" content="深度学习,机器学习,神经网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Logistic回归和Sigmoid函数">
+<meta property="og:url" content="http://yoursite.com/2017/11/03/Logistic回归和Sigmoid函数/index.html">
+<meta property="og:site_name" content="LEMON的博客">
+<meta property="og:description" content="一、概述1. 原理： 工作机制：2. 优缺点 优点：计算代价不高，易于理解和实现 缺点：  容易欠拟合，分类精度可能不高   适用数据范围：数值型和标称型数据  理论 二、算法流程 收集数据：anyway 准备数据：需要数值型(要进行距离计算)，结构化数据格式最佳 分析数据：anyway 训练算法：大部分时间将用于训练，训练的目的是为了找到最佳的分类回归系数 测试算法：一旦训练步骤完成，分类将会很">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Logistic/pic1.PNG">
+<meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Logistic/pic2.PNG">
+<meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Logistic/pic3.png">
+<meta property="og:updated_time" content="2017-12-18T16:32:19.366Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Logistic回归和Sigmoid函数">
+<meta name="twitter:description" content="一、概述1. 原理： 工作机制：2. 优缺点 优点：计算代价不高，易于理解和实现 缺点：  容易欠拟合，分类精度可能不高   适用数据范围：数值型和标称型数据  理论 二、算法流程 收集数据：anyway 准备数据：需要数值型(要进行距离计算)，结构化数据格式最佳 分析数据：anyway 训练算法：大部分时间将用于训练，训练的目的是为了找到最佳的分类回归系数 测试算法：一旦训练步骤完成，分类将会很">
+<meta name="twitter:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Logistic/pic1.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/03/Logistic回归和Sigmoid函数/"/>
+
+
+
+
+
+  <title>Logistic回归和Sigmoid函数 | LEMON的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LEMON的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/03/Logistic回归和Sigmoid函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Logistic回归和Sigmoid函数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-03T12:33:21+08:00">
+                2017-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习与神经网络-吴恩达/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习与神经网络(吴恩达)</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><h4 id="1-原理："><a href="#1-原理：" class="headerlink" title="1. 原理："></a>1. 原理：</h4><ul>
+<li>工作机制：<h4 id="2-优缺点"><a href="#2-优缺点" class="headerlink" title="2. 优缺点"></a>2. 优缺点</h4></li>
+<li>优点：计算代价不高，易于理解和实现</li>
+<li>缺点：</li>
+<li><ul>
+<li>容易欠拟合，分类精度可能不高</li>
+</ul>
+</li>
+<li>适用数据范围：数值型和标称型数据</li>
+</ul>
+<p><a href="http://www.jianshu.com/p/823b25e4fbdb" target="_blank" rel="noopener">理论</a></p>
+<h3 id="二、算法流程"><a href="#二、算法流程" class="headerlink" title="二、算法流程"></a>二、算法流程</h3><ol>
+<li>收集数据：anyway</li>
+<li>准备数据：需要数值型(要进行距离计算)，结构化数据格式最佳</li>
+<li>分析数据：anyway</li>
+<li>训练算法：大部分时间将用于训练，训练的目的是为了找到最佳的分类回归系数</li>
+<li>测试算法：一旦训练步骤完成，分类将会很快</li>
+<li>使用算法：</li>
+</ol>
+<ul>
+<li>步骤一：输入一些数据，并将其转换成对应的结构化数值；</li>
+<li>步骤二：基于训练好的回归系数对数值进行简单的回归计算，判定它们属于哪个类别；随后在输出的类别上做一些其他的分析工作</li>
+</ul>
+<h3 id="三、算法实践"><a href="#三、算法实践" class="headerlink" title="三、算法实践"></a>三、算法实践</h3><p><a href="http://www.jianshu.com/p/d18e9ad21ce9" target="_blank" rel="noopener">错误合集</a></p>
+<h4 id="1-问题"><a href="#1-问题" class="headerlink" title="1.问题"></a>1.问题</h4><ul>
+<li>准备数据</li>
+<li>打开文件并逐行读取<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def loadDataSet():</span><br><span class="line">    # 定义数据集和标签</span><br><span class="line">    dataMat = []</span><br><span class="line">    labelMat = []</span><br><span class="line">    # 读取文件</span><br><span class="line">    fr = open(&apos;testSet.txt&apos;)</span><br><span class="line">    for line in fr.readlines():</span><br><span class="line">        lineArr = line.strip().split()</span><br><span class="line">        # 初始化数据</span><br><span class="line">        dataMat.append([1.0, float(lineArr[0]), float(lineArr[1])])</span><br><span class="line">        labelMat.append(int(lineArr[2]))</span><br><span class="line">    return dataMat, labelMat</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import logRegres</span><br><span class="line">&gt;&gt;&gt; dataArr,labelMat = logRegres.loadDataSet()</span><br><span class="line">&gt;&gt;&gt; logRegres.gradAscent(dataArr,labelMat)</span><br><span class="line">matrix([[ 4.12414349],</span><br><span class="line">        [ 0.48007329],</span><br><span class="line">        [-0.6168482 ]])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>回归函数和梯度上升算法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#回归函数</span><br><span class="line">def sigmoid(intX):</span><br><span class="line">    return 1.0/(1+exp(-intX))</span><br><span class="line"></span><br><span class="line"># 梯度上升算法</span><br><span class="line">def gradAscent(dataMatIn,classLabels):</span><br><span class="line">    # 转换为Numpy数据类型</span><br><span class="line">    dataMatrix = mat(dataMatIn)</span><br><span class="line">    labelMat = mat(classLabels).transpose()</span><br><span class="line">    # 矩阵大小</span><br><span class="line">    m, n = shape(dataMatrix)</span><br><span class="line">    # 步长</span><br><span class="line">    alpha = 0.001</span><br><span class="line">    # 迭代次数</span><br><span class="line">    maxCycles = 500</span><br><span class="line">    # 系数矩阵初始化为1</span><br><span class="line">    weights = ones((n, 1))</span><br><span class="line">    for k in range(maxCycles):</span><br><span class="line">        # 变量h是一个列向量，元素个数等于样本个数</span><br><span class="line">        h = sigmoid(dataMatrix*weights)</span><br><span class="line">        error = (labelMat-h)</span><br><span class="line">        weights = weights+alpha*dataMatrix.transpose()*error</span><br><span class="line">    return weights</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-分析数据"><a href="#2-分析数据" class="headerlink" title="2.分析数据"></a>2.分析数据</h4><ul>
+<li>利用Matplotlib画图</li>
+<li>画出数据集和Logistic最佳拟合直线<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"># 画出最佳拟合直线</span><br><span class="line">def plotBestFit(wei):</span><br><span class="line">    import matplotlib.pyplot as plt</span><br><span class="line">    # 矩阵变为数组</span><br><span class="line">    weights = wei.getA()</span><br><span class="line">    # 加载数据</span><br><span class="line">    dataMat, labelMat = loadDataSet()</span><br><span class="line">    # 转化为数组</span><br><span class="line">    dataArr = array(dataMat)</span><br><span class="line">    # 数据的列数目</span><br><span class="line">    n = shape(dataArr)[0]</span><br><span class="line">    # 用于存放类1的点</span><br><span class="line">    xcord1 = []</span><br><span class="line">    ycord1 = []</span><br><span class="line">    # 用于存放类2的点</span><br><span class="line">    xcord2 = []</span><br><span class="line">    ycord2 = []</span><br><span class="line">    # 遍历所有点</span><br><span class="line">    for i in range(n):</span><br><span class="line">        if(int(labelMat[i]) == 1):</span><br><span class="line">            xcord1.append(dataArr[i, 1])</span><br><span class="line">            ycord1.append(dataArr[i, 2])</span><br><span class="line">        else:</span><br><span class="line">            xcord2.append(dataArr[i, 1])</span><br><span class="line">            ycord2.append(dataArr[i, 2])</span><br><span class="line">    # 画出所有点的信息</span><br><span class="line">    fig = plt.figure()</span><br><span class="line">    ax = fig.add_subplot(111)</span><br><span class="line">    ax.scatter(xcord1, ycord1, s=30, c=&apos;red&apos;, marker=&apos;s&apos;)</span><br><span class="line">    ax.scatter(xcord2, ycord2, s=30, c=&apos;green&apos;)</span><br><span class="line">    x = arange(-3.0, 3.0, 0.1)</span><br><span class="line">    # 画出分类的边界，函数的系数由之前的梯度上升算法求得</span><br><span class="line">    y = (-weights[0]-weights[1]*x)/weights[2]</span><br><span class="line">    ax.plot(x, y)</span><br><span class="line">    plt.xlabel(&apos;X1&apos;)</span><br><span class="line">    plt.ylabel(&apos;X1&apos;)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Logistic/pic1.PNG" alt=""></p>
+<h4 id="3-训练算法"><a href="#3-训练算法" class="headerlink" title="3.训练算法"></a>3.训练算法</h4><h5 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h5><ul>
+<li>对于以上的算法，每次更新回归系数我们都需要遍历整个数据集，如果数据量过大，数亿或者成千上万个特征，那么==计算复杂度==就太高。<h5 id="改进：每次仅用一个样本更改回归系数，这种方法就成为-随机梯度上升算法-。"><a href="#改进：每次仅用一个样本更改回归系数，这种方法就成为-随机梯度上升算法-。" class="headerlink" title="改进：每次仅用一个样本更改回归系数，这种方法就成为==随机梯度上升算法==。"></a>改进：每次仅用一个样本更改回归系数，这种方法就成为==随机梯度上升算法==。</h5></li>
+<li>这种在样本到来时对分类器进行增量更新的方式可以称为在线学习算法。相应的，一次处理所有数据称为批处理。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 随机梯度上升算法</span><br><span class="line">def stocGradAscent0(dataMatrix,classLabels):</span><br><span class="line">    # 无矩阵转换过程</span><br><span class="line">    m, n = shape(dataMatrix)</span><br><span class="line">    alpha = 0.01</span><br><span class="line">    weights = ones(n)</span><br><span class="line">    for i in range(m):</span><br><span class="line">        # 变量h和误差error都是数值</span><br><span class="line">        h = sigmoid(sum(dataMatrix[i]*weights))</span><br><span class="line">        error = (classLabels[i]-h)</span><br><span class="line">        weights = weights + alpha * error * dataMatrix[i]</span><br><span class="line">    return weights</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Logistic/pic2.PNG" alt=""></p>
+<h5 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h5><ul>
+<li>从结果中可以看出分类效果并不是很好，这主要是和迭代的次数和步长有关系，我们进一步修改算法，让迭代步长随着迭代次数的增加逐渐变小。另外，我们可以随机选取样本更新系数。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def stocGradAscent1(dataMatrix, classLabels, numIter=150):</span><br><span class="line">    m,n = shape(dataMatrix)</span><br><span class="line">    weights = ones(n)   #initialize to all ones</span><br><span class="line">    for j in range(numIter):</span><br><span class="line">        dataIndex = list(range(m))</span><br><span class="line">        for i in range(m):</span><br><span class="line">            # alpha在每次迭代时不断减小，但不会减到0</span><br><span class="line">            alpha = 4/(1.0+j+i)+0.0001</span><br><span class="line">            # 随机选取更新</span><br><span class="line">            randIndex = int(random.uniform(0, len(dataIndex)))</span><br><span class="line">            h = sigmoid(sum(dataMatrix[randIndex]*weights))</span><br><span class="line">            error = classLabels[randIndex] - h</span><br><span class="line">            weights = weights + alpha * error * dataMatrix[randIndex]</span><br><span class="line">            # 删除，进行下一次迭代</span><br><span class="line">            del(dataIndex[randIndex])</span><br><span class="line">    return weights</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Logistic/pic3.png" alt=""></p>
+<h3 id="四-示例：预测病马的死亡率"><a href="#四-示例：预测病马的死亡率" class="headerlink" title="四.示例：预测病马的死亡率"></a>四.示例：预测病马的死亡率</h3><h4 id="1-问题：数据缺失"><a href="#1-问题：数据缺失" class="headerlink" title="1.问题：数据缺失"></a>1.问题：数据缺失</h4><ul>
+<li>解决办法：</li>
+<li>1.用可用特征的均值来替代</li>
+<li>2.用特殊值来替代，如-1</li>
+<li>3.忽略有缺失值的样本</li>
+<li>4.使用相识样本的均值来替代</li>
+<li>5.使用另外的机器学习算法预测缺失值<h4 id="2-准备数据：处理数据的缺失值"><a href="#2-准备数据：处理数据的缺失值" class="headerlink" title="2.准备数据：处理数据的缺失值"></a>2.准备数据：处理数据的缺失值</h4></li>
+<li>用实数0来替换所有的缺失值（==NumPy数据类型不允许包含缺失值==）</li>
+<li>作者自己并没有给出具体的实现方法（待补充）</li>
+</ul>
+<h4 id="3-测试算法：用Logistic回归进行分类"><a href="#3-测试算法：用Logistic回归进行分类" class="headerlink" title="3.测试算法：用Logistic回归进行分类"></a>3.测试算法：用Logistic回归进行分类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"># 通过输入回归系数和特征向量来计算对应sigmoid的值</span><br><span class="line">def classifyVector(inX, weights):</span><br><span class="line">    prob = sigmoid(sum(inX*weights))</span><br><span class="line">    if prob &gt; 0.5:</span><br><span class="line">        return 1.0</span><br><span class="line">    else:</span><br><span class="line">        return 0.0</span><br><span class="line"></span><br><span class="line">def colicTest():</span><br><span class="line">    # 导入数据</span><br><span class="line">    frTrain = open(&apos;horseColicTraining.txt&apos;)</span><br><span class="line">    frTest = open(&apos;horseColicTest.txt&apos;)</span><br><span class="line">    trainingSet = []; trainingLabels = []</span><br><span class="line">    for line in frTrain.readlines():</span><br><span class="line">        currLine = line.strip().split(&apos;\t&apos;)</span><br><span class="line">        lineArr =[]</span><br><span class="line">        for i in range(21):</span><br><span class="line">            lineArr.append(float(currLine[i]))</span><br><span class="line">        trainingSet.append(lineArr)</span><br><span class="line">        trainingLabels.append(float(currLine[21]))</span><br><span class="line">    # 导入数据完成后利用stocGradAscent1（）来计算回归系数向量</span><br><span class="line">    trainWeights = stocGradAscent1(array(trainingSet), trainingLabels, 1000)</span><br><span class="line">    errorCount = 0</span><br><span class="line">    numTestVec = 0.0</span><br><span class="line">    # 导入测试集并计算分类错误率</span><br><span class="line">    for line in frTest.readlines():</span><br><span class="line">        numTestVec += 1.0</span><br><span class="line">        currLine = line.strip().split(&apos;\t&apos;)</span><br><span class="line">        lineArr =[]</span><br><span class="line">        for i in range(21):</span><br><span class="line">            lineArr.append(float(currLine[i]))</span><br><span class="line">        if int(classifyVector(array(lineArr), trainWeights))!= int(currLine[21]):</span><br><span class="line">            errorCount += 1</span><br><span class="line">    errorRate = (float(errorCount)/numTestVec)</span><br><span class="line">    print(&quot;the error rate of this test is: %f&quot; % errorRate)</span><br><span class="line">    return errorRate</span><br><span class="line"></span><br><span class="line"># 调用colicTest()函数10次并求结果的平均值</span><br><span class="line">def multiTest():</span><br><span class="line">    numTests = 10</span><br><span class="line">    errorSum=0.0</span><br><span class="line">    for k in range(numTests):</span><br><span class="line">        errorSum += colicTest()</span><br><span class="line">    print(&quot;after %d iterations the average error rate is: %f&quot; % (numTests, errorSum/float(numTests)))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在有30%的数据缺失的情况下，得到平均错误率约为33%</li>
+<li>通过调整colicTest()中的迭代次数和stocGradAscent1()中的步长，平均错误率可以降到20%左右</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+          
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+          
+            <a href="/tags/神经网络/" rel="tag"><i class="fa fa-tag"></i> 神经网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/02/机器学习实战二（决策树）/" rel="next" title="机器学习实战二（决策树）">
+                <i class="fa fa-chevron-left"></i> 机器学习实战二（决策树）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/04/机器学习实战三（朴素贝叶斯）/" rel="prev" title="机器学习实战三（朴素贝叶斯）">
+                机器学习实战三（朴素贝叶斯） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LEMON</p>
+              <p class="site-description motion-element" itemprop="description">记录生活点滴</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ZHBIT92" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/u/6f9b905040b9" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-globe"></i>简书</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、概述"><span class="nav-number">1.</span> <span class="nav-text">一、概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-原理："><span class="nav-number">1.1.</span> <span class="nav-text">1. 原理：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-优缺点"><span class="nav-number">1.2.</span> <span class="nav-text">2. 优缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、算法流程"><span class="nav-number">2.</span> <span class="nav-text">二、算法流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、算法实践"><span class="nav-number">3.</span> <span class="nav-text">三、算法实践</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-问题"><span class="nav-number">3.1.</span> <span class="nav-text">1.问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-分析数据"><span class="nav-number">3.2.</span> <span class="nav-text">2.分析数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-训练算法"><span class="nav-number">3.3.</span> <span class="nav-text">3.训练算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点："><span class="nav-number">3.3.1.</span> <span class="nav-text">缺点：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#改进：每次仅用一个样本更改回归系数，这种方法就成为-随机梯度上升算法-。"><span class="nav-number">3.3.2.</span> <span class="nav-text">改进：每次仅用一个样本更改回归系数，这种方法就成为==随机梯度上升算法==。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#改进"><span class="nav-number">3.3.3.</span> <span class="nav-text">改进</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-示例：预测病马的死亡率"><span class="nav-number">4.</span> <span class="nav-text">四.示例：预测病马的死亡率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-问题：数据缺失"><span class="nav-number">4.1.</span> <span class="nav-text">1.问题：数据缺失</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-准备数据：处理数据的缺失值"><span class="nav-number">4.2.</span> <span class="nav-text">2.准备数据：处理数据的缺失值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-测试算法：用Logistic回归进行分类"><span class="nav-number">4.3.</span> <span class="nav-text">3.测试算法：用Logistic回归进行分类</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LEMON</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>次
+</span>
+</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共字</span>
+</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/z16.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>
