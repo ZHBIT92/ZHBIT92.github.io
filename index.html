@@ -344,7 +344,7 @@
       
         
           
-          正交化 Normalization数据标准化preprocessing.scale( )preprocessing.minmax_scale(X,feature_range=(0,1) ):feature_range是设置数据标准化后数据的范围，默认为0~11234567891011121314fr
+          正交化 Normalization数据标准化preprocessing.scale( )preprocessing.minmax_scale(X,feature_range=(0,1) ):feature_range是设置数据标准化后数据的范围，默认为0~11234567891011121314from sklearn import preprocessing #标准化数据模块import numpy as np#建立Arraya = np.array([[10, 2.7, 3.6],              [-100, 5, -2],              [120, 20, 40]
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -511,8 +511,9 @@
       
         
           
-          工作路径设置方法一找到Anaconda创建的快捷方式目标中的属性如下D:\ProgramData\Anaconda3\python.exe D:\ProgramData\Anaconda3\cwp.py D:\ProgramData\Anaconda3 &quot;D:/ProgramData/An
-          ...
+          工作路径设置方法一找到Anaconda创建的快捷方式目标中的属性如下D:\ProgramData\Anaconda3\python.exe D:\ProgramData\Anaconda3\cwp.py D:\ProgramData\Anaconda3 &quot;D:/ProgramData/Anaconda3/python.exe&quot; &quot;D:/ProgramData/Anaconda3/Scripts/jupyter-notebook-script.py&quot; %USERPROFILE%把最后的%USERPROFILE%改为你要用的目录地址r
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/19/Anaconda基础/#more" rel="contents">
@@ -855,7 +856,10 @@ Numpy基础
           简介与安装概述Scikit learn 也简称 sklearn, 是机器学习领域当中最知名的 python 模块之一.其包含了许多机器学习的方法的
 Sklearn 把所有机器学习的模式整合统一起来了，学会了一个模式就可以通吃其他不同类型的学习模式。
 安装
-Windows下使用Anaconda(htt
+Windows下使用Anaconda(https://www.anaconda.com/download/)
+
+选择学习方法（模型流程）安装完 Sklearn 后，不要直接去用，先了解一下都有什么模型方法，然后选择适当的方法，来达到你的目标。
+看流程图选方法klearn 官网提供了一个流程图，蓝色圆圈内是判断条件，绿色方框内是可以选择的算法：
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1232,7 +1236,12 @@ hexo文档链接
 
 安装首先安装依赖环境
 搭建个人博客-hexo+github详细完整步骤
-hexo安装失败(地址被“墙”)
+hexo安装失败(地址被“墙”)请参考-零基础免费搭建个人博客-hexo+github
+注：如用淘宝安装请改为cnpm install
+
+主题(可选)人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技
+在博客根目录下克隆next主题
+1git clone https://github.com/iissnan/hexo-the
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1404,7 +1413,7 @@ hexo安装失败(地址被“墙”)
 12345import numpy as npA = np.arange(3,15)# array([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])         print(A[3])    # 6
 
 二维索引
-12345678A
+12345678A = np.arange(3,15).reshape((3,4))&quot;&quot;&quot;array([[ 3,  4,  5,  6]       [ 7,  8,  9, 10]       [11, 12, 13, 14]])&quot;&quot;&quot;         p
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1572,7 +1581,12 @@ hexo安装失败(地址被“墙”)
         
           
           一、基本运算
-基础加法、减、乘123456import numpy as npa=np.array([10,20,30,40])   # array([10, 20, 30, 40])b=np.arange(4)              # array([0, 1, 2, 3])c=a+b   #
+基础加法、减、乘123456import numpy as npa=np.array([10,20,30,40])   # array([10, 20, 30, 40])b=np.arange(4)              # array([0, 1, 2, 3])c=a+b   # array([10, 21, 32, 43])c=a-b  # array([10, 19, 28, 37])c=a*b   # array([  0,  20,  60, 120])
+
+
+
+矩阵的乘法，针对的是第一个矩阵的行与第二个矩阵的列  
+umpy中，想要求出矩阵中各个元素的乘方需要依赖双
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1747,7 +1761,10 @@ np.abss:是计算数据的绝对值
 np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)
 
 数据类型和形状
-NumPy 中处理数字的最常见方式
+NumPy 中处理数字的最常见方式是通过ndarray对象。它们与 Python 列表相似，但是可以有任意数量的维度。而且，ndarray支持快速的数学运算，这正是我们想要的。
+由于它可以存储任意数量的维度，你可以使用ndarray来表示我们之前提到的任意数据类型：标量、向量、矩阵或张量。
+
+12#为了方便使用numpy 采用np简
           ...
           <!--noindex-->
           <div class="post-button text-center">

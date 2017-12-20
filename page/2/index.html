@@ -354,186 +354,13 @@
 基本神经网络结构
 
 
-首先 X 表示输入特征
+首先 X 表示输入特征，W 和 b 是参数，z1 = Wx + b1计算出 z1。
+使用x^(i)表示第 i 个训练样本，上标方括号 1、2 表示不同的层，图中[1]表示神经网络的第一层， [2]表示神经网络的第二层 。
+类似逻辑回归，在计算z^[1] 后需要使用σ(z^[1])计算 a^[1]，接下来你需要使用另外一个
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/21/w第三章-浅层神经网络/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/章二习题（NumPy基础、广播和向量化）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LEMON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LEMON的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/14/章二习题（NumPy基础、广播和向量化）/" itemprop="url">章二习题（NumPy基础、广播和向量化）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T21:52:21+08:00">
-                2017-11-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习与神经网络-吴恩达/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习与神经网络(吴恩达)</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          numpy常用函数
-mat( ): 将数组转化为矩阵
-np.I 操作符: 实现了矩阵求逆的运算
-np.log:是计算对数函数
-np.abss:是计算数据的绝对值
-np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)
-
-1. np.exp()
-使用np.exp
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/14/章二习题（NumPy基础、广播和向量化）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -704,11 +531,192 @@ np.abss:是计算数据的绝对值
 np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)
 
 1. np.exp()
-使用np.exp
+使用np.exp（）12345import numpy as np# example of np.expx = np.array([1, 2, 3])print(np.exp(x)) # result is (exp(1), exp(2), exp(3))
+
+
+1[2.71828183  7.3890561  20
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/14/w章二习题（NumPy基础、广播和向量化）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/章二习题（NumPy基础、广播和向量化）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/14/章二习题（NumPy基础、广播和向量化）/" itemprop="url">章二习题（NumPy基础、广播和向量化）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T21:52:21+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习与神经网络-吴恩达/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习与神经网络(吴恩达)</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          numpy常用函数
+mat( ): 将数组转化为矩阵
+np.I 操作符: 实现了矩阵求逆的运算
+np.log:是计算对数函数
+np.abss:是计算数据的绝对值
+np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)
+
+1. np.exp()
+使用np.exp（）12345import numpy as np# example of np.expx = np.array([1, 2, 3])print(np.exp(x)) # result is (exp(1), exp(2), exp(3))
+
+
+1[2.71828183  7.3890561  20
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/14/章二习题（NumPy基础、广播和向量化）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -874,7 +882,15 @@ np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)
           2.1 二分分类
 计算机保存一张图片，要保存三个独立矩阵，分别对应红、绿、蓝三个颜色通道举例：图为一张猫图，像素为 64x64， 就有三个 64x64 的矩阵
 用特征向量 x 来表示图片则图片的维度n = nx = 64  64  3 = 12 288
-在二分类问题中，目标是训练出一个分类器（x 作
+在二分类问题中，目标是训练出一个分类器（x 作为输入，预测输出的结果标签为 y）
+上图表现的是x是nx维的特征向量
+训练集由m个训练样本构成
+X矩阵式m列 高为nx （训练样本作为列向量堆叠）（约定格式）注： 也有(训练样本作为行向量堆叠）的矩阵形式，但在神经网络中一般用约定格式
+
+2.2 logistic 回归模型
+
+线性回归中可用 
+y =
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1053,7 +1069,31 @@ NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数�
 
 
 特征1：长发（1）还是短发（0）
-特征2：衣服颜色是红色（1）还是不是红色（0
+特征2：衣服颜色是红色（1）还是不是红色（0）
+特征3：身高大于178cm（1）还是不超过178（0）
+
+
+假设我们只知道其中四个人的性别（男：0，女：1），我们需要依据这四个人的三个特征以及性别训练一个神经网络，用于预测一个人的性别。
+因此该问题有三个输入，一个输出。
+
+
+样本信息如下：
+
+
+
+
+头发
+衣服
+身高
+性别
+
+
+
+
+0
+0
+1
+
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1232,7 +1272,39 @@ NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数�
 无监督学习：不需要已知标签
 连续型数据和离散型数据
 
-1
+1.算法分类
+监督学习的用途
+
+分类
+
+k-邻近算法
+朴素贝叶斯算法
+支持向量机
+决策树
+
+回归
+
+线性回归
+逻辑回归
+局部加权线性回归
+Ridge回归
+Lasso 最小回归系数估计
+
+
+无监督学习的用途
+
+
+聚类和降维
+K-均值
+DBSCAN
+最大期望算法
+Parzcn窗设计
+
+
+特殊算法
+
+
+推荐
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1403,7 +1475,13 @@ NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数�
 
 注：3.x中range()要改为list(rang())，因为python3中range不返回数组对象，而是返回range对象
 
-1Attrib
+1AttributeError: &apos;dict&apos; object has no attribute &apos;iteritems&apos;
+
+iteritems()要改为items()
+
+二. kNN
+报错：
+1NameError: name &apos;reload&apos; is not
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1580,7 +1658,11 @@ NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数�
 
 适用数据范围：标称型数据3.条件概论：
 在B的条件下A出现的概率。p(A|B)=p(AB)/p(B)
-交换条件中的条件与结果：p(B|A)=p(A|B)*p(B
+交换条件中的条件与结果：p(B|A)=p(A|B)*p(B)/p(A)4.贝叶斯决策理论的核心思想：
+选择具有最高概论的决策5.朴素贝叶斯算法的两个假设：
+(1)每个特征之间都是独立的，这就使得公式：
+p((f1,f2,…fn)|c)=p(f1|c)p(f2|c)…p(fn|c)
+(2)每个特征同等重要，我们拿文本分类做例子，把文档中的单词作为特征。这种假
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1762,7 +1844,15 @@ NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数�
 收集数据：anyway
 准备数据：需要数值型(要进行距离计算)，结构化数据格式最佳
 分析数据：anyway
-训练算法：
+训练算法：大部分时间将用于训练，训练的目的是为了找到最佳的分类回归系数
+测试算法：一旦训练步骤完成，分类将会很快
+使用算法：
+
+
+步骤一：输入一些数据，并将其转换成对应的结构化数值；
+步骤二：基于训练好的回归系数对数值进行简单的回归计算，判定它们属于哪个类别；随后在输出的类别上做一些其他的分析工作
+
+三、算法
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1940,6 +2030,29 @@ NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数�
 
 
 
+与人类做决策思考的思维习惯契合；
+
+
+
+模型可以通过树的形式进行可视化展示；
+
+
+
+可以直接处理非数值型数据，不需要进行哑变量的转化，甚至可以直接处理含缺失值的数据；
+
+
+缺点：
+
+
+对于有大量数值型输入和输出的问题，决策树未必是一个好的选择；
+
+
+
+产生过拟合
+
+
+
+特别是当数值型变量之间存在许
           ...
           <!--noindex-->
           <div class="post-button text-center">
