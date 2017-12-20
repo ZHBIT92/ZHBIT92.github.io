@@ -232,6 +232,1188 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/21/w第三章-浅层神经网络/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/21/w第三章-浅层神经网络/" itemprop="url">第三章-浅层神经网络</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T17:29:21+08:00">
+                2017-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习与神经网络-吴恩达/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习与神经网络(吴恩达)</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="3-1-概论"><a href="#3-1-概论" class="headerlink" title="3.1 概论"></a>3.1 概论</h3><ol>
+<li>逻辑回归<br><img src="http://upload-images.jianshu.io/upload_images/8448458-d5f7266841037bb0.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/8448458-87ddf367bcff002f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="中间层的隐藏单元中的计算"></li>
+</ol>
+<ul>
+<li>首先你需要输入特征 x，参数W 和b ，通过 z = w^t * x + b T 你就可以计算<br>出 z ，接下来使用 a = a(z) 就可以计算出a。我们将a的符号换为表示输出的 ŷ，然后可以计算出损失函数ℒ(a,y)。</li>
+</ul>
+<ol>
+<li>基本神经网络结构<br><img src="http://upload-images.jianshu.io/upload_images/8448458-2956be5cbe571b9b.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ol>
+<ul>
+<li>首先 X 表示输入特征，W 和 b 是参数，z1 = Wx + b1计算出 z1。</li>
+<li>使用x^(i)表示第 i 个训练样本，上标方括号 1、2 表示不同的层，图中[1]表示神经网络的第一层， [2]表示神经网络的第二层 。</li>
+<li>类似逻辑回归，在计算z^[1] 后需要使用σ(z^[1])计算 a^[1]，接下来你需要使用另外一个线<br>z^[2] = W^[2] * a^[1]  + b^[2]计算 z^[2], a^[2] = σ(z^[2]) 计算a^[2] ，此时a^[2] 就是整个神经网络最终的输出，用 𝑦表示网络的输出。</li>
+</ul>
+<ol>
+<li>反向计算</li>
+</ol>
+<h3 id="3-2-神经网络表示"><a href="#3-2-神经网络表示" class="headerlink" title="3.2 神经网络表示"></a>3.2 神经网络表示</h3><ol>
+<li>神经网络的符号惯例：<br>x 表示输入特征<br>a 表示每个神经元的输出， w 表示特征的权重，<br>上标表示神经网络的层数（隐藏层为 1），下标表示该层的第几个神经元。</li>
+<li>结构</li>
+</ol>
+<ul>
+<li>输入层</li>
+<li><strong>隐藏层</strong>（很好解释了之前在第一章的疑惑）：在一个神经网络中，当你使用监督学习训练它的时候，训练集包含了输入 也包含了目标输出 ，所以术语隐藏层的含义是在训练集中，这些中间结点的准确值我们是不知道到的，也就是说你看不见它们在训练集中应具有的值。你能看见输入的值，你也能看见输出的值，但是隐藏层中的东西，在训练集中你是无法看到的。所以这也解释了词语隐藏层，只是表示你无法在训练集中看到他们。</li>
+<li>简单点说，隐藏层就是<strong>把中间处理的过程隐藏起来而没有显性显示出来</strong>。</li>
+<li>输出层</li>
+</ul>
+<ol>
+<li>数据表示</li>
+</ol>
+<ul>
+<li>隐藏层以及最后的输出层是带有参数的，参数个数与隐藏层单元/节点有关</li>
+<li>传统上（两层的神经网络）：输入层是不算入总层数内，所以隐藏层是第一层，输出层是第二层。</li>
+<li>技术上（三层的神经网络）：因为这里有输入层、隐藏层，还有输出层。</li>
+</ul>
+<h3 id="3-3-神经网络的输出"><a href="#3-3-神经网络的输出" class="headerlink" title="3.3 神经网络的输出"></a>3.3 神经网络的输出</h3><p><img src="http://upload-images.jianshu.io/upload_images/8448458-181d8531d6abac26.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="中间的求导过程"><br><img src="http://upload-images.jianshu.io/upload_images/8448458-21dc6b83fe32511f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="四个方程求神经网络"></p>
+<ul>
+<li>注：z代表隐藏层，这里有两个隐藏层<h3 id="3-4-多样本向量化"><a href="#3-4-多样本向量化" class="headerlink" title="3.4 多样本向量化"></a>3.4 多样本向量化</h3></li>
+<li>多个训练样本，则重复计算每个样本的4个方程（for循环）</li>
+<li>利用向量化简化该过程<br><img src="http://upload-images.jianshu.io/upload_images/8448458-87efa975a2679450.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li>水平方向，这个垂直索引对应于神经网络中的不同的训练样本。</li>
+<li>垂直方向，这个垂直索引对应于神经网络中的不同节点。<h3 id="3-5-向-量-化-实-现-的-解-释"><a href="#3-5-向-量-化-实-现-的-解-释" class="headerlink" title="3.5 向 量 化 实 现 的 解 释"></a>3.5 向 量 化 实 现 的 解 释</h3><h3 id="3-6-激活函数（-Activation-functions）"><a href="#3-6-激活函数（-Activation-functions）" class="headerlink" title="3.6 激活函数（ Activation functions）"></a>3.6 激活函数（ Activation functions）</h3></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/w章二习题（NumPy基础、广播和向量化）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/14/w章二习题（NumPy基础、广播和向量化）/" itemprop="url">章二习题（NumPy基础、广播和向量化）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T21:52:21+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习与神经网络-吴恩达/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习与神经网络(吴恩达)</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="numpy常用函数"><a href="#numpy常用函数" class="headerlink" title="numpy常用函数"></a>numpy常用函数</h3><ul>
+<li>mat( ): 将数组转化为矩阵</li>
+<li>np.I 操作符: 实现了矩阵求逆的运算</li>
+<li>np.log:是计算对数函数</li>
+<li>np.abss:是计算数据的绝对值</li>
+<li>np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)</li>
+</ul>
+<h4 id="1-np-exp"><a href="#1-np-exp" class="headerlink" title="1. np.exp()"></a>1. np.exp()</h4><ul>
+<li>使用np.exp（）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"># example of np.exp</span><br><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">print(np.exp(x)) # result is (exp(1), exp(2), exp(3))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2.71828183  7.3890561  20.08553692]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实现sigmoid函数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np </span><br><span class="line"></span><br><span class="line">def sigmoid(x):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Arguments:</span><br><span class="line">    x -- A scalar or numpy array of any size</span><br><span class="line">    # x-- 任何大小的标量或numpy数组</span><br><span class="line">    Return:</span><br><span class="line">    s -- sigmoid(x)</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    s = 1 / (1 + np.exp(-x))</span><br><span class="line">    </span><br><span class="line">    return s</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">sigmoid(x)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Sigmoid梯度</li>
+<li>计算梯度已使用反向传播优化损失函数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">mport numpy as np </span><br><span class="line"></span><br><span class="line">def sigmoid(x):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    计算sigmoid函数相对于其输入x的梯度(斜率或导数)</span><br><span class="line">    可以将sigmoid函数的输出存储到变量中，然后使用它来计算渐变</span><br><span class="line">    </span><br><span class="line">    Arguments:</span><br><span class="line">    x -- A scalar or numpy array of any size</span><br><span class="line">    # x-- 任何大小的标量或numpy数组</span><br><span class="line">    </span><br><span class="line">    Return:</span><br><span class="line">    ds -- 你的计算渐变</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    s = 1 / (1 + np.exp(-x))</span><br><span class="line">    ds = s * (1 - s)</span><br><span class="line">        </span><br><span class="line">    return ds</span><br></pre></td></tr></table></figure>
+<h4 id="2-X-shape和X-reshape"><a href="#2-X-shape和X-reshape" class="headerlink" title="2.X.shape和X.reshape"></a>2.X.shape和X.reshape</h4><ul>
+<li>X.shape：用于获取矩阵/向量X的形状（维度）</li>
+<li>X.reshape：用于将X重塑为其他维度</li>
+</ul>
+<h4 id="3-标准化处理"><a href="#3-标准化处理" class="headerlink" title="3.标准化处理"></a>3.标准化处理</h4><ul>
+<li>实现normalizeRows（）来规范矩阵的行。将这个函数应用到输入矩阵x之后，x的每一行应该是单位长度的向量（意思是长度1）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 分级功能: normalizeRows</span><br><span class="line"></span><br><span class="line">def normalizeRows(x):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    实现对矩阵x的每一行进行归一化的函数（具有单位长度）</span><br><span class="line">    </span><br><span class="line">    Argument:</span><br><span class="line">    x -- A numpy matrix of shape (n, m)</span><br><span class="line">    </span><br><span class="line">    Returns:</span><br><span class="line">    x -- The normalized (by row) numpy matrix. You are allowed to modify x.</span><br><span class="line">    x -- 标准化（按行）numpy矩阵，可以修改x</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    # 计算 x_norm 作为 x的规范2. 使用 np.linalg.norm(..., ord = 2, axis = ..., keepdims = True)</span><br><span class="line">    x_norm = np.linalg.norm(x, axis = 1, keepdims = True)</span><br><span class="line">    </span><br><span class="line">    # Divide x by its norm.</span><br><span class="line">    # 将x除以其规范</span><br><span class="line">    x = x / x_norm</span><br><span class="line"></span><br><span class="line">    return x</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([</span><br><span class="line">    [0, 3, 4],</span><br><span class="line">    [1, 6, 4]])</span><br><span class="line">print(&quot;normalizeRows(x) = &quot; + str(normalizeRows(x)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">normalizeRows(x) = [[ 0.          0.6         0.8       ]</span><br><span class="line"> [ 0.13736056  0.82416338  0.54944226]]</span><br></pre></td></tr></table></figure>
+<h4 id="4-广播和softmax函数"><a href="#4-广播和softmax函数" class="headerlink" title="4.广播和softmax函数"></a>4.广播和softmax函数</h4><ul>
+<li>使用numpy实现softmax函数：归一类函数，对两个或多个类进行分类时使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">def softmax(x):</span><br><span class="line">    &quot;&quot;&quot;计算输入x的每一行softmax</span><br><span class="line">    row vector 行矢量</span><br><span class="line">    matrices 形状</span><br><span class="line">    Your code should work for a row vector and also for matrices of shape (n, m).</span><br><span class="line"></span><br><span class="line">    Argument:</span><br><span class="line">    x -- A numpy matrix of shape (n,m)</span><br><span class="line"></span><br><span class="line">    Returns:</span><br><span class="line">    s -- A numpy matrix equal to the softmax of x, of shape (n,m)</span><br><span class="line">    返回等于x的softmax的numpy矩阵，形状（n,m）</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    # element-wise 元素</span><br><span class="line">    # Apply exp() element-wise to x. Use np.exp(...).</span><br><span class="line">    x_exp = np.exp(x)</span><br><span class="line"></span><br><span class="line">    # Create a vector x_sum that sums each row of x_exp.  对x_exp的每一行求和</span><br><span class="line">    # Use np.sum(..., axis = 1, keepdims = True).</span><br><span class="line">    x_sum = np.sum(x_exp, axis = 1, keepdims = True)</span><br><span class="line">    </span><br><span class="line">    # dividing 除以</span><br><span class="line">    # Compute softmax(x) by dividing x_exp by x_sum. It should automatically use numpy broadcasting. 自动使用numpy广播</span><br><span class="line">    s = x_exp / x_sum</span><br><span class="line">    </span><br><span class="line">    return s</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([</span><br><span class="line">    [9, 2, 5, 0, 0],</span><br><span class="line">    [7, 5, 0, 0 ,0]])</span><br><span class="line">print(&quot;softmax(x) = &quot; + str(softmax(x)))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>np.exp（x）适用于任何np.array x，并将指数函数应用于每个坐标</li>
+<li>sigmoid函数及其渐变</li>
+<li>image2vector常用于深度学习</li>
+<li>np.reshape被广泛使用。在将来，你会发现保持矩阵/向量的维度直接将消除大量的错误。</li>
+<li>numpy具有高效的内置功能</li>
+<li>广播是非常有用的</li>
+</ul>
+<h4 id="5-向量化-Vectorization"><a href="#5-向量化-Vectorization" class="headerlink" title="5.向量化(Vectorization)"></a>5.向量化(Vectorization)</h4><ol>
+<li>在深度学习中，您处理非常大的数据集。因此，非计算最优函数可能会成为算法中的一个巨大瓶颈，并可能导致需要长时间运行的模型。为了确保你的代码在计算上是高效的，你将使用向量化。</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">x1 = [9, 2, 5, 0, 0, 7, 5, 0, 0, 0, 9, 2, 5, 0, 0]</span><br><span class="line">x2 = [9, 2, 2, 9, 0, 9, 2, 5, 0, 0, 9, 2, 5, 0, 0]</span><br><span class="line"># DOT PRODUCT 矢量积</span><br><span class="line">### CLASSIC DOT PRODUCT OF VECTORS IMPLEMENTATION ###</span><br><span class="line">tic = time.process_time()</span><br><span class="line">dot = 0</span><br><span class="line">for i in range(len(x1)):</span><br><span class="line">    dot+= x1[i]*x2[i]</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;dot = &quot; + str(dot) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br><span class="line"></span><br><span class="line">### CLASSIC OUTER PRODUCT IMPLEMENTATION ###</span><br><span class="line">tic = time.process_time()</span><br><span class="line">outer = np.zeros((len(x1),len(x2))) # we create a len(x1)*len(x2) matrix with only zeros</span><br><span class="line">for i in range(len(x1)):</span><br><span class="line">    for j in range(len(x2)):</span><br><span class="line">        outer[i,j] = x1[i]*x2[j]</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;outer = &quot; + str(outer) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br><span class="line"></span><br><span class="line">### CLASSIC ELEMENTWISE IMPLEMENTATION ###</span><br><span class="line">tic = time.process_time()</span><br><span class="line">mul = np.zeros(len(x1))</span><br><span class="line">for i in range(len(x1)):</span><br><span class="line">    mul[i] = x1[i]*x2[i]</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;elementwise multiplication = &quot; + str(mul) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br><span class="line"></span><br><span class="line">### CLASSIC GENERAL DOT PRODUCT IMPLEMENTATION ###</span><br><span class="line">W = np.random.rand(3,len(x1)) # Random 3*len(x1) numpy array</span><br><span class="line">tic = time.process_time()</span><br><span class="line">gdot = np.zeros(W.shape[0])</span><br><span class="line">for i in range(W.shape[0]):</span><br><span class="line">    for j in range(len(x1)):</span><br><span class="line">        gdot[i] += W[i,j]*x1[j]</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;gdot = &quot; + str(gdot) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>3.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">x1 = [9, 2, 5, 0, 0, 7, 5, 0, 0, 0, 9, 2, 5, 0, 0]</span><br><span class="line">x2 = [9, 2, 2, 9, 0, 9, 2, 5, 0, 0, 9, 2, 5, 0, 0]</span><br><span class="line"></span><br><span class="line">### VECTORIZED DOT PRODUCT OF VECTORS ###</span><br><span class="line">tic = time.process_time()</span><br><span class="line">dot = np.dot(x1,x2)</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;dot = &quot; + str(dot) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br><span class="line"></span><br><span class="line">### VECTORIZED OUTER PRODUCT ###</span><br><span class="line">tic = time.process_time()</span><br><span class="line">outer = np.outer(x1,x2)</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;outer = &quot; + str(outer) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br><span class="line"></span><br><span class="line">### VECTORIZED ELEMENTWISE MULTIPLICATION ###</span><br><span class="line">tic = time.process_time()</span><br><span class="line">mul = np.multiply(x1,x2)</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;elementwise multiplication = &quot; + str(mul) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br><span class="line"></span><br><span class="line">### VECTORIZED GENERAL DOT PRODUCT ###</span><br><span class="line">tic = time.process_time()</span><br><span class="line">dot = np.dot(W,x1)</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;gdot = &quot; + str(dot) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>实现L1和L2的损失函数</li>
+</ol>
+<ul>
+<li>实现L1损失函数的numpy向量化版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def L1(yhat, y):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Arguments:</span><br><span class="line">    predicted labels 预测标签</span><br><span class="line">    yhat -- vector of size m (predicted labels)</span><br><span class="line">    y -- vector of size m (true labels)</span><br><span class="line">    </span><br><span class="line">    Returns:</span><br><span class="line">    defined above 上面定义</span><br><span class="line">    loss -- the value of the L1 loss function defined above</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    loss = np.sum(np.abs(y - yhat))</span><br><span class="line">    </span><br><span class="line">    return loss</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yhat = np.array([.9, 0.2, 0.1, .4, .9])</span><br><span class="line">y = np.array([1, 0, 0, 1, 1])</span><br><span class="line">print(&quot;L1 = &quot; + str(L1(yhat,y)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L1 = 1.1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实现L2损失函数的numpy向量化版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def L2(yhat, y):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Arguments:</span><br><span class="line">    yhat -- vector of size m (predicted labels)</span><br><span class="line">    y -- vector of size m (true labels)</span><br><span class="line">    </span><br><span class="line">    Returns:</span><br><span class="line">    loss -- the value of the L2 loss function defined above</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    loss = np.dot((y - yhat),(y - yhat).T)</span><br><span class="line">    </span><br><span class="line">    return loss</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yhat = np.array([.9, 0.2, 0.1, .4, .9])</span><br><span class="line">y = np.array([1, 0, 0, 1, 1])</span><br><span class="line">print(&quot;L2 = &quot; + str(L2(yhat,y)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L2 = 0.43</span><br></pre></td></tr></table></figure>
+<ul>
+<li>矢量化在深度学习中非常重要。它提供了计算效率和清晰度。</li>
+<li>你已经检查了L1和L2的损失。</li>
+<li>您熟悉np.sum，np.dot，np.multiply，np.maximum等许多numpy函数。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/章二习题（NumPy基础、广播和向量化）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/14/章二习题（NumPy基础、广播和向量化）/" itemprop="url">章二习题（NumPy基础、广播和向量化）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T21:52:21+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习与神经网络-吴恩达/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习与神经网络(吴恩达)</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="numpy常用函数"><a href="#numpy常用函数" class="headerlink" title="numpy常用函数"></a>numpy常用函数</h3><ul>
+<li>mat( ): 将数组转化为矩阵</li>
+<li>np.I 操作符: 实现了矩阵求逆的运算</li>
+<li>np.log:是计算对数函数</li>
+<li>np.abss:是计算数据的绝对值</li>
+<li>np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)</li>
+</ul>
+<h4 id="1-np-exp"><a href="#1-np-exp" class="headerlink" title="1. np.exp()"></a>1. np.exp()</h4><ul>
+<li>使用np.exp（）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"># example of np.exp</span><br><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">print(np.exp(x)) # result is (exp(1), exp(2), exp(3))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2.71828183  7.3890561  20.08553692]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实现sigmoid函数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np </span><br><span class="line"></span><br><span class="line">def sigmoid(x):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Arguments:</span><br><span class="line">    x -- A scalar or numpy array of any size</span><br><span class="line">    # x-- 任何大小的标量或numpy数组</span><br><span class="line">    Return:</span><br><span class="line">    s -- sigmoid(x)</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    s = 1 / (1 + np.exp(-x))</span><br><span class="line">    </span><br><span class="line">    return s</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">sigmoid(x)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Sigmoid梯度</li>
+<li>计算梯度已使用反向传播优化损失函数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">mport numpy as np </span><br><span class="line"></span><br><span class="line">def sigmoid(x):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    计算sigmoid函数相对于其输入x的梯度(斜率或导数)</span><br><span class="line">    可以将sigmoid函数的输出存储到变量中，然后使用它来计算渐变</span><br><span class="line">    </span><br><span class="line">    Arguments:</span><br><span class="line">    x -- A scalar or numpy array of any size</span><br><span class="line">    # x-- 任何大小的标量或numpy数组</span><br><span class="line">    </span><br><span class="line">    Return:</span><br><span class="line">    ds -- 你的计算渐变</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    s = 1 / (1 + np.exp(-x))</span><br><span class="line">    ds = s * (1 - s)</span><br><span class="line">        </span><br><span class="line">    return ds</span><br></pre></td></tr></table></figure>
+<h4 id="2-X-shape和X-reshape"><a href="#2-X-shape和X-reshape" class="headerlink" title="2.X.shape和X.reshape"></a>2.X.shape和X.reshape</h4><ul>
+<li>X.shape：用于获取矩阵/向量X的形状（维度）</li>
+<li>X.reshape：用于将X重塑为其他维度</li>
+</ul>
+<h4 id="3-标准化处理"><a href="#3-标准化处理" class="headerlink" title="3.标准化处理"></a>3.标准化处理</h4><ul>
+<li>实现normalizeRows（）来规范矩阵的行。将这个函数应用到输入矩阵x之后，x的每一行应该是单位长度的向量（意思是长度1）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 分级功能: normalizeRows</span><br><span class="line"></span><br><span class="line">def normalizeRows(x):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    实现对矩阵x的每一行进行归一化的函数（具有单位长度）</span><br><span class="line">    </span><br><span class="line">    Argument:</span><br><span class="line">    x -- A numpy matrix of shape (n, m)</span><br><span class="line">    </span><br><span class="line">    Returns:</span><br><span class="line">    x -- The normalized (by row) numpy matrix. You are allowed to modify x.</span><br><span class="line">    x -- 标准化（按行）numpy矩阵，可以修改x</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    # 计算 x_norm 作为 x的规范2. 使用 np.linalg.norm(..., ord = 2, axis = ..., keepdims = True)</span><br><span class="line">    x_norm = np.linalg.norm(x, axis = 1, keepdims = True)</span><br><span class="line">    </span><br><span class="line">    # Divide x by its norm.</span><br><span class="line">    # 将x除以其规范</span><br><span class="line">    x = x / x_norm</span><br><span class="line"></span><br><span class="line">    return x</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([</span><br><span class="line">    [0, 3, 4],</span><br><span class="line">    [1, 6, 4]])</span><br><span class="line">print(&quot;normalizeRows(x) = &quot; + str(normalizeRows(x)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">normalizeRows(x) = [[ 0.          0.6         0.8       ]</span><br><span class="line"> [ 0.13736056  0.82416338  0.54944226]]</span><br></pre></td></tr></table></figure>
+<h4 id="4-广播和softmax函数"><a href="#4-广播和softmax函数" class="headerlink" title="4.广播和softmax函数"></a>4.广播和softmax函数</h4><ul>
+<li>使用numpy实现softmax函数：归一类函数，对两个或多个类进行分类时使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">def softmax(x):</span><br><span class="line">    &quot;&quot;&quot;计算输入x的每一行softmax</span><br><span class="line">    row vector 行矢量</span><br><span class="line">    matrices 形状</span><br><span class="line">    Your code should work for a row vector and also for matrices of shape (n, m).</span><br><span class="line"></span><br><span class="line">    Argument:</span><br><span class="line">    x -- A numpy matrix of shape (n,m)</span><br><span class="line"></span><br><span class="line">    Returns:</span><br><span class="line">    s -- A numpy matrix equal to the softmax of x, of shape (n,m)</span><br><span class="line">    返回等于x的softmax的numpy矩阵，形状（n,m）</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    # element-wise 元素</span><br><span class="line">    # Apply exp() element-wise to x. Use np.exp(...).</span><br><span class="line">    x_exp = np.exp(x)</span><br><span class="line"></span><br><span class="line">    # Create a vector x_sum that sums each row of x_exp.  对x_exp的每一行求和</span><br><span class="line">    # Use np.sum(..., axis = 1, keepdims = True).</span><br><span class="line">    x_sum = np.sum(x_exp, axis = 1, keepdims = True)</span><br><span class="line">    </span><br><span class="line">    # dividing 除以</span><br><span class="line">    # Compute softmax(x) by dividing x_exp by x_sum. It should automatically use numpy broadcasting. 自动使用numpy广播</span><br><span class="line">    s = x_exp / x_sum</span><br><span class="line">    </span><br><span class="line">    return s</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([</span><br><span class="line">    [9, 2, 5, 0, 0],</span><br><span class="line">    [7, 5, 0, 0 ,0]])</span><br><span class="line">print(&quot;softmax(x) = &quot; + str(softmax(x)))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>np.exp（x）适用于任何np.array x，并将指数函数应用于每个坐标</li>
+<li>sigmoid函数及其渐变</li>
+<li>image2vector常用于深度学习</li>
+<li>np.reshape被广泛使用。在将来，你会发现保持矩阵/向量的维度直接将消除大量的错误。</li>
+<li>numpy具有高效的内置功能</li>
+<li>广播是非常有用的</li>
+</ul>
+<h4 id="5-向量化-Vectorization"><a href="#5-向量化-Vectorization" class="headerlink" title="5.向量化(Vectorization)"></a>5.向量化(Vectorization)</h4><ol>
+<li>在深度学习中，您处理非常大的数据集。因此，非计算最优函数可能会成为算法中的一个巨大瓶颈，并可能导致需要长时间运行的模型。为了确保你的代码在计算上是高效的，你将使用向量化。</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">x1 = [9, 2, 5, 0, 0, 7, 5, 0, 0, 0, 9, 2, 5, 0, 0]</span><br><span class="line">x2 = [9, 2, 2, 9, 0, 9, 2, 5, 0, 0, 9, 2, 5, 0, 0]</span><br><span class="line"># DOT PRODUCT 矢量积</span><br><span class="line">### CLASSIC DOT PRODUCT OF VECTORS IMPLEMENTATION ###</span><br><span class="line">tic = time.process_time()</span><br><span class="line">dot = 0</span><br><span class="line">for i in range(len(x1)):</span><br><span class="line">    dot+= x1[i]*x2[i]</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;dot = &quot; + str(dot) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br><span class="line"></span><br><span class="line">### CLASSIC OUTER PRODUCT IMPLEMENTATION ###</span><br><span class="line">tic = time.process_time()</span><br><span class="line">outer = np.zeros((len(x1),len(x2))) # we create a len(x1)*len(x2) matrix with only zeros</span><br><span class="line">for i in range(len(x1)):</span><br><span class="line">    for j in range(len(x2)):</span><br><span class="line">        outer[i,j] = x1[i]*x2[j]</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;outer = &quot; + str(outer) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br><span class="line"></span><br><span class="line">### CLASSIC ELEMENTWISE IMPLEMENTATION ###</span><br><span class="line">tic = time.process_time()</span><br><span class="line">mul = np.zeros(len(x1))</span><br><span class="line">for i in range(len(x1)):</span><br><span class="line">    mul[i] = x1[i]*x2[i]</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;elementwise multiplication = &quot; + str(mul) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br><span class="line"></span><br><span class="line">### CLASSIC GENERAL DOT PRODUCT IMPLEMENTATION ###</span><br><span class="line">W = np.random.rand(3,len(x1)) # Random 3*len(x1) numpy array</span><br><span class="line">tic = time.process_time()</span><br><span class="line">gdot = np.zeros(W.shape[0])</span><br><span class="line">for i in range(W.shape[0]):</span><br><span class="line">    for j in range(len(x1)):</span><br><span class="line">        gdot[i] += W[i,j]*x1[j]</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;gdot = &quot; + str(gdot) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>3.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">x1 = [9, 2, 5, 0, 0, 7, 5, 0, 0, 0, 9, 2, 5, 0, 0]</span><br><span class="line">x2 = [9, 2, 2, 9, 0, 9, 2, 5, 0, 0, 9, 2, 5, 0, 0]</span><br><span class="line"></span><br><span class="line">### VECTORIZED DOT PRODUCT OF VECTORS ###</span><br><span class="line">tic = time.process_time()</span><br><span class="line">dot = np.dot(x1,x2)</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;dot = &quot; + str(dot) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br><span class="line"></span><br><span class="line">### VECTORIZED OUTER PRODUCT ###</span><br><span class="line">tic = time.process_time()</span><br><span class="line">outer = np.outer(x1,x2)</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;outer = &quot; + str(outer) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br><span class="line"></span><br><span class="line">### VECTORIZED ELEMENTWISE MULTIPLICATION ###</span><br><span class="line">tic = time.process_time()</span><br><span class="line">mul = np.multiply(x1,x2)</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;elementwise multiplication = &quot; + str(mul) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br><span class="line"></span><br><span class="line">### VECTORIZED GENERAL DOT PRODUCT ###</span><br><span class="line">tic = time.process_time()</span><br><span class="line">dot = np.dot(W,x1)</span><br><span class="line">toc = time.process_time()</span><br><span class="line">print (&quot;gdot = &quot; + str(dot) + &quot;\n ----- Computation time = &quot; + str(1000*(toc - tic)) + &quot;ms&quot;)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>实现L1和L2的损失函数</li>
+</ol>
+<ul>
+<li>实现L1损失函数的numpy向量化版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def L1(yhat, y):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Arguments:</span><br><span class="line">    predicted labels 预测标签</span><br><span class="line">    yhat -- vector of size m (predicted labels)</span><br><span class="line">    y -- vector of size m (true labels)</span><br><span class="line">    </span><br><span class="line">    Returns:</span><br><span class="line">    defined above 上面定义</span><br><span class="line">    loss -- the value of the L1 loss function defined above</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    loss = np.sum(np.abs(y - yhat))</span><br><span class="line">    </span><br><span class="line">    return loss</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yhat = np.array([.9, 0.2, 0.1, .4, .9])</span><br><span class="line">y = np.array([1, 0, 0, 1, 1])</span><br><span class="line">print(&quot;L1 = &quot; + str(L1(yhat,y)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L1 = 1.1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实现L2损失函数的numpy向量化版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def L2(yhat, y):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Arguments:</span><br><span class="line">    yhat -- vector of size m (predicted labels)</span><br><span class="line">    y -- vector of size m (true labels)</span><br><span class="line">    </span><br><span class="line">    Returns:</span><br><span class="line">    loss -- the value of the L2 loss function defined above</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    loss = np.dot((y - yhat),(y - yhat).T)</span><br><span class="line">    </span><br><span class="line">    return loss</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yhat = np.array([.9, 0.2, 0.1, .4, .9])</span><br><span class="line">y = np.array([1, 0, 0, 1, 1])</span><br><span class="line">print(&quot;L2 = &quot; + str(L2(yhat,y)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L2 = 0.43</span><br></pre></td></tr></table></figure>
+<ul>
+<li>矢量化在深度学习中非常重要。它提供了计算效率和清晰度。</li>
+<li>你已经检查了L1和L2的损失。</li>
+<li>您熟悉np.sum，np.dot，np.multiply，np.maximum等许多numpy函数。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/09/w第二章-神经网络基础（logistic 回归函数、向量化）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/09/w第二章-神经网络基础（logistic 回归函数、向量化）/" itemprop="url">第二章-神经网络基础（logistic 回归函数、向量化）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-09T15:12:21+08:00">
+                2017-11-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习与神经网络-吴恩达/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习与神经网络(吴恩达)</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="2-1-二分分类"><a href="#2-1-二分分类" class="headerlink" title="2.1 二分分类"></a>2.1 二分分类</h3><ul>
+<li>计算机保存一张图片，要保存三个独立矩阵，分别对应红、绿、蓝三个颜色通道<br>举例：图为一张猫图，像素为 64x64， 就有三个 64x64 的矩阵<br><img src="http://upload-images.jianshu.io/upload_images/8448458-d9544ba0627121c1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-1.jpg"></li>
+<li>用特征向量 x 来表示图片<br>则图片的维度n = nx = 64 <em> 64 </em> 3 = 12 288</li>
+<li>在二分类问题中，目标是训练出一个分类器（x 作为输入，预测输出的结果标签为 y）<br><img src="http://upload-images.jianshu.io/upload_images/8448458-9d25ceb326c80a72.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-2.jpg"></li>
+<li>上图表现的是x是nx维的特征向量</li>
+<li>训练集由m个训练样本构成</li>
+<li>X矩阵式m列 高为nx （训练样本作为列向量堆叠）（约定格式）<br>注： 也有(训练样本作为行向量堆叠）的矩阵形式，但在神经网络中一般用约定格式</li>
+</ul>
+<h3 id="2-2-logistic-回归模型"><a href="#2-2-logistic-回归模型" class="headerlink" title="2.2 logistic 回归模型"></a>2.2 logistic 回归模型</h3><p><img src="http://upload-images.jianshu.io/upload_images/8448458-5c14e7234e115d0e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-3.jpg"></p>
+<ul>
+<li>线性回归中可用 </li>
+<li>y = w^t * x + b</li>
+<li>缺点： y 应该介于0和1之间 </li>
+<li>可用sigmoid(z)函数，也就是上图中的G(z)</li>
+<li>对于参数 w 和 b ：</li>
+<li>b 对应一个拦截器</li>
+</ul>
+<h3 id="2-3-logistic-回归损失函数（成本函数）"><a href="#2-3-logistic-回归损失函数（成本函数）" class="headerlink" title="2.3 logistic 回归损失函数（成本函数）"></a>2.3 logistic 回归损失函数（成本函数）</h3><ul>
+<li>损失函数L(^y,y)： 在单个训练样本中定义的，衡量了在单个训练样本上的表现</li>
+<li>成本函数(代价函数) J（w，b）：衡量了在==全部训练样本==上的表现（在logistic函数中寻找合适的 w 和 b 让 y-hat 尽可能的小）<br><img src="http://upload-images.jianshu.io/upload_images/8448458-4196ae38fef87a62.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-4.jpg"></li>
+</ul>
+<h3 id="2-4-阶梯下降法"><a href="#2-4-阶梯下降法" class="headerlink" title="2.4 阶梯下降法"></a>2.4 阶梯下降法</h3><p><img src="http://upload-images.jianshu.io/upload_images/8448458-14e568c7fba033ec.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-5.jpg"></p>
+<ul>
+<li>成本函数 J （w，b）是一个凸函数（选择该函数的原因）<br>阶梯下降法的做法是： 从初始点开始，朝最陡的下坡方向走一步</li>
+</ul>
+<h3 id="2-5-向量化"><a href="#2-5-向量化" class="headerlink" title="2.5 向量化"></a>2.5 向量化</h3><ul>
+<li>注：当你想写循环时，可以先检查numpy中是否有类似的内置函数</li>
+<li>==向量化速度比循环快300倍==（真是个神奇的东西）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">a = np.random.rand(1000000)</span><br><span class="line">b = np.random.rand(1000000)</span><br><span class="line"></span><br><span class="line">tic = time.time()</span><br><span class="line">c = np.dot(a,b)</span><br><span class="line">toc = time.time()</span><br><span class="line"></span><br><span class="line">print(c)</span><br><span class="line">print(&quot;Vectorized version(向量化):&quot; + str(1000*(toc-tic))+&quot;ms&quot;)</span><br><span class="line"></span><br><span class="line">c = 0</span><br><span class="line">tic = time.time()</span><br><span class="line">for i in range(1000000):</span><br><span class="line">    c += a[i]*b[i]</span><br><span class="line">toc = time.time()</span><br><span class="line"></span><br><span class="line">print(c)</span><br><span class="line">print(&quot;For loop(循环):&quot; + str(1000*(toc-tic))+ &quot;ms&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 输出</span><br><span class="line">249961.060873</span><br><span class="line">Vectorized version(向量化):2.0003318786621094ms</span><br><span class="line">249961.060873</span><br><span class="line">For loop(循环):779.0098190307617ms</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>np.dot(W,X)</strong>：<br>eg: 计算Z = W^T+ b,向量化可以直接计算w^T(表示W的转置)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Z = np.dot(W.T,X)+b</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-6-高度向量化的、非常高效的逻辑回归的梯度下降算法"><a href="#2-6-高度向量化的、非常高效的逻辑回归的梯度下降算法" class="headerlink" title="2.6 高度向量化的、非常高效的逻辑回归的梯度下降算法"></a>2.6 高度向量化的、非常高效的逻辑回归的梯度下降算法</h3><p><img src="http://upload-images.jianshu.io/upload_images/8448458-0d1a10da192e86b1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-6.jpg"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Z = wTX + b = np. dot(w. T, X)</span><br><span class="line">A = σ(Z)</span><br><span class="line">dZ = A -Y</span><br><span class="line">dw = 1/m ∗ X ∗ dz^T</span><br><span class="line">db = 1/m * np. sum(dZ)</span><br><span class="line">w = w - α * dw</span><br><span class="line">b = b - α * db</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>我们利用前五个公式完成了前向和后向传播，也实现了对所有训练样本进行预测和求<br>导</li>
+<li>利用后两个公式，梯度下降更新参数。</li>
+<li>我们的目的是不使用for循环，所以我们就通过一次迭代实现一次梯度下降，但如果你希望多次迭代进行梯度下降，那么仍然需要for循环，放在最外层。不过我们还是觉得一次迭代就进行一次梯度下降，避免使用任何循环比较<br>舒服一些。</li>
+</ul>
+<h3 id="2-7-python中的广播机制-Broadcasting-in-Python"><a href="#2-7-python中的广播机制-Broadcasting-in-Python" class="headerlink" title="2.7 python中的广播机制( Broadcasting in Python)"></a>2.7 python中的广播机制( Broadcasting in Python)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">A = np.array([[56.0, 0.0, 4.4, 68.0],</span><br><span class="line">              [1.2, 104.0, 52.0, 8.0],</span><br><span class="line">              [1.8, 135.0, 99.0, 0.9]])</span><br><span class="line">print(A)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[  56.     0.     4.4   68. ]</span><br><span class="line"> [   1.2  104.    52.     8. ]</span><br><span class="line"> [   1.8  135.    99.     0.9]]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>axis=0 意思是、在竖直方向上求和</li>
+<li>axis=1 是在水平方向上求和<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cal = A.sum(axis=0)</span><br><span class="line">print(cal)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[  59.   239.   155.4   76.9]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">percentage = 100*A/cal.reshape(1,4)</span><br><span class="line">print(percentage)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[ 94.91525424   0.           2.83140283  88.42652796]</span><br><span class="line"> [  2.03389831  43.51464435  33.46203346  10.40312094]</span><br><span class="line"> [  3.05084746  56.48535565  63.70656371   1.17035111]]</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>axis</strong> 用来指明将要进行的运算是沿着<br>哪个轴执行，在 numpy 中， 0 轴是垂直的，也就是列，而 1 轴是水平的，也就是行</li>
+<li>A/cal.reshape(1,4)指令则调用了 numpy 中的<strong>广播机制</strong>。</li>
+</ol>
+<ul>
+<li>这里使用3X4的矩阵<br>A 除以1X4 的矩阵 cal。技术上来讲，其实并不需要再将矩阵 cal reshape(重塑)成1X4 ，因<br>为矩阵 cal 本身已经是1X4 了。但是当我们写代码时不确定矩阵维度的时候，通常会对矩阵<br>进行重塑来确保得到我们想要的列向量或行向量。</li>
+<li>重塑操作 reshape是一个常量时间的操作，<br>时间复杂度是 O(1)，它的调用代价极低。</li>
+</ul>
+<ol>
+<li>numpy 广播机制</li>
+</ol>
+<ul>
+<li>如果两个数组的后缘维度的轴长度相符或其中一方的轴长度为 1，则认为它们是广播兼容的。</li>
+<li>广播机制与执行的运算种类无关</li>
+<li>广播会在缺失维度和轴长度为 1 的维度上进行。<br>后缘维度的轴长度： A.shape[-1] 即矩阵维度元组中的最后一个位置的值<br><img src="http://upload-images.jianshu.io/upload_images/8448458-372eefe2663e11c7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-7.jpg"></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/08/机器学习实战四（神经网络）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/08/机器学习实战四（神经网络）/" itemprop="url">机器学习实战四（神经网络）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T14:54:21+08:00">
+                2017-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习实战/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习实战</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://upload-images.jianshu.io/upload_images/2119554-99babd034ca437fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<ul>
+<li>NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。<h3 id="二、单层神经元"><a href="#二、单层神经元" class="headerlink" title="二、单层神经元"></a>二、单层神经元</h3><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4></li>
+</ul>
+<ol>
+<li>问题</li>
+</ol>
+<ul>
+<li>假设在一群人中，我们只能获得每个人的三个特征：</li>
+</ul>
+<ol>
+<li>特征1：长发（1）还是短发（0）</li>
+<li>特征2：衣服颜色是红色（1）还是不是红色（0）</li>
+<li>特征3：身高大于178cm（1）还是不超过178（0）</li>
+</ol>
+<ul>
+<li>假设我们只知道其中四个人的性别（男：0，女：1），我们需要依据这四个人的三个特征以及性别训练一个神经网络，用于预测一个人的性别。</li>
+<li>因此该问题有三个输入，一个输出。</li>
+</ul>
+<ol>
+<li>样本信息如下：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>头发</th>
+<th>衣服</th>
+<th>身高</th>
+<th>性别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-简单的单层神经网络"><a href="#2-简单的单层神经网络" class="headerlink" title="2. 简单的单层神经网络"></a>2. 简单的单层神经网络</h4><ol>
+<li><p>用X表示输入的特征向量，由于每个样本有三个特征，一共有四个样本，所以我们定义一个4X3的矩阵，每一行代表一个样本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import numpy</span><br><span class="line">import numpy as np</span><br><span class="line"># input dataset</span><br><span class="line">X = np.array([[0, 0, 1],</span><br><span class="line">              [0, 1, 1],</span><br><span class="line">              [1, 0, 1],</span><br><span class="line">              [1, 1, 1]])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>而四个样本对应输出（分类结果）我们用一个1X4的矩阵表示。“.T” 为转置函数，转置后变成了4X1的矩阵。</p>
+</li>
+</ol>
+<ul>
+<li>同我们的输入一致，每一行是一个训练实例，而每一列（仅有一列）对应一个输出节点。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = np.array([[0, 0, 1, 1]]).T</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>初始化神经网络的权重</li>
+</ol>
+<ul>
+<li>由于输入层有三个神经元，而输出结果只有一个神经元，所以权重矩阵为3X1。</li>
+<li>由于一般初始化权重是随机选择的，因此要为随机数设定产生的种子（如下代码所示）</li>
+<li>这样可以使每次训练开始时，得到的训练随机数都是一致的。这样便于观察策略变动是如何影响网络训练的，消除初始权重的影响。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(1)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>由于我们要将随机初始化的权重矩阵均值设定为0，因此要计算syn0(第一层网络间的权重矩阵)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">syn0 = 2*np.random.random((3,1)) - 1</span><br></pre></td></tr></table></figure>
+<ol>
+<li>sigmoid函数</li>
+</ol>
+<ul>
+<li>定义为：<br><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a26a3fa3cbb41a3abfe4c7ff88d47f0181489d13" alt="image"></li>
+<li>特点：其导数可以用其自身表示出来，在计算的时候，我们只需要计算出其函数值，就可以计算出其导数值，从而可以减少浮点运算次数，提高效率</li>
+<li>导数为：  <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8bd55fe42bb92cd736ab2bf965bf2644624cc46d" alt="image"></li>
+<li><p>python中代码实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># sigmoid function</span><br><span class="line">def nonlin(x,deriv=False):</span><br><span class="line">    if(deriv==True):</span><br><span class="line">        return x*(1-x)</span><br><span class="line">    return 1/(1+np.exp(-x))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其中，deriv参数表示是否计算的是其导数值：</p>
+</li>
+</ul>
+<h4 id="3-开始训练神经网络"><a href="#3-开始训练神经网络" class="headerlink" title="3. 开始训练神经网络"></a>3. 开始训练神经网络</h4><ul>
+<li>迭代10000次，每一次迭代可描述如下</li>
+</ul>
+<ol>
+<li>计算输入层的加权和，即用输入矩阵L0乘以权重矩阵syn0，并通过sigmid函数进行归一化。得到输出结果l1；</li>
+<li>计算输出结果L1与真实结果y之间的误差L1_error；</li>
+<li>计算权重矩阵的修正L1_delta，即用误差乘以sigmoid在L处的导数；（<a href="http://note.youdao.com/noteshare?id=5fa04030a309f646aaa6740d70cce424&amp;sub=WEB71e05a4674162866c962c4d91318f092" target="_blank" rel="noopener">阶梯下降法</a>）</li>
+<li>用L1_delta更新权重矩阵syn0<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">for iter in range(10000):</span><br><span class="line">    # forward propagation</span><br><span class="line">    l0 = X</span><br><span class="line">    l1 = nonlin(np.dot(l0,syn0))</span><br><span class="line"></span><br><span class="line">    # how much did we miss?</span><br><span class="line">    l1_error = y - l1</span><br><span class="line"></span><br><span class="line">    # multiply how much we missed by the </span><br><span class="line">    # slope of the sigmoid at the values in l1</span><br><span class="line">    l1_delta = l1_error * nonlin(l1,True)</span><br><span class="line"></span><br><span class="line">    # update weights</span><br><span class="line">    syn0 += np.dot(l0.T,l1_delta)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="4-一次训练过程的参数更新如下图所示："><a href="#4-一次训练过程的参数更新如下图所示：" class="headerlink" title="4. 一次训练过程的参数更新如下图所示："></a>4. 一次训练过程的参数更新如下图所示：</h4><ul>
+<li><p><img src="http://upload-images.jianshu.io/upload_images/2119554-d87ab086108ddb17.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+</li>
+<li><p>批量循环训练<br><img src="http://upload-images.jianshu.io/upload_images/2119554-6311b757f416bfbd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+</li>
+</ul>
+<h4 id="5-结果"><a href="#5-结果" class="headerlink" title="5.结果"></a>5.结果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Output syn0 After Training:</span><br><span class="line">[[ 9.67299303]</span><br><span class="line"> [-0.2078435 ]</span><br><span class="line"> [-4.62963669]]</span><br></pre></td></tr></table></figure>
+<ol>
+<li>从syn0迭代后的输出可看出</li>
+</ol>
+<ul>
+<li>yn0的第一个元素，也就是第一个输入特征（长发）的权重最大，而第二个和第三个特征都很小</li>
+<li>所以神经网络学习的结果是加重第一个特征的权重，而其他两个特征对于是女性这个推测的贡献较小，所以减小其权重。</li>
+</ul>
+<ol>
+<li>为了验证训练结果，我们加入两组新数据，(短头发，红衣服，矮个子)，(长头发，不是红衣服，矮个子)，并用神经网络来进行分类：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X_new = np.array([[0,1,0],</span><br><span class="line">                  [1,0,0]])</span><br><span class="line">y_new = np.dot(X_new,syn0)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>计算结果如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Predicte With syn0:</span><br><span class="line">[[-0.2078435 ]</span><br><span class="line"> [ 9.67299303]]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a href="http://note.youdao.com/" target="_blank" rel="noopener">完整代码</a></p>
+<h3 id="三、二层神经网络"><a href="#三、二层神经网络" class="headerlink" title="三、二层神经网络"></a>三、二层神经网络</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/机器学习实战总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1007,7 +2189,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/03/Logistic回归和Sigmoid函数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/03/wLogistic回归和Sigmoid函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LEMON">
@@ -1026,7 +2208,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/03/Logistic回归和Sigmoid函数/" itemprop="url">Logistic回归和Sigmoid函数</a></h1>
+                <a class="post-title-link" href="/2017/11/03/wLogistic回归和Sigmoid函数/" itemprop="url">Logistic回归和Sigmoid函数</a></h1>
         
 
         <div class="post-meta">
@@ -1491,417 +2673,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/29/w第一章-深度学习概论/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LEMON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LEMON的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/29/w第一章-深度学习概论/" itemprop="url">第一章-深度学习概论</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-29T15:09:21+08:00">
-                2017-10-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习与神经网络-吴恩达/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习与神经网络(吴恩达)</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-2-什么是神经网络"><a href="#1-2-什么是神经网络" class="headerlink" title="1.2 什么是神经网络"></a>1.2 什么是神经网络</h3><ol>
-<li>ReLU函数（修正线性单元）：“修正”指的是取不小于0的值<br>图右是单个神经元：输入面积-&gt;computer运算-&gt;输出价格<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-1.jpg" alt=""></li>
-<li>多个神经元叠加构成一个更大的神经网络<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-2.jpg" alt=""></li>
-<li>左边的是输入的特征（输入层-input layer）</li>
-</ol>
-<ul>
-<li>中间的圆圈在神经网络中被称为“隐藏单元”（Hidden nuit）：每个的输入都来着四个特征，因此是让神经网络自己决定中间的数代表的含义（why，这里为什么要这么说？）<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-3.jpg" alt=""><h3 id="1-3-用神经网络进行监督学习"><a href="#1-3-用神经网络进行监督学习" class="headerlink" title="1.3 用神经网络进行监督学习"></a>1.3 用神经网络进行监督学习</h3></li>
-<li>神经网络架构</li>
-<li>1.standard neural network architecture 通用标准的神经网络架构</li>
-<li><ol>
-<li>convolutional neural  network 卷积神经网络（CNN）<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-4.jpg" alt=""><br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-5.jpg" alt=""></li>
-</ol>
-</li>
-<li>数据<br>Structured Data ：结构化数据（数据库），意为着每个特征都有清晰的定义，如数据库表中值的定义<br>Unstructured  Data : 非结构化数据，图像、音频文本中的内容<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-6.jpg" alt=""><h3 id="1-4为什么深度学习流行起来"><a href="#1-4为什么深度学习流行起来" class="headerlink" title="1.4为什么深度学习流行起来"></a>1.4为什么深度学习流行起来</h3>数据量的增加<br>硬件设备的提升<br>算法的不断改进创新<br>规模推动深度学习的发展（神经网络性能随规模、数据的增长不断增长）<br>x轴代表训练的规模 ，y轴代表表现<br>数据集不大时，效果取决于手工设计的组件<br>在图形左边时，各个算法的效率不是很明确<br>ex： 但在大数据方面，足够的M（训练集）的支持使神经网络的效率领先其他算法<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-7.jpg" alt=""></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/29/机器学习实战一（K-邻近算法（KNN））/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LEMON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LEMON的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/29/机器学习实战一（K-邻近算法（KNN））/" itemprop="url">机器学习实战一（K-邻近算法（KNN））</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-29T14:54:21+08:00">
-                2017-10-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习实战/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习实战</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><h4 id="1-原理："><a href="#1-原理：" class="headerlink" title="1. 原理："></a>1. 原理：</h4><ul>
-<li>工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测.</li>
-<li>通常k是不大于20的整数<h4 id="2-优缺点"><a href="#2-优缺点" class="headerlink" title="2. 优缺点"></a>2. 优缺点</h4></li>
-<li>优点：精度高、对异常值不敏感、无数据输入假定</li>
-<li>缺点：</li>
-<li><ul>
-<li>计算复杂度高、空间复杂度高，占用存储空间</li>
-</ul>
-</li>
-<li><ul>
-<li>无法给出数据的内在含义</li>
-</ul>
-</li>
-<li>适用数据范围：数值型和标称型<h4 id="3-懒惰算法："><a href="#3-懒惰算法：" class="headerlink" title="3. 懒惰算法："></a>3. 懒惰算法：</h4></li>
-<li>此类学习技术在训练阶段仅仅把样本保存起来</li>
-<li>==训练开支为零==，待收到测试样本后再进行处理<h3 id="二、算法流程"><a href="#二、算法流程" class="headerlink" title="二、算法流程"></a>二、算法流程</h3></li>
-</ul>
-<ol>
-<li>收集数据</li>
-<li>准备数据</li>
-<li>分析数据</li>
-<li>训练算法（不适合KNN算法，因为K是“懒惰算法”的著名代表）</li>
-<li>测试算法</li>
-<li>使用算法</li>
-</ol>
-<h3 id="三、算法框架"><a href="#三、算法框架" class="headerlink" title="三、算法框架"></a>三、算法框架</h3><h4 id="1-classify0-函数的4个输入参数："><a href="#1-classify0-函数的4个输入参数：" class="headerlink" title="1. classify0()函数的4个输入参数："></a>1. classify0()函数的4个输入参数：</h4><ul>
-<li>inX：用于分类的输入向量</li>
-<li>dataSet：用于输入的训练样本集</li>
-<li>labels：标签向量</li>
-<li>k：参数k用于选择最佳邻居的数目</li>
-</ul>
-<h4 id="2-使用欧氏距离公式"><a href="#2-使用欧氏距离公式" class="headerlink" title="2. 使用欧氏距离公式"></a>2. 使用欧氏距离公式</h4><ul>
-<li>计算两个向量点xA和xB之间的距离</li>
-<li>计算存在4个特征值的数据集的距离</li>
-</ul>
-<h4 id="3-在约会网站上使用算法"><a href="#3-在约会网站上使用算法" class="headerlink" title="3. 在约会网站上使用算法"></a>3. 在约会网站上使用算法</h4><ul>
-<li>海伦用三个属性来测试自己对于约会对象的喜爱程度<br>每年的飞行里程数<br>玩视频游戏所耗时间百分比<br>每周消费的冰激凌公升数<br>她积攒了一些数据，该数据保存在datingTestSet.txt中，共1000行。 </li>
-<li><p>准备数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def createDataSet():</span><br><span class="line">    group = array([[1.0, 1.1], [1.0, 1.0], [0, 0], [0, 0.1]])</span><br><span class="line">    labels = [&apos;A&apos;, &apos;A&apos;, &apos;B&apos;, &apos;B&apos;]</span><br><span class="line">    return group, labels</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>算法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">def classify0(inX,dataSet,labels,k):</span><br><span class="line">        #训练数据集的行数</span><br><span class="line">        dataSetSize=dataSet.shape[0]</span><br><span class="line">        #计算距离</span><br><span class="line">        #这里要说一下tile()函数，以后我们还会多次用到它</span><br><span class="line">        #tile(A,B)表示对A重复B次，B可以是int型也可以是数组形式</span><br><span class="line">        #如果B是int，表示在行方向上重复A，B次，列方向默认为1</span><br><span class="line">        #如果B是数组形式，tile(A,(B1,B2))表示在行方向上重复B1次，列方向重复B2次</span><br><span class="line">        diffMat=tile(inX,(dataSetSize,1))-dataSet</span><br><span class="line">        print(diffMat)</span><br><span class="line">        sqDiffMat=diffMat**2</span><br><span class="line">        print(sqDiffMat)</span><br><span class="line">        sqDistances=sqDiffMat.sum(axis=1)</span><br><span class="line">        distances=sqDistances**0.5</span><br><span class="line">        #排序，这里argsort()返回的是数据从小到大的索引值,这里这就是第几行数据</span><br><span class="line">        sortedDisIndicies =distances.argsort()</span><br><span class="line">        print(sortedDisIndicies)</span><br><span class="line">        classCount=&#123;&#125;</span><br><span class="line">        #选取距离最小的k个点，并统计每个类别出现的频率</span><br><span class="line">        #这里用到了字典get(key,default=None)返回键值key对应的值；</span><br><span class="line">        #如果key没有在字典里，则返回default参数的值，默认为None</span><br><span class="line">        for i in range(k):</span><br><span class="line">                voteIlabel=labels[sortedDisIndicies[i]]</span><br><span class="line">                classCount[voteIlabel]=classCount.get(voteIlabel,0)+1;</span><br><span class="line">        #逆序排序，找出出现频率最多的类别</span><br><span class="line">        sortedClassCount=sorted(classCount.items(),</span><br><span class="line">                                key=operator.itemgetter(1),reverse=True)</span><br><span class="line">        print(sortedClassCount)</span><br><span class="line">        return sortedClassCount[0][0]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>py3.5中iteritems改为items（上倒数第4行）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#进入python界面： </span><br><span class="line">&gt;&gt;&gt;import kNN </span><br><span class="line">&gt;&gt;&gt;group,labels=kNN.createDataSet() </span><br><span class="line">&gt;&gt;&gt;kNN.classify0([0,0],group,labels,3)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>读取txt的数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">def file2matrix(filename):</span><br><span class="line">        fr=open(filename)</span><br><span class="line">        #读取文件</span><br><span class="line">        arrayOLines=fr.readlines()</span><br><span class="line">        #文件行数</span><br><span class="line">        numberOfLines=len(arrayOLines)</span><br><span class="line">        #创建全0矩阵</span><br><span class="line">        returnMat=zeros((numberOfLines,3))</span><br><span class="line">        #标签向量</span><br><span class="line">        classLabelVector=[]</span><br><span class="line">        index=0</span><br><span class="line">        #遍历每一行，提取数据</span><br><span class="line">        for line in arrayOLines:</span><br><span class="line">                line=line.strip();</span><br><span class="line">                listFromLine=line.split(&apos;\t&apos;)</span><br><span class="line">                #前三列为属性信息</span><br><span class="line">                returnMat[index,:]=listFromLine[0:3]</span><br><span class="line">                #最后一列为标签信息</span><br><span class="line">                classLabelVector.append(int(listFromLine[-1]))</span><br><span class="line">                index +=1</span><br><span class="line">        return returnMat,classLabelVector</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 重新加载kNN，得倒解析数据 </span><br><span class="line">&gt;&gt;&gt;reload(kNN) </span><br><span class="line">&gt;&gt;&gt;datingDataMat,datingLabels=kNN.file2matrix(&apos;datingTestSet2.txt&apos;)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>使用Matplotlib 创建散点图</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 命令行中输入</span><br><span class="line">&gt;&gt;&gt;import matplotlib </span><br><span class="line">&gt;&gt;&gt;import matplotlib.pyplot as plt </span><br><span class="line">&gt;&gt;&gt;from numpy import array </span><br><span class="line">&gt;&gt;&gt;fig = plt.figure() </span><br><span class="line">&gt;&gt;&gt;ax=fig.add_subplot(111) </span><br><span class="line">&gt;&gt;&gt;ax.scatter(datingDataMat[:,1],datingDataMat[:,2],15.0*array(datingLabels),15.0*array(datingLabels))</span><br><span class="line">&gt;&gt;&gt;plt.show()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>利用github存储图片并以markdown的链接形式显示<br>[图片上传失败…(image-2b31b0-1512123353929)]</p>
-</li>
-</ul>
-<h4 id="4-数据的归一化"><a href="#4-数据的归一化" class="headerlink" title="4. 数据的归一化"></a>4. 数据的归一化</h4><ul>
-<li>由于每个属性的取值数量级相差过大，会造成每个属性的权重不同，这显然是海伦不希望的。所以我们还要写一个函数实现数据归一化，公式如下:</li>
-<li>newValue=(oldValue-min)/(max-min) </li>
-<li>这个公式可以将特征值转化为0~1之间的值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#归一化特征值</span><br><span class="line">def autoNorm(dataSet):</span><br><span class="line">        #每列的最小值</span><br><span class="line">        minVals=dataSet.min(0)</span><br><span class="line">        #每列的最大值</span><br><span class="line">        maxVals=dataSet.max(0)</span><br><span class="line">        #最大值与最小值的差值</span><br><span class="line">        ranges=maxVals-minVals</span><br><span class="line">        normDataSet=zeros(shape(dataSet))</span><br><span class="line">        m=dataSet.shape[0]</span><br><span class="line">        #minVals是1*3的矩阵，使用tile函数复制成和dataSet同样大小的矩阵，方便计算</span><br><span class="line">        normDataSet=dataSet-tile(minVals,(m,1))</span><br><span class="line">        normDataSet=normDataSet/tile(ranges,(m,1))</span><br><span class="line">        return normDataSet,ranges,minVals</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;reload(kNN) </span><br><span class="line">&gt;&gt;&gt;normMat,ranges,minVals=kNN.autoNorm(datingDataMat)</span><br></pre></td></tr></table></figure>
-<h4 id="5-原始分类器"><a href="#5-原始分类器" class="headerlink" title="5. 原始分类器"></a>5. 原始分类器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#原始测试分类器</span><br><span class="line">def datingClassTest():</span><br><span class="line">        hoRatio=0.10</span><br><span class="line">        datingDataMat,datingLabels=file2matrix(&apos;datingTestSet2.txt&apos;)</span><br><span class="line">        normMat,ranges,minVals=autoNorm(datingDataMat)</span><br><span class="line">        m=normMat.shape(0)</span><br><span class="line">        #10%的数据用于测试数据集</span><br><span class="line">        numTestVecs=int(m*hoRatio)</span><br><span class="line">        errorCount=0.0</span><br><span class="line">        for i in range(numTestVecs):</span><br><span class="line">                classifierResults=classify0(normMat[i,:],normMat[numTestVecs:m,:], datingLabels[numTestVecs:m],3)</span><br><span class="line">                print(&quot;the classifier came back with: %d,the real answer id: %d&quot;%(classifierResults,datingLabels[i]))</span><br><span class="line">                if(classifierResults!=datingLabels[i]):errorCount +=1.0</span><br><span class="line">        print(&quot;the total error rate is: %f&quot; %(errorCount/float(numTestVecs)))</span><br></pre></td></tr></table></figure>
-<h4 id="6-接口"><a href="#6-接口" class="headerlink" title="6. 接口"></a>6. 接口</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 约会网站预测函数</span><br><span class="line">def classifyPerson():</span><br><span class="line">        resultList=[&apos;not at all&apos;,&apos;in small doses&apos;,&apos;in large doses&apos;]</span><br><span class="line">        percentTats=float(input(&quot;在游戏上花费的时间占比( )?&quot;))</span><br><span class="line">        ffMiles=float(input(&quot;每年航空的里程数?&quot;))</span><br><span class="line">        iceCream=float(input(&quot;每年吃的冰淇淋（升）?&quot;))</span><br><span class="line">        datingDataMat,datingLabels=file2matrix(&apos;datingTestSet2.txt&apos;)</span><br><span class="line">        normMat, ranges, minVals=autoNorm(datingDataMat)</span><br><span class="line">        inArr=array([ffMiles,percentTats,iceCream])</span><br><span class="line">        classifierResult=classify0((inArr-minVals)/ranges,normMat,datingLabels,3)</span><br><span class="line">        print(&quot;你可能是属于以下这类人：&quot;,resultList[classifierResult - 1])</span><br></pre></td></tr></table></figure>
-<p>[图片上传失败…(image-77db49-1512123353929)]<br>[图片上传失败…(image-dd2d24-1512123353929)]</p>
-<h4 id="7-识别手写数字"><a href="#7-识别手写数字" class="headerlink" title="7. 识别手写数字"></a>7. 识别手写数字</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 将图片格式处理为一个向量（把一个32*32的二进制图形矩阵转换为1*1024的向量）,然后使用分类器处理图形信息</span><br><span class="line">def img2vector(filename):</span><br><span class="line">    # 创建一个1*1024的NumPy数组</span><br><span class="line">    returnVect = zeros((1,1024))</span><br><span class="line">    fr = open(filename)</span><br><span class="line">    # 循环读出文件的前32行，并将每行的头32个字符值存储在NumPy数组中，最后返回数组</span><br><span class="line">    for i in range(32):</span><br><span class="line">        lineStr = fr.readline()</span><br><span class="line">        for j in range(32):</span><br><span class="line">            returnVect[0,32*i+j] = int(lineStr[j])</span><br><span class="line">    return returnVect</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">def handwritingClassTest():</span><br><span class="line">    hwLabels = []</span><br><span class="line">    # 将trainingDigits目录中的文件存储在列表中</span><br><span class="line">    trainingFileList = listdir(&apos;trainingDigits&apos;)</span><br><span class="line">    # 获得文件数赋值给m</span><br><span class="line">    m = len(trainingFileList)</span><br><span class="line">    # 创建一个m行1024列的训练矩阵，每行数据存储一个图像</span><br><span class="line">    trainingMat = zeros((m,1024))</span><br><span class="line">    for i in range(m):</span><br><span class="line">        # 从文件名解析分类数字（eg：文件9_45.txt表示数字9的第45个实例）</span><br><span class="line">        fileNameStr = trainingFileList[i]</span><br><span class="line">        fileStr = fileNameStr.split(&apos;.&apos;)[0]     #take off .txt</span><br><span class="line">        classNumStr = int(fileStr.split(&apos;_&apos;)[0])</span><br><span class="line">        # 将类代码存储在 hwLabels向量中</span><br><span class="line">        hwLabels.append(classNumStr)</span><br><span class="line">        # 使用 img2vector函数载入图像</span><br><span class="line">        trainingMat[i,:] = img2vector(&apos;trainingDigits/%s&apos; % fileNameStr)</span><br><span class="line"></span><br><span class="line">    # 将testDigits目录中的文件存储在列表中，步骤同上</span><br><span class="line">    testFileList = listdir(&apos;testDigits&apos;)        #iterate through the test set</span><br><span class="line">    errorCount = 0.0</span><br><span class="line">    mTest = len(testFileList)</span><br><span class="line">    for i in range(mTest):</span><br><span class="line">        fileNameStr = testFileList[i]</span><br><span class="line">        fileStr = fileNameStr.split(&apos;.&apos;)[0]     #take off .txt</span><br><span class="line">        classNumStr = int(fileStr.split(&apos;_&apos;)[0])</span><br><span class="line">        vectorUnderTest = img2vector(&apos;testDigits/%s&apos; % fileNameStr)</span><br><span class="line">        # 不同的是要使用 classify0函数测试目录下的每个文件（文件中的值介于0-1之间，无需用autoNorm()函数</span><br><span class="line">        classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels, 3)</span><br><span class="line">        print(&quot;the classifier came back with: %d, the real answer is: %d&quot; % (classifierResult, classNumStr))</span><br><span class="line">        if (classifierResult != classNumStr): errorCount += 1.0</span><br><span class="line">    print(&quot;\nthe total number of errors is: %d&quot; % errorCount)</span><br><span class="line">    print(&quot;\nthe total error rate is: %f&quot; % (errorCount/float(mTest)))</span><br></pre></td></tr></table></figure>
-<p><a href="https://github.com/ZHBIT92/deep_learn/tree/master/KNN" target="_blank" rel="noopener">github代码</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1947,7 +2723,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1958,7 +2734,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1969,7 +2745,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
