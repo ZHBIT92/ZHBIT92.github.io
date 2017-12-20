@@ -232,6 +232,334 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/20/Sklearn进阶/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/20/Sklearn进阶/" itemprop="url">Sklearn进阶</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T14:54:21+08:00">
+                2017-12-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="正交化-Normalization"><a href="#正交化-Normalization" class="headerlink" title="正交化 Normalization"></a>正交化 Normalization</h2><h3 id="数据标准化"><a href="#数据标准化" class="headerlink" title="数据标准化"></a>数据标准化</h3><p>preprocessing.scale( )<br>preprocessing.minmax_scale(X,feature_range=(0,1) ):<br>feature_range是设置数据标准化后数据的范围，默认为0~1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import preprocessing #标准化数据模块</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">#建立Array</span><br><span class="line">a = np.array([[10, 2.7, 3.6],</span><br><span class="line">              [-100, 5, -2],</span><br><span class="line">              [120, 20, 40]], dtype=np.float64)</span><br><span class="line"># 打印出原来的a</span><br><span class="line">print(a)</span><br><span class="line">#将normalized后的a打印出</span><br><span class="line">print(preprocessing.scale(a))</span><br><span class="line"># [[ 0.         -0.85170713 -0.55138018]</span><br><span class="line">#  [-1.22474487 -0.55187146 -0.852133  ]</span><br><span class="line">#  [ 1.22474487  1.40357859  1.40351318]]</span><br></pre></td></tr></table></figure></p>
+<h3 id="加载模块"><a href="#加载模块" class="headerlink" title="加载模块"></a>加载模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 标准化数据模块</span><br><span class="line">from sklearn import preprocessing </span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"># 将资料分割成train与test的模块</span><br><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line"></span><br><span class="line"># 生成适合做classification资料的模块</span><br><span class="line">from sklearn.datasets.samples_generator import make_classification </span><br><span class="line"></span><br><span class="line"># Support Vector Machine中的Support Vector Classifier</span><br><span class="line">from sklearn.svm import SVC </span><br><span class="line"></span><br><span class="line"># 可视化数据的模块</span><br><span class="line">import matplotlib.pyplot as plt</span><br></pre></td></tr></table></figure>
+<h3 id="生成数据-生成适合做Classification数据"><a href="#生成数据-生成适合做Classification数据" class="headerlink" title="生成数据-生成适合做Classification数据"></a>生成数据-生成适合做Classification数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#生成具有2种属性的300笔数据</span><br><span class="line">X, y = make_classification(</span><br><span class="line">    n_samples=300, n_features=2,</span><br><span class="line">    n_redundant=0, n_informative=2, </span><br><span class="line">    random_state=22, n_clusters_per_class=1, </span><br><span class="line">    scale=100)</span><br><span class="line"></span><br><span class="line">#可视化数据</span><br><span class="line">plt.scatter(X[:, 0], X[:, 1], c=y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8448458-5ee30c58f191f541.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原始数据可视化"></p>
+<h3 id="训练数据"><a href="#训练数据" class="headerlink" title="训练数据"></a>训练数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)</span><br><span class="line">clf = SVC()</span><br><span class="line">clf.fit(X_train, y_train)</span><br><span class="line">print(clf.score(X_test, y_test))</span><br><span class="line"># 0.477777777778</span><br></pre></td></tr></table></figure>
+<h3 id="标准化数据及可视化"><a href="#标准化数据及可视化" class="headerlink" title="标准化数据及可视化"></a>标准化数据及可视化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">X = preprocessing.scale(X)</span><br><span class="line">#可视化数据，显示标准化后范围</span><br><span class="line">plt.scatter(X[:, 0], X[:, 1], c=y)</span><br><span class="line">plt.show()</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)</span><br><span class="line">clf = SVC()</span><br><span class="line">clf.fit(X_train, y_train)</span><br><span class="line">print(clf.score(X_test, y_test))</span><br><span class="line"># 0.9</span><br></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/8448458-61a2b4c0ce272db8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="标准化后数据"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/Anaconda基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/19/Anaconda基础/" itemprop="url">Anaconda中jupyter notebook的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T14:54:21+08:00">
+                2017-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="工作路径设置"><a href="#工作路径设置" class="headerlink" title="工作路径设置"></a>工作路径设置</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>找到Anaconda创建的快捷方式<br><img src="http://upload-images.jianshu.io/upload_images/8448458-f086df2d471e294f.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>目标中的属性如下<br><code>D:\ProgramData\Anaconda3\python.exe D:\ProgramData\Anaconda3\cwp.py D:\ProgramData\Anaconda3 &quot;D:/ProgramData/Anaconda3/python.exe&quot; &quot;D:/ProgramData/Anaconda3/Scripts/jupyter-notebook-script.py&quot; %USERPROFILE%</code><br>把最后的%USERPROFILE%改为你要用的目录地址r</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/周总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -351,6 +679,185 @@
 <li>深度学习概括与神经网络基础第一至三章<br>本周学习</li>
 <li>通用模块sklearn</li>
 </ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/Sklearn基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/18/Sklearn基础/" itemprop="url">Sklearn基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T14:54:21+08:00">
+                2017-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简介与安装"><a href="#简介与安装" class="headerlink" title="简介与安装"></a>简介与安装</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>Scikit learn 也简称 sklearn, 是机器学习领域当中最知名的 python 模块之一.其包含了许多机器学习的方法的</p>
+<p>Sklearn 把所有机器学习的模式整合统一起来了，学会了一个模式就可以通吃其他不同类型的学习模式。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li>Windows下使用Anaconda(<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">https://www.anaconda.com/download/</a>)</li>
+</ul>
+<h2 id="选择学习方法（模型流程）"><a href="#选择学习方法（模型流程）" class="headerlink" title="选择学习方法（模型流程）"></a>选择学习方法（模型流程）</h2><p>安装完 Sklearn 后，不要直接去用，先了解一下都有什么模型方法，然后选择适当的方法，来达到你的目标。</p>
+<h3 id="看流程图选方法"><a href="#看流程图选方法" class="headerlink" title="看流程图选方法"></a>看流程图选方法</h3><p>klearn 官网提供了一个<a href="http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html" target="_blank" rel="noopener">流程图</a>，蓝色圆圈内是判断条件，绿色方框内是可以选择的算法：<br><img src="http://upload-images.jianshu.io/upload_images/1667471-b9cf0b0ca146ecca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h3><p>从 START 开始，首先看数据的样本是否 &gt;50，小于则需要收集更多的数据。</p>
+<p>由图中，可以看到算法有四类，分类，回归，聚类，降维。</p>
+<p>监督学习：有数据可以训练<br>非监督学习： 无数据训练的过程</p>
+<p>其中 <strong>分类和回归</strong>是<strong>监督式学习</strong>，即每个数据对应一个 label。 <strong>聚类</strong> 是<strong>非监督式学习</strong>，即没有 label。 另外一类是 <strong>降维</strong>，当数据集有很多很多属性的时候，可以通过 降维 算法把属性归纳起来。<br>例如 ：20 个属性只变成 2 个，注意，这不是挑出 2 个，而是压缩成为 2 个，它们集合了 20 个属性的所有特征，相当于把重要的信息提取的更好，不重要的信息就不要了。</p>
+<p>然后看问题属于哪一类问题，是分类还是回归，还是聚类，就选择相应的算法。 当然还要考虑数据的大小，例如 100K 是一个阈值。</p>
+<p>可以发现有些方法是既可以作为分类，也可以作为回归，例如 SGD。</p>
+<h2 id="基础应用（以KNN-classifiler为例）"><a href="#基础应用（以KNN-classifiler为例）" class="headerlink" title="基础应用（以KNN classifiler为例）"></a>基础应用（以KNN classifiler为例）</h2><h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><p>Sklearn 本身就有很多数据库，可以用来练习。 以 Iris 的数据为例，这种花有四个属性，花瓣的长宽，茎的长宽，根据这些属性把花分为三类。<br><img src="https://morvanzhou.github.io/static/results/sklearn/2_2_1.png" alt=""><br>我们要用 分类器 去把四种类型的花分开。<br><strong>今天用 KNN classifier，就是选择几个临近点，综合它们做个平均来作为预测值。</strong></p>
+<h3 id="导入模块"><a href="#导入模块" class="headerlink" title="导入模块"></a>导入模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import datasets</span><br><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line">from sklearn.neighbors import KNeighborsClassifier</span><br></pre></td></tr></table></figure>
+<h3 id="创建数据"><a href="#创建数据" class="headerlink" title="创建数据"></a>创建数据</h3><p>加载 iris 的数据，把属性存在 X，类别标签存在 y：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iris = datasets.load_iris()</span><br><span class="line">iris_X = iris.data</span><br><span class="line">iris_y = iris.target</span><br></pre></td></tr></table></figure></p>
+<p>观察一下数据集，X 有四个属性，y 有 0，1，2 三类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">print(iris_X[:2, :])</span><br><span class="line">print(iris_y)</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">[[ 5.1  3.5  1.4  0.2]</span><br><span class="line"> [ 4.9  3.   1.4  0.2]]</span><br><span class="line">[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</span><br><span class="line"> 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</span><br><span class="line"> 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2</span><br><span class="line"> 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</span><br><span class="line"> 2 2]</span><br><span class="line"> &quot;&quot;&quot;</span><br></pre></td></tr></table></figure></p>
+<p>把数据集分为训练集和测试集，其中 <strong>test_size=0.3</strong>，即测试集占总数据的 30%：<br>可以看到分开后的数据集，顺序也被打乱，这样更有利于学习模型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">    iris_X, iris_y, test_size=0.3)</span><br><span class="line"></span><br><span class="line">print(y_train)</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">[2 1 0 1 0 0 1 1 1 1 0 0 1 2 1 1 1 0 2 2 1 1 1 1 0 2 2 0 2 2 2 2 2 0 1 2 2</span><br><span class="line"> 2 2 2 2 0 1 2 2 1 1 1 0 0 1 2 0 1 0 1 0 1 2 2 0 1 2 2 2 1 1 1 1 2 2 2 1 0</span><br><span class="line"> 1 1 0 0 0 2 0 1 0 0 1 2 0 2 2 0 0 2 2 2 1 2 0 0 2 1 2 0 0 1 2]</span><br><span class="line"> &quot;&quot;&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="建立模型－训练－预测"><a href="#建立模型－训练－预测" class="headerlink" title="建立模型－训练－预测"></a>建立模型－训练－预测</h3><p>定义模块方式 KNeighborsClassifier()， 用 fit 来训练 training data，这一步就完成了训练的所有步骤， 后面的 knn 就已经是训练好的模型，可以直接用来 predict 测试集的数据， 对比用模型预测的值与真实的值，可以看到大概模拟出了数据，但是有误差，是不会完完全全预测正确的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">knn = KNeighborsClassifier()</span><br><span class="line">knn.fit(X_train, y_train)</span><br><span class="line">print(knn.predict(X_test))</span><br><span class="line">print(y_test)</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">[2 0 0 1 2 2 0 0 0 1 2 2 1 1 2 1 2 1 0 0 0 2 1 2 0 0 0 0 1 0 2 0 0 2 1 0 1</span><br><span class="line"> 0 0 1 0 1 2 0 1]</span><br><span class="line">[2 0 0 1 2 1 0 0 0 1 2 2 1 1 2 1 2 1 0 0 0 2 1 2 0 0 0 0 1 0 2 0 0 2 1 0 1</span><br><span class="line"> 0 0 1 0 1 2 0 1]</span><br><span class="line"> &quot;&quot;&quot;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1243,7 +1750,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/Anaconda基础/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/hello/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LEMON">
@@ -1262,7 +1769,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/01/Anaconda基础/" itemprop="url">Anaconda中jupyter notebook的使用</a></h1>
+                <a class="post-title-link" href="/2017/12/01/hello/" itemprop="url">Hello</a></h1>
         
 
         <div class="post-meta">
@@ -1297,8 +1804,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/Python基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
                   </a>
                 </span>
 
@@ -1355,187 +1862,7 @@
       
         
           
-            <h2 id="工作路径设置"><a href="#工作路径设置" class="headerlink" title="工作路径设置"></a>工作路径设置</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>找到Anaconda创建的快捷方式<br><img src="http://upload-images.jianshu.io/upload_images/8448458-f086df2d471e294f.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>目标中的属性如下<br><code>D:\ProgramData\Anaconda3\python.exe D:\ProgramData\Anaconda3\cwp.py D:\ProgramData\Anaconda3 &quot;D:/ProgramData/Anaconda3/python.exe&quot; &quot;D:/ProgramData/Anaconda3/Scripts/jupyter-notebook-script.py&quot; %USERPROFILE%</code><br>把最后的%USERPROFILE%改为你要用的目录地址r</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/Sklearn基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LEMON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LEMON的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/01/Sklearn基础/" itemprop="url">Sklearn基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-01T14:54:21+08:00">
-                2017-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="简介与安装"><a href="#简介与安装" class="headerlink" title="简介与安装"></a>简介与安装</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>Scikit learn 也简称 sklearn, 是机器学习领域当中最知名的 python 模块之一.其包含了许多机器学习的方法的</p>
-<p>Sklearn 把所有机器学习的模式整合统一起来了，学会了一个模式就可以通吃其他不同类型的学习模式。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
-<li>Windows下使用Anaconda(<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">https://www.anaconda.com/download/</a>)</li>
-</ul>
-<h2 id="选择学习方法（模型流程）"><a href="#选择学习方法（模型流程）" class="headerlink" title="选择学习方法（模型流程）"></a>选择学习方法（模型流程）</h2><p>安装完 Sklearn 后，不要直接去用，先了解一下都有什么模型方法，然后选择适当的方法，来达到你的目标。</p>
-<h3 id="看流程图选方法"><a href="#看流程图选方法" class="headerlink" title="看流程图选方法"></a>看流程图选方法</h3><p>klearn 官网提供了一个<a href="http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html" target="_blank" rel="noopener">流程图</a>，蓝色圆圈内是判断条件，绿色方框内是可以选择的算法：<br><img src="http://upload-images.jianshu.io/upload_images/1667471-b9cf0b0ca146ecca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h3><p>从 START 开始，首先看数据的样本是否 &gt;50，小于则需要收集更多的数据。</p>
-<p>由图中，可以看到算法有四类，分类，回归，聚类，降维。</p>
-<p>监督学习：有数据可以训练<br>非监督学习： 无数据训练的过程</p>
-<p>其中 <strong>分类和回归</strong>是<strong>监督式学习</strong>，即每个数据对应一个 label。 <strong>聚类</strong> 是<strong>非监督式学习</strong>，即没有 label。 另外一类是 <strong>降维</strong>，当数据集有很多很多属性的时候，可以通过 降维 算法把属性归纳起来。<br>例如 ：20 个属性只变成 2 个，注意，这不是挑出 2 个，而是压缩成为 2 个，它们集合了 20 个属性的所有特征，相当于把重要的信息提取的更好，不重要的信息就不要了。</p>
-<p>然后看问题属于哪一类问题，是分类还是回归，还是聚类，就选择相应的算法。 当然还要考虑数据的大小，例如 100K 是一个阈值。</p>
-<p>可以发现有些方法是既可以作为分类，也可以作为回归，例如 SGD。</p>
-<h2 id="基础应用（以KNN-classifiler为例）"><a href="#基础应用（以KNN-classifiler为例）" class="headerlink" title="基础应用（以KNN classifiler为例）"></a>基础应用（以KNN classifiler为例）</h2><h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><p>Sklearn 本身就有很多数据库，可以用来练习。 以 Iris 的数据为例，这种花有四个属性，花瓣的长宽，茎的长宽，根据这些属性把花分为三类。<br><img src="https://morvanzhou.github.io/static/results/sklearn/2_2_1.png" alt=""><br>我们要用 分类器 去把四种类型的花分开。<br><strong>今天用 KNN classifier，就是选择几个临近点，综合它们做个平均来作为预测值。</strong></p>
-<h3 id="导入模块"><a href="#导入模块" class="headerlink" title="导入模块"></a>导入模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import datasets</span><br><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line">from sklearn.neighbors import KNeighborsClassifier</span><br></pre></td></tr></table></figure>
-<h3 id="创建数据"><a href="#创建数据" class="headerlink" title="创建数据"></a>创建数据</h3><p>加载 iris 的数据，把属性存在 X，类别标签存在 y：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iris = datasets.load_iris()</span><br><span class="line">iris_X = iris.data</span><br><span class="line">iris_y = iris.target</span><br></pre></td></tr></table></figure></p>
-<p>观察一下数据集，X 有四个属性，y 有 0，1，2 三类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">print(iris_X[:2, :])</span><br><span class="line">print(iris_y)</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">[[ 5.1  3.5  1.4  0.2]</span><br><span class="line"> [ 4.9  3.   1.4  0.2]]</span><br><span class="line">[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</span><br><span class="line"> 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</span><br><span class="line"> 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2</span><br><span class="line"> 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</span><br><span class="line"> 2 2]</span><br><span class="line"> &quot;&quot;&quot;</span><br></pre></td></tr></table></figure></p>
-<p>把数据集分为训练集和测试集，其中 <strong>test_size=0.3</strong>，即测试集占总数据的 30%：<br>可以看到分开后的数据集，顺序也被打乱，这样更有利于学习模型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">    iris_X, iris_y, test_size=0.3)</span><br><span class="line"></span><br><span class="line">print(y_train)</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">[2 1 0 1 0 0 1 1 1 1 0 0 1 2 1 1 1 0 2 2 1 1 1 1 0 2 2 0 2 2 2 2 2 0 1 2 2</span><br><span class="line"> 2 2 2 2 0 1 2 2 1 1 1 0 0 1 2 0 1 0 1 0 1 2 2 0 1 2 2 2 1 1 1 1 2 2 2 1 0</span><br><span class="line"> 1 1 0 0 0 2 0 1 0 0 1 2 0 2 2 0 0 2 2 2 1 2 0 0 2 1 2 0 0 1 2]</span><br><span class="line"> &quot;&quot;&quot;</span><br></pre></td></tr></table></figure></p>
-<h3 id="建立模型－训练－预测"><a href="#建立模型－训练－预测" class="headerlink" title="建立模型－训练－预测"></a>建立模型－训练－预测</h3><p>定义模块方式 KNeighborsClassifier()， 用 fit 来训练 training data，这一步就完成了训练的所有步骤， 后面的 knn 就已经是训练好的模型，可以直接用来 predict 测试集的数据， 对比用模型预测的值与真实的值，可以看到大概模拟出了数据，但是有误差，是不会完完全全预测正确的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">knn = KNeighborsClassifier()</span><br><span class="line">knn.fit(X_train, y_train)</span><br><span class="line">print(knn.predict(X_test))</span><br><span class="line">print(y_test)</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">[2 0 0 1 2 2 0 0 0 1 2 2 1 1 2 1 2 1 0 0 0 2 1 2 0 0 0 0 1 0 2 0 0 2 1 0 1</span><br><span class="line"> 0 0 1 0 1 2 0 1]</span><br><span class="line">[2 0 0 1 2 1 0 0 0 1 2 2 1 1 2 1 2 1 0 0 0 2 1 2 0 0 0 0 1 0 2 0 0 2 1 0 1</span><br><span class="line"> 0 0 1 0 1 2 0 1]</span><br><span class="line"> &quot;&quot;&quot;</span><br></pre></td></tr></table></figure></p>
-
           
         
       
@@ -1741,333 +2068,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = np.linspace(1,10,20).reshape((5,4)) # 更改shape</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">array([[  1.        ,   1.47368421,   1.94736842,   2.42105263],</span><br><span class="line">       [  2.89473684,   3.36842105,   3.84210526,   4.31578947],</span><br><span class="line">       [  4.78947368,   5.26315789,   5.73684211,   6.21052632],</span><br><span class="line">       [  6.68421053,   7.15789474,   7.63157895,   8.10526316],</span><br><span class="line">       [  8.57894737,   9.05263158,   9.52631579,  10.        ]])</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/Sklearn进阶/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LEMON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LEMON的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/01/Sklearn进阶/" itemprop="url">Sklearn进阶</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-01T14:54:21+08:00">
-                2017-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="正交化-Normalization"><a href="#正交化-Normalization" class="headerlink" title="正交化 Normalization"></a>正交化 Normalization</h2><h3 id="数据标准化"><a href="#数据标准化" class="headerlink" title="数据标准化"></a>数据标准化</h3><p>preprocessing.scale( )<br>preprocessing.minmax_scale(X,feature_range=(0,1) ):<br>feature_range是设置数据标准化后数据的范围，默认为0~1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import preprocessing #标准化数据模块</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">#建立Array</span><br><span class="line">a = np.array([[10, 2.7, 3.6],</span><br><span class="line">              [-100, 5, -2],</span><br><span class="line">              [120, 20, 40]], dtype=np.float64)</span><br><span class="line"># 打印出原来的a</span><br><span class="line">print(a)</span><br><span class="line">#将normalized后的a打印出</span><br><span class="line">print(preprocessing.scale(a))</span><br><span class="line"># [[ 0.         -0.85170713 -0.55138018]</span><br><span class="line">#  [-1.22474487 -0.55187146 -0.852133  ]</span><br><span class="line">#  [ 1.22474487  1.40357859  1.40351318]]</span><br></pre></td></tr></table></figure></p>
-<h3 id="加载模块"><a href="#加载模块" class="headerlink" title="加载模块"></a>加载模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 标准化数据模块</span><br><span class="line">from sklearn import preprocessing </span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"># 将资料分割成train与test的模块</span><br><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line"></span><br><span class="line"># 生成适合做classification资料的模块</span><br><span class="line">from sklearn.datasets.samples_generator import make_classification </span><br><span class="line"></span><br><span class="line"># Support Vector Machine中的Support Vector Classifier</span><br><span class="line">from sklearn.svm import SVC </span><br><span class="line"></span><br><span class="line"># 可视化数据的模块</span><br><span class="line">import matplotlib.pyplot as plt</span><br></pre></td></tr></table></figure>
-<h3 id="生成数据-生成适合做Classification数据"><a href="#生成数据-生成适合做Classification数据" class="headerlink" title="生成数据-生成适合做Classification数据"></a>生成数据-生成适合做Classification数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#生成具有2种属性的300笔数据</span><br><span class="line">X, y = make_classification(</span><br><span class="line">    n_samples=300, n_features=2,</span><br><span class="line">    n_redundant=0, n_informative=2, </span><br><span class="line">    random_state=22, n_clusters_per_class=1, </span><br><span class="line">    scale=100)</span><br><span class="line"></span><br><span class="line">#可视化数据</span><br><span class="line">plt.scatter(X[:, 0], X[:, 1], c=y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/8448458-5ee30c58f191f541.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原始数据可视化"></p>
-<h3 id="训练数据"><a href="#训练数据" class="headerlink" title="训练数据"></a>训练数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)</span><br><span class="line">clf = SVC()</span><br><span class="line">clf.fit(X_train, y_train)</span><br><span class="line">print(clf.score(X_test, y_test))</span><br><span class="line"># 0.477777777778</span><br></pre></td></tr></table></figure>
-<h3 id="标准化数据及可视化"><a href="#标准化数据及可视化" class="headerlink" title="标准化数据及可视化"></a>标准化数据及可视化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">X = preprocessing.scale(X)</span><br><span class="line">#可视化数据，显示标准化后范围</span><br><span class="line">plt.scatter(X[:, 0], X[:, 1], c=y)</span><br><span class="line">plt.show()</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)</span><br><span class="line">clf = SVC()</span><br><span class="line">clf.fit(X_train, y_train)</span><br><span class="line">print(clf.score(X_test, y_test))</span><br><span class="line"># 0.9</span><br></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/8448458-61a2b4c0ce272db8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="标准化后数据"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/hello/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LEMON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LEMON的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/01/hello/" itemprop="url">Hello</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-01T14:54:21+08:00">
-                2017-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python基础/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
           
         
       
