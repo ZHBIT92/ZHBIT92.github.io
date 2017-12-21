@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5308475-ef8a4643f33fbaa1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5308475-bd6fb55b6847d13a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-bb96dd5d344104d4.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-12-20T15:38:54.663Z">
+<meta property="og:updated_time" content="2017-12-21T02:36:53.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello优化相关">
 <meta name="twitter:description" content="优化(http://blog.csdn.net/mynamelijun/article/details/52196184) 速度优化 Hexo博客优化，如何加快你的博客访问速度  主题优化 参考next主题优化  next主题外观优化侧边栏社交小图标设置 实现效果图 具体实现方法打开主题配置文件（_config.yml），搜索social_icons:,在图标库找自己喜欢的小图标，并将名字复制在如">
@@ -322,7 +322,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  
+                  1,159字
                 </span>
               
 
@@ -401,8 +401,13 @@
 <p>然后在主题的配置文件中，配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/willin/hexo-wordcount</span><br><span class="line">post_wordcount:</span><br><span class="line">  item_text: true</span><br><span class="line">  wordcount: true</span><br><span class="line">  min2read: false</span><br></pre></td></tr></table></figure></p>
 <p>优化<br>找到Blog\themes\next\layout\macro\post.swig 文件<br>搜到找到如下代码</p>
 <ul>
-<li>注：这里会出现markdowm的语法错误，原因是wordcount()被当成特殊字符，<a href="http://blog.csdn.net/chwshuang/article/details/52350559" target="_blank" rel="noopener">详细请看</a><br>改为图片显示为<br><img src="http://upload-images.jianshu.io/upload_images/8448458-bb96dd5d344104d4.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<li><p>注：(个人出现的markdown语法错误)这里会出现markdowm的语法错误，原因是<code>wordcount()</code>被当成特殊字符，<a href="http://blog.csdn.net/chwshuang/article/details/52350559" target="_blank" rel="noopener">详细请看</a><br>改为图片显示为<br><img src="http://upload-images.jianshu.io/upload_images/8448458-bb96dd5d344104d4.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>另一个错误是该插件版本与node.js版本不兼容，<code>hexo g</code>时会报如下错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ERROR Plugin load failed: hexo-wordcount</span><br><span class="line">Error: Cannot find module &apos;numeral&apos;</span><br><span class="line">    at Function.Module._resolveFilename (module.js:489:15)</span><br><span class="line">    at Function.Module._load (module.js:439:25)</span><br><span class="line">    at Module.require (module.js:517:17)</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<p>指定老的版本即可：<code>cnpm install hexo-wordcount@2 --save</code></p>
 <h2 id="参考的网站"><a href="#参考的网站" class="headerlink" title="参考的网站"></a>参考的网站</h2><h3 id="js系列"><a href="#js系列" class="headerlink" title="js系列"></a>js系列</h3><ul>
 <li><a href="http://caibaojian.com/menu-scroll-active.html" target="_blank" rel="noopener">导航随内容滚动而跟随变化</a></li>
 <li><a href="http://caibaojian.com/jquery-scrollto.html" target="_blank" rel="noopener">jq点击滑动到某个位置</a></li>
@@ -526,7 +531,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -537,7 +542,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -548,7 +553,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -651,7 +656,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共字</span>
+  <span class="post-count">博客全站共21.1k字</span>
 </div>
 
 
