@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5308475-ef8a4643f33fbaa1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5308475-bd6fb55b6847d13a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-bb96dd5d344104d4.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-12-20T15:10:54.353Z">
+<meta property="og:updated_time" content="2017-12-20T15:38:54.663Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello优化相关">
 <meta name="twitter:description" content="优化(http://blog.csdn.net/mynamelijun/article/details/52196184) 速度优化 Hexo博客优化，如何加快你的博客访问速度  主题优化 参考next主题优化  next主题外观优化侧边栏社交小图标设置 实现效果图 具体实现方法打开主题配置文件（_config.yml），搜索social_icons:,在图标库找自己喜欢的小图标，并将名字复制在如">
@@ -356,7 +356,10 @@
 </ul>
 <h2 id="next主题外观优化"><a href="#next主题外观优化" class="headerlink" title="next主题外观优化"></a>next主题外观优化</h2><h3 id="侧边栏社交小图标设置"><a href="#侧边栏社交小图标设置" class="headerlink" title="侧边栏社交小图标设置"></a>侧边栏社交小图标设置</h3><ul>
 <li>实现效果图<br><img src="http://upload-images.jianshu.io/upload_images/5308475-20e8bba1ad3b343f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li>具体实现方法<br>打开主题配置文件（_config.yml），搜索social_icons:,在图标库找自己喜欢的小图标，并将名字复制在如下位置<br><img src="http://upload-images.jianshu.io/upload_images/5308475-21e22b05edc57b5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><h3 id="在网站底部加上访问量"><a href="#在网站底部加上访问量" class="headerlink" title="在网站底部加上访问量"></a>在网站底部加上访问量</h3></li>
+<li>具体实现方法<br>打开主题配置文件（<code>_config.yml</code>），搜索social_icons:,在图标库找自己喜欢的小图标，并将名字复制在如下位置<br><img src="http://upload-images.jianshu.io/upload_images/5308475-21e22b05edc57b5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><a id="more"></a>
+</li>
+</ul>
+<h3 id="在网站底部加上访问量"><a href="#在网站底部加上访问量" class="headerlink" title="在网站底部加上访问量"></a>在网站底部加上访问量</h3><ul>
 <li>具体实现方法<br>打开\themes\next\layout_partials\footer.swig文件,在copyright前加上画红线这句话：<br><img src="http://upload-images.jianshu.io/upload_images/5308475-ef8a4643f33fbaa1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -386,7 +389,7 @@
 </ol>
 <p>把<code>enable</code> 的<code>false</code>改成<code>true</code>就行了，然后<code>length</code>是设定文章预览的文本长度。<br>修改后重启 hexo 就ok了。</p>
 <ol>
-<li>方法一：手动显示<br>在你写 md 文章的时候，可以在内容中加上 <a id="more"></a>，这样首页和列表页展示的文章内容就是 <!--more--> 之前的文字，而之后的就不会显示了。</li>
+<li>方法一：手动显示<br>在你写 md 文章的时候，可以在内容中加上 <code>&lt;!--more--&gt;</code>，这样首页和列表页展示的文章内容就是 <code>&lt;!--more--&gt;</code>之前的文字，而之后的就不会显示了。</li>
 </ol>
 <h3 id="修改文章底部的那个带-号的标签"><a href="#修改文章底部的那个带-号的标签" class="headerlink" title="修改文章底部的那个带#号的标签"></a>修改文章底部的那个带#号的标签</h3><ul>
 <li>具体实现方法</li>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="LEMON的博客">
 <meta property="og:description" content="numpy常用函数 mat( ): 将数组转化为矩阵 np.I 操作符: 实现了矩阵求逆的运算 np.log:是计算对数函数 np.abss:是计算数据的绝对值 np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)  1. np.exp() 使用np.exp（）12345import numpy as np# example of np.expx = np">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-18T15:20:17.409Z">
+<meta property="og:updated_time" content="2017-12-20T15:42:56.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="章二习题（NumPy基础、广播和向量化）">
 <meta name="twitter:description" content="numpy常用函数 mat( ): 将数组转化为矩阵 np.I 操作符: 实现了矩阵求逆的运算 np.log:是计算对数函数 np.abss:是计算数据的绝对值 np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)  1. np.exp() 使用np.exp（）12345import numpy as np# example of np.expx = np">
@@ -353,10 +353,11 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2.71828183  7.3890561  20.08553692]</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <ul>
-<li>实现sigmoid函数</li>
+<li>实现sigmoid函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np </span><br><span class="line"></span><br><span class="line">def sigmoid(x):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Arguments:</span><br><span class="line">    x -- A scalar or numpy array of any size</span><br><span class="line">    # x-- 任何大小的标量或numpy数组</span><br><span class="line">    Return:</span><br><span class="line">    s -- sigmoid(x)</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    s = 1 / (1 + np.exp(-x))</span><br><span class="line">    </span><br><span class="line">    return s</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np </span><br><span class="line"></span><br><span class="line">def sigmoid(x):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Arguments:</span><br><span class="line">    x -- A scalar or numpy array of any size</span><br><span class="line">    # x-- 任何大小的标量或numpy数组</span><br><span class="line">    Return:</span><br><span class="line">    s -- sigmoid(x)</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    s = 1 / (1 + np.exp(-x))</span><br><span class="line">    </span><br><span class="line">    return s</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">sigmoid(x)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>Sigmoid梯度</li>

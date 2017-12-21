@@ -343,21 +343,22 @@
 
       
         
-          
-          3.1 概论
-逻辑回归
-
-
-首先你需要输入特征 x，参数W 和b ，通过 z = w^t * x + b T 你就可以计算出 z ，接下来使用 a = a(z) 就可以计算出a。我们将a的符号换为表示输出的 ŷ，然后可以计算出损失函数ℒ(a,y)。
-
-
-基本神经网络结构
-
-
-首先 X 表示输入特征，W 和 b 是参数，z1 = Wx + b1计算出 z1。
-使用x^(i)表示第 i 个训练样本，上标方括号 1、2 表示不同的层，图中[1]表示神经网络的第一层， [2]表示神经网络的第二层 。
-类似逻辑回归，在计算z^[1] 后需要使用σ(z^[1])计算 a^[1]，接下来你需要使用另外一个
-          ...
+          <h3 id="3-1-概论"><a href="#3-1-概论" class="headerlink" title="3.1 概论"></a>3.1 概论</h3><ol>
+<li>逻辑回归<br><img src="http://upload-images.jianshu.io/upload_images/8448458-d5f7266841037bb0.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/8448458-87ddf367bcff002f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="中间层的隐藏单元中的计算"></li>
+</ol>
+<ul>
+<li>首先你需要输入特征 x，参数W 和b ，通过 z = w^t * x + b T 你就可以计算<br>出 z ，接下来使用 a = a(z) 就可以计算出a。我们将a的符号换为表示输出的 ŷ，然后可以计算出损失函数ℒ(a,y)。</li>
+</ul>
+<ol>
+<li>基本神经网络结构<br><img src="http://upload-images.jianshu.io/upload_images/8448458-2956be5cbe571b9b.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ol>
+<ul>
+<li>首先 X 表示输入特征，W 和 b 是参数，z1 = Wx + b1计算出 z1。</li>
+<li>使用x^(i)表示第 i 个训练样本，上标方括号 1、2 表示不同的层，图中[1]表示神经网络的第一层， [2]表示神经网络的第二层 。</li>
+<li>类似逻辑回归，在计算z^[1] 后需要使用σ(z^[1])计算 a^[1]，接下来你需要使用另外一个线<br>z^[2] = W^[2] * a^[1]  + b^[2]计算 z^[2], a^[2] = σ(z^[2]) 计算a^[2] ，此时a^[2] 就是整个神经网络最终的输出，用 𝑦表示网络的输出。</li>
+</ul>
+<ol>
+<li>反向计算
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/21/w第三章-浅层神经网络/#more" rel="contents">
@@ -522,20 +523,18 @@
 
       
         
-          
-          numpy常用函数
-mat( ): 将数组转化为矩阵
-np.I 操作符: 实现了矩阵求逆的运算
-np.log:是计算对数函数
-np.abss:是计算数据的绝对值
-np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)
-
-1. np.exp()
-使用np.exp（）12345import numpy as np# example of np.expx = np.array([1, 2, 3])print(np.exp(x)) # result is (exp(1), exp(2), exp(3))
-
-
-1[2.71828183  7.3890561  20
-          ...
+          <h3 id="numpy常用函数"><a href="#numpy常用函数" class="headerlink" title="numpy常用函数"></a>numpy常用函数</h3><ul>
+<li>mat( ): 将数组转化为矩阵</li>
+<li>np.I 操作符: 实现了矩阵求逆的运算</li>
+<li>np.log:是计算对数函数</li>
+<li>np.abss:是计算数据的绝对值</li>
+<li>np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)</li>
+</ul>
+<h4 id="1-np-exp"><a href="#1-np-exp" class="headerlink" title="1. np.exp()"></a>1. np.exp()</h4><ul>
+<li>使用np.exp（）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"># example of np.exp</span><br><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">print(np.exp(x)) # result is (exp(1), exp(2), exp(3))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2.71828183  7.3890561  20.08553692]</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/14/w章二习题（NumPy基础、广播和向量化）/#more" rel="contents">
@@ -700,20 +699,23 @@ np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)
 
       
         
-          
-          numpy常用函数
-mat( ): 将数组转化为矩阵
-np.I 操作符: 实现了矩阵求逆的运算
-np.log:是计算对数函数
-np.abss:是计算数据的绝对值
-np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)
-
-1. np.exp()
-使用np.exp（）12345import numpy as np# example of np.expx = np.array([1, 2, 3])print(np.exp(x)) # result is (exp(1), exp(2), exp(3))
-
-
-1[2.71828183  7.3890561  20
-          ...
+          <h3 id="numpy常用函数"><a href="#numpy常用函数" class="headerlink" title="numpy常用函数"></a>numpy常用函数</h3><ul>
+<li>mat( ): 将数组转化为矩阵</li>
+<li>np.I 操作符: 实现了矩阵求逆的运算</li>
+<li>np.log:是计算对数函数</li>
+<li>np.abss:是计算数据的绝对值</li>
+<li>np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)</li>
+</ul>
+<h4 id="1-np-exp"><a href="#1-np-exp" class="headerlink" title="1. np.exp()"></a>1. np.exp()</h4><ul>
+<li>使用np.exp（）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"># example of np.exp</span><br><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">print(np.exp(x)) # result is (exp(1), exp(2), exp(3))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2.71828183  7.3890561  20.08553692]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实现sigmoid函数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np </span><br><span class="line"></span><br><span class="line">def sigmoid(x):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Arguments:</span><br><span class="line">    x -- A scalar or numpy array of any size</span><br><span class="line">    # x-- 任何大小的标量或numpy数组</span><br><span class="line">    Return:</span><br><span class="line">    s -- sigmoid(x)</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    s = 1 / (1 + np.exp(-x))</span><br><span class="line">    </span><br><span class="line">    return s</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">sigmoid(x)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/14/章二习题（NumPy基础、广播和向量化）/#more" rel="contents">
@@ -878,20 +880,13 @@ np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)
 
       
         
-          
-          2.1 二分分类
-计算机保存一张图片，要保存三个独立矩阵，分别对应红、绿、蓝三个颜色通道举例：图为一张猫图，像素为 64x64， 就有三个 64x64 的矩阵
-用特征向量 x 来表示图片则图片的维度n = nx = 64  64  3 = 12 288
-在二分类问题中，目标是训练出一个分类器（x 作为输入，预测输出的结果标签为 y）
-上图表现的是x是nx维的特征向量
-训练集由m个训练样本构成
-X矩阵式m列 高为nx （训练样本作为列向量堆叠）（约定格式）注： 也有(训练样本作为行向量堆叠）的矩阵形式，但在神经网络中一般用约定格式
-
-2.2 logistic 回归模型
-
-线性回归中可用 
-y =
-          ...
+          <h3 id="2-1-二分分类"><a href="#2-1-二分分类" class="headerlink" title="2.1 二分分类"></a>2.1 二分分类</h3><ul>
+<li>计算机保存一张图片，要保存三个独立矩阵，分别对应红、绿、蓝三个颜色通道<br>举例：图为一张猫图，像素为 64x64， 就有三个 64x64 的矩阵<br><img src="http://upload-images.jianshu.io/upload_images/8448458-d9544ba0627121c1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-1.jpg"></li>
+<li>用特征向量 x 来表示图片<br>则图片的维度n = nx = 64 <em> 64 </em> 3 = 12 288</li>
+<li>在二分类问题中，目标是训练出一个分类器（x 作为输入，预测输出的结果标签为 y）<br><img src="http://upload-images.jianshu.io/upload_images/8448458-9d25ceb326c80a72.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-2.jpg"></li>
+<li>上图表现的是x是nx维的特征向量</li>
+<li>训练集由m个训练样本构成</li>
+<li>X矩阵式m列 高为nx （训练样本作为列向量堆叠）（约定格式）<br>注： 也有(训练样本作为行向量堆叠）的矩阵形式，但在神经网络中一般用约定格式
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/09/w第二章-神经网络基础（logistic 回归函数、向量化）/#more" rel="contents">
@@ -1056,45 +1051,64 @@ y =
 
       
         
-          
-          
-
-NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。二、单层神经元1. 问题描述
-
-
-问题
-
-
-假设在一群人中，我们只能获得每个人的三个特征：
-
-
-特征1：长发（1）还是短发（0）
-特征2：衣服颜色是红色（1）还是不是红色（0）
-特征3：身高大于178cm（1）还是不超过178（0）
-
-
-假设我们只知道其中四个人的性别（男：0，女：1），我们需要依据这四个人的三个特征以及性别训练一个神经网络，用于预测一个人的性别。
-因此该问题有三个输入，一个输出。
-
-
-样本信息如下：
-
-
-
-
-头发
-衣服
-身高
-性别
-
-
-
-
-0
-0
-1
-
-          ...
+          <p><img src="http://upload-images.jianshu.io/upload_images/2119554-99babd034ca437fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<ul>
+<li>NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。<h3 id="二、单层神经元"><a href="#二、单层神经元" class="headerlink" title="二、单层神经元"></a>二、单层神经元</h3><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4></li>
+</ul>
+<ol>
+<li>问题</li>
+</ol>
+<ul>
+<li>假设在一群人中，我们只能获得每个人的三个特征：</li>
+</ul>
+<ol>
+<li>特征1：长发（1）还是短发（0）</li>
+<li>特征2：衣服颜色是红色（1）还是不是红色（0）</li>
+<li>特征3：身高大于178cm（1）还是不超过178（0）</li>
+</ol>
+<ul>
+<li>假设我们只知道其中四个人的性别（男：0，女：1），我们需要依据这四个人的三个特征以及性别训练一个神经网络，用于预测一个人的性别。</li>
+<li>因此该问题有三个输入，一个输出。</li>
+</ul>
+<ol>
+<li>样本信息如下：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>头发</th>
+<th>衣服</th>
+<th>身高</th>
+<th>性别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/08/机器学习实战四（神经网络）/#more" rel="contents">
@@ -1259,53 +1273,35 @@ NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数�
 
       
         
-          
-          参考文章
-学习路线
-
-
-机器学习系列_机器学习路线图(附资料)
-【重磅干货整理】机器学习(Machine Learning)与深度学习(Deep Learning)资料汇总：真的是超多干货
-
-零.算法概念
-监督学习：需要用已知结果的数据做训练
-无监督学习：不需要已知标签
-连续型数据和离散型数据
-
-1.算法分类
-监督学习的用途
-
-分类
-
-k-邻近算法
-朴素贝叶斯算法
-支持向量机
-决策树
-
-回归
-
-线性回归
-逻辑回归
-局部加权线性回归
-Ridge回归
-Lasso 最小回归系数估计
-
-
-无监督学习的用途
-
-
-聚类和降维
-K-均值
-DBSCAN
-最大期望算法
-Parzcn窗设计
-
-
-特殊算法
-
-
-推荐
-          ...
+          <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ol>
+<li>学习路线</li>
+</ol>
+<ul>
+<li><a href="http://blog.csdn.net/longxinchen_ml/article/details/50749614" target="_blank" rel="noopener">机器学习系列_机器学习路线图(附资料)</a></li>
+<li><a href="http://blog.csdn.net/zhongwen7710/article/details/45331915" target="_blank" rel="noopener">【重磅干货整理】机器学习(Machine Learning)与深度学习(Deep Learning)资料汇总</a>：真的是超多干货</li>
+</ul>
+<h3 id="零-算法概念"><a href="#零-算法概念" class="headerlink" title="零.算法概念"></a>零.算法概念</h3><ol>
+<li>监督学习：需要用已知结果的数据做训练</li>
+<li>无监督学习：不需要已知标签</li>
+<li>连续型数据和离散型数据</li>
+</ol>
+<h3 id="1-算法分类"><a href="#1-算法分类" class="headerlink" title="1.算法分类"></a>1.算法分类</h3><ol>
+<li>监督学习的用途</li>
+</ol>
+<p>分类</p>
+<ul>
+<li>k-邻近算法</li>
+<li>朴素贝叶斯算法</li>
+<li>支持向量机</li>
+<li>决策树</li>
+</ul>
+<p>回归</p>
+<ul>
+<li>线性回归</li>
+<li>逻辑回归</li>
+<li>局部加权线性回归</li>
+<li>Ridge回归</li>
+<li>Lasso 最小回归系数估计
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/06/机器学习实战总结/#more" rel="contents">
@@ -1470,19 +1466,22 @@ Parzcn窗设计
 
       
         
-          
-          零. 常见1TypeError: &apos;range&apos; object doesn&apos;t support item deletion
-
-注：3.x中range()要改为list(rang())，因为python3中range不返回数组对象，而是返回range对象
-
-1AttributeError: &apos;dict&apos; object has no attribute &apos;iteritems&apos;
-
-iteritems()要改为items()
-
-二. kNN
-报错：
-1NameError: name &apos;reload&apos; is not
-          ...
+          <h2 id="零-常见"><a href="#零-常见" class="headerlink" title="零. 常见"></a>零. 常见</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: &apos;range&apos; object doesn&apos;t support item deletion</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注：3.x中range()要改为list(rang())，因为python3中range不返回数组对象，而是返回range对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: &apos;dict&apos; object has no attribute &apos;iteritems&apos;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>iteritems()要改为items()</li>
+</ul>
+<h2 id="二-kNN"><a href="#二-kNN" class="headerlink" title="二. kNN"></a>二. kNN</h2><ul>
+<li><p>报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NameError: name &apos;reload&apos; is not defined</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在前面加入命令(个人推荐直接写在mian函数里面简单快捷)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from imp import reload</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/05/机器学习实战-Py3.X错误合集/#more" rel="contents">
@@ -1647,23 +1646,22 @@ iteritems()要改为items()
 
       
         
-          
-          一、概述1. 原理：
-工作机制：2. 优缺点
-优点：在数据少的情况下有效，可以处理多类别问题
-缺点：
-
-对于输入数据的准备方式较为敏感
-
-
-适用数据范围：标称型数据3.条件概论：
-在B的条件下A出现的概率。p(A|B)=p(AB)/p(B)
-交换条件中的条件与结果：p(B|A)=p(A|B)*p(B)/p(A)4.贝叶斯决策理论的核心思想：
-选择具有最高概论的决策5.朴素贝叶斯算法的两个假设：
-(1)每个特征之间都是独立的，这就使得公式：
-p((f1,f2,…fn)|c)=p(f1|c)p(f2|c)…p(fn|c)
-(2)每个特征同等重要，我们拿文本分类做例子，把文档中的单词作为特征。这种假
-          ...
+          <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><h4 id="1-原理："><a href="#1-原理：" class="headerlink" title="1. 原理："></a>1. 原理：</h4><ul>
+<li>工作机制：<h4 id="2-优缺点"><a href="#2-优缺点" class="headerlink" title="2. 优缺点"></a>2. 优缺点</h4></li>
+<li>优点：在数据少的情况下有效，可以处理多类别问题</li>
+<li>缺点：</li>
+<li><ul>
+<li>对于输入数据的准备方式较为敏感</li>
+</ul>
+</li>
+<li>适用数据范围：标称型数据<h4 id="3-条件概论："><a href="#3-条件概论：" class="headerlink" title="3.条件概论："></a>3.条件概论：</h4></li>
+<li>在B的条件下A出现的概率。<br><code>p(A|B)=p(AB)/p(B)</code></li>
+<li>交换条件中的条件与结果：<br><code>p(B|A)=p(A|B)*p(B)/p(A)</code><h4 id="4-贝叶斯决策理论的核心思想："><a href="#4-贝叶斯决策理论的核心思想：" class="headerlink" title="4.贝叶斯决策理论的核心思想："></a>4.贝叶斯决策理论的核心思想：</h4></li>
+<li>选择具有最高概论的决策<h4 id="5-朴素贝叶斯算法的两个假设："><a href="#5-朴素贝叶斯算法的两个假设：" class="headerlink" title="5.朴素贝叶斯算法的两个假设："></a>5.朴素贝叶斯算法的两个假设：</h4></li>
+<li>(1)每个特征之间都是独立的，这就使得公式：</li>
+<li>p((f1,f2,…fn)|c)=p(f1|c)p(f2|c)…p(fn|c)</li>
+<li>(2)每个特征同等重要，我们拿文本分类做例子，把文档中的单词作为特征。这种假设使得我们在进行分类的过程中无需考虑单词出现的次数，只考虑单词出现与否。这也就贝叶斯算法的贝努利模型实现方式。</li>
+<li>注：贝叶斯的另一种实现方式为多项式模型，在这种模型中则需要考虑单词的出现次数。
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/04/机器学习实战三（朴素贝叶斯）/#more" rel="contents">
@@ -1828,32 +1826,28 @@ p((f1,f2,…fn)|c)=p(f1|c)p(f2|c)…p(fn|c)
 
       
         
-          
-          一、概述1. 原理：
-工作机制：2. 优缺点
-优点：计算代价不高，易于理解和实现
-缺点：
-
-容易欠拟合，分类精度可能不高
-
-
-适用数据范围：数值型和标称型数据
-
-理论
-二、算法流程
-收集数据：anyway
-准备数据：需要数值型(要进行距离计算)，结构化数据格式最佳
-分析数据：anyway
-训练算法：大部分时间将用于训练，训练的目的是为了找到最佳的分类回归系数
-测试算法：一旦训练步骤完成，分类将会很快
-使用算法：
-
-
-步骤一：输入一些数据，并将其转换成对应的结构化数值；
-步骤二：基于训练好的回归系数对数值进行简单的回归计算，判定它们属于哪个类别；随后在输出的类别上做一些其他的分析工作
-
-三、算法
-          ...
+          <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><h4 id="1-原理："><a href="#1-原理：" class="headerlink" title="1. 原理："></a>1. 原理：</h4><ul>
+<li>工作机制：<h4 id="2-优缺点"><a href="#2-优缺点" class="headerlink" title="2. 优缺点"></a>2. 优缺点</h4></li>
+<li>优点：计算代价不高，易于理解和实现</li>
+<li>缺点：</li>
+<li><ul>
+<li>容易欠拟合，分类精度可能不高</li>
+</ul>
+</li>
+<li>适用数据范围：数值型和标称型数据</li>
+</ul>
+<p><a href="http://www.jianshu.com/p/823b25e4fbdb" target="_blank" rel="noopener">理论</a></p>
+<h3 id="二、算法流程"><a href="#二、算法流程" class="headerlink" title="二、算法流程"></a>二、算法流程</h3><ol>
+<li>收集数据：anyway</li>
+<li>准备数据：需要数值型(要进行距离计算)，结构化数据格式最佳</li>
+<li>分析数据：anyway</li>
+<li>训练算法：大部分时间将用于训练，训练的目的是为了找到最佳的分类回归系数</li>
+<li>测试算法：一旦训练步骤完成，分类将会很快</li>
+<li>使用算法：</li>
+</ol>
+<ul>
+<li>步骤一：输入一些数据，并将其转换成对应的结构化数值；</li>
+<li>步骤二：基于训练好的回归系数对数值进行简单的回归计算，判定它们属于哪个类别；随后在输出的类别上做一些其他的分析工作
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/03/wLogistic回归和Sigmoid函数/#more" rel="contents">
@@ -2018,42 +2012,48 @@ p((f1,f2,…fn)|c)=p(f1|c)p(f2|c)…p(fn|c)
 
       
         
-          
-          一. 决策树
-概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。
-优缺点
-
-
-优点
-
-易于理解和解释，甚至比线性回归更直观；
-
-
-
-与人类做决策思考的思维习惯契合；
-
-
-
-模型可以通过树的形式进行可视化展示；
-
-
-
-可以直接处理非数值型数据，不需要进行哑变量的转化，甚至可以直接处理含缺失值的数据；
-
-
-缺点：
-
-
-对于有大量数值型输入和输出的问题，决策树未必是一个好的选择；
-
-
-
-产生过拟合
-
-
-
-特别是当数值型变量之间存在许
-          ...
+          <h4 id="一-决策树"><a href="#一-决策树" class="headerlink" title="一. 决策树"></a>一. 决策树</h4><ol>
+<li>概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。</li>
+<li>优缺点</li>
+</ol>
+<ul>
+<li>优点</li>
+<li><ul>
+<li>易于理解和解释，甚至比线性回归更直观；</li>
+</ul>
+</li>
+<li><ul>
+<li>与人类做决策思考的思维习惯契合；</li>
+</ul>
+</li>
+<li><ul>
+<li>模型可以通过树的形式进行可视化展示；</li>
+</ul>
+</li>
+<li><ul>
+<li>可以直接处理非数值型数据，不需要进行哑变量的转化，甚至可以直接处理含缺失值的数据；</li>
+</ul>
+</li>
+<li><p>缺点：</p>
+</li>
+<li><ul>
+<li>对于有大量数值型输入和输出的问题，决策树未必是一个好的选择；</li>
+</ul>
+</li>
+<li><ul>
+<li>产生过拟合</li>
+</ul>
+</li>
+<li><ul>
+<li>特别是当数值型变量之间存在许多错综复杂的关系，如金融数据分析；</li>
+</ul>
+</li>
+<li><ul>
+<li>决定分类的因素取决于更多变量的复杂组合时；</li>
+</ul>
+</li>
+<li><ul>
+<li>模型不够稳健，某一个节点的小小变化可能导致整个树会有很大的不同。
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/02/机器学习实战二（决策树）/#more" rel="contents">

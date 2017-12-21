@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="LEMON的博客">
 <meta property="og:description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：  计算复杂度高、空间复杂度高，占用存储空间    无法给出数据的内在含义   适用数据范围：数值型和标称型3. 懒惰算法： 此类学习技术在训练阶段仅仅把样本保存起来">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-18T15:26:55.805Z">
+<meta property="og:updated_time" content="2017-12-20T15:39:22.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习实战一（K-邻近算法（KNN））">
 <meta name="twitter:description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：  计算复杂度高、空间复杂度高，占用存储空间    无法给出数据的内在含义   适用数据范围：数值型和标称型3. 懒惰算法： 此类学习技术在训练阶段仅仅把样本保存起来">
@@ -356,9 +356,10 @@
 </li>
 <li>适用数据范围：数值型和标称型<h4 id="3-懒惰算法："><a href="#3-懒惰算法：" class="headerlink" title="3. 懒惰算法："></a>3. 懒惰算法：</h4></li>
 <li>此类学习技术在训练阶段仅仅把样本保存起来</li>
-<li>==训练开支为零==，待收到测试样本后再进行处理<h3 id="二、算法流程"><a href="#二、算法流程" class="headerlink" title="二、算法流程"></a>二、算法流程</h3></li>
+<li>==训练开支为零==，待收到测试样本后再进行处理<a id="more"></a>
+</li>
 </ul>
-<ol>
+<h3 id="二、算法流程"><a href="#二、算法流程" class="headerlink" title="二、算法流程"></a>二、算法流程</h3><ol>
 <li>收集数据</li>
 <li>准备数据</li>
 <li>分析数据</li>

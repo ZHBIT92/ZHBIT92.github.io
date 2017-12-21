@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/8bd55fe42bb92cd736ab2bf965bf2644624cc46d">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2119554-d87ab086108ddb17.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2119554-6311b757f416bfbd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-12-18T16:41:08.547Z">
+<meta property="og:updated_time" content="2017-12-20T15:40:17.743Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习实战四（神经网络）">
 <meta name="twitter:description" content="NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。二、单层神经元1. 问题描述   问题   假设在一群人中，我们只能获得每个人的三个特征：   特征1：长发（1）还是短发（0） 特征2：衣服颜色是红色（1）还是不是红色（0） 特征3：身高大于178cm（1）还是不超过178（0）   假设我们只知道其中四个人的性别（男：">
@@ -405,6 +405,7 @@
 </tr>
 </tbody>
 </table>
+<a id="more"></a>
 <h4 id="2-简单的单层神经网络"><a href="#2-简单的单层神经网络" class="headerlink" title="2. 简单的单层神经网络"></a>2. 简单的单层神经网络</h4><ol>
 <li><p>用X表示输入的特征向量，由于每个样本有三个特征，一共有四个样本，所以我们定义一个4X3的矩阵，每一行代表一个样本</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import numpy</span><br><span class="line">import numpy as np</span><br><span class="line"># input dataset</span><br><span class="line">X = np.array([[0, 0, 1],</span><br><span class="line">              [0, 1, 1],</span><br><span class="line">              [1, 0, 1],</span><br><span class="line">              [1, 1, 1]])</span><br></pre></td></tr></table></figure>

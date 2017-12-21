@@ -343,180 +343,10 @@
 
       
         
-          
-          正交化 Normalization数据标准化preprocessing.scale( )preprocessing.minmax_scale(X,feature_range=(0,1) ):feature_range是设置数据标准化后数据的范围，默认为0~11234567891011121314from sklearn import preprocessing #标准化数据模块import numpy as np#建立Arraya = np.array([[10, 2.7, 3.6],              [-100, 5, -2],              [120, 20, 40]
-          ...
+          <h2 id="正交化-Normalization"><a href="#正交化-Normalization" class="headerlink" title="正交化 Normalization"></a>正交化 Normalization</h2><h3 id="数据标准化"><a href="#数据标准化" class="headerlink" title="数据标准化"></a>数据标准化</h3><p>preprocessing.scale( )<br>preprocessing.minmax_scale(X,feature_range=(0,1) ):<br>feature_range是设置数据标准化后数据的范围，默认为0~1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import preprocessing #标准化数据模块</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">#建立Array</span><br><span class="line">a = np.array([[10, 2.7, 3.6],</span><br><span class="line">              [-100, 5, -2],</span><br><span class="line">              [120, 20, 40]], dtype=np.float64)</span><br><span class="line"># 打印出原来的a</span><br><span class="line">print(a)</span><br><span class="line">#将normalized后的a打印出</span><br><span class="line">print(preprocessing.scale(a))</span><br><span class="line"># [[ 0.         -0.85170713 -0.55138018]</span><br><span class="line">#  [-1.22474487 -0.55187146 -0.852133  ]</span><br><span class="line">#  [ 1.22474487  1.40357859  1.40351318]]</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/20/Sklearn进阶/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/Anaconda基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LEMON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LEMON的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/19/Anaconda基础/" itemprop="url">Anaconda中jupyter notebook的使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T14:54:21+08:00">
-                2017-12-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          工作路径设置方法一找到Anaconda创建的快捷方式目标中的属性如下D:\ProgramData\Anaconda3\python.exe D:\ProgramData\Anaconda3\cwp.py D:\ProgramData\Anaconda3 &quot;D:/ProgramData/Anaconda3/python.exe&quot; &quot;D:/ProgramData/Anaconda3/Scripts/jupyter-notebook-script.py&quot; %USERPROFILE%把最后的%USERPROFILE%改为你要用的目录地址r
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/19/Anaconda基础/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -741,6 +571,171 @@ Numpy基础
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/Anaconda基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/19/Anaconda基础/" itemprop="url">Anaconda中jupyter notebook的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T14:54:21+08:00">
+                2017-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="工作路径设置"><a href="#工作路径设置" class="headerlink" title="工作路径设置"></a>工作路径设置</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>找到Anaconda创建的快捷方式<br>目标中的属性如下<br>D:\ProgramData\Anaconda3\python.exe……D:/ProgramData/Anaconda3/Scripts/jupyter-notebook-script.py” %USERPROFILE%<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/19/Anaconda基础/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/Sklearn基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -852,15 +847,13 @@ Numpy基础
 
       
         
-          
-          简介与安装概述Scikit learn 也简称 sklearn, 是机器学习领域当中最知名的 python 模块之一.其包含了许多机器学习的方法的
-Sklearn 把所有机器学习的模式整合统一起来了，学会了一个模式就可以通吃其他不同类型的学习模式。
-安装
-Windows下使用Anaconda(https://www.anaconda.com/download/)
-
-选择学习方法（模型流程）安装完 Sklearn 后，不要直接去用，先了解一下都有什么模型方法，然后选择适当的方法，来达到你的目标。
-看流程图选方法klearn 官网提供了一个流程图，蓝色圆圈内是判断条件，绿色方框内是可以选择的算法：
-          ...
+          <h2 id="简介与安装"><a href="#简介与安装" class="headerlink" title="简介与安装"></a>简介与安装</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>Scikit learn 也简称 sklearn, 是机器学习领域当中最知名的 python 模块之一.其包含了许多机器学习的方法的</p>
+<p>Sklearn 把所有机器学习的模式整合统一起来了，学会了一个模式就可以通吃其他不同类型的学习模式。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li>Windows下使用Anaconda(<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">https://www.anaconda.com/download/</a>)</li>
+</ul>
+<h2 id="选择学习方法（模型流程）"><a href="#选择学习方法（模型流程）" class="headerlink" title="选择学习方法（模型流程）"></a>选择学习方法（模型流程）</h2><p>安装完 Sklearn 后，不要直接去用，先了解一下都有什么模型方法，然后选择适当的方法，来达到你的目标。</p>
+<h3 id="看流程图选方法"><a href="#看流程图选方法" class="headerlink" title="看流程图选方法"></a>看流程图选方法</h3><p>klearn 官网提供了一个<a href="http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html" target="_blank" rel="noopener">流程图</a>，蓝色圆圈内是判断条件，绿色方框内是可以选择的算法：<br><img src="http://upload-images.jianshu.io/upload_images/1667471-b9cf0b0ca146ecca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/18/Sklearn基础/#more" rel="contents">
@@ -1034,37 +1027,7 @@ Windows下使用Anaconda(https://www.anaconda.com/download/)
 </ul>
 <h2 id="next主题外观优化"><a href="#next主题外观优化" class="headerlink" title="next主题外观优化"></a>next主题外观优化</h2><h3 id="侧边栏社交小图标设置"><a href="#侧边栏社交小图标设置" class="headerlink" title="侧边栏社交小图标设置"></a>侧边栏社交小图标设置</h3><ul>
 <li>实现效果图<br><img src="http://upload-images.jianshu.io/upload_images/5308475-20e8bba1ad3b343f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li>具体实现方法<br>打开主题配置文件（_config.yml），搜索social_icons:,在图标库找自己喜欢的小图标，并将名字复制在如下位置<br><img src="http://upload-images.jianshu.io/upload_images/5308475-21e22b05edc57b5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><h3 id="在网站底部加上访问量"><a href="#在网站底部加上访问量" class="headerlink" title="在网站底部加上访问量"></a>在网站底部加上访问量</h3></li>
-<li>具体实现方法<br>打开\themes\next\layout_partials\footer.swig文件,在copyright前加上画红线这句话：<br><img src="http://upload-images.jianshu.io/upload_images/5308475-ef8a4643f33fbaa1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>然后再合适的位置添加显示统计的代码，如图：<br><img src="http://upload-images.jianshu.io/upload_images/5308475-bd6fb55b6847d13a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;powered-by&quot;&gt;</span><br><span class="line">&lt;i class=&quot;fa fa-user-md&quot;&gt;&lt;/i&gt;&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">  本站访客数:&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;</span><br><span class="line">&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<p>在这里有两中不同计算方式的统计代码： </p>
-<ol>
-<li><p>pv的方式，单个用户连续点击n篇文章，记录n次访问量</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;</span><br><span class="line">    本站总访问量&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;次</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>uv的方式，单个用户连续点击n篇文章，只记录1次访客数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;</span><br><span class="line">  本站总访问量&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;次</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="网站底部字数统计"><a href="#网站底部字数统计" class="headerlink" title="网站底部字数统计"></a>网站底部字数统计</h3><p>切换到根目录下，然后运行如下代码（这里用cnpm）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install hexo-wordcount --save</span><br></pre></td></tr></table></figure></p>
-<p>然后在<code>/themes/next/layout/_partials/footer.swig</code>文件尾部加上:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;theme-info&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;powered-by&quot;&gt;&lt;/div&gt;</span><br><span class="line">  &lt;span class=&quot;post-count&quot;&gt;博客全站共&#123;&#123; totalcount(site) &#125;&#125;字&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
-<h3 id="为博客添加萌萌哒的宠物"><a href="#为博客添加萌萌哒的宠物" class="headerlink" title="为博客添加萌萌哒的宠物"></a>为博客添加萌萌哒的宠物</h3><ol>
-<li>国外的作者大神的<a href="http://abowman.com/google-modules/hamster/" target="_blank" rel="noopener">仓鼠</a></li>
-<li>看版娘(hexo集成了，所以设置比仓鼠简单点)<a href="https://github.com/EYHN/hexo-helper-live2d" target="_blank" rel="noopener">大佬github</a><br>步骤一 ：安装hexo-helper-live2d插件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>步骤二 ： 将如下代码加入主题<br>路径：打开Hexo/blog/themes/next/layout<br>的_layout.swig,将下面代码放到<code>&lt;/body&gt;</code>之前：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; live2d() &#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>步骤三 ： 参数配置<br>在 hexo 的<code>_config.yml</code>中添加参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  model: nipsilon</span><br></pre></td></tr></table></figure></p>
-<p>下面是一些model,可以换不同的宠物<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">model 模型名称 默认值: z16 </span><br><span class="line">Gantzert_Felixander</span><br><span class="line">Epsilon2.1</span><br><span class="line">haru</span><br><span class="line">miku</span><br><span class="line">ni-j</span><br><span class="line">nico</span><br><span class="line">nito</span><br><span class="line">nipsilon</span><br><span class="line">nietzsche</span><br><span class="line">shizuku</span><br><span class="line">tsumiki</span><br><span class="line">wanko</span><br><span class="line">z16</span><br><span class="line">hibiki</span><br><span class="line">koharu</span><br><span class="line">haruto</span><br><span class="line">Unitychan</span><br><span class="line">tororo</span><br><span class="line">hijiki</span><br><span class="line">width 宽度 默认值: 150</span><br><span class="line">height 高度 默认值： 300</span><br><span class="line">className &lt;canvas&gt;元素的类名 默认值： live2d</span><br><span class="line">id &lt;canvas&gt; 元素的id 默认值： live2dcanvas</span><br><span class="line">bottom &lt;canvas&gt; 元素的底部偏移 默认值： -20 如果嫌模型位置不正确 可以调整这个参数</span><br></pre></td></tr></table></figure></p>
-<h2 id="文章优化"><a href="#文章优化" class="headerlink" title="文章优化"></a>文章优化</h2><h3 id="阅读全文设置"><a href="#阅读全文设置" class="headerlink" title="阅读全文设置"></a>阅读全文设置</h3><ol>
-<li>方法一：自动截取显示<br>用文本编辑器打开next目录下的_config.yml文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Automatically Excerpt. Not recommend.</span><br><span class="line"># Please use &lt;!-- more --&gt; in the post to control excerpt accurately.</span><br><span class="line">auto_excerpt:</span><br><span class="line">  enable: false</span><br><span class="line">  length: 150</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>把<code>enable</code> 的<code>false</code>改成<code>true</code>就行了，然后<code>length</code>是设定文章预览的文本长度。<br>修改后重启 hexo 就ok了。</p>
-<ol>
-<li>方法一：手动显示<br>在你写 md 文章的时候，可以在内容中加上
+<li>具体实现方法<br>打开主题配置文件（<code>_config.yml</code>），搜索social_icons:,在图标库找自己喜欢的小图标，并将名字复制在如下位置<br><img src="http://upload-images.jianshu.io/upload_images/5308475-21e22b05edc57b5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="">
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/04/Hexo优化/#more" rel="contents">
@@ -1229,20 +1192,14 @@ Windows下使用Anaconda(https://www.anaconda.com/download/)
 
       
         
-          
-          想法
-看到人家的博客界面很漂亮，最近学习压力又大，就想自己写一个啦看到是用node.js的一个框架Hexo，简单又漂亮，还可以放在github上直接打开博客，那就直接上手吧。
-hexo文档链接
-
-安装首先安装依赖环境
-搭建个人博客-hexo+github详细完整步骤
-hexo安装失败(地址被“墙”)请参考-零基础免费搭建个人博客-hexo+github
-注：如用淘宝安装请改为cnpm install
-
-主题(可选)人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技
-在博客根目录下克隆next主题
-1git clone https://github.com/iissnan/hexo-the
-          ...
+          <h2 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h2><ul>
+<li>看到人家的博客界面很漂亮，最近学习压力又大，就想自己写一个啦<br>看到是用node.js的一个框架Hexo，简单又漂亮，还可以放在github上直接打开博客，那就直接上手吧。</li>
+<li>hexo文档<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">链接</a></li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="首先安装依赖环境"><a href="#首先安装依赖环境" class="headerlink" title="首先安装依赖环境"></a>首先安装依赖环境</h3><ul>
+<li><a href="http://www.jianshu.com/p/189fd945f38f" target="_blank" rel="noopener">搭建个人博客-hexo+github详细完整步骤</a></li>
+<li>hexo安装失败(地址被“墙”)请参考-<a href="http://blog.csdn.net/jzooo/article/details/46781805" target="_blank" rel="noopener">零基础免费搭建个人博客-hexo+github</a></li>
+<li>注：如用淘宝安装请改为<code>cnpm install</code>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/04/Hello-Hexo/#more" rel="contents">
@@ -1407,14 +1364,14 @@ hexo安装失败(地址被“墙”)请参考-零基础免费搭建个人博客-
 
       
         
-          
-          一、Numpy索引
-一维索引
-12345import numpy as npA = np.arange(3,15)# array([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])         print(A[3])    # 6
-
-二维索引
-12345678A = np.arange(3,15).reshape((3,4))&quot;&quot;&quot;array([[ 3,  4,  5,  6]       [ 7,  8,  9, 10]       [11, 12, 13, 14]])&quot;&quot;&quot;         p
-          ...
+          <h3 id="一、Numpy索引"><a href="#一、Numpy索引" class="headerlink" title="一、Numpy索引"></a>一、Numpy索引</h3><ol>
+<li><p>一维索引</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">A = np.arange(3,15)</span><br><span class="line"># array([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])</span><br><span class="line">         </span><br><span class="line">print(A[3])    # 6</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二维索引</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A = np.arange(3,15).reshape((3,4))</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">array([[ 3,  4,  5,  6]</span><br><span class="line">       [ 7,  8,  9, 10]</span><br><span class="line">       [11, 12, 13, 14]])</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">         </span><br><span class="line">print(A[2])         # [11 12 13 14]</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/04/NumPy（索引、array合并与分割）/#more" rel="contents">
@@ -1468,7 +1425,7 @@ hexo安装失败(地址被“墙”)请参考-零基础免费搭建个人博客-
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/NumPy（矩阵运算）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/NumPy（矩阵运算）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LEMON">
@@ -1487,7 +1444,7 @@ hexo安装失败(地址被“墙”)请参考-零基础免费搭建个人博客-
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/01/NumPy（矩阵运算）/" itemprop="url">NumPy（矩阵运算）</a></h1>
+                <a class="post-title-link" href="/2017/12/02/NumPy（矩阵运算）/" itemprop="url">NumPy（矩阵运算）</a></h1>
         
 
         <div class="post-meta">
@@ -1499,8 +1456,8 @@ hexo安装失败(地址被“墙”)请参考-零基础免费搭建个人博客-
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-01T15:31:21+08:00">
-                2017-12-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T15:31:21+08:00">
+                2017-12-02
               </time>
             
 
@@ -1579,18 +1536,25 @@ hexo安装失败(地址被“墙”)请参考-零基础免费搭建个人博客-
 
       
         
-          
-          一、基本运算
-基础加法、减、乘123456import numpy as npa=np.array([10,20,30,40])   # array([10, 20, 30, 40])b=np.arange(4)              # array([0, 1, 2, 3])c=a+b   # array([10, 21, 32, 43])c=a-b  # array([10, 19, 28, 37])c=a*b   # array([  0,  20,  60, 120])
-
-
-
-矩阵的乘法，针对的是第一个矩阵的行与第二个矩阵的列  
-umpy中，想要求出矩阵中各个元素的乘方需要依赖双
-          ...
+          <h3 id="一、基本运算"><a href="#一、基本运算" class="headerlink" title="一、基本运算"></a>一、基本运算</h3><ol>
+<li>基础加法、减、乘<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">a=np.array([10,20,30,40])   # array([10, 20, 30, 40])</span><br><span class="line">b=np.arange(4)              # array([0, 1, 2, 3])</span><br><span class="line">c=a+b   # array([10, 21, 32, 43])</span><br><span class="line">c=a-b  # array([10, 19, 28, 37])</span><br><span class="line">c=a*b   # array([  0,  20,  60, 120])</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>矩阵的乘法，针对的是第一个矩阵的行与第二个矩阵的列  </li>
+<li>umpy中，想要求出矩阵中各个元素的乘方需要依赖双星符号 <code>**</code>，以二次方举例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=b**2  # array([0, 1, 4, 9])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>逻辑判断</li>
+</ol>
+<ul>
+<li>在脚本中对print函数进行一些修改可以进行逻辑判断：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(b&lt;3)  </span><br><span class="line"># array([ True,  True,  True, False], dtype=bool)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/01/NumPy（矩阵运算）/#more" rel="contents">
+            <a class="btn" href="/2017/12/02/NumPy（矩阵运算）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1752,20 +1716,18 @@ umpy中，想要求出矩阵中各个元素的乘方需要依赖双
 
       
         
-          
-          常用函数
-mat( ): 将数组转化为矩阵
-np.I 操作符: 实现了矩阵求逆的运算
-np.log:是计算对数函数
-np.abss:是计算数据的绝对值
-np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)
-
-数据类型和形状
-NumPy 中处理数字的最常见方式是通过ndarray对象。它们与 Python 列表相似，但是可以有任意数量的维度。而且，ndarray支持快速的数学运算，这正是我们想要的。
-由于它可以存储任意数量的维度，你可以使用ndarray来表示我们之前提到的任意数据类型：标量、向量、矩阵或张量。
-
-12#为了方便使用numpy 采用np简
-          ...
+          <h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><ul>
+<li>mat( ): 将数组转化为矩阵</li>
+<li>np.I 操作符: 实现了矩阵求逆的运算</li>
+<li>np.log:是计算对数函数</li>
+<li>np.abss:是计算数据的绝对值</li>
+<li>np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)</li>
+</ul>
+<h2 id="数据类型和形状"><a href="#数据类型和形状" class="headerlink" title="数据类型和形状"></a>数据类型和形状</h2><ul>
+<li>NumPy 中处理数字的最常见方式是通过<code>ndarray</code>对象。它们与 Python 列表相似，但是可以有任意数量的维度。而且，<code>ndarray</code>支持快速的数学运算，这正是我们想要的。</li>
+<li>由于它可以存储任意数量的维度，你可以使用<code>ndarray</code>来表示我们之前提到的任意数据类型：标量、向量、矩阵或张量。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#为了方便使用numpy 采用np简写</span><br><span class="line">import numpy as np</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/01/NumPy（基础）/#more" rel="contents">

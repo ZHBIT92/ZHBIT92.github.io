@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="LEMON的博客">
 <meta property="og:description" content="常用函数 mat( ): 将数组转化为矩阵 np.I 操作符: 实现了矩阵求逆的运算 np.log:是计算对数函数 np.abss:是计算数据的绝对值 np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)  数据类型和形状 NumPy 中处理数字的最常见方式是通过ndarray对象。它们与 Python 列表相似，但是可以有任意数量的维度。而且，ndarr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-18T14:56:43.870Z">
+<meta property="og:updated_time" content="2017-12-20T15:41:28.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NumPy（基础）">
 <meta name="twitter:description" content="常用函数 mat( ): 将数组转化为矩阵 np.I 操作符: 实现了矩阵求逆的运算 np.log:是计算对数函数 np.abss:是计算数据的绝对值 np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)  数据类型和形状 NumPy 中处理数字的最常见方式是通过ndarray对象。它们与 Python 列表相似，但是可以有任意数量的维度。而且，ndarr">
@@ -353,6 +353,7 @@
 <li>由于它可以存储任意数量的维度，你可以使用<code>ndarray</code>来表示我们之前提到的任意数据类型：标量、向量、矩阵或张量。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#为了方便使用numpy 采用np简写</span><br><span class="line">import numpy as np</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="numpy-的几种属性（维度、行数和列数、元素个数）"><a href="#numpy-的几种属性（维度、行数和列数、元素个数）" class="headerlink" title="numpy 的几种属性（维度、行数和列数、元素个数）"></a>numpy 的几种属性（维度、行数和列数、元素个数）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">array = np.array([[1,2,3],[2,3,4]])  #列表转化为矩阵</span><br><span class="line">print(array)</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">array([[1, 2, 3],</span><br><span class="line">       [2, 3, 4]])</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">print(&apos;number of dim:&apos;,array.ndim)  # 维度</span><br><span class="line"># number of dim: 2</span><br><span class="line"></span><br><span class="line">print(&apos;shape :&apos;,array.shape)    # 行数和列数</span><br><span class="line"># shape : (2, 3)</span><br><span class="line"></span><br><span class="line">print(&apos;size:&apos;,array.size)   # 元素个数</span><br><span class="line"># size: 6</span><br></pre></td></tr></table></figure>
 <h3 id="创建-array"><a href="#创建-array" class="headerlink" title="创建 array"></a>创建 array</h3><p>array：创建数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([2,23,4])  # list 1d</span><br><span class="line">print(a)</span><br><span class="line"># [2 23 4]</span><br></pre></td></tr></table></figure></p>
@@ -426,7 +427,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/01/NumPy（矩阵运算）/" rel="prev" title="NumPy（矩阵运算）">
+              <a href="/2017/12/02/NumPy（矩阵运算）/" rel="prev" title="NumPy（矩阵运算）">
                 NumPy（矩阵运算） <i class="fa fa-chevron-right"></i>
               </a>
             

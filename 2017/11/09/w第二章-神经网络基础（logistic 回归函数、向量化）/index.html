@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-14e568c7fba033ec.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-0d1a10da192e86b1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-372eefe2663e11c7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-12-18T15:18:34.934Z">
+<meta property="og:updated_time" content="2017-12-20T15:43:45.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二章-神经网络基础（logistic 回归函数、向量化）">
 <meta name="twitter:description" content="2.1 二分分类 计算机保存一张图片，要保存三个独立矩阵，分别对应红、绿、蓝三个颜色通道举例：图为一张猫图，像素为 64x64， 就有三个 64x64 的矩阵 用特征向量 x 来表示图片则图片的维度n = nx = 64  64  3 = 12 288 在二分类问题中，目标是训练出一个分类器（x 作为输入，预测输出的结果标签为 y） 上图表现的是x是nx维的特征向量 训练集由m个训练样本构成 X矩">
@@ -355,7 +355,8 @@
 <li>在二分类问题中，目标是训练出一个分类器（x 作为输入，预测输出的结果标签为 y）<br><img src="http://upload-images.jianshu.io/upload_images/8448458-9d25ceb326c80a72.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-2.jpg"></li>
 <li>上图表现的是x是nx维的特征向量</li>
 <li>训练集由m个训练样本构成</li>
-<li>X矩阵式m列 高为nx （训练样本作为列向量堆叠）（约定格式）<br>注： 也有(训练样本作为行向量堆叠）的矩阵形式，但在神经网络中一般用约定格式</li>
+<li>X矩阵式m列 高为nx （训练样本作为列向量堆叠）（约定格式）<br>注： 也有(训练样本作为行向量堆叠）的矩阵形式，但在神经网络中一般用约定格式<a id="more"></a>
+</li>
 </ul>
 <h3 id="2-2-logistic-回归模型"><a href="#2-2-logistic-回归模型" class="headerlink" title="2.2 logistic 回归模型"></a>2.2 logistic 回归模型</h3><p><img src="http://upload-images.jianshu.io/upload_images/8448458-5c14e7234e115d0e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-3.jpg"></p>
 <ul>
