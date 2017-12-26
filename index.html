@@ -516,7 +516,7 @@
       
         
           
-          例子2创建数据加载 tensorflow 和 numpy 两个模块, 并且使用 numpy 来创建我们的数据.123456import tensorflow as tfimport numpy as np# create datax_data = np.random.rand(100).astype(np.float32)y_data = x_data*0.1 + 0.3
+          例子1创建数据加载 tensorflow 和 numpy 两个模块, 并且使用 numpy 来创建我们的数据.123456import tensorflow as tfimport numpy as np# create datax_data = np.random.rand(100).astype(np.float32)y_data = x_data*0.1 + 0.3
 搭建模型用 tf.Variable 来创建描述 y 的参数. 我们可以把y_data = x_data*0.1 + 0.3想象成y=Weights * x + biases, 然后神经网络也就是学着把 Weights 变成 
           ...
           <!--noindex-->
