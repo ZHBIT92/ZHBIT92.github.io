@@ -353,17 +353,17 @@
 </ul>
 <h2 id="主题-可选"><a href="#主题-可选" class="headerlink" title="主题(可选)"></a>主题(可选)</h2><h3 id="人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技"><a href="#人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技" class="headerlink" title="人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技"></a>人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技</h3><ul>
 <li><p>在博客根目录下克隆next主题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/iissnan/hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>然后在hexo根目录下的配置文件<code>_config.yml</code>中把 theme 的主题改为next（theme字段在配置的最后面）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: <span class="keyword">next</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>然后就是我们的好习惯（其实只换了主题文章没换的话只要-s就好）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>然后就登录<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 查看效果（然后你会发现博客打开速度变得超快，后面我们再继续优化）</p>
 </li>
-<li>next提供了四个主题风格选择，个人喜好Gemini风格<br>步骤是：打开next下的配置文件<code>_config.yml</code>，找到这一段选择主题<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># ---------------------------------------------------------------</span><br><span class="line"># Scheme Settings</span><br><span class="line"># ---------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
+<li>next提供了四个主题风格选择，个人喜好Gemini风格<br>步骤是：打开next下的配置文件<code>_config.yml</code>，找到这一段选择主题<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ---------------------------------------------------------------</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Scheme Settings</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Schemes</span></span><br><span class="line"><span class="meta">#</span><span class="bash">scheme: Muse</span></span><br><span class="line"><span class="meta">#</span><span class="bash">scheme: Mist</span></span><br><span class="line"><span class="meta">#</span><span class="bash">scheme: Pisces</span></span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="把博客静态文件上传到github或coding上"><a href="#把博客静态文件上传到github或coding上" class="headerlink" title="把博客静态文件上传到github或coding上"></a>把博客静态文件上传到github或coding上</h2><h2 id="把源代码上传到coding-net上-可选"><a href="#把源代码上传到coding-net上-可选" class="headerlink" title="把源代码上传到coding.net上(可选)"></a>把源代码上传到coding.net上(可选)</h2><ul>
@@ -375,10 +375,10 @@
 </ol>
 <h3 id="添加密匙"><a href="#添加密匙" class="headerlink" title="添加密匙"></a>添加密匙</h3><ul>
 <li><p>找到之前github生成的密匙</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$cd ~/.ssh</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/.ssh</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>运行如下命令，将公钥的内容复制到系统粘贴板(clipboard)中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip &lt; ~<span class="regexp">/.ssh/i</span>d_rsa.pub</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>然后放到coding个人配置的ssh中就ok啦</p>
 <h3 id="Hexo中上传到github"><a href="#Hexo中上传到github" class="headerlink" title="Hexo中上传到github"></a>Hexo中上传到github</h3><p>1.删除根目录和主题目录下的.git文件夹。2.修改根目录下的.gitignore文件为：/.deploy_git/public其实第一行留不留都一样，它是hexo默认的git配置文件夹，里面也有一个.git，使/.deploy_git里的文件无法被提交。public是每次hexo g新生成的静态博客文件，不需要同步。每次写完博客，hexo d之后再push一次就行</p>
@@ -632,7 +632,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共24.8k字</span>
+  <span class="post-count">博客全站共24.3k字</span>
 </div>
 
 

@@ -345,10 +345,10 @@
         
           <h3 id="一、Numpy索引"><a href="#一、Numpy索引" class="headerlink" title="一、Numpy索引"></a>一、Numpy索引</h3><ol>
 <li><p>一维索引</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">A = np.arange(3,15)</span><br><span class="line"># array([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])</span><br><span class="line">         </span><br><span class="line">print(A[3])    # 6</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">A = np.arange(<span class="number">3</span>,<span class="number">15</span>)</span><br><span class="line"># array([<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>])</span><br><span class="line">         </span><br><span class="line">print(A[<span class="number">3</span>])    # <span class="number">6</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>二维索引</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A = np.arange(3,15).reshape((3,4))</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">array([[ 3,  4,  5,  6]</span><br><span class="line">       [ 7,  8,  9, 10]</span><br><span class="line">       [11, 12, 13, 14]])</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">         </span><br><span class="line">print(A[2])         # [11 12 13 14]</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A = np.arange(<span class="number">3</span>,<span class="number">15</span>).reshape((<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line"><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">array([[ 3,  4,  5,  6]</span></span><br><span class="line"><span class="string">       [ 7,  8,  9, 10]</span></span><br><span class="line"><span class="string">       [11, 12, 13, 14]])</span></span><br><span class="line"><span class="string">"</span><span class="string">""</span></span><br><span class="line">         </span><br><span class="line">print(A[<span class="number">2</span>])         # [<span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span>]</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
           <!--noindex-->
@@ -516,191 +516,24 @@
       
         
           <h3 id="一、基本运算"><a href="#一、基本运算" class="headerlink" title="一、基本运算"></a>一、基本运算</h3><ol>
-<li>基础加法、减、乘<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">a=np.array([10,20,30,40])   # array([10, 20, 30, 40])</span><br><span class="line">b=np.arange(4)              # array([0, 1, 2, 3])</span><br><span class="line">c=a+b   # array([10, 21, 32, 43])</span><br><span class="line">c=a-b  # array([10, 19, 28, 37])</span><br><span class="line">c=a*b   # array([  0,  20,  60, 120])</span><br></pre></td></tr></table></figure>
+<li>基础加法、减、乘<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">a=np.array([<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>])   # array([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>])</span><br><span class="line">b=np.arange(<span class="number">4</span>)              # array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">c=a+b   # array([<span class="number">10</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">43</span>])</span><br><span class="line">c=a-b  # array([<span class="number">10</span>, <span class="number">19</span>, <span class="number">28</span>, <span class="number">37</span>])</span><br><span class="line">c=a*b   # array([  <span class="number">0</span>,  <span class="number">20</span>,  <span class="number">60</span>, <span class="number">120</span>])</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <ul>
 <li>矩阵的乘法，针对的是第一个矩阵的行与第二个矩阵的列  </li>
-<li>umpy中，想要求出矩阵中各个元素的乘方需要依赖双星符号 <code>**</code>，以二次方举例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=b**2  # array([0, 1, 4, 9])</span><br></pre></td></tr></table></figure>
+<li>umpy中，想要求出矩阵中各个元素的乘方需要依赖双星符号 <code>**</code>，以二次方举例<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=b**<span class="number">2</span>  # array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>])</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ol>
 <li>逻辑判断</li>
 </ol>
 <ul>
-<li>在脚本中对print函数进行一些修改可以进行逻辑判断：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(b&lt;3)  </span><br><span class="line"># array([ True,  True,  True, False], dtype=bool)</span><br></pre></td></tr></table></figure>
+<li>在脚本中对print函数进行一些修改可以进行逻辑判断：<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(b&lt;<span class="number">3</span>)  </span><br><span class="line"># <span class="keyword">array</span>([ <span class="literal">True</span>,  <span class="literal">True</span>,  <span class="literal">True</span>, <span class="literal">False</span>], dtype=bool)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/02/NumPy（矩阵运算）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/hello/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LEMON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LEMON的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/01/hello/" itemprop="url">Hello</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-01T14:54:21+08:00">
-                2017-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python基础/" itemprop="url" rel="index">
-                    <span itemprop="name">Python基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0字
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/01/hello/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -873,10 +706,177 @@
 <li>NumPy 中处理数字的最常见方式是通过<code>ndarray</code>对象。它们与 Python 列表相似，但是可以有任意数量的维度。而且，<code>ndarray</code>支持快速的数学运算，这正是我们想要的。</li>
 <li>由于它可以存储任意数量的维度，你可以使用<code>ndarray</code>来表示我们之前提到的任意数据类型：标量、向量、矩阵或张量。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#为了方便使用numpy 采用np简写</span><br><span class="line">import numpy as np</span><br></pre></td></tr></table></figure>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#为了方便使用numpy 采用np简写</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/01/NumPy（基础）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/hello/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/01/hello/" itemprop="url">Hello</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-01T14:54:21+08:00">
+                2017-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  0字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/01/hello/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1226,10 +1226,10 @@
 <li>np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)</li>
 </ul>
 <h4 id="1-np-exp"><a href="#1-np-exp" class="headerlink" title="1. np.exp()"></a>1. np.exp()</h4><ul>
-<li>使用np.exp（）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"># example of np.exp</span><br><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">print(np.exp(x)) # result is (exp(1), exp(2), exp(3))</span><br></pre></td></tr></table></figure>
+<li>使用np.exp（）<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as <span class="built_in">np</span></span><br><span class="line"></span><br><span class="line"># <span class="built_in">example</span> of <span class="built_in">np</span>.<span class="built_in">exp</span></span><br><span class="line">x = <span class="built_in">np</span>.<span class="built_in">array</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">np</span>.<span class="built_in">exp</span>(x)) # result <span class="built_in">is</span> (<span class="built_in">exp</span>(<span class="number">1</span>), <span class="built_in">exp</span>(<span class="number">2</span>), <span class="built_in">exp</span>(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2.71828183  7.3890561  20.08553692]</span><br></pre></td></tr></table></figure>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">2.71828183</span>  <span class="number">7.3890561</span>  <span class="number">20.08553692</span>]</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/14/w章二习题（NumPy基础、广播和向量化）/#more" rel="contents">
@@ -1402,15 +1402,15 @@
 <li>np.max  imum:计算元素 y 中的最大值，你也可以 np.max imum(v,0)</li>
 </ul>
 <h4 id="1-np-exp"><a href="#1-np-exp" class="headerlink" title="1. np.exp()"></a>1. np.exp()</h4><ul>
-<li>使用np.exp（）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"># example of np.exp</span><br><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">print(np.exp(x)) # result is (exp(1), exp(2), exp(3))</span><br></pre></td></tr></table></figure>
+<li>使用np.exp（）<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as <span class="built_in">np</span></span><br><span class="line"></span><br><span class="line"># <span class="built_in">example</span> of <span class="built_in">np</span>.<span class="built_in">exp</span></span><br><span class="line">x = <span class="built_in">np</span>.<span class="built_in">array</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">np</span>.<span class="built_in">exp</span>(x)) # result <span class="built_in">is</span> (<span class="built_in">exp</span>(<span class="number">1</span>), <span class="built_in">exp</span>(<span class="number">2</span>), <span class="built_in">exp</span>(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[2.71828183  7.3890561  20.08553692]</span><br></pre></td></tr></table></figure>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">2.71828183</span>  <span class="number">7.3890561</span>  <span class="number">20.08553692</span>]</span><br></pre></td></tr></table></figure>
 <ul>
 <li>实现sigmoid函数</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np </span><br><span class="line"></span><br><span class="line">def sigmoid(x):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Arguments:</span><br><span class="line">    x -- A scalar or numpy array of any size</span><br><span class="line">    # x-- 任何大小的标量或numpy数组</span><br><span class="line">    Return:</span><br><span class="line">    s -- sigmoid(x)</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    s = 1 / (1 + np.exp(-x))</span><br><span class="line">    </span><br><span class="line">    return s</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">sigmoid(x)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Arguments:</span></span><br><span class="line"><span class="string">    x -- A scalar or numpy array of any size</span></span><br><span class="line"><span class="string">    # x-- 任何大小的标量或numpy数组</span></span><br><span class="line"><span class="string">    Return:</span></span><br><span class="line"><span class="string">    s -- sigmoid(x)</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    </span><br><span class="line">    s = <span class="number">1</span> / (<span class="number">1</span> + np.exp(-x))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> s</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">sigmoid(x)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/14/章二习题（NumPy基础、广播和向量化）/#more" rel="contents">
@@ -2196,7 +2196,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共24.8k字</span>
+  <span class="post-count">博客全站共24.3k字</span>
 </div>
 
 
