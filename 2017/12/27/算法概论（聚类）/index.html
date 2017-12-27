@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="机器学习,算法," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、聚类分析基础概述：聚类分析(clustering analysis)就是根据某种相似性度量标准，将一个没有类别标号的数据集S直接拆分成若干个子集Ci (i=1,2, …,k; m≤n)，并使每个子集内部数据对象之间相似度很高，而不同子集的对象之间不相似或相似度很低。每个子集Ci称为一个簇，所有簇构成的集合C={C1">
+<meta name="keywords" content="机器学习,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法概论（聚类）">
+<meta property="og:url" content="http://yoursite.com/2017/12/27/算法概论（聚类）/index.html">
+<meta property="og:site_name" content="LEMON的博客">
+<meta property="og:description" content="一、聚类分析基础概述：聚类分析(clustering analysis)就是根据某种相似性度量标准，将一个没有类别标号的数据集S直接拆分成若干个子集Ci (i=1,2, …,k; m≤n)，并使每个子集内部数据对象之间相似度很高，而不同子集的对象之间不相似或相似度很低。每个子集Ci称为一个簇，所有簇构成的集合C={C1 ,C2, …,Ck}称为数据集S的一个聚类。 数学定义设有数据集S={X1 ,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-27T06:27:15.301Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法概论（聚类）">
+<meta name="twitter:description" content="一、聚类分析基础概述：聚类分析(clustering analysis)就是根据某种相似性度量标准，将一个没有类别标号的数据集S直接拆分成若干个子集Ci (i=1,2, …,k; m≤n)，并使每个子集内部数据对象之间相似度很高，而不同子集的对象之间不相似或相似度很低。每个子集Ci称为一个簇，所有簇构成的集合C={C1 ,C2, …,Ck}称为数据集S的一个聚类。 数学定义设有数据集S={X1 ,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/27/算法概论（聚类）/"/>
+
+
+
+
+
+  <title>算法概论（聚类） | LEMON的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LEMON的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/27/算法概论（聚类）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">算法概论（聚类）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-27T14:54:21+08:00">
+                2017-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,791字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、聚类分析基础"><a href="#一、聚类分析基础" class="headerlink" title="一、聚类分析基础"></a>一、聚类分析基础</h2><h3 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h3><p>聚类分析(clustering analysis)就是根据某种相似性度量标准，将一个没有类别标号的数据集S直接拆分成若干个子集Ci (i=1,2, …,k; m≤n)，并使每个子集内部数据对象之间相似度很高，而不同子集的对象之间不相似或相似度很低。<br>每个子集Ci称为一个簇，所有簇构成的集合C={C1 ,C2, …,Ck}称为数据集S的一个聚类。</p>
+<h3 id="数学定义"><a href="#数学定义" class="headerlink" title="数学定义"></a>数学定义</h3><p>设有数据集S={X1 ,X2, …Xn}, 其中Xi为d维向量(表10-1)，s(X,Y)为定义在S上的相似度函数。若利用函数s(X,Y)可将S拆分成k个子集Ci，并记C={C1 ,C2, …,Ck}(k≤n)，使C满足以下条件：<br>    (1) Ci ≠Ø   (i=1 ,2, …,k；)                                    (10-1)<br>    (2) C1∪ C2∪… ∪C^k =S                                           (10-2)<br>    (3) Ci∩Cj= Ø   (i=1 ,2, …,k；i≠j)                           (10-3)<br>    (4)X,Y∈Ci, s(X,Y)=1或接近1; X∈Ci和Y∈Cj(i≠j) ,s(X,Y)=0或接近0<br>则称Ci为S由s(X,Y)生成的一个簇(cluster)，简称簇Ci (i=1 ,2, …,k)；<br>同时，称C为S由s(X,Y)生成的一个划分聚类(partitional clustering)，简称C为S的划分聚类，或称为互斥(exclusive)的聚类。<br><a id="more"></a></p>
+<h3 id="簇的形状"><a href="#簇的形状" class="headerlink" title="簇的形状"></a>簇的形状</h3><h4 id="类球状的簇"><a href="#类球状的簇" class="headerlink" title="类球状的簇"></a>类球状的簇</h4><p>一般是聚类算法使用距离函数所产生的簇</p>
+<h4 id="非球状的簇"><a href="#非球状的簇" class="headerlink" title="非球状的簇"></a>非球状的簇</h4><p>非球状的簇，通常由基于密度或基于原型的聚类算法获得的簇。</p>
+<h3 id="簇间关系"><a href="#簇间关系" class="headerlink" title="簇间关系"></a>簇间关系</h3><h4 id="明显分离的簇"><a href="#明显分离的簇" class="headerlink" title="明显分离的簇"></a>明显分离的簇</h4><p>簇中每个数据对象到同簇中其它对象的<br>距离，比到不同簇中任意对象的距离更近;<br>显分离的簇不必是球形的，也可以是其它任意的形状。</p>
+<h4 id="基于原型的簇"><a href="#基于原型的簇" class="headerlink" title="基于原型的簇"></a>基于原型的簇</h4><p>所谓原型其实就是簇中最具代表性的点。对连续属性的数据，簇的原型通常就是质心，即簇中所有点的平均值。<br>当数据包括分类属性时，簇的原型通常是中心点，即簇中最有代表性的点。<br>对于许多数据类型，原型可以视为最<br>靠近中心的点，因此，通常把基于原型的<br>簇看作基于中心的簇(center-based cluster),<br>右图就是一个基于中心的簇的例子。</p>
+<h4 id="基于连片的簇-contiguity-based-cluster"><a href="#基于连片的簇-contiguity-based-cluster" class="headerlink" title="基于连片的簇(contiguity-based cluster)"></a>基于连片的簇(contiguity-based cluster)</h4><p>簇中两个相邻对象的距离都在指定<br>的阈值之内即将其归为同一个簇。<br>当簇的形状不规则或缠绕，且数据<br>集没有噪声时，用这种方式来定义簇会<br>收到很好的聚类效果。如果存在噪声，其聚类效果就不一定理想。图中的哑铃状簇，就是由线状 (噪声)连接两个球状簇形成的一个簇。</p>
+<h4 id="基于密度的簇-density-based-cluster"><a href="#基于密度的簇-density-based-cluster" class="headerlink" title="基于密度的簇(density-based cluster)"></a>基于密度的簇(density-based cluster)</h4><p>基于密度的簇由对象间相对稠密的区域组成，且其周围是低密度的区域。一般通过指定簇中任何一个对象周围区域内最少点数(即密度)来实现。</p>
+<h4 id="基于概念的簇"><a href="#基于概念的簇" class="headerlink" title="基于概念的簇"></a>基于概念的簇</h4><p>即具有某种“共同性质”的数<br>据对象集合。比如，离相同的质<br>心或中心点最近，或组成三角形、<br>梯形，或圆环状(重叠聚类)等。</p>
+<h3 id="簇的距离"><a href="#簇的距离" class="headerlink" title="簇的距离"></a>簇的距离</h3><h4 id="簇内距离"><a href="#簇内距离" class="headerlink" title="簇内距离"></a>簇内距离</h4><p>最小距离：以两个簇中任意两个元素距离的最小者(smallest) ，即<br>ds(Ci,Cj)=min{d(X,Y) | XCi,YCj} </p>
+<h4 id="簇间距离"><a href="#簇间距离" class="headerlink" title="簇间距离"></a>簇间距离</h4><h2 id="三、算法框架"><a href="#三、算法框架" class="headerlink" title="三、算法框架"></a>三、算法框架</h2><h3 id="1-classify0-函数的4个输入参数："><a href="#1-classify0-函数的4个输入参数：" class="headerlink" title="1. classify0()函数的4个输入参数："></a>1. classify0()函数的4个输入参数：</h3><ul>
+<li>inX：用于分类的输入向量</li>
+<li>dataSet：用于输入的训练样本集</li>
+<li>labels：标签向量</li>
+<li>k：参数k用于选择最佳邻居的数目</li>
+</ul>
+<h4 id="4-数据的归一化"><a href="#4-数据的归一化" class="headerlink" title="4. 数据的归一化"></a>4. 数据的归一化</h4><ul>
+<li>由于每个属性的取值数量级相差过大，会造成每个属性的权重不同，这显然是海伦不希望的。所以我们还要写一个函数实现数据归一化，公式如下:</li>
+<li>newValue=(oldValue-min)/(max-min) </li>
+<li>这个公式可以将特征值转化为0~1之间的值。<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#归一化特征值</span></span><br><span class="line">def autoNorm(dataSet):</span><br><span class="line">        #每列的最小值</span><br><span class="line">        <span class="attribute">minVals</span>=dataSet.min(0)</span><br><span class="line">        #每列的最大值</span><br><span class="line">        <span class="attribute">maxVals</span>=dataSet.max(0)</span><br><span class="line">        #最大值与最小值的差值</span><br><span class="line">        <span class="attribute">ranges</span>=maxVals-minVals</span><br><span class="line">        <span class="attribute">normDataSet</span>=zeros(shape(dataSet))</span><br><span class="line">        <span class="attribute">m</span>=dataSet.shape[0]</span><br><span class="line">        #minVals是1<span class="number">*3</span>的矩阵，使用tile函数复制成和dataSet同样大小的矩阵，方便计算</span><br><span class="line">        <span class="attribute">normDataSet</span>=dataSet-tile(minVals,(m,1))</span><br><span class="line">        <span class="attribute">normDataSet</span>=normDataSet/tile(ranges,(m,1))</span><br><span class="line">        return normDataSet,ranges,minVals</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt;reload(kNN) </span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt;normMat,ranges,minVals=kNN.autoNorm(datingDataMat)</span><br></pre></td></tr></table></figure>
+<h4 id="5-原始分类器"><a href="#5-原始分类器" class="headerlink" title="5. 原始分类器"></a>5. 原始分类器</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#原始测试分类器</span></span><br><span class="line">def datingClassTest():</span><br><span class="line">        <span class="attribute">hoRatio</span>=0.10</span><br><span class="line">        datingDataMat,<span class="attribute">datingLabels</span>=file2matrix('datingTestSet2.txt')</span><br><span class="line">        normMat,ranges,<span class="attribute">minVals</span>=autoNorm(datingDataMat)</span><br><span class="line">        <span class="attribute">m</span>=normMat.shape(0)</span><br><span class="line">        #10%的数据用于测试数据集</span><br><span class="line">        <span class="attribute">numTestVecs</span>=int(m*hoRatio)</span><br><span class="line">        <span class="attribute">errorCount</span>=0.0</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(numTestVecs):</span><br><span class="line">                <span class="attribute">classifierResults</span>=classify0(normMat[i,:],normMat[numTestVecs:m,:], datingLabels[numTestVecs:m],3)</span><br><span class="line">                <span class="builtin-name">print</span>(<span class="string">"the classifier came back with: %d,the real answer id: %d"</span>%(classifierResults,datingLabels[i]))</span><br><span class="line">                <span class="keyword">if</span>(classifierResults!=datingLabels[i]):errorCount +=1.0</span><br><span class="line">        <span class="builtin-name">print</span>(<span class="string">"the total error rate is: %f"</span> %(errorCount/float(numTestVecs)))</span><br></pre></td></tr></table></figure>
+<h4 id="6-接口"><a href="#6-接口" class="headerlink" title="6. 接口"></a>6. 接口</h4><figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 约会网站预测函数</span></span><br><span class="line">def classifyPerson():</span><br><span class="line">        resultList=[<span class="string">'not at all'</span>,<span class="string">'in small doses'</span>,<span class="string">'in large doses'</span>]</span><br><span class="line">        percentTats=<span class="keyword">float</span>(input(<span class="string">"在游戏上花费的时间占比( )?"</span>))</span><br><span class="line">        ffMiles=<span class="keyword">float</span>(input(<span class="string">"每年航空的里程数?"</span>))</span><br><span class="line">        iceCream=<span class="keyword">float</span>(input(<span class="string">"每年吃的冰淇淋（升）?"</span>))</span><br><span class="line">        datingDataMat,datingLabels=file2matrix(<span class="string">'datingTestSet2.txt'</span>)</span><br><span class="line">        normMat, ranges, minVals=autoNorm(datingDataMat)</span><br><span class="line">        inArr=<span class="keyword">array</span>([ffMiles,percentTats,iceCream])</span><br><span class="line">        classifierResult=classify0((inArr-minVals)/ranges,normMat,datingLabels,<span class="number">3</span>)</span><br><span class="line">        <span class="keyword">print</span>(<span class="string">"你可能是属于以下这类人："</span>,resultList[classifierResult - <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<h4 id="7-识别手写数字"><a href="#7-识别手写数字" class="headerlink" title="7. 识别手写数字"></a>7. 识别手写数字</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 将图片格式处理为一个向量（把一个32*32的二进制图形矩阵转换为1*1024的向量）,然后使用分类器处理图形信息</span></span><br><span class="line"><span class="function">def <span class="title">img2vector</span>(<span class="params">filename</span>):</span></span><br><span class="line"><span class="function">    # 创建一个1*1024的NumPy数组</span></span><br><span class="line"><span class="function">    returnVect </span>= zeros((<span class="number">1</span>,<span class="number">1024</span>))</span><br><span class="line">    fr = open(filename)</span><br><span class="line">    <span class="meta"># 循环读出文件的前32行，并将每行的头32个字符值存储在NumPy数组中，最后返回数组</span></span><br><span class="line">    <span class="function"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="title">range</span>(<span class="params"><span class="number">32</span></span>):</span></span><br><span class="line"><span class="function">        lineStr </span>= fr.readline()</span><br><span class="line">        <span class="function"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="title">range</span>(<span class="params"><span class="number">32</span></span>):</span></span><br><span class="line"><span class="function">            returnVect[0,32*i+j] </span>= <span class="keyword">int</span>(lineStr[j])</span><br><span class="line">    <span class="keyword">return</span> returnVect</span><br></pre></td></tr></table></figure>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">def handwritingClassTest():</span><br><span class="line">    hwLabels = []</span><br><span class="line">    <span class="comment"># 将trainingDigits目录中的文件存储在列表中</span></span><br><span class="line">    trainingFileList = listdir(<span class="string">'trainingDigits'</span>)</span><br><span class="line">    <span class="comment"># 获得文件数赋值给m</span></span><br><span class="line">    <span class="keyword">m</span> = len(trainingFileList)</span><br><span class="line">    <span class="comment"># 创建一个m行1024列的训练矩阵，每行数据存储一个图像</span></span><br><span class="line">    trainingMat = zeros((<span class="keyword">m</span>,<span class="number">1024</span>))</span><br><span class="line">    <span class="keyword">for</span> i in range(<span class="keyword">m</span>):</span><br><span class="line">        <span class="comment"># 从文件名解析分类数字（eg：文件9_45.txt表示数字9的第45个实例）</span></span><br><span class="line">        fileNameStr = trainingFileList[i]</span><br><span class="line">        fileStr = fileNameStr.<span class="keyword">split</span>(<span class="string">'.'</span>)[<span class="number">0</span>]     <span class="comment">#take off .txt</span></span><br><span class="line">        classNumStr = <span class="keyword">int</span>(fileStr.<span class="keyword">split</span>(<span class="string">'_'</span>)[<span class="number">0</span>])</span><br><span class="line">        <span class="comment"># 将类代码存储在 hwLabels向量中</span></span><br><span class="line">        hwLabels.append(classNumStr)</span><br><span class="line">        <span class="comment"># 使用 img2vector函数载入图像</span></span><br><span class="line">        trainingMat[i,:] = img2vector(<span class="string">'trainingDigits/%s'</span> % fileNameStr)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将testDigits目录中的文件存储在列表中，步骤同上</span></span><br><span class="line">    testFileList = listdir(<span class="string">'testDigits'</span>)        <span class="comment">#iterate through the test set</span></span><br><span class="line">    errorCount = <span class="number">0</span>.<span class="number">0</span></span><br><span class="line">    mTest = len(testFileList)</span><br><span class="line">    <span class="keyword">for</span> i in range(mTest):</span><br><span class="line">        fileNameStr = testFileList[i]</span><br><span class="line">        fileStr = fileNameStr.<span class="keyword">split</span>(<span class="string">'.'</span>)[<span class="number">0</span>]     <span class="comment">#take off .txt</span></span><br><span class="line">        classNumStr = <span class="keyword">int</span>(fileStr.<span class="keyword">split</span>(<span class="string">'_'</span>)[<span class="number">0</span>])</span><br><span class="line">        vectorUnderTest = img2vector(<span class="string">'testDigits/%s'</span> % fileNameStr)</span><br><span class="line">        <span class="comment"># 不同的是要使用 classify0函数测试目录下的每个文件（文件中的值介于0-1之间，无需用autoNorm()函数</span></span><br><span class="line">        classifierResult = classify<span class="number">0</span>(vectorUnderTest, trainingMat, hwLabels, <span class="number">3</span>)</span><br><span class="line">        <span class="keyword">print</span>(<span class="string">"the classifier came back with: %d, the real answer is: %d"</span> % (classifierResult, classNumStr))</span><br><span class="line">        <span class="keyword">if</span> (classifierResult != classNumStr): errorCount += <span class="number">1.0</span></span><br><span class="line">    <span class="keyword">print</span>(<span class="string">"\nthe total number of errors is: %d"</span> % errorCount)</span><br><span class="line">    <span class="keyword">print</span>(<span class="string">"\nthe total error rate is: %f"</span> % (errorCount/float(mTest)))</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/ZHBIT92/deep_learn/tree/master/KNN" target="_blank" rel="noopener">github代码</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+          
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/24/周总结/" rel="next" title="15-16周总结">
+                <i class="fa fa-chevron-left"></i> 15-16周总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/27/机器学习实战六（K-均值聚类算法）/" rel="prev" title="机器学习实战六（K-均值聚类算法）">
+                机器学习实战六（K-均值聚类算法） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LEMON</p>
+              <p class="site-description motion-element" itemprop="description">记录生活点滴</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ZHBIT92" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/u/6f9b905040b9" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-globe"></i>简书</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、聚类分析基础"><span class="nav-number">1.</span> <span class="nav-text">一、聚类分析基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述："><span class="nav-number">1.1.</span> <span class="nav-text">概述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学定义"><span class="nav-number">1.2.</span> <span class="nav-text">数学定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#簇的形状"><span class="nav-number">1.3.</span> <span class="nav-text">簇的形状</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类球状的簇"><span class="nav-number">1.3.1.</span> <span class="nav-text">类球状的簇</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非球状的簇"><span class="nav-number">1.3.2.</span> <span class="nav-text">非球状的簇</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#簇间关系"><span class="nav-number">1.4.</span> <span class="nav-text">簇间关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#明显分离的簇"><span class="nav-number">1.4.1.</span> <span class="nav-text">明显分离的簇</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于原型的簇"><span class="nav-number">1.4.2.</span> <span class="nav-text">基于原型的簇</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于连片的簇-contiguity-based-cluster"><span class="nav-number">1.4.3.</span> <span class="nav-text">基于连片的簇(contiguity-based cluster)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于密度的簇-density-based-cluster"><span class="nav-number">1.4.4.</span> <span class="nav-text">基于密度的簇(density-based cluster)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于概念的簇"><span class="nav-number">1.4.5.</span> <span class="nav-text">基于概念的簇</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#簇的距离"><span class="nav-number">1.5.</span> <span class="nav-text">簇的距离</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#簇内距离"><span class="nav-number">1.5.1.</span> <span class="nav-text">簇内距离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#簇间距离"><span class="nav-number">1.5.2.</span> <span class="nav-text">簇间距离</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、算法框架"><span class="nav-number">2.</span> <span class="nav-text">三、算法框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-classify0-函数的4个输入参数："><span class="nav-number">2.1.</span> <span class="nav-text">1. classify0()函数的4个输入参数：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-数据的归一化"><span class="nav-number">2.1.1.</span> <span class="nav-text">4. 数据的归一化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-原始分类器"><span class="nav-number">2.1.2.</span> <span class="nav-text">5. 原始分类器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-接口"><span class="nav-number">2.1.3.</span> <span class="nav-text">6. 接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-识别手写数字"><span class="nav-number">2.1.4.</span> <span class="nav-text">7. 识别手写数字</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LEMON</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>次
+</span>
+</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共24.8k字</span>
+</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/z16.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>
