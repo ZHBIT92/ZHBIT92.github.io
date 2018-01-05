@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：  计算复杂度高、空间复杂度高，占用存储空间    无法给出数据的内在含义   适用数">
+<meta name="description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数  2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：  计算复杂度高、空间复杂度高，占用存储空间    无法给出数据的内在含义   适">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习实战一（K-邻近算法（KNN））">
 <meta property="og:url" content="http://yoursite.com/2017/10/29/机器学习实战一（K-邻近算法（KNN））/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：  计算复杂度高、空间复杂度高，占用存储空间    无法给出数据的内在含义   适用数据范围：数值型和标称型3. 懒惰算法： 此类学习技术在训练阶段仅仅把样本保存起来">
+<meta property="og:description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数  2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：  计算复杂度高、空间复杂度高，占用存储空间    无法给出数据的内在含义   适用数据范围：数值型和标称型  3. 懒惰算法： 此类学习技术在训练阶段仅仅把样本">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Figure_1.png">
 <meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/result1.PNG">
 <meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/result2.PNG">
-<meta property="og:updated_time" content="2017-12-27T03:03:22.443Z">
+<meta property="og:updated_time" content="2018-01-04T08:58:08.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习实战一（K-邻近算法（KNN））">
-<meta name="twitter:description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：  计算复杂度高、空间复杂度高，占用存储空间    无法给出数据的内在含义   适用数据范围：数值型和标称型3. 懒惰算法： 此类学习技术在训练阶段仅仅把样本保存起来">
+<meta name="twitter:description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数  2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：  计算复杂度高、空间复杂度高，占用存储空间    无法给出数据的内在含义   适用数据范围：数值型和标称型  3. 懒惰算法： 此类学习技术在训练阶段仅仅把样本">
 <meta name="twitter:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Figure_1.png">
 
 
@@ -320,7 +320,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,880字
+                  1,881字
                 </span>
               
 
@@ -347,7 +347,9 @@
       
         <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><h4 id="1-原理："><a href="#1-原理：" class="headerlink" title="1. 原理："></a>1. 原理：</h4><ul>
 <li>工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测.</li>
-<li>通常k是不大于20的整数<h4 id="2-优缺点"><a href="#2-优缺点" class="headerlink" title="2. 优缺点"></a>2. 优缺点</h4></li>
+<li>通常k是不大于20的整数</li>
+</ul>
+<h4 id="2-优缺点"><a href="#2-优缺点" class="headerlink" title="2. 优缺点"></a>2. 优缺点</h4><ul>
 <li>优点：精度高、对异常值不敏感、无数据输入假定</li>
 <li>缺点：</li>
 <li><ul>
@@ -358,7 +360,9 @@
 <li>无法给出数据的内在含义</li>
 </ul>
 </li>
-<li>适用数据范围：数值型和标称型<h4 id="3-懒惰算法："><a href="#3-懒惰算法：" class="headerlink" title="3. 懒惰算法："></a>3. 懒惰算法：</h4></li>
+<li>适用数据范围：数值型和标称型</li>
+</ul>
+<h4 id="3-懒惰算法："><a href="#3-懒惰算法：" class="headerlink" title="3. 懒惰算法："></a>3. 懒惰算法：</h4><ul>
 <li>此类学习技术在训练阶段仅仅把样本保存起来</li>
 <li>==训练开支为零==，待收到测试样本后再进行处理<a id="more"></a>
 </li>
@@ -532,7 +536,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -543,7 +547,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -554,7 +558,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -657,7 +661,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共25.7k字</span>
+  <span class="post-count">博客全站共24.7k字</span>
 </div>
 
 

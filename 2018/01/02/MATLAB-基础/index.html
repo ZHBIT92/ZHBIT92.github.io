@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/E5KdIefF4j.png?imageslim">
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/mfA7Klh9H4.png?imageslim">
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/K3BAaJ1jjH.png?imageslim">
-<meta property="og:updated_time" content="2018-01-03T05:57:37.329Z">
+<meta property="og:updated_time" content="2018-01-03T06:18:42.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MATLAB">
 <meta name="twitter:description" content="基本概念  在结尾加; 结果不显示 黄金分割比： clc清屏 clear清空数据 clf清除图表 a=[ ; ; ] 生成数列 行与行之间用 ; 隔开 pathtool指定默认路径 syms 是定义符号变量 ans会保存未初始化的结果">
@@ -328,7 +328,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  828字
+                  842字
                 </span>
               
 
@@ -371,8 +371,9 @@
 7 8 9]`
 </code></pre>读取第 2 列<br><code>A( :, 2)</code><br>读取[8 9]<br><code>A(3,[2:3])</code><br>读取[5 6 8 9]<br><code>A([2:3],[2:3])</code></li>
 </ul>
-<h2 id="读写画"><a href="#读写画" class="headerlink" title="读写画"></a>读写画</h2><h3 id="读"><a href="#读" class="headerlink" title="读"></a>读</h3><h4 id="读图片"><a href="#读图片" class="headerlink" title="读图片"></a>读图片</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">imread</span><span class="params">(<span class="string">'a.jpg'</span>)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="读写画"><a href="#读写画" class="headerlink" title="读写画"></a>读写画</h2><h3 id="读"><a href="#读" class="headerlink" title="读"></a>读</h3><h4 id="读图片"><a href="#读图片" class="headerlink" title="读图片"></a>读图片</h4><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">h=imread('a.jpg')<span class="comment">;</span></span><br><span class="line">image(<span class="name">h</span>)</span><br></pre></td></tr></table></figure>
 <h4 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h4><p>xlsread(<code>文件名</code>,<code>表n</code>,sheet)<br>xlswrite(<code>文件名</code>,<code>矩阵名</code>)<br>cell2mat() 转置数据<br>sort() 排序</p>
+<h3 id="写"><a href="#写" class="headerlink" title="写"></a>写</h3><h4 id="写入图形"><a href="#写入图形" class="headerlink" title="写入图形"></a>写入图形</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">saveas</span><span class="params">(gcf,<span class="string">'test.jpg'</span>)</span></span></span><br></pre></td></tr></table></figure>
 <h3 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h3><h4 id="plot"><a href="#plot" class="headerlink" title="plot"></a>plot</h4><p>golden_spiral 黄金螺旋</p>
 <ul>
 <li>edit golden_spiral 编辑文件</li>
@@ -392,12 +393,9 @@
 <li>axis equal 让x轴和y轴坐标距离相等</li>
 <li>xlabel() 显示x轴的标签</li>
 <li>title() 显示标题</li>
-<li><p>legend() 显示图列<br>图形对象gcf<br><code>get( gcf)</code> 获取对象的属性<br><code>set(gcf,</code>color<code>,</code>red<code>)</code> 设置属性的属性</p>
-</li>
-<li><p>ezplot跟plot的区别</p>
-</li>
+<li>legend() 显示图列<br>图形对象gcf<br><code>get( gcf)</code> 获取对象的属性<br><code>set(gcf,</code>color<code>,</code>red<code>)</code> 设置属性的属性</li>
 </ul>
-<ul>
+<h4 id="ezplot跟plot的区别"><a href="#ezplot跟plot的区别" class="headerlink" title="ezplot跟plot的区别"></a>ezplot跟plot的区别</h4><ul>
 <li><ul>
 <li>plot绘制图形时要指定自变量的范围，而ezplot无需数据准备，直接绘出图形。<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sys <span class="keyword">x</span></span><br><span class="line">y = <span class="keyword">x</span>^<span class="number">2</span>－<span class="keyword">x</span>－<span class="number">1</span></span><br><span class="line">ezplot(y)</span><br></pre></td></tr></table></figure>
 </li>
@@ -562,7 +560,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -573,7 +571,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -584,7 +582,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -633,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查"><span class="nav-number">2.</span> <span class="nav-text">查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读写画"><span class="nav-number">3.</span> <span class="nav-text">读写画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读"><span class="nav-number">3.1.</span> <span class="nav-text">读</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读图片"><span class="nav-number">3.1.1.</span> <span class="nav-text">读图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读文件"><span class="nav-number">3.1.2.</span> <span class="nav-text">读文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#画图"><span class="nav-number">3.2.</span> <span class="nav-text">画图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#plot"><span class="nav-number">3.2.1.</span> <span class="nav-text">plot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绘图函数-dot2dot"><span class="nav-number">3.2.2.</span> <span class="nav-text">绘图函数 dot2dot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置"><span class="nav-number">3.2.3.</span> <span class="nav-text">设置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期与时钟"><span class="nav-number">4.</span> <span class="nav-text">日期与时钟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#日期时间的三种表示及相互转换"><span class="nav-number">4.1.</span> <span class="nav-text">日期时间的三种表示及相互转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它常用的日期函数"><span class="nav-number">4.2.</span> <span class="nav-text">其它常用的日期函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方程"><span class="nav-number">5.</span> <span class="nav-text">方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种求方程的办法"><span class="nav-number">5.1.</span> <span class="nav-text">三种求方程的办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#roots-是多项式根"><span class="nav-number">5.1.1.</span> <span class="nav-text">roots 是多项式根</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fsolve是采用最小二乘法来求解非线性方程。"><span class="nav-number">5.1.2.</span> <span class="nav-text">fsolve是采用最小二乘法来求解非线性方程。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#syms"><span class="nav-number">5.1.3.</span> <span class="nav-text">syms</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵"><span class="nav-number">6.</span> <span class="nav-text">矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#zeros（i）-i阶矩阵"><span class="nav-number">6.0.1.</span> <span class="nav-text">zeros（i） i阶矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ones-全1矩阵"><span class="nav-number">6.0.2.</span> <span class="nav-text">ones( ) 全1矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#eye-生成单位矩阵"><span class="nav-number">6.0.3.</span> <span class="nav-text">eye( ) 生成单位矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#magic"><span class="nav-number">6.0.4.</span> <span class="nav-text">magic()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rand"><span class="nav-number">6.0.5.</span> <span class="nav-text">rand()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#K-J-ndgrid"><span class="nav-number">6.0.6.</span> <span class="nav-text">[K,J]=ndgrid( : )</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查"><span class="nav-number">2.</span> <span class="nav-text">查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读写画"><span class="nav-number">3.</span> <span class="nav-text">读写画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读"><span class="nav-number">3.1.</span> <span class="nav-text">读</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读图片"><span class="nav-number">3.1.1.</span> <span class="nav-text">读图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读文件"><span class="nav-number">3.1.2.</span> <span class="nav-text">读文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写"><span class="nav-number">3.2.</span> <span class="nav-text">写</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写入图形"><span class="nav-number">3.2.1.</span> <span class="nav-text">写入图形</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#画图"><span class="nav-number">3.3.</span> <span class="nav-text">画图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#plot"><span class="nav-number">3.3.1.</span> <span class="nav-text">plot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绘图函数-dot2dot"><span class="nav-number">3.3.2.</span> <span class="nav-text">绘图函数 dot2dot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置"><span class="nav-number">3.3.3.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ezplot跟plot的区别"><span class="nav-number">3.3.4.</span> <span class="nav-text">ezplot跟plot的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期与时钟"><span class="nav-number">4.</span> <span class="nav-text">日期与时钟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#日期时间的三种表示及相互转换"><span class="nav-number">4.1.</span> <span class="nav-text">日期时间的三种表示及相互转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它常用的日期函数"><span class="nav-number">4.2.</span> <span class="nav-text">其它常用的日期函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方程"><span class="nav-number">5.</span> <span class="nav-text">方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种求方程的办法"><span class="nav-number">5.1.</span> <span class="nav-text">三种求方程的办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#roots-是多项式根"><span class="nav-number">5.1.1.</span> <span class="nav-text">roots 是多项式根</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fsolve是采用最小二乘法来求解非线性方程。"><span class="nav-number">5.1.2.</span> <span class="nav-text">fsolve是采用最小二乘法来求解非线性方程。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#syms"><span class="nav-number">5.1.3.</span> <span class="nav-text">syms</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵"><span class="nav-number">6.</span> <span class="nav-text">矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#zeros（i）-i阶矩阵"><span class="nav-number">6.0.1.</span> <span class="nav-text">zeros（i） i阶矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ones-全1矩阵"><span class="nav-number">6.0.2.</span> <span class="nav-text">ones( ) 全1矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#eye-生成单位矩阵"><span class="nav-number">6.0.3.</span> <span class="nav-text">eye( ) 生成单位矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#magic"><span class="nav-number">6.0.4.</span> <span class="nav-text">magic()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rand"><span class="nav-number">6.0.5.</span> <span class="nav-text">rand()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#K-J-ndgrid"><span class="nav-number">6.0.6.</span> <span class="nav-text">[K,J]=ndgrid( : )</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -687,7 +685,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共25.7k字</span>
+  <span class="post-count">博客全站共24.7k字</span>
 </div>
 
 
