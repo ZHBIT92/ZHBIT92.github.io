@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Scrapy," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="理解业务画出爬取网站的url结构图 爬取方式深度优先爬虫去重实现破除循环（深度优先） 通过翻页爬取初始Scrapy项目创建项目在对应的目录下的cmd中输入scrapy startproject ArticleSpider创建项目进入项目目录cd ArticleSpider输入scrapy genspider jobbo">
+<meta name="keywords" content="Scrapy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scrapy爬虫一">
+<meta property="og:url" content="http://yoursite.com/2018/01/16/Scrapy爬虫一/index.html">
+<meta property="og:site_name" content="LEMON的博客">
+<meta property="og:description" content="理解业务画出爬取网站的url结构图 爬取方式深度优先爬虫去重实现破除循环（深度优先） 通过翻页爬取初始Scrapy项目创建项目在对应的目录下的cmd中输入scrapy startproject ArticleSpider创建项目进入项目目录cd ArticleSpider输入scrapy genspider jobbole blog.jobbole.com创建爬虫modulesetting.py中">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/gFCmFdjH1a.png?imageslim">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/3CAjH9i5c4.png?imageslim">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/F6jFHmlAmi.png?imageslim">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-a99fb81234914bf9e9a416665a31805f_r.jpg">
+<meta property="og:updated_time" content="2018-01-16T14:57:44.203Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scrapy爬虫一">
+<meta name="twitter:description" content="理解业务画出爬取网站的url结构图 爬取方式深度优先爬虫去重实现破除循环（深度优先） 通过翻页爬取初始Scrapy项目创建项目在对应的目录下的cmd中输入scrapy startproject ArticleSpider创建项目进入项目目录cd ArticleSpider输入scrapy genspider jobbole blog.jobbole.com创建爬虫modulesetting.py中">
+<meta name="twitter:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/gFCmFdjH1a.png?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/16/Scrapy爬虫一/"/>
+
+
+
+
+
+  <title>Scrapy爬虫一 | LEMON的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LEMON的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/16/Scrapy爬虫一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Scrapy爬虫一</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-16T20:39:21+08:00">
+                2018-01-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Scrapy/" itemprop="url" rel="index">
+                    <span itemprop="name">Scrapy</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  299字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="理解业务"><a href="#理解业务" class="headerlink" title="理解业务"></a>理解业务</h2><h3 id="画出爬取网站的url结构图"><a href="#画出爬取网站的url结构图" class="headerlink" title="画出爬取网站的url结构图"></a>画出爬取网站的url结构图</h3><p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/gFCmFdjH1a.png?imageslim" alt="url结构图"><br><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/3CAjH9i5c4.png?imageslim" alt="链接结构图"></p>
+<h3 id="爬取方式"><a href="#爬取方式" class="headerlink" title="爬取方式"></a>爬取方式</h3><h4 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h4><p>爬虫去重实现破除循环（深度优先）</p>
+<h4 id="通过翻页爬取"><a href="#通过翻页爬取" class="headerlink" title="通过翻页爬取"></a>通过翻页爬取</h4><h2 id="初始Scrapy项目"><a href="#初始Scrapy项目" class="headerlink" title="初始Scrapy项目"></a>初始Scrapy项目</h2><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>在对应的目录下的cmd中输入<code>scrapy startproject ArticleSpider</code>创建项目<br><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/F6jFHmlAmi.png?imageslim" alt="Scrapy项目组成结构"><br>进入项目目录<br><code>cd ArticleSpider</code><br>输入<code>scrapy genspider jobbole blog.jobbole.com</code>创建爬虫module<br><code>setting.py</code>中如下修改<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭过滤不符合ROBOTSTXT条例的url的功能</span></span><br><span class="line"><span class="attr">ROBOTSTXT_OBEY</span> = <span class="literal">False</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="调试项目"><a href="#调试项目" class="headerlink" title="调试项目"></a>调试项目</h3><p>在项目目录文件下创建<code>main.py</code>文件专门用来调试项目爬虫<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">import os</span><br><span class="line"><span class="keyword">from</span> scrapy.cmdline import execute</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取项目当前位置</span></span><br><span class="line">address = sys.path.append(os.path.dirname(os.path.abspath(__file__)))</span><br><span class="line"><span class="builtin-name">print</span>(address)</span><br><span class="line"><span class="comment"># 用execute调用命令打开爬虫，cmd中命令为`scrapy crawl jobbole`</span></span><br><span class="line">execute([<span class="string">"scrapy"</span>, <span class="string">"crawl"</span>, <span class="string">"jobbole"</span>])</span><br></pre></td></tr></table></figure></p>
+<h2 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>XPath 是一门在xml文档中查找信息的语言，它可以在XML文档中对于原色和属性进行遍历。其内置了超过100个内建函数，这些函数用于对字符串值，数值、日期、时间进行比较遍历。</p>
+<h3 id="基本使用语法"><a href="#基本使用语法" class="headerlink" title="基本使用语法"></a>基本使用语法</h3><p><img src="https://pic4.zhimg.com/v2-a99fb81234914bf9e9a416665a31805f_r.jpg" alt="image"></p>
+<h3 id="通过xpath爬取伯乐在线一篇文章的内容"><a href="#通过xpath爬取伯乐在线一篇文章的内容" class="headerlink" title="通过xpath爬取伯乐在线一篇文章的内容"></a>通过xpath爬取伯乐在线一篇文章的内容</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Scrapy/" rel="tag"><i class="fa fa-tag"></i> Scrapy</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/16/linux基础/" rel="next" title="Linux基础">
+                <i class="fa fa-chevron-left"></i> Linux基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LEMON</p>
+              <p class="site-description motion-element" itemprop="description">记录生活点滴</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ZHBIT92" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/u/6f9b905040b9" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-globe"></i>简书</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解业务"><span class="nav-number">1.</span> <span class="nav-text">理解业务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#画出爬取网站的url结构图"><span class="nav-number">1.1.</span> <span class="nav-text">画出爬取网站的url结构图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#爬取方式"><span class="nav-number">1.2.</span> <span class="nav-text">爬取方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#深度优先"><span class="nav-number">1.2.1.</span> <span class="nav-text">深度优先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过翻页爬取"><span class="nav-number">1.2.2.</span> <span class="nav-text">通过翻页爬取</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始Scrapy项目"><span class="nav-number">2.</span> <span class="nav-text">初始Scrapy项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建项目"><span class="nav-number">2.1.</span> <span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试项目"><span class="nav-number">2.2.</span> <span class="nav-text">调试项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XPath"><span class="nav-number">3.</span> <span class="nav-text">XPath</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">3.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用语法"><span class="nav-number">3.2.</span> <span class="nav-text">基本使用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过xpath爬取伯乐在线一篇文章的内容"><span class="nav-number">3.3.</span> <span class="nav-text">通过xpath爬取伯乐在线一篇文章的内容</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LEMON</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>次
+</span>
+</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共27.1k字</span>
+</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/z16.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>
