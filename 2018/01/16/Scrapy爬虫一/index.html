@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="理解业务画出爬取网站的url结构图 爬取方式深度优先爬虫去重实现破除循环（深度优先） 通过翻页爬取初始Scrapy项目创建项目在对应的目录下的cmd中输入scrapy startproject ArticleSpider创建项目进入项目目录cd ArticleSpider输入scrapy genspider jobbo">
+<meta name="description" content="理解业务画出爬取网站的url结构图 爬取方式深度优先爬虫去重实现破除循环（深度优先） 通过翻页爬取初始Scrapy项目创建项目在对应的目录下的cmd中输入scrapy startproject ArticleSpider创建项目">
 <meta name="keywords" content="Scrapy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Scrapy爬虫一">
 <meta property="og:url" content="http://yoursite.com/2018/01/16/Scrapy爬虫一/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="理解业务画出爬取网站的url结构图 爬取方式深度优先爬虫去重实现破除循环（深度优先） 通过翻页爬取初始Scrapy项目创建项目在对应的目录下的cmd中输入scrapy startproject ArticleSpider创建项目进入项目目录cd ArticleSpider输入scrapy genspider jobbole blog.jobbole.com创建爬虫modulesetting.py中">
+<meta property="og:description" content="理解业务画出爬取网站的url结构图 爬取方式深度优先爬虫去重实现破除循环（深度优先） 通过翻页爬取初始Scrapy项目创建项目在对应的目录下的cmd中输入scrapy startproject ArticleSpider创建项目">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/gFCmFdjH1a.png?imageslim">
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/3CAjH9i5c4.png?imageslim">
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/F6jFHmlAmi.png?imageslim">
-<meta property="og:image" content="https://pic4.zhimg.com/v2-a99fb81234914bf9e9a416665a31805f_r.jpg">
-<meta property="og:updated_time" content="2018-01-16T14:57:44.203Z">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180117/C141LIfm91.png?imageslim">
+<meta property="og:updated_time" content="2018-01-17T13:50:05.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scrapy爬虫一">
-<meta name="twitter:description" content="理解业务画出爬取网站的url结构图 爬取方式深度优先爬虫去重实现破除循环（深度优先） 通过翻页爬取初始Scrapy项目创建项目在对应的目录下的cmd中输入scrapy startproject ArticleSpider创建项目进入项目目录cd ArticleSpider输入scrapy genspider jobbole blog.jobbole.com创建爬虫modulesetting.py中">
+<meta name="twitter:description" content="理解业务画出爬取网站的url结构图 爬取方式深度优先爬虫去重实现破除循环（深度优先） 通过翻页爬取初始Scrapy项目创建项目在对应的目录下的cmd中输入scrapy startproject ArticleSpider创建项目">
 <meta name="twitter:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/gFCmFdjH1a.png?imageslim">
 
 
@@ -321,7 +321,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  299字
+                  321字
                 </span>
               
 
@@ -348,11 +348,11 @@
       
         <h2 id="理解业务"><a href="#理解业务" class="headerlink" title="理解业务"></a>理解业务</h2><h3 id="画出爬取网站的url结构图"><a href="#画出爬取网站的url结构图" class="headerlink" title="画出爬取网站的url结构图"></a>画出爬取网站的url结构图</h3><p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/gFCmFdjH1a.png?imageslim" alt="url结构图"><br><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/3CAjH9i5c4.png?imageslim" alt="链接结构图"></p>
 <h3 id="爬取方式"><a href="#爬取方式" class="headerlink" title="爬取方式"></a>爬取方式</h3><h4 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h4><p>爬虫去重实现破除循环（深度优先）</p>
-<h4 id="通过翻页爬取"><a href="#通过翻页爬取" class="headerlink" title="通过翻页爬取"></a>通过翻页爬取</h4><h2 id="初始Scrapy项目"><a href="#初始Scrapy项目" class="headerlink" title="初始Scrapy项目"></a>初始Scrapy项目</h2><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>在对应的目录下的cmd中输入<code>scrapy startproject ArticleSpider</code>创建项目<br><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/F6jFHmlAmi.png?imageslim" alt="Scrapy项目组成结构"><br>进入项目目录<br><code>cd ArticleSpider</code><br>输入<code>scrapy genspider jobbole blog.jobbole.com</code>创建爬虫module<br><code>setting.py</code>中如下修改<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭过滤不符合ROBOTSTXT条例的url的功能</span></span><br><span class="line"><span class="attr">ROBOTSTXT_OBEY</span> = <span class="literal">False</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="通过翻页爬取"><a href="#通过翻页爬取" class="headerlink" title="通过翻页爬取"></a>通过翻页爬取</h4><h2 id="初始Scrapy项目"><a href="#初始Scrapy项目" class="headerlink" title="初始Scrapy项目"></a>初始Scrapy项目</h2><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>在对应的目录下的cmd中输入<code>scrapy startproject ArticleSpider</code>创建项目<br><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/F6jFHmlAmi.png?imageslim" alt="Scrapy项目组成结构"><br><a id="more"></a><br>进入项目目录<br><code>cd ArticleSpider</code><br>输入<code>scrapy genspider jobbole blog.jobbole.com</code>创建爬虫module<br><code>setting.py</code>中如下修改<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭过滤不符合ROBOTSTXT条例的url的功能</span></span><br><span class="line"><span class="attr">ROBOTSTXT_OBEY</span> = <span class="literal">False</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="调试项目"><a href="#调试项目" class="headerlink" title="调试项目"></a>调试项目</h3><p>在项目目录文件下创建<code>main.py</code>文件专门用来调试项目爬虫<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">import os</span><br><span class="line"><span class="keyword">from</span> scrapy.cmdline import execute</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取项目当前位置</span></span><br><span class="line">address = sys.path.append(os.path.dirname(os.path.abspath(__file__)))</span><br><span class="line"><span class="builtin-name">print</span>(address)</span><br><span class="line"><span class="comment"># 用execute调用命令打开爬虫，cmd中命令为`scrapy crawl jobbole`</span></span><br><span class="line">execute([<span class="string">"scrapy"</span>, <span class="string">"crawl"</span>, <span class="string">"jobbole"</span>])</span><br></pre></td></tr></table></figure></p>
 <h2 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>XPath 是一门在xml文档中查找信息的语言，它可以在XML文档中对于原色和属性进行遍历。其内置了超过100个内建函数，这些函数用于对字符串值，数值、日期、时间进行比较遍历。</p>
-<h3 id="基本使用语法"><a href="#基本使用语法" class="headerlink" title="基本使用语法"></a>基本使用语法</h3><p><img src="https://pic4.zhimg.com/v2-a99fb81234914bf9e9a416665a31805f_r.jpg" alt="image"></p>
-<h3 id="通过xpath爬取伯乐在线一篇文章的内容"><a href="#通过xpath爬取伯乐在线一篇文章的内容" class="headerlink" title="通过xpath爬取伯乐在线一篇文章的内容"></a>通过xpath爬取伯乐在线一篇文章的内容</h3>
+<h3 id="基本使用语法"><a href="#基本使用语法" class="headerlink" title="基本使用语法"></a>基本使用语法</h3><p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180117/C141LIfm91.png?imageslim" alt="mark"></p>
+<h3 id="爬取伯乐在线一篇文章的内容"><a href="#爬取伯乐在线一篇文章的内容" class="headerlink" title="爬取伯乐在线一篇文章的内容"></a>爬取伯乐在线一篇文章的内容</h3><h4 id="通过源码查找"><a href="#通过源码查找" class="headerlink" title="通过源码查找"></a>通过源码查找</h4><h4 id="通过浏览器开发者模式直接复制得到xpath位置"><a href="#通过浏览器开发者模式直接复制得到xpath位置" class="headerlink" title="通过浏览器开发者模式直接复制得到xpath位置"></a>通过浏览器开发者模式直接复制得到xpath位置</h4>
       
     </div>
     
@@ -538,7 +538,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解业务"><span class="nav-number">1.</span> <span class="nav-text">理解业务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#画出爬取网站的url结构图"><span class="nav-number">1.1.</span> <span class="nav-text">画出爬取网站的url结构图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#爬取方式"><span class="nav-number">1.2.</span> <span class="nav-text">爬取方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#深度优先"><span class="nav-number">1.2.1.</span> <span class="nav-text">深度优先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过翻页爬取"><span class="nav-number">1.2.2.</span> <span class="nav-text">通过翻页爬取</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始Scrapy项目"><span class="nav-number">2.</span> <span class="nav-text">初始Scrapy项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建项目"><span class="nav-number">2.1.</span> <span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试项目"><span class="nav-number">2.2.</span> <span class="nav-text">调试项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XPath"><span class="nav-number">3.</span> <span class="nav-text">XPath</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">3.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用语法"><span class="nav-number">3.2.</span> <span class="nav-text">基本使用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过xpath爬取伯乐在线一篇文章的内容"><span class="nav-number">3.3.</span> <span class="nav-text">通过xpath爬取伯乐在线一篇文章的内容</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解业务"><span class="nav-number">1.</span> <span class="nav-text">理解业务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#画出爬取网站的url结构图"><span class="nav-number">1.1.</span> <span class="nav-text">画出爬取网站的url结构图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#爬取方式"><span class="nav-number">1.2.</span> <span class="nav-text">爬取方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#深度优先"><span class="nav-number">1.2.1.</span> <span class="nav-text">深度优先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过翻页爬取"><span class="nav-number">1.2.2.</span> <span class="nav-text">通过翻页爬取</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始Scrapy项目"><span class="nav-number">2.</span> <span class="nav-text">初始Scrapy项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建项目"><span class="nav-number">2.1.</span> <span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调试项目"><span class="nav-number">2.2.</span> <span class="nav-text">调试项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XPath"><span class="nav-number">3.</span> <span class="nav-text">XPath</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">3.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本使用语法"><span class="nav-number">3.2.</span> <span class="nav-text">基本使用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#爬取伯乐在线一篇文章的内容"><span class="nav-number">3.3.</span> <span class="nav-text">爬取伯乐在线一篇文章的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过源码查找"><span class="nav-number">3.3.1.</span> <span class="nav-text">通过源码查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过浏览器开发者模式直接复制得到xpath位置"><span class="nav-number">3.3.2.</span> <span class="nav-text">通过浏览器开发者模式直接复制得到xpath位置</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
