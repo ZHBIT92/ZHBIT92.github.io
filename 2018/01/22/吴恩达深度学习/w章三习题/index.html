@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="深度学习,机器学习,神经网络," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="导入包numpy是用Python进行科学计算的基本软件包。sklearn为数据挖掘和数据分析提供了简单高效的工具。matplotlib是一个用于在Python中绘制图表的库。testCases提供了一些测试例子来评估你的函数的正确性planar_utils提供了在这个任务中使用的各种有用的功能1234567891011">
+<meta name="keywords" content="深度学习,机器学习,神经网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="章三习题">
+<meta property="og:url" content="http://yoursite.com/2018/01/22/吴恩达深度学习/w章三习题/index.html">
+<meta property="og:site_name" content="LEMON的博客">
+<meta property="og:description" content="导入包numpy是用Python进行科学计算的基本软件包。sklearn为数据挖掘和数据分析提供了简单高效的工具。matplotlib是一个用于在Python中绘制图表的库。testCases提供了一些测试例子来评估你的函数的正确性planar_utils提供了在这个任务中使用的各种有用的功能1234567891011import numpy as npimport matplotlib.pypl">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180122/J6fL42DHA0.png?imageslim">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180122/6ck3CLae7A.png?imageslim">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180122/k42He2FDcC.png?imageslim">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180122/0gFhfda9H4.png?imageslim">
+<meta property="og:updated_time" content="2018-01-23T07:23:31.862Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="章三习题">
+<meta name="twitter:description" content="导入包numpy是用Python进行科学计算的基本软件包。sklearn为数据挖掘和数据分析提供了简单高效的工具。matplotlib是一个用于在Python中绘制图表的库。testCases提供了一些测试例子来评估你的函数的正确性planar_utils提供了在这个任务中使用的各种有用的功能1234567891011import numpy as npimport matplotlib.pypl">
+<meta name="twitter:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180122/J6fL42DHA0.png?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/22/吴恩达深度学习/w章三习题/"/>
+
+
+
+
+
+  <title>章三习题 | LEMON的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LEMON的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/吴恩达深度学习/w章三习题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">章三习题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T10:50:21+08:00">
+                2018-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习与神经网络-吴恩达/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习与神经网络(吴恩达)</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,101字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="导入包"><a href="#导入包" class="headerlink" title="导入包"></a>导入包</h3><p><code>numpy</code>是用Python进行科学计算的基本软件包。<br><code>sklearn</code>为数据挖掘和数据分析提供了简单高效的工具。<br><code>matplotlib</code>是一个用于在Python中绘制图表的库。<br><code>testCases</code>提供了一些测试例子来评估你的函数的正确性<br><code>planar_utils</code>提供了在这个任务中使用的各种有用的功能<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="title">from</span> testCases <span class="keyword">import</span> * </span><br><span class="line"><span class="keyword">import</span> sklearn  </span><br><span class="line"><span class="keyword">import</span> sklearn.datasets</span><br><span class="line"><span class="keyword">import</span> sklearn.linear_model</span><br><span class="line"><span class="title">from</span> planar_utils <span class="keyword">import</span> plot_decision_boundary, sigmoid, load_planar_dataset, load_extra_datasets</span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="title">np</span>.random.seed(<span class="number">1</span>) # 设置seed，使结果一致</span><br></pre></td></tr></table></figure></p>
+<h3 id="导入“花卉数据集”"><a href="#导入“花卉数据集”" class="headerlink" title="导入“花卉数据集”"></a>导入“花卉数据集”</h3><h4 id="加载一个“花”-2级的数据集中到变量X和Y。"><a href="#加载一个“花”-2级的数据集中到变量X和Y。" class="headerlink" title="加载一个“花” 2级的数据集中到变量X和Y。"></a>加载一个“花” 2级的数据集中到变量X和Y。</h4><figure class="highlight tp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">X</span>, <span class="keyword">Y</span> = load_planar_dataset()</span><br></pre></td></tr></table></figure>
+<h4 id="使用matplotlib可视化数据集。"><a href="#使用matplotlib可视化数据集。" class="headerlink" title="使用matplotlib可视化数据集。"></a>使用matplotlib可视化数据集。</h4><p>数据看起来像一朵红色（标签y = 0）和一些蓝色（y = 1）点的“花朵”。你的目标是建立一个模型来适应这个数据。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(X[0, :], X[1, :], <span class="attribute">c</span>=Y, <span class="attribute">s</span>=40, <span class="attribute">cmap</span>=plt.cm.Spectral);</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180122/J6fL42DHA0.png?imageslim" alt="mark"><br><a id="more"></a></p>
+<h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><p>你有几个训练样例？此外，什么是shape变量X和Y？<br><a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.shape.html" target="_blank" rel="noopener">shape</a>属性通常用于获取数组的当前形状，但也可用于通过为其分配数组维数来重新定形数组。<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">shape_X = X.<span class="built_in">shape</span>   </span><br><span class="line">shape_Y = Y.<span class="built_in">shape</span></span><br><span class="line">m = shape_X[<span class="number">1</span>]  # training <span class="built_in">set</span> <span class="built_in">size</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">'The shape of X is: '</span> + <span class="built_in">str</span>(shape_X))</span><br><span class="line"><span class="built_in">print</span> (<span class="string">'The shape of Y is: '</span> + <span class="built_in">str</span>(shape_Y))</span><br><span class="line"><span class="built_in">print</span> (<span class="string">'I have m = %d training examples!'</span> % (m))</span><br></pre></td></tr></table></figure></p>
+<h3 id="简单的logistic逻辑回归"><a href="#简单的logistic逻辑回归" class="headerlink" title="简单的logistic逻辑回归"></a>简单的logistic逻辑回归</h3><h4 id="使用sklearn的内置函数来训练数据集上的logistic回归分类器。"><a href="#使用sklearn的内置函数来训练数据集上的logistic回归分类器。" class="headerlink" title="使用sklearn的内置函数来训练数据集上的logistic回归分类器。"></a>使用sklearn的内置函数来训练数据集上的logistic回归分类器。</h4><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clf = sklearn.linear_model.LogisticRegressionCV();</span><br><span class="line">clf.fit(X.T, Y.T);</span><br></pre></td></tr></table></figure>
+<h4 id="绘制逻辑回归的决策边界"><a href="#绘制逻辑回归的决策边界" class="headerlink" title="绘制逻辑回归的决策边界"></a>绘制逻辑回归的决策边界</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">plot_decision_boundary</span>(lambda <span class="attribute">x</span>: clf.predict(x), X, Y)</span><br><span class="line"><span class="selector-tag">plt</span><span class="selector-class">.title</span>(<span class="string">"Logistic Regression"</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="打印精度"><a href="#打印精度" class="headerlink" title="打印精度"></a>打印精度</h4><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LR_predictions = clf.predict(X.T)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">'逻辑回归的准确性：%d '</span> % <span class="keyword">float</span>((np.<span class="keyword">dot</span>(Y,LR_predictions) + np.<span class="keyword">dot</span>(<span class="number">1</span>-Y,<span class="number">1</span>-LR_predictions))/<span class="keyword">float</span>(Y.<span class="keyword">size</span>)*<span class="number">100</span>) +</span><br><span class="line">       <span class="string">'% '</span> + <span class="string">"（正确标记的数据点的百分比）"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180122/6ck3CLae7A.png?imageslim" alt="mark"><br>注：数据集不是线性可分的，所以逻辑回归表现不好。希望神经网络能做得更好。</p>
+<h3 id="神经网络模型"><a href="#神经网络模型" class="headerlink" title="神经网络模型"></a>神经网络模型</h3><h4 id="构建神经网络模型的一般方法"><a href="#构建神经网络模型的一般方法" class="headerlink" title="构建神经网络模型的一般方法"></a>构建神经网络模型的一般方法</h4><ol>
+<li>定义输入单位，隐藏单位等的神经网络结构。</li>
+<li>初始化模型的参数</li>
+<li>循环：<pre><code>- 实施前向传播
+- 计算损失
+- 实现向后传播以获得渐变
+- 更新参数（梯度下降）
+</code></pre><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180122/k42He2FDcC.png?imageslim" alt="模型"></li>
+</ol>
+<h4 id="定义神经网络结构"><a href="#定义神经网络结构" class="headerlink" title="定义神经网络结构"></a>定义神经网络结构</h4><p>定义三个变量：</p>
+<ul>
+<li>n_x: the size of the input layer</li>
+<li>n_h: the size of the hidden layer (set this to 4) </li>
+<li>n_y: the size of the output layer<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分级功能</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">layer_sizes</span><span class="params">(X, Y)</span></span><span class="symbol">:</span></span><br><span class="line">    n_x = X.shape[<span class="number">0</span>] <span class="comment"># size of input layer</span></span><br><span class="line">    n_h = <span class="number">4</span></span><br><span class="line">    n_y = Y.shape[<span class="number">0</span>] <span class="comment"># size of output layer</span></span><br><span class="line">    <span class="keyword">return</span> (n_x, n_h, n_y)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X_assess, Y_assess = layer_sizes_test_case()</span><br><span class="line">(n_x, n_h, n_y) = layer_sizes(X_assess, Y_assess)</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"The size of the input layer is: n_x = "</span> + str(n_x)</span></span>)</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"The size of the hidden layer is: n_h = "</span> + str(n_h)</span></span>)</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"The size of the output layer is: n_y = "</span> + str(n_y)</span></span>)</span><br></pre></td></tr></table></figure>
+<p>预计输出<br><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180122/0gFhfda9H4.png?imageslim" alt="mark"></p>
+<h4 id="初始化模型的参数"><a href="#初始化模型的参数" class="headerlink" title="初始化模型的参数"></a>初始化模型的参数</h4><p>实现该功能initialize_parameters()</p>
+<ul>
+<li>用随机值初始化权重矩阵。<br>使用：np.random.randn(a,b) * 0.01随机初始化形状矩阵（a，b）。</li>
+<li>初始化偏置向量为零。<br>使用：np.zeros((a,b))用零初始化形状矩阵（a，b）。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">initialize_parameters</span><span class="params">(n_x, n_h, n_y)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    params -- python dictionary containing your parameters:</span></span><br><span class="line"><span class="string">                    W1 -- weight matrix of shape (n_h, n_x) - 形状的权重矩阵</span></span><br><span class="line"><span class="string">                    b1 -- bias vector of shape (n_h, 1) - 形状的偏向量</span></span><br><span class="line"><span class="string">                    W2 -- weight matrix of shape (n_y, n_h)  - 形状权重矩阵</span></span><br><span class="line"><span class="string">                    b2 -- bias vector of shape (n_y, 1) - 形状的偏向量</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    np.random.seed(<span class="number">2</span>) <span class="comment"># we set up a seed so that your output matches ours although the initialization is random.</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">assert</span> (W1.shape == (n_h, n_x))</span><br><span class="line">    <span class="keyword">assert</span> (b1.shape == (n_h, <span class="number">1</span>))</span><br><span class="line">    <span class="keyword">assert</span> (W2.shape == (n_y, n_h))</span><br><span class="line">    <span class="keyword">assert</span> (b2.shape == (n_y, <span class="number">1</span>))</span><br><span class="line">    </span><br><span class="line">    parameters = &#123;<span class="string">"W1"</span>: W1,</span><br><span class="line">                  <span class="string">"b1"</span>: b1,</span><br><span class="line">                  <span class="string">"W2"</span>: W2,</span><br><span class="line">                  <span class="string">"b2"</span>: b2&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> parameters</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">n_x, n_h, n_y = initialize_parameters_test_case()</span><br><span class="line"></span><br><span class="line">parameters = initialize_parameters(n_x, n_h, n_y)</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"W1 = "</span> + str(parameters[<span class="string">"W1"</span>])</span></span>)</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"b1 = "</span> + str(parameters[<span class="string">"b1"</span>])</span></span>)</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"W2 = "</span> + str(parameters[<span class="string">"W2"</span>])</span></span>)</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"b2 = "</span> + str(parameters[<span class="string">"b2"</span>])</span></span>)</span><br></pre></td></tr></table></figure>
+<h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><h5 id="前向传播"><a href="#前向传播" class="headerlink" title="前向传播"></a>前向传播</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forward_propagation</span><span class="params">(X, parameters)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    论据:</span></span><br><span class="line"><span class="string">    X -- input data of size (n_x, m)</span></span><br><span class="line"><span class="string">    parameters -- python dictionary containing your parameters (output of initialization function)</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">    A2 -- The sigmoid output of the second activation 第二次激活的s的输出</span></span><br><span class="line"><span class="string">    cache -- a dictionary containing "Z1", "A1", "Z2" and "A2"</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 从字典“参数”中检索每个参数</span></span><br><span class="line">    W1 = <span class="keyword">None</span></span><br><span class="line">    b1 = <span class="keyword">None</span></span><br><span class="line">    W2 = <span class="keyword">None</span></span><br><span class="line">    b2 = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Implement Forward Propagation to calculate A2 (probabilities)</span></span><br><span class="line">    <span class="comment">### START CODE HERE ### (≈ 4 lines of code)</span></span><br><span class="line">    Z1 = np.dot(W1.T, X)+b1</span><br><span class="line">    A1 = <span class="keyword">None</span></span><br><span class="line">    Z2 = np.dot(W2.T, X)+b2</span><br><span class="line">    A2 = <span class="keyword">None</span></span><br><span class="line">    <span class="comment">### END CODE HERE ###</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">assert</span>(A2.shape == (<span class="number">1</span>, X.shape[<span class="number">1</span>]))</span><br><span class="line">    </span><br><span class="line">    cache = &#123;<span class="string">"Z1"</span>: Z1,</span><br><span class="line">             <span class="string">"A1"</span>: A1,</span><br><span class="line">             <span class="string">"Z2"</span>: Z2,</span><br><span class="line">             <span class="string">"A2"</span>: A2&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> A2, cache</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+          
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+          
+            <a href="/tags/神经网络/" rel="tag"><i class="fa fa-tag"></i> 神经网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/16/Scrapy爬虫一/" rel="next" title="Scrapy爬虫一">
+                <i class="fa fa-chevron-left"></i> Scrapy爬虫一
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LEMON</p>
+              <p class="site-description motion-element" itemprop="description">记录生活点滴</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ZHBIT92" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/u/6f9b905040b9" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-globe"></i>简书</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入包"><span class="nav-number">1.</span> <span class="nav-text">导入包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入“花卉数据集”"><span class="nav-number">2.</span> <span class="nav-text">导入“花卉数据集”</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#加载一个“花”-2级的数据集中到变量X和Y。"><span class="nav-number">2.1.</span> <span class="nav-text">加载一个“花” 2级的数据集中到变量X和Y。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用matplotlib可视化数据集。"><span class="nav-number">2.2.</span> <span class="nav-text">使用matplotlib可视化数据集。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#练习"><span class="nav-number">2.3.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单的logistic逻辑回归"><span class="nav-number">3.</span> <span class="nav-text">简单的logistic逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用sklearn的内置函数来训练数据集上的logistic回归分类器。"><span class="nav-number">3.1.</span> <span class="nav-text">使用sklearn的内置函数来训练数据集上的logistic回归分类器。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绘制逻辑回归的决策边界"><span class="nav-number">3.2.</span> <span class="nav-text">绘制逻辑回归的决策边界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打印精度"><span class="nav-number">3.3.</span> <span class="nav-text">打印精度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#神经网络模型"><span class="nav-number">4.</span> <span class="nav-text">神经网络模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构建神经网络模型的一般方法"><span class="nav-number">4.1.</span> <span class="nav-text">构建神经网络模型的一般方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义神经网络结构"><span class="nav-number">4.2.</span> <span class="nav-text">定义神经网络结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化模型的参数"><span class="nav-number">4.3.</span> <span class="nav-text">初始化模型的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环"><span class="nav-number">4.4.</span> <span class="nav-text">循环</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#前向传播"><span class="nav-number">4.4.1.</span> <span class="nav-text">前向传播</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LEMON</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>次
+</span>
+</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共32.2k字</span>
+</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/z16.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>

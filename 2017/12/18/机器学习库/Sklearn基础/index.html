@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="机器学习,Sklearn," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="简介与安装概述Scikit learn 也简称 sklearn, 是机器学习领域当中最知名的 python 模块之一.其包含了许多机器学习的方法的 Sklearn 把所有机器学习的模式整合统一起来了，学会了一个模式就可以通吃其他不同类型的学习模式。 安装 Windows下使用Anaconda(https://www.a">
+<meta name="keywords" content="机器学习,Sklearn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sklearn基础">
+<meta property="og:url" content="http://yoursite.com/2017/12/18/机器学习库/Sklearn基础/index.html">
+<meta property="og:site_name" content="LEMON的博客">
+<meta property="og:description" content="简介与安装概述Scikit learn 也简称 sklearn, 是机器学习领域当中最知名的 python 模块之一.其包含了许多机器学习的方法的 Sklearn 把所有机器学习的模式整合统一起来了，学会了一个模式就可以通吃其他不同类型的学习模式。 安装 Windows下使用Anaconda(https://www.anaconda.com/download/)  选择学习方法（模型流程）安装完">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1667471-b9cf0b0ca146ecca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://morvanzhou.github.io/static/results/sklearn/2_2_1.png">
+<meta property="og:updated_time" content="2017-12-20T15:41:53.723Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sklearn基础">
+<meta name="twitter:description" content="简介与安装概述Scikit learn 也简称 sklearn, 是机器学习领域当中最知名的 python 模块之一.其包含了许多机器学习的方法的 Sklearn 把所有机器学习的模式整合统一起来了，学会了一个模式就可以通吃其他不同类型的学习模式。 安装 Windows下使用Anaconda(https://www.anaconda.com/download/)  选择学习方法（模型流程）安装完">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1667471-b9cf0b0ca146ecca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/18/机器学习库/Sklearn基础/"/>
+
+
+
+
+
+  <title>Sklearn基础 | LEMON的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LEMON的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/机器学习库/Sklearn基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Sklearn基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T14:54:21+08:00">
+                2017-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,241字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="简介与安装"><a href="#简介与安装" class="headerlink" title="简介与安装"></a>简介与安装</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>Scikit learn 也简称 sklearn, 是机器学习领域当中最知名的 python 模块之一.其包含了许多机器学习的方法的</p>
+<p>Sklearn 把所有机器学习的模式整合统一起来了，学会了一个模式就可以通吃其他不同类型的学习模式。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li>Windows下使用Anaconda(<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">https://www.anaconda.com/download/</a>)</li>
+</ul>
+<h2 id="选择学习方法（模型流程）"><a href="#选择学习方法（模型流程）" class="headerlink" title="选择学习方法（模型流程）"></a>选择学习方法（模型流程）</h2><p>安装完 Sklearn 后，不要直接去用，先了解一下都有什么模型方法，然后选择适当的方法，来达到你的目标。</p>
+<h3 id="看流程图选方法"><a href="#看流程图选方法" class="headerlink" title="看流程图选方法"></a>看流程图选方法</h3><p>klearn 官网提供了一个<a href="http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html" target="_blank" rel="noopener">流程图</a>，蓝色圆圈内是判断条件，绿色方框内是可以选择的算法：<br><img src="http://upload-images.jianshu.io/upload_images/1667471-b9cf0b0ca146ecca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><a id="more"></a></p>
+<h3 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h3><p>从 START 开始，首先看数据的样本是否 &gt;50，小于则需要收集更多的数据。</p>
+<p>由图中，可以看到算法有四类，分类，回归，聚类，降维。</p>
+<p>监督学习：有数据可以训练<br>非监督学习： 无数据训练的过程</p>
+<p>其中 <strong>分类和回归</strong>是<strong>监督式学习</strong>，即每个数据对应一个 label。 <strong>聚类</strong> 是<strong>非监督式学习</strong>，即没有 label。 另外一类是 <strong>降维</strong>，当数据集有很多很多属性的时候，可以通过 降维 算法把属性归纳起来。<br>例如 ：20 个属性只变成 2 个，注意，这不是挑出 2 个，而是压缩成为 2 个，它们集合了 20 个属性的所有特征，相当于把重要的信息提取的更好，不重要的信息就不要了。</p>
+<p>然后看问题属于哪一类问题，是分类还是回归，还是聚类，就选择相应的算法。 当然还要考虑数据的大小，例如 100K 是一个阈值。</p>
+<p>可以发现有些方法是既可以作为分类，也可以作为回归，例如 SGD。</p>
+<h2 id="基础应用（以KNN-classifiler为例）"><a href="#基础应用（以KNN-classifiler为例）" class="headerlink" title="基础应用（以KNN classifiler为例）"></a>基础应用（以KNN classifiler为例）</h2><h3 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h3><p>Sklearn 本身就有很多数据库，可以用来练习。 以 Iris 的数据为例，这种花有四个属性，花瓣的长宽，茎的长宽，根据这些属性把花分为三类。<br><img src="https://morvanzhou.github.io/static/results/sklearn/2_2_1.png" alt=""><br>我们要用 分类器 去把四种类型的花分开。<br><strong>今天用 KNN classifier，就是选择几个临近点，综合它们做个平均来作为预测值。</strong></p>
+<h3 id="导入模块"><a href="#导入模块" class="headerlink" title="导入模块"></a>导入模块</h3><figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</span><br></pre></td></tr></table></figure>
+<h3 id="创建数据"><a href="#创建数据" class="headerlink" title="创建数据"></a>创建数据</h3><p>加载 iris 的数据，把属性存在 X，类别标签存在 y：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">iris</span> = datasets.load_iris()</span><br><span class="line"><span class="attr">iris_X</span> = iris.data</span><br><span class="line"><span class="attr">iris_y</span> = iris.target</span><br></pre></td></tr></table></figure></p>
+<p>观察一下数据集，X 有四个属性，y 有 0，1，2 三类：<br><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">print(iris_X[:2, :])</span><br><span class="line">print(iris_y)</span><br><span class="line"></span><br><span class="line">"""</span><br><span class="line">[[ 5.1  3.5  1.4  0.2]</span><br><span class="line"> [ 4.9  3.   1.4  0.2]]</span><br><span class="line">[0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0</span><br><span class="line"><span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1 1</span><br><span class="line"><span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2 2</span><br><span class="line"><span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2 2</span><br><span class="line"><span class="number"> 2 </span>2]</span><br><span class="line"> """</span><br></pre></td></tr></table></figure></p>
+<p>把数据集分为训练集和测试集，其中 <strong>test_size=0.3</strong>，即测试集占总数据的 30%：<br>可以看到分开后的数据集，顺序也被打乱，这样更有利于学习模型：<br><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">    iris_X, iris_y, test_size=0.3)</span><br><span class="line"></span><br><span class="line">print(y_train)</span><br><span class="line">"""</span><br><span class="line">[2<span class="number"> 1 </span>0<span class="number"> 1 </span>0<span class="number"> 0 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>0<span class="number"> 0 </span>1<span class="number"> 2 </span>1<span class="number"> 1 </span>1<span class="number"> 0 </span>2<span class="number"> 2 </span>1<span class="number"> 1 </span>1<span class="number"> 1 </span>0<span class="number"> 2 </span>2<span class="number"> 0 </span>2<span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 0 </span>1<span class="number"> 2 </span>2</span><br><span class="line"><span class="number"> 2 </span>2<span class="number"> 2 </span>2<span class="number"> 0 </span>1<span class="number"> 2 </span>2<span class="number"> 1 </span>1<span class="number"> 1 </span>0<span class="number"> 0 </span>1<span class="number"> 2 </span>0<span class="number"> 1 </span>0<span class="number"> 1 </span>0<span class="number"> 1 </span>2<span class="number"> 2 </span>0<span class="number"> 1 </span>2<span class="number"> 2 </span>2<span class="number"> 1 </span>1<span class="number"> 1 </span>1<span class="number"> 2 </span>2<span class="number"> 2 </span>1 0</span><br><span class="line"><span class="number"> 1 </span>1<span class="number"> 0 </span>0<span class="number"> 0 </span>2<span class="number"> 0 </span>1<span class="number"> 0 </span>0<span class="number"> 1 </span>2<span class="number"> 0 </span>2<span class="number"> 2 </span>0<span class="number"> 0 </span>2<span class="number"> 2 </span>2<span class="number"> 1 </span>2<span class="number"> 0 </span>0<span class="number"> 2 </span>1<span class="number"> 2 </span>0<span class="number"> 0 </span>1 2]</span><br><span class="line"> """</span><br></pre></td></tr></table></figure></p>
+<h3 id="建立模型－训练－预测"><a href="#建立模型－训练－预测" class="headerlink" title="建立模型－训练－预测"></a>建立模型－训练－预测</h3><p>定义模块方式 KNeighborsClassifier()， 用 fit 来训练 training data，这一步就完成了训练的所有步骤， 后面的 knn 就已经是训练好的模型，可以直接用来 predict 测试集的数据， 对比用模型预测的值与真实的值，可以看到大概模拟出了数据，但是有误差，是不会完完全全预测正确的。<br><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">knn = KNeighborsClassifier()</span><br><span class="line">knn.fit(X_train, y_train)</span><br><span class="line">print(knn.predict(X_test))</span><br><span class="line">print(y_test)</span><br><span class="line"></span><br><span class="line">"""</span><br><span class="line">[2<span class="number"> 0 </span>0<span class="number"> 1 </span>2<span class="number"> 2 </span>0<span class="number"> 0 </span>0<span class="number"> 1 </span>2<span class="number"> 2 </span>1<span class="number"> 1 </span>2<span class="number"> 1 </span>2<span class="number"> 1 </span>0<span class="number"> 0 </span>0<span class="number"> 2 </span>1<span class="number"> 2 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>1<span class="number"> 0 </span>2<span class="number"> 0 </span>0<span class="number"> 2 </span>1<span class="number"> 0 </span>1</span><br><span class="line"><span class="number"> 0 </span>0<span class="number"> 1 </span>0<span class="number"> 1 </span>2<span class="number"> 0 </span>1]</span><br><span class="line">[2<span class="number"> 0 </span>0<span class="number"> 1 </span>2<span class="number"> 1 </span>0<span class="number"> 0 </span>0<span class="number"> 1 </span>2<span class="number"> 2 </span>1<span class="number"> 1 </span>2<span class="number"> 1 </span>2<span class="number"> 1 </span>0<span class="number"> 0 </span>0<span class="number"> 2 </span>1<span class="number"> 2 </span>0<span class="number"> 0 </span>0<span class="number"> 0 </span>1<span class="number"> 0 </span>2<span class="number"> 0 </span>0<span class="number"> 2 </span>1<span class="number"> 0 </span>1</span><br><span class="line"><span class="number"> 0 </span>0<span class="number"> 1 </span>0<span class="number"> 1 </span>2<span class="number"> 0 </span>1]</span><br><span class="line"> """</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+          
+            <a href="/tags/Sklearn/" rel="tag"><i class="fa fa-tag"></i> Sklearn</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/04/Hexo优化/" rel="next" title="Hello优化相关">
+                <i class="fa fa-chevron-left"></i> Hello优化相关
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/19/Anaconda基础/" rel="prev" title="Anaconda基础">
+                Anaconda基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LEMON</p>
+              <p class="site-description motion-element" itemprop="description">记录生活点滴</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ZHBIT92" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/u/6f9b905040b9" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-globe"></i>简书</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介与安装"><span class="nav-number">1.</span> <span class="nav-text">简介与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.2.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择学习方法（模型流程）"><span class="nav-number">2.</span> <span class="nav-text">选择学习方法（模型流程）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#看流程图选方法"><span class="nav-number">2.1.</span> <span class="nav-text">看流程图选方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详解"><span class="nav-number">2.2.</span> <span class="nav-text">详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础应用（以KNN-classifiler为例）"><span class="nav-number">3.</span> <span class="nav-text">基础应用（以KNN classifiler为例）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#要点"><span class="nav-number">3.1.</span> <span class="nav-text">要点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块"><span class="nav-number">3.2.</span> <span class="nav-text">导入模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据"><span class="nav-number">3.3.</span> <span class="nav-text">创建数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立模型－训练－预测"><span class="nav-number">3.4.</span> <span class="nav-text">建立模型－训练－预测</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LEMON</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>次
+</span>
+</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共32.2k字</span>
+</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/z16.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>

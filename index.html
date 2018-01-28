@@ -232,6 +232,174 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/吴恩达深度学习/w章三习题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/22/吴恩达深度学习/w章三习题/" itemprop="url">章三习题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T10:50:21+08:00">
+                2018-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习与神经网络-吴恩达/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习与神经网络(吴恩达)</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,101字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="导入包"><a href="#导入包" class="headerlink" title="导入包"></a>导入包</h3><p><code>numpy</code>是用Python进行科学计算的基本软件包。<br><code>sklearn</code>为数据挖掘和数据分析提供了简单高效的工具。<br><code>matplotlib</code>是一个用于在Python中绘制图表的库。<br><code>testCases</code>提供了一些测试例子来评估你的函数的正确性<br><code>planar_utils</code>提供了在这个任务中使用的各种有用的功能<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="title">from</span> testCases <span class="keyword">import</span> * </span><br><span class="line"><span class="keyword">import</span> sklearn  </span><br><span class="line"><span class="keyword">import</span> sklearn.datasets</span><br><span class="line"><span class="keyword">import</span> sklearn.linear_model</span><br><span class="line"><span class="title">from</span> planar_utils <span class="keyword">import</span> plot_decision_boundary, sigmoid, load_planar_dataset, load_extra_datasets</span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="title">np</span>.random.seed(<span class="number">1</span>) # 设置seed，使结果一致</span><br></pre></td></tr></table></figure></p>
+<h3 id="导入“花卉数据集”"><a href="#导入“花卉数据集”" class="headerlink" title="导入“花卉数据集”"></a>导入“花卉数据集”</h3><h4 id="加载一个“花”-2级的数据集中到变量X和Y。"><a href="#加载一个“花”-2级的数据集中到变量X和Y。" class="headerlink" title="加载一个“花” 2级的数据集中到变量X和Y。"></a>加载一个“花” 2级的数据集中到变量X和Y。</h4><figure class="highlight tp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">X</span>, <span class="keyword">Y</span> = load_planar_dataset()</span><br></pre></td></tr></table></figure>
+<h4 id="使用matplotlib可视化数据集。"><a href="#使用matplotlib可视化数据集。" class="headerlink" title="使用matplotlib可视化数据集。"></a>使用matplotlib可视化数据集。</h4><p>数据看起来像一朵红色（标签y = 0）和一些蓝色（y = 1）点的“花朵”。你的目标是建立一个模型来适应这个数据。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(X[0, :], X[1, :], <span class="attribute">c</span>=Y, <span class="attribute">s</span>=40, <span class="attribute">cmap</span>=plt.cm.Spectral);</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180122/J6fL42DHA0.png?imageslim" alt="mark"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/22/吴恩达深度学习/w章三习题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/16/Scrapy爬虫一/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -317,7 +485,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  321字
+                  1,665字
                 </span>
               
 
@@ -1070,7 +1238,7 @@ ImT
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/数据挖掘-特征工程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/数据挖掘/数据挖掘-特征工程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LEMON">
@@ -1089,7 +1257,7 @@ ImT
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/05/数据挖掘-特征工程/" itemprop="url">数据挖掘-特征工程</a></h1>
+                <a class="post-title-link" href="/2018/01/05/数据挖掘/数据挖掘-特征工程/" itemprop="url">数据挖掘-特征工程</a></h1>
         
 
         <div class="post-meta">
@@ -1190,7 +1358,7 @@ ImT
 <h3 id="文本类型"><a href="#文本类型" class="headerlink" title="文本类型"></a>文本类型</h3><h3 id="图像或语音数据"><a href="#图像或语音数据" class="headerlink" title="图像或语音数据"></a>图像或语音数据</h3>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/05/数据挖掘-特征工程/#more" rel="contents">
+            <a class="btn" href="/2018/01/05/数据挖掘/数据挖掘-特征工程/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1406,7 +1574,7 @@ ImT
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/数据挖掘-数据预处理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/数据挖掘/数据挖掘-数据预处理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LEMON">
@@ -1425,7 +1593,7 @@ ImT
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/03/数据挖掘-数据预处理/" itemprop="url">数据挖掘-数据预处理</a></h1>
+                <a class="post-title-link" href="/2018/01/03/数据挖掘/数据挖掘-数据预处理/" itemprop="url">数据挖掘-数据预处理</a></h1>
         
 
         <div class="post-meta">
@@ -1520,7 +1688,7 @@ ImT
           <h2 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h2><h2 id="归一化"><a href="#归一化" class="headerlink" title="归一化"></a>归一化</h2><h2 id="去噪声"><a href="#去噪声" class="headerlink" title="去噪声"></a>去噪声</h2>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/03/数据挖掘-数据预处理/#more" rel="contents">
+            <a class="btn" href="/2018/01/03/数据挖掘/数据挖掘-数据预处理/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1571,7 +1739,7 @@ ImT
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/MATLAB-Simulink /">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/MATLAB/MATLAB-Simulink /">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LEMON">
@@ -1590,7 +1758,7 @@ ImT
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/03/MATLAB-Simulink /" itemprop="url">MATLAB-Simulink</a></h1>
+                <a class="post-title-link" href="/2018/01/03/MATLAB/MATLAB-Simulink /" itemprop="url">MATLAB-Simulink</a></h1>
         
 
         <div class="post-meta">
@@ -1688,174 +1856,7 @@ ImT
           
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/01/03/MATLAB-Simulink /#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/02/MATLAB-实践/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LEMON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LEMON的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/02/MATLAB-实践/" itemprop="url">MATLAB-实践</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-02T19:44:21+08:00">
-                2018-01-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MATLAB/" itemprop="url" rel="index">
-                    <span itemprop="name">MATLAB</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  658字
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Fibonacci-数"><a href="#Fibonacci-数" class="headerlink" title="Fibonacci 数"></a>Fibonacci 数</h2><h3 id="产生前-n-个斐波那契数"><a href="#产生前-n-个斐波那契数" class="headerlink" title="产生前 n 个斐波那契数"></a>产生前 n 个斐波那契数</h3><p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/5hAAc9fK98.png?imageslim" alt=""></p>
-<h3 id="用递归实现求第-n-个斐波那契数"><a href="#用递归实现求第-n-个斐波那契数" class="headerlink" title="用递归实现求第 n 个斐波那契数"></a>用递归实现求第 n 个斐波那契数</h3><p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/gl9Ga1Lia5.png?imageslim" alt=""></p>
-<h3 id="获取指定位置的-fibonacci-数"><a href="#获取指定位置的-fibonacci-数" class="headerlink" title="获取指定位置的 fibonacci 数"></a>获取指定位置的 fibonacci 数</h3><p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/1lKidaK104.png?imageslim" alt="mark"><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/02/MATLAB-实践/#more" rel="contents">
+            <a class="btn" href="/2018/01/03/MATLAB/MATLAB-Simulink /#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1943,7 +1944,7 @@ ImT
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2052,7 +2053,7 @@ ImT
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共27.1k字</span>
+  <span class="post-count">博客全站共32.2k字</span>
 </div>
 
 
