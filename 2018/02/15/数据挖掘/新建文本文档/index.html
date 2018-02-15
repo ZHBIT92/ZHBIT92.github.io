@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据挖掘," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、读取文章数据pandas读取mysql数据到DataFrame中1234567891011import pandas as pdfrom sqlalchemy import create_enginedb_info = &amp;#123;&apos;user&apos;:&apos;root&apos;,    ">
+<meta name="keywords" content="数据挖掘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分析伯乐在线文章数据">
+<meta property="og:url" content="http://yoursite.com/2018/02/15/数据挖掘/新建文本文档/index.html">
+<meta property="og:site_name" content="LEMON的博客">
+<meta property="og:description" content="一、读取文章数据pandas读取mysql数据到DataFrame中1234567891011import pandas as pdfrom sqlalchemy import create_enginedb_info = &amp;#123;&apos;user&apos;:&apos;root&apos;,          &apos;password&apos;:&apos;&apos;,           &apos;host&apos;:&apos;localhost&apos;,           &apos;da">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180209/hDdC5JbhbJ.png?imageslim">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180209/LDAIAi2k0h.png?imageslim">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180209/5akBclFjfG.png?imageslim">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180210/iL9m8bDfLJ.png?imageslim">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180215/eb2e0HEhA3.png?imageslim">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-b8c79e4bf015f275.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180215/CCaljJb20B.png?imageslim">
+<meta property="og:updated_time" content="2018-02-15T12:31:30.374Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分析伯乐在线文章数据">
+<meta name="twitter:description" content="一、读取文章数据pandas读取mysql数据到DataFrame中1234567891011import pandas as pdfrom sqlalchemy import create_enginedb_info = &amp;#123;&apos;user&apos;:&apos;root&apos;,          &apos;password&apos;:&apos;&apos;,           &apos;host&apos;:&apos;localhost&apos;,           &apos;da">
+<meta name="twitter:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180209/hDdC5JbhbJ.png?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/15/数据挖掘/新建文本文档/"/>
+
+
+
+
+
+  <title>分析伯乐在线文章数据 | LEMON的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LEMON的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/15/数据挖掘/新建文本文档/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">分析伯乐在线文章数据</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-15T20:30:21+08:00">
+                2018-02-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据挖掘/" itemprop="url" rel="index">
+                    <span itemprop="name">数据挖掘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  458字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、读取文章数据"><a href="#一、读取文章数据" class="headerlink" title="一、读取文章数据"></a>一、读取文章数据</h3><h4 id="pandas读取mysql数据到DataFrame中"><a href="#pandas读取mysql数据到DataFrame中" class="headerlink" title="pandas读取mysql数据到DataFrame中"></a>pandas读取mysql数据到DataFrame中</h4><figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">from sqlalchemy <span class="keyword">import</span> create_engine</span><br><span class="line"></span><br><span class="line">db_info = &#123;<span class="string">'user'</span>:<span class="string">'root'</span>,</span><br><span class="line">          <span class="string">'password'</span>:<span class="string">''</span>,</span><br><span class="line">           <span class="string">'host'</span>:<span class="string">'localhost'</span>,</span><br><span class="line">           <span class="string">'database'</span>:<span class="string">'article_spider'</span></span><br><span class="line">          &#125;</span><br><span class="line">engine = create_engine(<span class="string">'mysql://%(user)s:%(password)s@%(host)s/%(database)s?charset=utf8'</span> % db_info,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">sql = <span class="string">'select * from jobbole_article;'</span></span><br><span class="line">df = pd.read_sql(sql , con = engine)</span><br></pre></td></tr></table></figure>
+<h3 id="二、数据分析"><a href="#二、数据分析" class="headerlink" title="二、数据分析"></a>二、数据分析</h3><h4 id="1-查看数据"><a href="#1-查看数据" class="headerlink" title="1. 查看数据"></a>1. 查看数据</h4><p><code>df.info()</code> 查看数据信息<br><code>df.isnull()</code> 判断数据是否缺失<br><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180209/hDdC5JbhbJ.png?imageslim" alt=""></p>
+<h4 id="2-清洗数据"><a href="#2-清洗数据" class="headerlink" title="2. 清洗数据"></a>2. 清洗数据</h4><p>只保留title、creat_data、tags三个属性的数据<br><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.loc[:,[<span class="string">'create_date'</span>,<span class="string">'title'</span>,<span class="string">'tags'</span>]]</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180209/LDAIAi2k0h.png?imageslim" alt=""><br>按时间进行排序<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.sort_values(<span class="keyword">by</span>=<span class="string">'create_date'</span>,<span class="keyword">ascending</span> = <span class="literal">False</span>)</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180209/5akBclFjfG.png?imageslim" alt=""><br>将数据类型转换为日期类型并设置为索引<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df['create_date'] = pd.to_datetime(df['create_date']) <span class="meta">#将数据类型转换为日期类型</span></span><br><span class="line">df = df.set_index('create_date')  <span class="meta"># 将dcreate_date设置为索引</span></span><br></pre></td></tr></table></figure></p>
+<p>获取2017年的文章信息及tags和title内容<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">df</span> = df[<span class="string">'2017'</span>]</span><br><span class="line"><span class="attr">tags</span> = df[<span class="string">'tags'</span>]</span><br><span class="line"><span class="attr">title</span> = df[<span class="string">'title'</span>]</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180210/iL9m8bDfLJ.png?imageslim" alt=""></p>
+<h4 id="3-数据类型转换"><a href="#3-数据类型转换" class="headerlink" title="3.数据类型转换"></a>3.数据类型转换</h4><p>首先使用np.array()函数把DataFrame转化为np.ndarray()，再利用tolist()函数把np.ndarray()转为list类型<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tags_data</span> = np.array(tags)#np.ndarray()</span><br><span class="line"><span class="attr">tags_list</span> = tags_data.tolist()#list</span><br><span class="line"><span class="attr">tags_text</span> = <span class="string">""</span>.join(tags_list) # 拼接成text</span><br><span class="line"><span class="attr">tags_text</span> = tags_text.replace(<span class="string">','</span>,<span class="string">''</span>) #把逗号换为空</span><br><span class="line"><span class="attr">tags_text</span> = tags_text.replace(<span class="string">'/'</span>,<span class="string">''</span>)</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-中文分词"><a href="#4-中文分词" class="headerlink" title="4.中文分词"></a>4.中文分词</h4><p>利用结巴分词进行中文分词操作<br><figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jieba    </span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd  </span><br><span class="line">jieba.add_word(<span class="string">'C/C++'</span>)</span><br><span class="line">segment = jieba.lcut(tags_text)</span><br><span class="line">words_df = pd.DataFrame(&#123;<span class="string">'segment'</span>:segment&#125;)</span><br><span class="line">words_df.head()</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180215/eb2e0HEhA3.png?imageslim" alt=""><br>进行词频统计<br><figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line">words_stat = words_df.groupby(<span class="keyword">by</span>=[<span class="string">'segment'</span>])[<span class="string">'segment'</span>].agg(&#123;<span class="string">"计数"</span>:np.size&#125;)</span><br><span class="line">words_stat = words_stat.reset_index().sort_values(<span class="keyword">by</span>=[<span class="string">"计数"</span>],ascending=False)</span><br><span class="line">words_stat.head()</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/8448458-b8c79e4bf015f275.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="5-词云显示数据"><a href="#5-词云显示数据" class="headerlink" title="5. 词云显示数据"></a>5. 词云显示数据</h4><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib <span class="keyword">inline</span></span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line">matplotlib.rcParams[<span class="string">'figure.figsize'</span>] = (<span class="number">10.0</span>, <span class="number">5.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud#词云包</span><br><span class="line"></span><br><span class="line">#用词云进行显示</span><br><span class="line">wordcloud=WordCloud(font_path=<span class="string">"simhei.ttf"</span>,background_color=<span class="string">"white"</span>,max_font_size=<span class="number">80</span>)</span><br><span class="line">word_frequence = &#123;x[<span class="number">0</span>]:x[<span class="number">1</span>] for x <span class="keyword">in</span> words_stat.head(<span class="number">1000</span>).values&#125;</span><br><span class="line">wordcloud = wordcloud.fit_words(word_frequence)</span><br><span class="line">plt.imshow(wordcloud)</span><br></pre></td></tr></table></figure>
+<p>得到关于伯乐在线2017年的文章的标签的使用程度如下<br><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180215/CCaljJb20B.png?imageslim" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据挖掘/" rel="tag"><i class="fa fa-tag"></i> 数据挖掘</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/15/数据挖掘/分析伯乐在线文章数据/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LEMON</p>
+              <p class="site-description motion-element" itemprop="description">记录生活点滴</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ZHBIT92" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/u/6f9b905040b9" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-globe"></i>简书</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、读取文章数据"><span class="nav-number">1.</span> <span class="nav-text">一、读取文章数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pandas读取mysql数据到DataFrame中"><span class="nav-number">1.1.</span> <span class="nav-text">pandas读取mysql数据到DataFrame中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、数据分析"><span class="nav-number">2.</span> <span class="nav-text">二、数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-查看数据"><span class="nav-number">2.1.</span> <span class="nav-text">1. 查看数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-清洗数据"><span class="nav-number">2.2.</span> <span class="nav-text">2. 清洗数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-数据类型转换"><span class="nav-number">2.3.</span> <span class="nav-text">3.数据类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-中文分词"><span class="nav-number">2.4.</span> <span class="nav-text">4.中文分词</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-词云显示数据"><span class="nav-number">2.5.</span> <span class="nav-text">5. 词云显示数据</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LEMON</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>次
+</span>
+</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共34.1k字</span>
+</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/z16.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>
