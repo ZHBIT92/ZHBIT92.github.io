@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180122/6ck3CLae7A.png?imageslim">
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180122/k42He2FDcC.png?imageslim">
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180122/0gFhfda9H4.png?imageslim">
-<meta property="og:updated_time" content="2018-02-19T07:47:28.561Z">
+<meta property="og:updated_time" content="2018-02-19T08:30:26.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="章三习题">
 <meta name="twitter:description" content="导入包numpy是用Python进行科学计算的基本软件包。sklearn为数据挖掘和数据分析提供了简单高效的工具。matplotlib是一个用于在Python中绘制图表的库。testCases提供了一些测试例子来评估你的函数的正确性planar_utils提供了在这个任务中使用的各种有用的功能1234567891011import numpy as npimport matplotlib.pypl">
@@ -321,7 +321,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,990字
+                  2,025字
                 </span>
               
 
@@ -392,6 +392,11 @@
 <ul>
 <li>较大的模型（具有更多的隐藏单元）能够更好地适应训练集，直到最终的最大模型过度拟合数据。</li>
 <li>最好的隐藏层大小似乎在n_h = 5左右。事实上，这里的一个值似乎很适合数据，而且不会引起显着的过度拟合。</li>
+</ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="http://mooc.study.163.com/course/2001281002#/info" target="_blank" rel="noopener">吴恩达-神经网络与深度学习-网易云课堂</a></li>
+<li><a href="http://binweber.top/2017/09/25/deep_learning_2/" target="_blank" rel="noopener">深度学习(2)：神经网络</a></li>
+<li><a href="https://github.com/ZHBIT92/Deep-Learning" target="_blank" rel="noopener">课程代码-GitHub</a></li>
 </ul>
 
       
@@ -587,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入包"><span class="nav-number">1.</span> <span class="nav-text">导入包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入“花卉数据集”"><span class="nav-number">2.</span> <span class="nav-text">导入“花卉数据集”</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#加载一个“花”-2级的数据集中到变量X和Y。"><span class="nav-number">2.1.</span> <span class="nav-text">加载一个“花” 2级的数据集中到变量X和Y。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用matplotlib可视化数据集。"><span class="nav-number">2.2.</span> <span class="nav-text">使用matplotlib可视化数据集。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#练习"><span class="nav-number">2.3.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单的logistic逻辑回归"><span class="nav-number">3.</span> <span class="nav-text">简单的logistic逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用sklearn的内置函数来训练数据集上的logistic回归分类器。"><span class="nav-number">3.1.</span> <span class="nav-text">使用sklearn的内置函数来训练数据集上的logistic回归分类器。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绘制逻辑回归的决策边界"><span class="nav-number">3.2.</span> <span class="nav-text">绘制逻辑回归的决策边界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打印精度"><span class="nav-number">3.3.</span> <span class="nav-text">打印精度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#神经网络模型"><span class="nav-number">4.</span> <span class="nav-text">神经网络模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构建神经网络模型的一般方法"><span class="nav-number">4.1.</span> <span class="nav-text">构建神经网络模型的一般方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义神经网络结构"><span class="nav-number">4.2.</span> <span class="nav-text">定义神经网络结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化模型的参数"><span class="nav-number">4.3.</span> <span class="nav-text">初始化模型的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环"><span class="nav-number">4.4.</span> <span class="nav-text">循环</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#前向传播"><span class="nav-number">4.4.1.</span> <span class="nav-text">前向传播</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计算成本函数"><span class="nav-number">4.4.2.</span> <span class="nav-text">计算成本函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#反向传播"><span class="nav-number">4.4.3.</span> <span class="nav-text">反向传播</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#更新参数"><span class="nav-number">4.4.4.</span> <span class="nav-text">更新参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立神经网络模型"><span class="nav-number">5.</span> <span class="nav-text">建立神经网络模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预测结果"><span class="nav-number">6.</span> <span class="nav-text">预测结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将数据输入神经网络模型"><span class="nav-number">7.</span> <span class="nav-text">将数据输入神经网络模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调整隐藏层大小（可选）"><span class="nav-number">8.</span> <span class="nav-text">调整隐藏层大小（可选）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入包"><span class="nav-number">1.</span> <span class="nav-text">导入包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入“花卉数据集”"><span class="nav-number">2.</span> <span class="nav-text">导入“花卉数据集”</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#加载一个“花”-2级的数据集中到变量X和Y。"><span class="nav-number">2.1.</span> <span class="nav-text">加载一个“花” 2级的数据集中到变量X和Y。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用matplotlib可视化数据集。"><span class="nav-number">2.2.</span> <span class="nav-text">使用matplotlib可视化数据集。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#练习"><span class="nav-number">2.3.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单的logistic逻辑回归"><span class="nav-number">3.</span> <span class="nav-text">简单的logistic逻辑回归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用sklearn的内置函数来训练数据集上的logistic回归分类器。"><span class="nav-number">3.1.</span> <span class="nav-text">使用sklearn的内置函数来训练数据集上的logistic回归分类器。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绘制逻辑回归的决策边界"><span class="nav-number">3.2.</span> <span class="nav-text">绘制逻辑回归的决策边界</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打印精度"><span class="nav-number">3.3.</span> <span class="nav-text">打印精度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#神经网络模型"><span class="nav-number">4.</span> <span class="nav-text">神经网络模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构建神经网络模型的一般方法"><span class="nav-number">4.1.</span> <span class="nav-text">构建神经网络模型的一般方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义神经网络结构"><span class="nav-number">4.2.</span> <span class="nav-text">定义神经网络结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化模型的参数"><span class="nav-number">4.3.</span> <span class="nav-text">初始化模型的参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环"><span class="nav-number">4.4.</span> <span class="nav-text">循环</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#前向传播"><span class="nav-number">4.4.1.</span> <span class="nav-text">前向传播</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计算成本函数"><span class="nav-number">4.4.2.</span> <span class="nav-text">计算成本函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#反向传播"><span class="nav-number">4.4.3.</span> <span class="nav-text">反向传播</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#更新参数"><span class="nav-number">4.4.4.</span> <span class="nav-text">更新参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立神经网络模型"><span class="nav-number">5.</span> <span class="nav-text">建立神经网络模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预测结果"><span class="nav-number">6.</span> <span class="nav-text">预测结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将数据输入神经网络模型"><span class="nav-number">7.</span> <span class="nav-text">将数据输入神经网络模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调整隐藏层大小（可选）"><span class="nav-number">8.</span> <span class="nav-text">调整隐藏层大小（可选）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -641,7 +646,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共34.1k字</span>
+  <span class="post-count">博客全站共34.2k字</span>
 </div>
 
 
