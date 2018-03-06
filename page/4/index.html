@@ -232,6 +232,178 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/09/吴恩达深度学习/w第二章-神经网络基础（logistic 回归函数、向量化）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/09/吴恩达深度学习/w第二章-神经网络基础（logistic 回归函数、向量化）/" itemprop="url">第二章-神经网络基础（logistic 回归函数、向量化）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-09T15:12:21+08:00">
+                2017-11-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习与神经网络-吴恩达/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习与神经网络(吴恩达)</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,259字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="二分分类">2.1 二分分类</h3>
+<ul>
+<li>计算机保存一张图片，要保存三个独立矩阵，分别对应红、绿、蓝三个颜色通道 举例：图为一张猫图，像素为 64x64， 就有三个 64x64 的矩阵 <img src="http://upload-images.jianshu.io/upload_images/8448458-d9544ba0627121c1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-1.jpg"></li>
+<li>用特征向量 x 来表示图片 则图片的维度n = nx = 64 * 64 * 3 = 12 288</li>
+<li>在二分类问题中，目标是训练出一个分类器（x 作为输入，预测输出的结果标签为 y） <img src="http://upload-images.jianshu.io/upload_images/8448458-9d25ceb326c80a72.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-2.jpg"></li>
+<li>上图表现的是x是nx维的特征向量</li>
+<li>训练集由m个训练样本构成</li>
+<li>X矩阵式m列 高为nx （训练样本作为列向量堆叠）（约定格式） 注： 也有(训练样本作为行向量堆叠）的矩阵形式，但在神经网络中一般用约定格式
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/09/吴恩达深度学习/w第二章-神经网络基础（logistic 回归函数、向量化）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/08/机器学习实战/机器学习实战四（神经网络）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -317,7 +489,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,108字
+                  1,110字
                 </span>
               
 
@@ -343,31 +515,10 @@
 
       
         
-          <p><img src="http://upload-images.jianshu.io/upload_images/2119554-99babd034ca437fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<ul>
-<li>NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。<h3 id="二、单层神经元"><a href="#二、单层神经元" class="headerlink" title="二、单层神经元"></a>二、单层神经元</h3><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4></li>
-</ul>
-<ol>
-<li>问题</li>
-</ol>
-<ul>
-<li>假设在一群人中，我们只能获得每个人的三个特征：</li>
-</ul>
-<ol>
-<li>特征1：长发（1）还是短发（0）</li>
-<li>特征2：衣服颜色是红色（1）还是不是红色（0）</li>
-<li>特征3：身高大于178cm（1）还是不超过178（0）</li>
-</ol>
-<ul>
-<li>假设我们只知道其中四个人的性别（男：0，女：1），我们需要依据这四个人的三个特征以及性别训练一个神经网络，用于预测一个人的性别。</li>
-<li>因此该问题有三个输入，一个输出。</li>
-</ul>
-<ol>
-<li>样本信息如下：</li>
-</ol>
+          <p><img src="http://upload-images.jianshu.io/upload_images/2119554-99babd034ca437fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"> * NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。 ### 二、单层神经元 #### 1. 问题描述 1. 问题 * 假设在一群人中，我们只能获得每个人的三个特征： 1. 特征1：长发（1）还是短发（0） 2. 特征2：衣服颜色是红色（1）还是不是红色（0） 3. 特征3：身高大于178cm（1）还是不超过178（0） * 假设我们只知道其中四个人的性别（男：0，女：1），我们需要依据这四个人的三个特征以及性别训练一个神经网络，用于预测一个人的性别。 * 因此该问题有三个输入，一个输出。 2. 样本信息如下：</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>头发</th>
 <th>衣服</th>
 <th>身高</th>
@@ -375,25 +526,25 @@
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>0</td>
 <td>0</td>
 <td>1</td>
 <td>0</td>
 </tr>
-<tr>
+<tr class="even">
 <td>1</td>
 <td>1</td>
 <td>1</td>
 <td>1</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>1</td>
 <td>0</td>
 <td>1</td>
 <td>1</td>
 </tr>
-<tr>
+<tr class="even">
 <td>0</td>
 <td>1</td>
 <td>1</td>
@@ -565,35 +716,26 @@
 
       
         
-          <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ol>
+          <h3 id="参考文章">参考文章</h3>
+<ol style="list-style-type: decimal">
 <li>学习路线</li>
 </ol>
 <ul>
 <li><a href="http://blog.csdn.net/longxinchen_ml/article/details/50749614" target="_blank" rel="noopener">机器学习系列_机器学习路线图(附资料)</a></li>
 <li><a href="http://blog.csdn.net/zhongwen7710/article/details/45331915" target="_blank" rel="noopener">【重磅干货整理】机器学习(Machine Learning)与深度学习(Deep Learning)资料汇总</a>：真的是超多干货</li>
 </ul>
-<h3 id="零-算法概念"><a href="#零-算法概念" class="headerlink" title="零.算法概念"></a>零.算法概念</h3><ol>
+<h3 id="零.算法概念">零.算法概念</h3>
+<ol style="list-style-type: decimal">
 <li>监督学习：需要用已知结果的数据做训练</li>
 <li>无监督学习：不需要已知标签</li>
 <li>连续型数据和离散型数据</li>
 </ol>
-<h3 id="1-算法分类"><a href="#1-算法分类" class="headerlink" title="1.算法分类"></a>1.算法分类</h3><ol>
+<h3 id="算法分类">1.算法分类</h3>
+<ol style="list-style-type: decimal">
 <li>监督学习的用途</li>
 </ol>
-<p>分类</p>
-<ul>
-<li>k-邻近算法</li>
-<li>朴素贝叶斯算法</li>
-<li>支持向量机</li>
-<li>决策树</li>
-</ul>
-<p>回归</p>
-<ul>
-<li>线性回归</li>
-<li>逻辑回归</li>
-<li>局部加权线性回归</li>
-<li>Ridge回归</li>
-<li>Lasso 最小回归系数估计
+<p>分类 * k-邻近算法 * 朴素贝叶斯算法 * 支持向量机 * 决策树</p>
+<p>回归 * 线性回归 * 逻辑回归 * 局部加权线性回归 * Ridge回归 * Lasso 最小回归系数估计
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/06/机器学习实战/机器学习实战总结/#more" rel="contents">
@@ -758,7 +900,8 @@
 
       
         
-          <h2 id="零-常见"><a href="#零-常见" class="headerlink" title="零. 常见"></a>零. 常见</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: <span class="string">'range'</span> <span class="selector-tag">object</span> doesn<span class="string">'t support item deletion</span></span><br></pre></td></tr></table></figure>
+          <h2 id="零.-常见">零. 常见</h2>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: <span class="string">'range'</span> <span class="selector-tag">object</span> doesn<span class="string">'t support item deletion</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>注：3.x中range()要改为list(rang())，因为python3中range不返回数组对象，而是返回range对象</li>
 </ul>
@@ -766,13 +909,10 @@
 <ul>
 <li>iteritems()要改为items()</li>
 </ul>
-<h2 id="二-kNN"><a href="#二-kNN" class="headerlink" title="二. kNN"></a>二. kNN</h2><ul>
-<li><p>报错：</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NameError: <span class="keyword">name</span> <span class="string">'reload'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在前面加入命令(个人推荐直接写在mian函数里面简单快捷)</p>
-<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> imp <span class="keyword">import</span> reload</span><br></pre></td></tr></table></figure>
-</li>
+<h2 id="二.-knn">二. kNN</h2>
+<ul>
+<li><p>报错： <figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NameError: <span class="keyword">name</span> <span class="string">'reload'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br></pre></td></tr></table></figure></p></li>
+<li><p>在前面加入命令(个人推荐直接写在mian函数里面简单快捷) <figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> imp <span class="keyword">import</span> reload</span><br></pre></td></tr></table></figure></p></li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
@@ -912,7 +1052,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,942字
+                  1,943字
                 </span>
               
 
@@ -938,20 +1078,21 @@
 
       
         
-          <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><h4 id="1-原理："><a href="#1-原理：" class="headerlink" title="1. 原理："></a>1. 原理：</h4><ul>
-<li>工作机制：<h4 id="2-优缺点"><a href="#2-优缺点" class="headerlink" title="2. 优缺点"></a>2. 优缺点</h4></li>
+          <h3 id="一概述">一、概述</h3>
+<h4 id="原理">1. 原理：</h4>
+<ul>
+<li>工作机制： #### 2. 优缺点</li>
 <li>优点：在数据少的情况下有效，可以处理多类别问题</li>
 <li>缺点：</li>
 <li><ul>
 <li>对于输入数据的准备方式较为敏感</li>
-</ul>
-</li>
-<li>适用数据范围：标称型数据<h4 id="3-条件概论："><a href="#3-条件概论：" class="headerlink" title="3.条件概论："></a>3.条件概论：</h4></li>
-<li>在B的条件下A出现的概率。<br><code>p(A|B)=p(AB)/p(B)</code></li>
-<li>交换条件中的条件与结果：<br><code>p(B|A)=p(A|B)*p(B)/p(A)</code><h4 id="4-贝叶斯决策理论的核心思想："><a href="#4-贝叶斯决策理论的核心思想：" class="headerlink" title="4.贝叶斯决策理论的核心思想："></a>4.贝叶斯决策理论的核心思想：</h4></li>
-<li>选择具有最高概论的决策<h4 id="5-朴素贝叶斯算法的两个假设："><a href="#5-朴素贝叶斯算法的两个假设：" class="headerlink" title="5.朴素贝叶斯算法的两个假设："></a>5.朴素贝叶斯算法的两个假设：</h4></li>
+</ul></li>
+<li>适用数据范围：标称型数据 #### 3.条件概论：</li>
+<li>在B的条件下A出现的概率。 <code>p(A|B)=p(AB)/p(B)</code></li>
+<li>交换条件中的条件与结果： <code>p(B|A)=p(A|B)*p(B)/p(A)</code> #### 4.贝叶斯决策理论的核心思想：</li>
+<li>选择具有最高概论的决策 #### 5.朴素贝叶斯算法的两个假设：</li>
 <li>(1)每个特征之间都是独立的，这就使得公式：</li>
-<li>p((f1,f2,…fn)|c)=p(f1|c)p(f2|c)…p(fn|c)</li>
+<li>p((f1,f2,...fn)|c)=p(f1|c)p(f2|c)...p(fn|c)</li>
 <li>(2)每个特征同等重要，我们拿文本分类做例子，把文档中的单词作为特征。这种假设使得我们在进行分类的过程中无需考虑单词出现的次数，只考虑单词出现与否。这也就贝叶斯算法的贝努利模型实现方式。</li>
 <li>注：贝叶斯的另一种实现方式为多项式模型，在这种模型中则需要考虑单词的出现次数。
           <!--noindex-->
@@ -1092,7 +1233,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,624字
+                  1,625字
                 </span>
               
 
@@ -1118,28 +1259,18 @@
 
       
         
-          <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><h4 id="1-原理："><a href="#1-原理：" class="headerlink" title="1. 原理："></a>1. 原理：</h4><ul>
-<li>工作机制：<h4 id="2-优缺点"><a href="#2-优缺点" class="headerlink" title="2. 优缺点"></a>2. 优缺点</h4></li>
+          <h3 id="一概述">一、概述</h3>
+<h4 id="原理">1. 原理：</h4>
+<ul>
+<li>工作机制： #### 2. 优缺点</li>
 <li>优点：计算代价不高，易于理解和实现</li>
 <li>缺点：</li>
 <li><ul>
 <li>容易欠拟合，分类精度可能不高</li>
-</ul>
-</li>
+</ul></li>
 <li>适用数据范围：数值型和标称型数据</li>
 </ul>
-<p><a href="http://www.jianshu.com/p/823b25e4fbdb" target="_blank" rel="noopener">理论</a></p>
-<h3 id="二、算法流程"><a href="#二、算法流程" class="headerlink" title="二、算法流程"></a>二、算法流程</h3><ol>
-<li>收集数据：anyway</li>
-<li>准备数据：需要数值型(要进行距离计算)，结构化数据格式最佳</li>
-<li>分析数据：anyway</li>
-<li>训练算法：大部分时间将用于训练，训练的目的是为了找到最佳的分类回归系数</li>
-<li>测试算法：一旦训练步骤完成，分类将会很快</li>
-<li>使用算法：</li>
-</ol>
-<ul>
-<li>步骤一：输入一些数据，并将其转换成对应的结构化数值；</li>
-<li>步骤二：基于训练好的回归系数对数值进行简单的回归计算，判定它们属于哪个类别；随后在输出的类别上做一些其他的分析工作
+<p><a href="http://www.jianshu.com/p/823b25e4fbdb" target="_blank" rel="noopener">理论</a> ### 二、算法流程 1. 收集数据：anyway 2. 准备数据：需要数值型(要进行距离计算)，结构化数据格式最佳 3. 分析数据：anyway 4. 训练算法：大部分时间将用于训练，训练的目的是为了找到最佳的分类回归系数 5. 测试算法：一旦训练步骤完成，分类将会很快 6. 使用算法： * 步骤一：输入一些数据，并将其转换成对应的结构化数值； * 步骤二：基于训练好的回归系数对数值进行简单的回归计算，判定它们属于哪个类别；随后在输出的类别上做一些其他的分析工作
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/03/吴恩达深度学习/wLogistic回归和Sigmoid函数/#more" rel="contents">
@@ -1304,42 +1435,37 @@
 
       
         
-          <h3 id="一-决策树"><a href="#一-决策树" class="headerlink" title="一. 决策树"></a>一. 决策树</h3><p>####1. 概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。</p>
-<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+          <h3 id="一.-决策树">一. 决策树</h3>
+<h4 id="概念-决策树学习是根据数据的属性采用树状结构建立的一种决策模型可以用此模型解决分类和回归问题常见的算法包括-cartclassification-and-regression-tree-id3-c4.5等">1. 概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。</h4>
+<h4 id="优点">优点</h4>
+<ul>
 <li><ul>
 <li>易于理解和解释，甚至比线性回归更直观；</li>
-</ul>
-</li>
+</ul></li>
 <li><ul>
 <li>与人类做决策思考的思维习惯契合；</li>
-</ul>
-</li>
+</ul></li>
 <li><ul>
 <li>模型可以通过树的形式进行可视化展示；</li>
-</ul>
-</li>
+</ul></li>
 <li><ul>
 <li>可以直接处理非数值型数据，不需要进行哑变量的转化，甚至可以直接处理含缺失值的数据；</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<h4 id="缺点">缺点：</h4>
+<ul>
 <li><ul>
 <li>对于有大量数值型输入和输出的问题，决策树未必是一个好的选择；</li>
-</ul>
-</li>
+</ul></li>
 <li><ul>
 <li>产生过拟合</li>
-</ul>
-</li>
+</ul></li>
 <li><ul>
 <li>特别是当数值型变量之间存在许多错综复杂的关系，如金融数据分析；</li>
-</ul>
-</li>
+</ul></li>
 <li><ul>
 <li>决定分类的因素取决于更多变量的复杂组合时；</li>
-</ul>
-</li>
+</ul></li>
 <li><ul>
 <li>模型不够稳健，某一个节点的小小变化可能导致整个树会有很大的不同。
           <!--noindex-->
@@ -1506,13 +1632,14 @@
 
       
         
-          <h3 id="1-2-什么是神经网络"><a href="#1-2-什么是神经网络" class="headerlink" title="1.2 什么是神经网络"></a>1.2 什么是神经网络</h3><ol>
-<li>ReLU函数（修正线性单元）：“修正”指的是取不小于0的值<br>图右是单个神经元：输入面积-&gt;computer运算-&gt;输出价格<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-1.jpg" alt=""></li>
-<li>多个神经元叠加构成一个更大的神经网络<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-2.jpg" alt=""></li>
+          <h3 id="什么是神经网络">1.2 什么是神经网络</h3>
+<ol style="list-style-type: decimal">
+<li>ReLU函数（修正线性单元）：“修正”指的是取不小于0的值 图右是单个神经元：输入面积-&gt;computer运算-&gt;输出价格 <img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-1.jpg"></li>
+<li>多个神经元叠加构成一个更大的神经网络 <img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-2.jpg"></li>
 <li>左边的是输入的特征（输入层-input layer）</li>
 </ol>
 <ul>
-<li>中间的圆圈在神经网络中被称为“隐藏单元”（Hidden nuit）：每个的输入都来着四个特征，因此是让神经网络自己决定中间的数代表的含义（why，这里为什么要这么说？）<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-3.jpg" alt="">
+<li>中间的圆圈在神经网络中被称为“隐藏单元”（Hidden nuit）：每个的输入都来着四个特征，因此是让神经网络自己决定中间的数代表的含义（why，这里为什么要这么说？） <img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-3.jpg">
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/29/吴恩达深度学习/w第一章-深度学习概论/#more" rel="contents">
@@ -1677,24 +1804,26 @@
 
       
         
-          <h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><h4 id="1-原理："><a href="#1-原理：" class="headerlink" title="1. 原理："></a>1. 原理：</h4><ul>
+          <h3 id="一概述">一、概述</h3>
+<h4 id="原理">1. 原理：</h4>
+<ul>
 <li>工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测.</li>
 <li>通常k是不大于20的整数</li>
 </ul>
-<h4 id="2-优缺点"><a href="#2-优缺点" class="headerlink" title="2. 优缺点"></a>2. 优缺点</h4><ul>
+<h4 id="优缺点">2. 优缺点</h4>
+<ul>
 <li>优点：精度高、对异常值不敏感、无数据输入假定</li>
 <li>缺点：</li>
 <li><ul>
 <li>计算复杂度高、空间复杂度高，占用存储空间</li>
-</ul>
-</li>
+</ul></li>
 <li><ul>
 <li>无法给出数据的内在含义</li>
-</ul>
-</li>
+</ul></li>
 <li>适用数据范围：数值型和标称型</li>
 </ul>
-<h4 id="3-懒惰算法："><a href="#3-懒惰算法：" class="headerlink" title="3. 懒惰算法："></a>3. 懒惰算法：</h4><ul>
+<h4 id="懒惰算法">3. 懒惰算法：</h4>
+<ul>
 <li>此类学习技术在训练阶段仅仅把样本保存起来</li>
 <li>==训练开支为零==，待收到测试样本后再进行处理
           <!--noindex-->
@@ -1835,7 +1964,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  80字
+                  85字
                 </span>
               
 
@@ -1861,8 +1990,14 @@
 
       
         
-          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180105/ccgEbc6jgF.png?imageslim" alt="mark"></p>
-<h4 id="k-项集与MinS"><a href="#k-项集与MinS" class="headerlink" title="k-项集与MinS"></a>k-项集与MinS</h4><p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180105/DH5DEH42h2.png?imageslim" alt="mark"><br>
+          <h2 id="概念">概念</h2>
+<h3 id="基本概念">基本概念</h3>
+<div class="figure">
+<img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180105/ccgEbc6jgF.png?imageslim" alt="mark">
+<p class="caption">mark</p>
+</div>
+<h4 id="k-项集与mins">k-项集与MinS</h4>
+<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180105/DH5DEH42h2.png?imageslim" alt="mark">
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/01/02/数据挖掘/数据挖掘-关联规则挖掘/#more" rel="contents">
@@ -1953,7 +2088,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2037,6 +2172,15 @@
   <span class="author" itemprop="copyrightHolder">LEMON</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">33.4k</span>
+  
 </div>
 
 
@@ -2062,7 +2206,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共32.5k字</span>
+  <span class="post-count">博客全站共33.4k字</span>
 </div>
 
 
@@ -2228,6 +2372,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

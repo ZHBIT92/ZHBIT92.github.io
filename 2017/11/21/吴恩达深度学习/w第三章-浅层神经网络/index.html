@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="3.1 概论 逻辑回归   首先你需要输入特征 x，参数W 和b ，通过 z = w^t * x + b T 你就可以计算出 z ，接下来使用 a = a(z) 就可以计算出a。我们将a的符号换为表示输出的 ŷ，然后可以计算出损失函数ℒ(a,y)。   基本神经网络结构   首先 X 表示输入特征，W 和 b 是参数">
+<meta name="description" content="3.1 概论  逻辑回归     首先你需要输入特征 x，参数W 和b ，通过 z = w^t * x + b T 你就可以计算 出 z ，接下来使用 a = a(z) 就可以计算出a。我们将a的符号换为表示输出的 ŷ，然后可以计算出损失函数ℒ(a,y)。   基本神经网络结构    首先 X ">
 <meta name="keywords" content="深度学习,机器学习,神经网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第三章-浅层神经网络">
 <meta property="og:url" content="http://yoursite.com/2017/11/21/吴恩达深度学习/w第三章-浅层神经网络/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="3.1 概论 逻辑回归   首先你需要输入特征 x，参数W 和b ，通过 z = w^t * x + b T 你就可以计算出 z ，接下来使用 a = a(z) 就可以计算出a。我们将a的符号换为表示输出的 ŷ，然后可以计算出损失函数ℒ(a,y)。   基本神经网络结构   首先 X 表示输入特征，W 和 b 是参数，z1 = Wx + b1计算出 z1。 使用x^(i)表示第 i 个训练样本，">
+<meta property="og:description" content="3.1 概论  逻辑回归     首先你需要输入特征 x，参数W 和b ，通过 z = w^t * x + b T 你就可以计算 出 z ，接下来使用 a = a(z) 就可以计算出a。我们将a的符号换为表示输出的 ŷ，然后可以计算出损失函数ℒ(a,y)。   基本神经网络结构    首先 X 表示输入特征，W 和 b 是参数，z1 = Wx + b1计算出 z1。 使用">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-d5f7266841037bb0.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-87ddf367bcff002f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -93,10 +93,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-181d8531d6abac26.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-21dc6b83fe32511f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-87efa975a2679450.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-02-19T03:33:55.683Z">
+<meta property="og:updated_time" content="2018-03-06T05:45:35.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三章-浅层神经网络">
-<meta name="twitter:description" content="3.1 概论 逻辑回归   首先你需要输入特征 x，参数W 和b ，通过 z = w^t * x + b T 你就可以计算出 z ，接下来使用 a = a(z) 就可以计算出a。我们将a的符号换为表示输出的 ŷ，然后可以计算出损失函数ℒ(a,y)。   基本神经网络结构   首先 X 表示输入特征，W 和 b 是参数，z1 = Wx + b1计算出 z1。 使用x^(i)表示第 i 个训练样本，">
+<meta name="twitter:description" content="3.1 概论  逻辑回归     首先你需要输入特征 x，参数W 和b ，通过 z = w^t * x + b T 你就可以计算 出 z ，接下来使用 a = a(z) 就可以计算出a。我们将a的符号换为表示输出的 ŷ，然后可以计算出损失函数ℒ(a,y)。   基本神经网络结构    首先 X 表示输入特征，W 和 b 是参数，z1 = Wx + b1计算出 z1。 使用">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/8448458-d5f7266841037bb0.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -323,7 +323,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  769字
+                  817字
                 </span>
               
 
@@ -348,26 +348,27 @@
       
 
       
-        <h2 id="3-1-概论"><a href="#3-1-概论" class="headerlink" title="3.1 概论"></a>3.1 概论</h2><ol>
-<li>逻辑回归<br><img src="http://upload-images.jianshu.io/upload_images/8448458-d5f7266841037bb0.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/8448458-87ddf367bcff002f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="中间层的隐藏单元中的计算"></li>
+        <h2 id="概论">3.1 概论</h2>
+<ol style="list-style-type: decimal">
+<li>逻辑回归 <img src="http://upload-images.jianshu.io/upload_images/8448458-d5f7266841037bb0.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> <img src="http://upload-images.jianshu.io/upload_images/8448458-87ddf367bcff002f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="中间层的隐藏单元中的计算"></li>
 </ol>
 <ul>
-<li>首先你需要输入特征 x，参数W 和b ，通过 z = w^t * x + b T 你就可以计算<br>出 z ，接下来使用 a = a(z) 就可以计算出a。我们将a的符号换为表示输出的 ŷ，然后可以计算出损失函数ℒ(a,y)。</li>
+<li>首先你需要输入特征 x，参数W 和b ，通过 z = w^t * x + b T 你就可以计算 出 z ，接下来使用 a = a(z) 就可以计算出a。我们将a的符号换为表示输出的 ŷ，然后可以计算出损失函数ℒ(a,y)。</li>
 </ul>
-<ol>
-<li>基本神经网络结构<br><img src="http://upload-images.jianshu.io/upload_images/8448458-2956be5cbe571b9b.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+<ol start="2" style="list-style-type: decimal">
+<li>基本神经网络结构 <img src="http://upload-images.jianshu.io/upload_images/8448458-2956be5cbe571b9b.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></li>
 </ol>
 <ul>
 <li>首先 X 表示输入特征，W 和 b 是参数，z1 = Wx + b1计算出 z1。</li>
 <li>使用x^(i)表示第 i 个训练样本，上标方括号 1、2 表示不同的层，图中[1]表示神经网络的第一层， [2]表示神经网络的第二层 。</li>
-<li>类似逻辑回归，在计算z^[1] 后需要使用σ(z^[1])计算 a^[1]，接下来你需要使用另外一个线<br>z^[2] = W^[2] * a^[1]  + b^[2]计算 z^[2], a^[2] = σ(z^[2]) 计算a^[2] ，此时a^[2] 就是整个神经网络最终的输出，用 𝑦表示网络的输出。</li>
+<li>类似逻辑回归，在计算z<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> 后需要使用σ(z<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>)计算 a<sup>[1]，接下来你需要使用另外一个线 z</sup>[2] = W<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> * a<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> + b<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>计算 z<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>, a<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> = σ(z<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>) 计算a<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a> ，此时a<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a> 就是整个神经网络最终的输出，用 𝑦表示网络的输出。</li>
 </ul>
-<ol>
-<li>反向计算<a id="more"></a>
-</li>
+<ol start="3" style="list-style-type: decimal">
+<li>反向计算 <a id="more"></a></li>
 </ol>
-<h2 id="3-2-神经网络表示"><a href="#3-2-神经网络表示" class="headerlink" title="3.2 神经网络表示"></a>3.2 神经网络表示</h2><ol>
-<li>神经网络的符号惯例：<br>x 表示输入特征<br>a 表示每个神经元的输出， w 表示特征的权重，<br>上标表示神经网络的层数（隐藏层为 1），下标表示该层的第几个神经元。</li>
+<h2 id="神经网络表示">3.2 神经网络表示</h2>
+<ol style="list-style-type: decimal">
+<li>神经网络的符号惯例： x 表示输入特征 a 表示每个神经元的输出， w 表示特征的权重， 上标表示神经网络的层数（隐藏层为 1），下标表示该层的第几个神经元。</li>
 <li>结构</li>
 </ol>
 <ul>
@@ -376,7 +377,7 @@
 <li>简单点说，隐藏层就是<strong>把中间处理的过程隐藏起来而没有显性显示出来</strong>。</li>
 <li>输出层</li>
 </ul>
-<ol>
+<ol start="3" style="list-style-type: decimal">
 <li>数据表示</li>
 </ol>
 <ul>
@@ -384,14 +385,32 @@
 <li>传统上（两层的神经网络）：输入层是不算入总层数内，所以隐藏层是第一层，输出层是第二层。</li>
 <li>技术上（三层的神经网络）：因为这里有输入层、隐藏层，还有输出层。</li>
 </ul>
-<h2 id="3-3-神经网络的输出"><a href="#3-3-神经网络的输出" class="headerlink" title="3.3 神经网络的输出"></a>3.3 神经网络的输出</h2><p><img src="http://upload-images.jianshu.io/upload_images/8448458-181d8531d6abac26.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="中间的求导过程"><br><img src="http://upload-images.jianshu.io/upload_images/8448458-21dc6b83fe32511f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="四个方程求神经网络"></p>
+<h2 id="神经网络的输出">3.3 神经网络的输出</h2>
+<p><img src="http://upload-images.jianshu.io/upload_images/8448458-181d8531d6abac26.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="中间的求导过程"> <img src="http://upload-images.jianshu.io/upload_images/8448458-21dc6b83fe32511f.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="四个方程求神经网络"> * 注：z代表隐藏层，这里有两个隐藏层 ## 3.4 多样本向量化 * 多个训练样本，则重复计算每个样本的4个方程（for循环） * 利用向量化简化该过程 <img src="http://upload-images.jianshu.io/upload_images/8448458-87efa975a2679450.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> * 水平方向，这个垂直索引对应于神经网络中的不同的训练样本。 * 垂直方向，这个垂直索引对应于神经网络中的不同节点。 ## 3.5 向 量 化 实 现 的 解 释 ## 3.6 激活函数（ Activation functions）</p>
+<h3 id="代码">代码</h3>
 <ul>
-<li>注：z代表隐藏层，这里有两个隐藏层<h2 id="3-4-多样本向量化"><a href="#3-4-多样本向量化" class="headerlink" title="3.4 多样本向量化"></a>3.4 多样本向量化</h2></li>
-<li>多个训练样本，则重复计算每个样本的4个方程（for循环）</li>
-<li>利用向量化简化该过程<br><img src="http://upload-images.jianshu.io/upload_images/8448458-87efa975a2679450.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li>水平方向，这个垂直索引对应于神经网络中的不同的训练样本。</li>
-<li>垂直方向，这个垂直索引对应于神经网络中的不同节点。<h2 id="3-5-向-量-化-实-现-的-解-释"><a href="#3-5-向-量-化-实-现-的-解-释" class="headerlink" title="3.5 向 量 化 实 现 的 解 释"></a>3.5 向 量 化 实 现 的 解 释</h2><h2 id="3-6-激活函数（-Activation-functions）"><a href="#3-6-激活函数（-Activation-functions）" class="headerlink" title="3.6 激活函数（ Activation functions）"></a>3.6 激活函数（ Activation functions）</h2></li>
+<li><a href="https://github.com/ZHBIT92/Deep-Learning" target="_blank" rel="noopener">课程代码-GitHub</a></li>
 </ul>
+<h3 id="参考资料">参考资料</h3>
+<ul>
+<li><a href="http://mooc.study.163.com/course/2001281002#/info" target="_blank" rel="noopener">吴恩达-神经网络与深度学习-网易云课堂</a></li>
+<li><a href="https://github.com/BinWeber/Machine-Learning" target="_blank" rel="noopener">Deep Learning系列课程资料笔记</a></li>
+</ul>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>1<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>1<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>2<a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>1<a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>2<a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p>2<a href="#fnref6">↩</a></p></li>
+<li id="fn7"><p>2<a href="#fnref7">↩</a></p></li>
+<li id="fn8"><p>2<a href="#fnref8">↩</a></p></li>
+<li id="fn9"><p>2<a href="#fnref9">↩</a></p></li>
+<li id="fn10"><p>2<a href="#fnref10">↩</a></p></li>
+</ol>
+</div>
 
       
     </div>
@@ -515,7 +534,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -586,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-概论"><span class="nav-number">1.</span> <span class="nav-text">3.1 概论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-神经网络表示"><span class="nav-number">2.</span> <span class="nav-text">3.2 神经网络表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-神经网络的输出"><span class="nav-number">3.</span> <span class="nav-text">3.3 神经网络的输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-多样本向量化"><span class="nav-number">4.</span> <span class="nav-text">3.4 多样本向量化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-向-量-化-实-现-的-解-释"><span class="nav-number">5.</span> <span class="nav-text">3.5 向 量 化 实 现 的 解 释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-激活函数（-Activation-functions）"><span class="nav-number">6.</span> <span class="nav-text">3.6 激活函数（ Activation functions）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概论"><span class="nav-number">1.</span> <span class="nav-text">3.1 概论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络表示"><span class="nav-number">2.</span> <span class="nav-text">3.2 神经网络表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络的输出"><span class="nav-number">3.</span> <span class="nav-text">3.3 神经网络的输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">3.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">3.2.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -615,6 +634,15 @@
   <span class="author" itemprop="copyrightHolder">LEMON</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">33.4k</span>
+  
 </div>
 
 
@@ -640,7 +668,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共32.5k字</span>
+  <span class="post-count">博客全站共33.4k字</span>
 </div>
 
 
@@ -810,6 +838,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
