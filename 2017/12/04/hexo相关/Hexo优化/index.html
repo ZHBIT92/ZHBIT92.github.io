@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5308475-ef8a4643f33fbaa1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5308475-bd6fb55b6847d13a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-bb96dd5d344104d4.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-03-06T05:11:46.588Z">
+<meta property="og:updated_time" content="2018-03-06T06:33:53.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello优化相关">
 <meta name="twitter:description" content="优化(http://blog.csdn.net/mynamelijun/article/details/52196184) 速度优化  Hexo博客优化，如何加快你的博客访问速度  主题优化  参考next主题优化  next主题外观优化 侧边栏社交小图标设置  实现效果图  具体实现方法 打开主题配置文件（_config.yml），搜索social_icons:,在图标">
@@ -322,7 +322,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,187字
+                  1,283字
                 </span>
               
 
@@ -403,6 +403,11 @@
 </ul>
 <p>指定老的版本即可：<code>cnpm install hexo-wordcount@2 --save</code></p>
 <h2 id="数学符号渲染">数学符号渲染</h2>
+<p>hexo有自带的数学符号渲染方法<code>mathjax</code></p>
+<h3 id="在主题中只需要开启mathjax开关">在主题中只需要开启mathjax开关</h3>
+<p>eg：在next主题目录的_config.yml配置中,把mathjax默认的false修改为true <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MathJax Support</span></span><br><span class="line"><span class="attr">mathjax:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  per_page:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="在文章的front-matter中打开mathjax开关mathjax加载耗资源只在需要的文章中加载">在文章的Front-matter中打开mathjax开关(mathjax加载耗资源，只在需要的文章中加载)</h3>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">index.html</span></span><br><span class="line"><span class="attr">date:</span> </span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line"><span class="attr">mathjax:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
 <h2 id="错误集合">错误集合</h2>
 <figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Error: </span>Cannot find module 'math-work'</span><br></pre></td></tr></table></figure>
 <p>cmd中<code>cnpm install math-work</code> ## 参考的网站 ### 主题 * <a href="http://blog.csdn.net/mynamelijun/article/details/52196184" target="_blank" rel="noopener">优化</a> * <a href="http://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="noopener">next主题优化</a> * <a href="http://www.joryhe.com/2016-06-05-hexo_site_seo_speed_more_optimization.html" target="_blank" rel="noopener">Hexo博客优化，如何加快你的博客访问速度</a> ### 其他 * <a href="https://www.jianshu.com/p/7ab21c7f0674" target="_blank" rel="noopener">在Hexo中渲染MathJax数学公式</a></p>
@@ -525,7 +530,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -596,7 +601,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#速度优化"><span class="nav-number">1.</span> <span class="nav-text">速度优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题优化"><span class="nav-number">2.</span> <span class="nav-text">主题优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next主题外观优化"><span class="nav-number">3.</span> <span class="nav-text">next主题外观优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#侧边栏社交小图标设置"><span class="nav-number">3.1.</span> <span class="nav-text">侧边栏社交小图标设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在网站底部加上访问量"><span class="nav-number">3.2.</span> <span class="nav-text">在网站底部加上访问量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站底部字数统计"><span class="nav-number">3.3.</span> <span class="nav-text">网站底部字数统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为博客添加萌萌哒的宠物"><span class="nav-number">3.4.</span> <span class="nav-text">为博客添加萌萌哒的宠物</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章优化"><span class="nav-number">4.</span> <span class="nav-text">文章优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读全文设置"><span class="nav-number">4.1.</span> <span class="nav-text">阅读全文设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章底部的那个带号的标签"><span class="nav-number">4.2.</span> <span class="nav-text">修改文章底部的那个带#号的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现文章统计功能"><span class="nav-number">4.3.</span> <span class="nav-text">实现文章统计功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学符号渲染"><span class="nav-number">5.</span> <span class="nav-text">数学符号渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误集合"><span class="nav-number">6.</span> <span class="nav-text">错误集合</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#速度优化"><span class="nav-number">1.</span> <span class="nav-text">速度优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题优化"><span class="nav-number">2.</span> <span class="nav-text">主题优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next主题外观优化"><span class="nav-number">3.</span> <span class="nav-text">next主题外观优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#侧边栏社交小图标设置"><span class="nav-number">3.1.</span> <span class="nav-text">侧边栏社交小图标设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在网站底部加上访问量"><span class="nav-number">3.2.</span> <span class="nav-text">在网站底部加上访问量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站底部字数统计"><span class="nav-number">3.3.</span> <span class="nav-text">网站底部字数统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为博客添加萌萌哒的宠物"><span class="nav-number">3.4.</span> <span class="nav-text">为博客添加萌萌哒的宠物</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章优化"><span class="nav-number">4.</span> <span class="nav-text">文章优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读全文设置"><span class="nav-number">4.1.</span> <span class="nav-text">阅读全文设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章底部的那个带号的标签"><span class="nav-number">4.2.</span> <span class="nav-text">修改文章底部的那个带#号的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现文章统计功能"><span class="nav-number">4.3.</span> <span class="nav-text">实现文章统计功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学符号渲染"><span class="nav-number">5.</span> <span class="nav-text">数学符号渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在主题中只需要开启mathjax开关"><span class="nav-number">5.1.</span> <span class="nav-text">在主题中只需要开启mathjax开关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在文章的front-matter中打开mathjax开关mathjax加载耗资源只在需要的文章中加载"><span class="nav-number">5.2.</span> <span class="nav-text">在文章的Front-matter中打开mathjax开关(mathjax加载耗资源，只在需要的文章中加载)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误集合"><span class="nav-number">6.</span> <span class="nav-text">错误集合</span></a></li></ol></div>
             
 
           </div>
@@ -632,7 +637,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">33.4k</span>
+    <span title="Site words total count">34.5k</span>
   
 </div>
 
@@ -659,7 +664,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共33.4k字</span>
+  <span class="post-count">博客全站共34.5k字</span>
 </div>
 
 
