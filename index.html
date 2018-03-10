@@ -251,7 +251,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/07/吴恩达深度学习/w第四章-优化-梯度下降/" itemprop="url">第四章-第四章-深度神经网络优化（梯度下降法）</a></h1>
+                <a class="post-title-link" href="/2018/03/07/吴恩达深度学习/w第四章-优化-梯度下降/" itemprop="url">第四章-深度神经网络优化（梯度下降法）</a></h1>
         
 
         <div class="post-meta">
@@ -317,7 +317,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  309字
+                  2,451字
                 </span>
               
 
@@ -343,11 +343,17 @@
 
       
         
-          <h2 id="梯度下降法">梯度下降法</h2>
-<h3 id="批梯度下降法bgd">批梯度下降法（BGD）</h3>
-<p>批梯度下降法（Batch Gradient Descent，BGD）是最常用的梯度下降形式，前面的Logistic回归及深层神经网络的构建中所用到的梯度下降都是这种形式。其在更新参数时使用所有的样本来进行更新，具体过程为：</p>
-<h4 id="公式">公式</h4>
-<p><span class="math inline">\({X = [x^{(1)},x^{(2)},…,x^{(m)}]}\)</span> aaa <span class="math inline">\(z^{[1]} = w^{[1]}X + b^{[1]}\)</span> <span class="math inline">\(a^{[1]} = g^{[1]}(z^{[1]})\)</span> <span class="math inline">\(… \ …\)</span> <span class="math inline">\(z^{[l]} = w^{[l]}a^{[l-1]} + b^{[l]}\)</span> <span class="math inline">\(a^{[L]} = g^{[L]}(z^{[l]})\)</span>
+          <h2 id="梯度下降法"><a class="markdownIt-Anchor" href="#梯度下降法"></a> 梯度下降法</h2>
+<h3 id="批梯度下降法bgd"><a class="markdownIt-Anchor" href="#批梯度下降法bgd"></a> 批梯度下降法（BGD）</h3>
+<p>**批梯度下降法（Batch Gradient Descent，BGD）**是最常用的梯度下降形式，前面的Logistic回归及深层神经网络的构建中所用到的梯度下降都是这种形式。其在更新参数时使用所有的样本来进行更新，具体过程为：</p>
+<h4 id="公式"><a class="markdownIt-Anchor" href="#公式"></a> 公式</h4>
+{X = [x^{(1)},x^{(2)},…,x^{(m)}]}
+
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>z</mi><mrow><mo>[</mo><mn>1</mn><mo>]</mo></mrow></msup><mo>=</mo><msup><mi>w</mi><mrow><mo>[</mo><mn>1</mn><mo>]</mo></mrow></msup><mi>X</mi><mo>+</mo><msup><mi>b</mi><mrow><mo>[</mo><mn>1</mn><mo>]</mo></mrow></msup></mrow><annotation encoding="application/x-tex">z^{[1]} = w^{[1]}X + b^{[1]}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.938em;"></span><span class="strut bottom" style="height:1.0213299999999998em;vertical-align:-0.08333em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mopen">[</span><span class="mord mathrm">1</span><span class="mclose">]</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mopen">[</span><span class="mord mathrm">1</span><span class="mclose">]</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="mbin">+</span><span class="mord"><span class="mord mathit">b</span><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mopen">[</span><span class="mord mathrm">1</span><span class="mclose">]</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>a</mi><mrow><mo>[</mo><mn>1</mn><mo>]</mo></mrow></msup><mo>=</mo><msup><mi>g</mi><mrow><mo>[</mo><mn>1</mn><mo>]</mo></mrow></msup><mo>(</mo><msup><mi>z</mi><mrow><mo>[</mo><mn>1</mn><mo>]</mo></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">a^{[1]} = g^{[1]}(z^{[1]})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.938em;"></span><span class="strut bottom" style="height:1.188em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mopen">[</span><span class="mord mathrm">1</span><span class="mclose">]</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mopen">[</span><span class="mord mathrm">1</span><span class="mclose">]</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.04398em;">z</span><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mopen">[</span><span class="mord mathrm">1</span><span class="mclose">]</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span></span></p>
+… \ …
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/07/吴恩达深度学习/w第四章-优化-梯度下降/#more" rel="contents">
@@ -512,16 +518,18 @@
 
       
         
-          <h2 id="权重初始化">权重初始化</h2>
-<h3 id="作用">作用</h3>
+          <h2 id="权重初始化"><a class="markdownIt-Anchor" href="#权重初始化"></a> 权重初始化</h2>
+<h3 id="作用"><a class="markdownIt-Anchor" href="#作用"></a> 作用</h3>
 <ul>
 <li>随机初始化以破坏对称性</li>
 <li>加快渐变下降的收敛速度</li>
 <li>增加梯度下降收敛到较低训练（和泛化）错误的几率</li>
 </ul>
-<h3 id="参数都初始化为零">参数都初始化为零</h3>
+<h3 id="参数都初始化为零"><a class="markdownIt-Anchor" href="#参数都初始化为零"></a> 参数都初始化为零</h3>
 <ul>
-<li>导致网络无法破坏对称性：这意味着每一层中的每个神经元都会学到相同的值。对于每一层而言，网络并不比线性分类器更强大，如逻辑回归。 <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180305/k9c4lf350m.png?imageslim" alt="mark">
+<li>导致网络无法破坏对称性：这意味着每一层中的每个神经元都会学到相同的值。对于每一层而言，网络并不比线性分类器更强大，如逻辑回归。<br>
+<img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180305/k9c4lf350m.png?imageslim" alt="mark"></li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/04/吴恩达深度学习/w第四章-优化-初始化&正则化/#more" rel="contents">
@@ -686,8 +694,8 @@
 
       
         
-          <h3 id="一读取文章数据">一、读取文章数据</h3>
-<h4 id="pandas读取mysql数据到dataframe中">pandas读取mysql数据到DataFrame中</h4>
+          <h3 id="一-读取文章数据"><a class="markdownIt-Anchor" href="#一-读取文章数据"></a> 一、读取文章数据</h3>
+<h4 id="pandas读取mysql数据到dataframe中"><a class="markdownIt-Anchor" href="#pandas读取mysql数据到dataframe中"></a> pandas读取mysql数据到DataFrame中</h4>
 <figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">from sqlalchemy <span class="keyword">import</span> create_engine</span><br><span class="line"></span><br><span class="line">db_info = &#123;<span class="string">'user'</span>:<span class="string">'root'</span>,</span><br><span class="line">          <span class="string">'password'</span>:<span class="string">''</span>,</span><br><span class="line">           <span class="string">'host'</span>:<span class="string">'localhost'</span>,</span><br><span class="line">           <span class="string">'database'</span>:<span class="string">'article_spider'</span></span><br><span class="line">          &#125;</span><br><span class="line">engine = create_engine(<span class="string">'mysql://%(user)s:%(password)s@%(host)s/%(database)s?charset=utf8'</span> % db_info,encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">sql = <span class="string">'select * from jobbole_article;'</span></span><br><span class="line">df = pd.read_sql(sql , con = engine)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
@@ -827,7 +835,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,321字
+                  1,319字
                 </span>
               
 
@@ -853,14 +861,16 @@
 
       
         
-          <h2 id="基本使用">基本使用</h2>
-<h3 id="基本格式">基本格式</h3>
+          <h2 id="基本使用"><a class="markdownIt-Anchor" href="#基本使用"></a> 基本使用</h2>
+<h3 id="基本格式"><a class="markdownIt-Anchor" href="#基本格式"></a> 基本格式</h3>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">-1</span>, <span class="number">1</span>, <span class="number">50</span>)</span><br><span class="line">y = <span class="number">2</span>*x + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">plt.figure(num=<span class="number">3</span>, figsize=(<span class="number">8</span>, <span class="number">5</span>),)</span><br><span class="line">plt.plot(x, y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <ul>
 <li>np.linspace：定义x：范围是(-1,1);个数是50. 仿真一维数据组(x ,y)表示曲线1.</li>
 <li>plt.figure：定义一个图像窗口，小窗口里面还可以有更多的小图片。这里定义一个图像窗口：编号为3；大小为(8, 5)</li>
 <li>plt.plot：画(x ,y)曲线.</li>
-<li><p>plt.show：显示图像. <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180128/77L7mf68k2.png?imageslim" alt="mark">
+<li>plt.show：显示图像.<br>
+<img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180128/77L7mf68k2.png?imageslim" alt="mark"></li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/28/Python基础/matplotlib画图/#more" rel="contents">
@@ -999,7 +1009,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,031字
+                  2,029字
                 </span>
               
 
@@ -1025,14 +1035,13 @@
 
       
         
-          <h3 id="导入包">导入包</h3>
-<p><code>numpy</code>是用Python进行科学计算的基本软件包。 <code>sklearn</code>为数据挖掘和数据分析提供了简单高效的工具。 <code>matplotlib</code>是一个用于在Python中绘制图表的库。 <code>testCases</code>提供了一些测试例子来评估你的函数的正确性 <code>planar_utils</code>提供了在这个任务中使用的各种有用的功能 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="title">from</span> testCases <span class="keyword">import</span> * </span><br><span class="line"><span class="keyword">import</span> sklearn  </span><br><span class="line"><span class="keyword">import</span> sklearn.datasets</span><br><span class="line"><span class="keyword">import</span> sklearn.linear_model</span><br><span class="line"><span class="title">from</span> planar_utils <span class="keyword">import</span> plot_decision_boundary, sigmoid, load_planar_dataset, load_extra_datasets</span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="title">np</span>.random.seed(<span class="number">1</span>) # 设置seed，使结果一致</span><br></pre></td></tr></table></figure></p>
-<h3 id="导入花卉数据集">导入“花卉数据集”</h3>
-<h4 id="加载一个花-2级的数据集中到变量x和y">加载一个“花” 2级的数据集中到变量X和Y。</h4>
-<figure class="highlight tp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">X</span>, <span class="keyword">Y</span> = load_planar_dataset()</span><br></pre></td></tr></table></figure>
-<h4 id="使用matplotlib可视化数据集">使用matplotlib可视化数据集。</h4>
-<p>数据看起来像一朵红色（标签y = 0）和一些蓝色（y = 1）点的“花朵”。你的目标是建立一个模型来适应这个数据。 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(X[0, :], X[1, :], <span class="attribute">c</span>=Y, <span class="attribute">s</span>=40, <span class="attribute">cmap</span>=plt.cm.Spectral);</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180122/J6fL42DHA0.png?imageslim" alt="mark">
+          <h3 id="导入包"><a class="markdownIt-Anchor" href="#导入包"></a> 导入包</h3>
+<p><code>numpy</code>是用Python进行科学计算的基本软件包。<br>
+<code>sklearn</code>为数据挖掘和数据分析提供了简单高效的工具。<br>
+<code>matplotlib</code>是一个用于在Python中绘制图表的库。<br>
+<code>testCases</code>提供了一些测试例子来评估你的函数的正确性<br>
+<code>planar_utils</code>提供了在这个任务中使用的各种有用的功能</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="title">from</span> testCases <span class="keyword">import</span> * </span><br><span class="line"><span class="keyword">import</span> sklearn  </span><br><span class="line"><span class="keyword">import</span> sklearn.datasets</span><br><span class="line"><span class="keyword">import</span> sklearn.linear_model</span><br><span class="line"><span class="title">from</span> planar_utils <span class="keyword">import</span> plot_decision_boundary, sigmoid, load_planar_dataset, load_extra_datasets</span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="title">np</span>.random.seed(<span class="number">1</span>) # 设置seed，使结果一致</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/22/吴恩达深度学习/w章三习题/#more" rel="contents">
@@ -1197,12 +1206,10 @@
 
       
         
-          <h2 id="理解业务">理解业务</h2>
-<h3 id="画出爬取网站的url结构图">画出爬取网站的url结构图</h3>
-<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/gFCmFdjH1a.png?imageslim" alt="url结构图"> <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/3CAjH9i5c4.png?imageslim" alt="链接结构图"> ### 爬取方式 #### 深度优先 爬虫去重实现破除循环（深度优先） #### 通过翻页爬取</p>
-<h2 id="初始scrapy项目">初始Scrapy项目</h2>
-<h3 id="创建项目">创建项目</h3>
-<p>在对应的目录下的cmd中输入<code>scrapy startproject ArticleSpider</code>创建项目 <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/F6jFHmlAmi.png?imageslim" alt="Scrapy项目组成结构">
+          <h2 id="理解业务"><a class="markdownIt-Anchor" href="#理解业务"></a> 理解业务</h2>
+<h3 id="画出爬取网站的url结构图"><a class="markdownIt-Anchor" href="#画出爬取网站的url结构图"></a> 画出爬取网站的url结构图</h3>
+<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/gFCmFdjH1a.png?imageslim" alt="url结构图"><br>
+<img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180116/3CAjH9i5c4.png?imageslim" alt="链接结构图"></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/16/数据挖掘/Scrapy爬虫一/#more" rel="contents">
@@ -1367,12 +1374,15 @@
 
       
         
-          
-          配置
-安装Mysql
-linux下输入 sudo apt-get install mysql-server安装 用ps aux|grep mysqld检查mysql是否运行成功 musql -uroot -p登录 登录后 show databases;显示表信息 exit 关闭 打开## 配置
-
-          
+          <h2 id="配置"><a class="markdownIt-Anchor" href="#配置"></a> 配置</h2>
+<h3 id="安装mysql"><a class="markdownIt-Anchor" href="#安装mysql"></a> 安装Mysql</h3>
+<p>linux下输入 <code>sudo apt-get install mysql-server</code>安装<br>
+用<code>ps aux|grep mysqld</code>检查mysql是否运行成功<br>
+<code>musql -uroot -p</code>登录<br>
+登录后<br>
+<code>show databases;</code>显示表信息<br>
+<code>exit</code> 关闭<br>
+打开## 配置</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/16/linux基础/#more" rel="contents">
@@ -1511,7 +1521,7 @@ linux下输入 sudo apt-get install mysql-server安装 用ps aux|grep mysqld检�
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  188字
+                  274字
                 </span>
               
 
@@ -1538,11 +1548,27 @@ linux下输入 sudo apt-get install mysql-server安装 用ps aux|grep mysqld检�
       
         
           
-          下载相关 * Free Download Manager : 比迅雷9浏览器好用无数倍的下载软件 * 百度云破解版：提供一个思路，也可以把
-翻墙工具 Greenhub Socks Proxy * 游戏 * 夜神模拟器：平时玩个小游戏，安卓捣鼓一些东西蛮适用的
-办公 * TIM : 摆脱低级趣味还你清净的qq版本，适合办公使用 * 福晰阅读器：界面我很喜欢，比WPS的界面好
-编程相关： * github for Windows：简化对github的使用，手残党的福利 * navicat ：sql轻量级管理工具
-谷歌插件 * 谷歌访问助手: 安装后即可访问谷歌（无翻墙） * 下载+ : 优
+           下载相关
+
+Free Download Manager : 比迅雷9(浏览器)好用无数倍的下载软件
+百度云破解版：网上有教程，可从网页版的百度云资源下载的地方获取下载地址，然后用别的下载软件下载
+
+ 游戏
+
+夜神模拟器：平时玩个小游戏，安卓捣鼓一些东西蛮适用的
+
+ 办公
+
+TIM : 摆脱低级趣味还你清净的qq版本，适合办公使用
+福晰阅读器：界面我很喜欢，比WPS的界面好
+
+ 编程相关：
+
+github for Windows：简化对github的使用的一个客户端版本，手残党的福利
+navicat ：轻量级SQL管理工具
+MPic： 一个图床工具，设置好七牛云后实现一键复制、上传图片
+
+ 谷
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1708,13 +1734,11 @@ linux下输入 sudo apt-get install mysql-server安装 用ps aux|grep mysqld检�
 
       
         
-          
-          配置
-主题
-自定义快捷键
-在浏览器打开
-12345678&#123; "keys": ["f1"], "command": "side_bar_files_open_with",            "args": &#123;                "paths": [],                "application": "C://Users//Administrator//AppData//Local//Google//Chrome//Application//chrome.exe",                "application": "",    
-          ...
+          <h2 id="配置"><a class="markdownIt-Anchor" href="#配置"></a> 配置</h2>
+<h3 id="主题"><a class="markdownIt-Anchor" href="#主题"></a> 主题</h3>
+<h2 id="自定义快捷键"><a class="markdownIt-Anchor" href="#自定义快捷键"></a> 自定义快捷键</h2>
+<h3 id="在浏览器打开"><a class="markdownIt-Anchor" href="#在浏览器打开"></a> 在浏览器打开</h3>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="string">"keys"</span>: [<span class="string">"f1"</span>], <span class="string">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</span><br><span class="line">            <span class="string">"args"</span>: &#123;</span><br><span class="line">                <span class="string">"paths"</span>: [],</span><br><span class="line">                <span class="string">"application"</span>: <span class="string">"C://Users//Administrator//AppData//Local//Google//Chrome//Application//chrome.exe"</span>,</span><br><span class="line">                <span class="string">"application"</span>: <span class="string">""</span>,</span><br><span class="line">                <span class="string">"extensions"</span>:<span class="string">".*"</span></span><br><span class="line">            &#125;</span><br><span class="line">     &#125;,</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/15/sublime一/#more" rel="contents">
@@ -1831,7 +1855,7 @@ linux下输入 sudo apt-get install mysql-server安装 用ps aux|grep mysqld检�
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  116字
+                  115字
                 </span>
               
 
@@ -1857,20 +1881,8 @@ linux下输入 sudo apt-get install mysql-server安装 用ps aux|grep mysqld检�
 
       
         
-          
-          主要流程如下
-
-
-mark
-
-利用adb进行手机截图
-pc端安装adb
-连接到手机
-通过wifi(root)
-通过usb设备(未root)
-可能出现的问题 由于目标计算机积极拒绝，无法连接 在usb连接下 输入命令 adb tcpip 5555 然后再进行连接 adb connect ip ### 进入 shell 模式 只有一个连接设备 adb shell 多个连接设备 adb -s &lt;serial number&gt; shell &lt;serial number&gt;是连接设备的名称
-
-          
+          <h2 id="主要流程如下"><a class="markdownIt-Anchor" href="#主要流程如下"></a> 主要流程如下</h2>
+<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180113/BlkALI4l7g.png?imageslim" alt="mark"></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/13/识别手机视频中的文字信息/#more" rel="contents">
@@ -2052,7 +2064,7 @@ pc端安装adb
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">34.5k</span>
+    <span title="Site words total count">36.8k</span>
   
 </div>
 
@@ -2079,7 +2091,7 @@ pc端安装adb
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共34.5k字</span>
+  <span class="post-count">博客全站共36.8k字</span>
 </div>
 
 
