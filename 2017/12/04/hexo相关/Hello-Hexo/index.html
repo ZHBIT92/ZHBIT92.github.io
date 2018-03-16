@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="LEMON的博客">
 <meta property="og:description" content="想法  看到人家的博客界面很漂亮，最近学习压力又大，就想自己写一个啦 看到是用node.js的一个框架Hexo，简单又漂亮，还可以放在github上直接打开博客，那就直接上手吧。 hexo文档链接  安装 首先安装依赖环境  搭建个人博客-hexo+github详细完整步骤 hexo安装失败(地址被“墙”)请参考-零基础免费搭建个人博客-hexo+github 注：如用淘宝安装">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-20T15:37:53.823Z">
+<meta property="og:updated_time" content="2018-03-16T15:56:59.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello Hexo(基本配置)">
 <meta name="twitter:description" content="想法  看到人家的博客界面很漂亮，最近学习压力又大，就想自己写一个啦 看到是用node.js的一个框架Hexo，简单又漂亮，还可以放在github上直接打开博客，那就直接上手吧。 hexo文档链接  安装 首先安装依赖环境  搭建个人博客-hexo+github详细完整步骤 hexo安装失败(地址被“墙”)请参考-零基础免费搭建个人博客-hexo+github 注：如用淘宝安装">
@@ -98,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Pisces',
     version: '5.1.3',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -191,6 +191,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
@@ -238,7 +258,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LEMON">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -298,6 +318,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/04/hexo相关/Hello-Hexo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2017/12/04/hexo相关/Hello-Hexo/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -316,7 +346,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  657字
+                  683字
                 </span>
               
 
@@ -362,6 +392,8 @@
 <li>然后就登录http://localhost:4000/ 查看效果（然后你会发现博客打开速度变得超快，后面我们再继续优化）</li>
 <li><p>next提供了四个主题风格选择，个人喜好Gemini风格 步骤是：打开next下的配置文件<code>_config.yml</code>，找到这一段选择主题 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ---------------------------------------------------------------</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Scheme Settings</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Schemes</span></span><br><span class="line"><span class="meta">#</span><span class="bash">scheme: Muse</span></span><br><span class="line"><span class="meta">#</span><span class="bash">scheme: Mist</span></span><br><span class="line"><span class="meta">#</span><span class="bash">scheme: Pisces</span></span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure></p></li>
 </ul>
+<h3 id="next主题的官方文档">next主题的官方文档</h3>
+<p>作者是国人，官方文档写得都很详细，<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">传送门</a></p>
 <h2 id="把博客静态文件上传到github或coding上">把博客静态文件上传到github或coding上</h2>
 <h2 id="把源代码上传到coding.net上可选">把源代码上传到coding.net上(可选)</h2>
 <ul>
@@ -375,8 +407,13 @@
 <ul>
 <li><p>找到之前github生成的密匙 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">cd</span> ~/.ssh</span></span><br></pre></td></tr></table></figure></p></li>
 <li><p>运行如下命令，将公钥的内容复制到系统粘贴板(clipboard)中 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip &lt; ~<span class="regexp">/.ssh/i</span>d_rsa.pub</span><br></pre></td></tr></table></figure></p></li>
-<li><p>然后放到coding个人配置的ssh中就ok啦 ### Hexo中上传到github 1.删除根目录和主题目录下的.git文件夹。2.修改根目录下的.gitignore文件为：/.deploy_git/public其实第一行留不留都一样，它是hexo默认的git配置文件夹，里面也有一个.git，使/.deploy_git里的文件无法被提交。public是每次hexo g新生成的静态博客文件，不需要同步。每次写完博客，hexo d之后再push一次就行</p></li>
+<li><p>然后放到coding个人配置的ssh中就ok啦</p></li>
 </ul>
+<h3 id="hexo中上传到github">Hexo中上传到github</h3>
+<ol style="list-style-type: decimal">
+<li>删除根目录和主题目录下的.git文件夹。</li>
+<li>修改根目录下的.gitignore文件为：<code>/.deploy_git/public</code>其实第一行留不留都一样，它是hexo默认的git配置文件夹，里面也有一个.git，使/.deploy_git里的文件无法被提交。public是每次hexo g新生成的静态博客文件，不需要同步。每次写完博客，hexo d之后再push一次就行</li>
+</ol>
 <p>相关资料 https://www.cnblogs.com/tengj/p/5352572.html http://sobaigu.com/goodhexo-faq.html</p>
 <ul>
 <li>更新next到远程 http://w4lle.com/2016/06/06/Hexo-themes/index.html</li>
@@ -453,6 +490,13 @@
           
 
   
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
 
 
 
@@ -489,8 +533,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="LEMON" />
+            
               <p class="site-author-name" itemprop="name">LEMON</p>
-              <p class="site-description motion-element" itemprop="description">记录生活点滴</p>
+              <p class="site-description motion-element" itemprop="description">没有什么是一蹴而就的</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -500,7 +548,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -511,7 +559,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -522,7 +570,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -571,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#想法"><span class="nav-number">1.</span> <span class="nav-text">想法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先安装依赖环境"><span class="nav-number">2.1.</span> <span class="nav-text">首先安装依赖环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题可选"><span class="nav-number">3.</span> <span class="nav-text">主题(可选)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#人靠衣装马靠鞍来加上这个好看的next主题来一波特技"><span class="nav-number">3.1.</span> <span class="nav-text">人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把博客静态文件上传到github或coding上"><span class="nav-number">4.</span> <span class="nav-text">把博客静态文件上传到github或coding上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把源代码上传到coding.net上可选"><span class="nav-number">5.</span> <span class="nav-text">把源代码上传到coding.net上(可选)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加密匙"><span class="nav-number">5.1.</span> <span class="nav-text">添加密匙</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#想法"><span class="nav-number">1.</span> <span class="nav-text">想法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先安装依赖环境"><span class="nav-number">2.1.</span> <span class="nav-text">首先安装依赖环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题可选"><span class="nav-number">3.</span> <span class="nav-text">主题(可选)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#人靠衣装马靠鞍来加上这个好看的next主题来一波特技"><span class="nav-number">3.1.</span> <span class="nav-text">人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next主题的官方文档"><span class="nav-number">3.2.</span> <span class="nav-text">next主题的官方文档</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把博客静态文件上传到github或coding上"><span class="nav-number">4.</span> <span class="nav-text">把博客静态文件上传到github或coding上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把源代码上传到coding.net上可选"><span class="nav-number">5.</span> <span class="nav-text">把源代码上传到coding.net上(可选)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加密匙"><span class="nav-number">5.1.</span> <span class="nav-text">添加密匙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo中上传到github"><span class="nav-number">5.2.</span> <span class="nav-text">Hexo中上传到github</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -593,7 +641,7 @@
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -607,7 +655,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">36.1k</span>
+    <span title="Site words total count">48.2k</span>
   
 </div>
 
@@ -634,7 +682,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共36.1k字</span>
+  <span class="post-count">博客全站共48.2k字</span>
 </div>
 
 
@@ -682,6 +730,8 @@
   
 
 
+  
+
 
 
 
@@ -720,6 +770,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
@@ -781,6 +836,43 @@
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: '26101165',
+            repo: 'https://api.github.com/users/ZHBIT92/repos',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'addd2fbd58350cb283df3427a43cb9862c9e83f2',
+            
+                client_id: '2fae74879b4dc777705a'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 
