@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="基本概念  在结尾加; 结果不显示 黄金分割比： clc清屏 clear清空数据 clf清除图表 a=[ ; ; ] 生成数列 行与行之间用 ; 隔开 pathtool指定默认路径 syms 是定义符号变量 ans会保存未初始化的结果">
+<meta name="description" content="基本概念  - 在结尾加; 结果不显示 - 黄金分割比： - clc清屏 - clear清空数据 - clf清除图表 - a=[ ; ; ] 生成数列 行与行之间用 ; 隔开 - pathtool指定默认路径 - syms 是定义符号变量 - ans会保存未初始化的结果">
 <meta name="keywords" content="MATLAB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MATLAB">
 <meta property="og:url" content="http://yoursite.com/2018/01/02/MATLAB/MATLAB-基础/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="基本概念  在结尾加; 结果不显示 黄金分割比： clc清屏 clear清空数据 clf清除图表 a=[ ; ; ] 生成数列 行与行之间用 ; 隔开 pathtool指定默认路径 syms 是定义符号变量 ans会保存未初始化的结果">
+<meta property="og:description" content="基本概念  - 在结尾加; 结果不显示 - 黄金分割比： - clc清屏 - clear清空数据 - clf清除图表 - a=[ ; ; ] 生成数列 行与行之间用 ; 隔开 - pathtool指定默认路径 - syms 是定义符号变量 - ans会保存未初始化的结果">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/k40c3728D5.png?imageslim">
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/kBFEe91GE8.png?imageslim">
@@ -101,7 +101,7 @@
 <meta property="og:updated_time" content="2018-01-03T06:18:42.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MATLAB">
-<meta name="twitter:description" content="基本概念  在结尾加; 结果不显示 黄金分割比： clc清屏 clear清空数据 clf清除图表 a=[ ; ; ] 生成数列 行与行之间用 ; 隔开 pathtool指定默认路径 syms 是定义符号变量 ans会保存未初始化的结果">
+<meta name="twitter:description" content="基本概念  - 在结尾加; 结果不显示 - 黄金分割比： - clc清屏 - clear清空数据 - clf清除图表 - a=[ ; ; ] 生成数列 行与行之间用 ; 隔开 - pathtool指定默认路径 - syms 是定义符号变量 - ans会保存未初始化的结果">
 <meta name="twitter:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/k40c3728D5.png?imageslim">
 
 
@@ -417,94 +417,83 @@
       
 
       
-        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/k40c3728D5.png?imageslim" alt=""></p>
+        <h2 id="基本概念">基本概念</h2>
+<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/k40c3728D5.png?imageslim"> - 在结尾加; 结果不显示 - 黄金分割比： - <code>clc</code>清屏 - <code>clear</code>清空数据 - <code>clf</code>清除图表 - <code>a=[ ; ; ]</code> 生成数列 行与行之间用 ; 隔开 - <code>pathtool</code>指定默认路径 - <code>syms</code> 是定义符号变量 - <code>ans</code>会保存未初始化的结果 <a id="more"></a></p>
+<h2 id="查">查</h2>
 <ul>
-<li>在结尾加; 结果不显示</li>
-<li>黄金分割比：</li>
-<li><code>clc</code>清屏</li>
-<li><code>clear</code>清空数据</li>
-<li><code>clf</code>清除图表</li>
-<li><code>a=[ ; ; ]</code> 生成数列 行与行之间用 ; 隔开</li>
-<li><code>pathtool</code>指定默认路径</li>
-<li><code>syms</code> 是定义符号变量</li>
-<li><code>ans</code>会保存未初始化的结果<a id="more"></a>
-</li>
+<li>ans（:,:,1） 冒号表示任意列 <code>A=[ 1 2 3     4 5 6     7 8 9]</code> 读取第 2 列 <code>A( :, 2)</code> 读取[8 9] <code>A(3,[2:3])</code> 读取[5 6 8 9] <code>A([2:3],[2:3])</code></li>
 </ul>
-<h2 id="查"><a href="#查" class="headerlink" title="查"></a>查</h2><ul>
-<li>ans（:,:,1） 冒号表示任意列<br>`A=[ 1 2 3<pre><code>  4 5 6
-  7 8 9]`
-</code></pre>读取第 2 列<br><code>A( :, 2)</code><br>读取[8 9]<br><code>A(3,[2:3])</code><br>读取[5 6 8 9]<br><code>A([2:3],[2:3])</code></li>
-</ul>
-<h2 id="读写画"><a href="#读写画" class="headerlink" title="读写画"></a>读写画</h2><h3 id="读"><a href="#读" class="headerlink" title="读"></a>读</h3><h4 id="读图片"><a href="#读图片" class="headerlink" title="读图片"></a>读图片</h4><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">h=imread('a.jpg')<span class="comment">;</span></span><br><span class="line">image(<span class="name">h</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h4><p>xlsread(<code>文件名</code>,<code>表n</code>,sheet)<br>xlswrite(<code>文件名</code>,<code>矩阵名</code>)<br>cell2mat() 转置数据<br>sort() 排序</p>
-<h3 id="写"><a href="#写" class="headerlink" title="写"></a>写</h3><h4 id="写入图形"><a href="#写入图形" class="headerlink" title="写入图形"></a>写入图形</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">saveas</span><span class="params">(gcf,<span class="string">'test.jpg'</span>)</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h3><h4 id="plot"><a href="#plot" class="headerlink" title="plot"></a>plot</h4><p>golden_spiral 黄金螺旋</p>
+<h2 id="读写画">读写画</h2>
+<h3 id="读">读</h3>
+<h4 id="读图片">读图片</h4>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">h=imread('a.jpg')<span class="comment">;</span></span><br><span class="line">image(<span class="name">h</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="读文件">读文件</h4>
+<p>xlsread(<code>文件名</code>,<code>表n</code>,sheet) xlswrite(<code>文件名</code>,<code>矩阵名</code>) cell2mat() 转置数据 sort() 排序 ### 写 #### 写入图形 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">saveas</span><span class="params">(gcf,<span class="string">'test.jpg'</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+<h3 id="画图">画图</h3>
+<h4 id="plot">plot</h4>
+<p>golden_spiral 黄金螺旋 - edit golden_spiral 编辑文件 - format long 设置类型 - plot（x,y,<code>－</code>）画图工具 <figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">0</span>:<span class="built_in">pi</span>/<span class="number">100</span>:<span class="number">2</span>*<span class="built_in">pi</span>;</span><br><span class="line">y = <span class="built_in">sin</span>(x);</span><br><span class="line"><span class="keyword">plot</span>(x,y)</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>edit golden_spiral 编辑文件</li>
-<li>format long 设置类型</li>
-<li><p>plot（x,y,<code>－</code>）画图工具</p>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">0</span>:<span class="built_in">pi</span>/<span class="number">100</span>:<span class="number">2</span>*<span class="built_in">pi</span>;</span><br><span class="line">y = <span class="built_in">sin</span>(x);</span><br><span class="line"><span class="keyword">plot</span>(x,y)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>r</code>是换颜色</p>
-</li>
+<li><code>r</code>是换颜色</li>
 <li>hold on 保存图表</li>
 <li>hold off 取消保存</li>
 </ul>
-<h4 id="绘图函数-dot2dot"><a href="#绘图函数-dot2dot" class="headerlink" title="绘图函数 dot2dot"></a>绘图函数 dot2dot</h4><p><code>dot2dot(y)</code></p>
-<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><ul>
+<h4 id="绘图函数-dot2dot">绘图函数 dot2dot</h4>
+<p><code>dot2dot(y)</code></p>
+<h4 id="设置">设置</h4>
+<ul>
 <li>axis off 关闭坐标轴</li>
 <li>axis(x,y) 限制x,y的范围</li>
 <li>axis equal 让x轴和y轴坐标距离相等</li>
 <li>xlabel() 显示x轴的标签</li>
 <li>title() 显示标题</li>
-<li>legend() 显示图列<br>图形对象gcf<br><code>get( gcf)</code> 获取对象的属性<br><code>set(gcf,</code>color<code>,</code>red<code>)</code> 设置属性的属性</li>
+<li>legend() 显示图列 图形对象gcf <code>get( gcf)</code> 获取对象的属性 <code>set(gcf,</code>color<code>,</code>red<code>)</code> 设置属性的属性</li>
 </ul>
-<h4 id="ezplot跟plot的区别"><a href="#ezplot跟plot的区别" class="headerlink" title="ezplot跟plot的区别"></a>ezplot跟plot的区别</h4><ul>
-<li><ul>
-<li>plot绘制图形时要指定自变量的范围，而ezplot无需数据准备，直接绘出图形。<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sys <span class="keyword">x</span></span><br><span class="line">y = <span class="keyword">x</span>^<span class="number">2</span>－<span class="keyword">x</span>－<span class="number">1</span></span><br><span class="line">ezplot(y)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
+<h4 id="ezplot跟plot的区别">ezplot跟plot的区别</h4>
 <ul>
+<li><ul>
+<li>plot绘制图形时要指定自变量的范围，而ezplot无需数据准备，直接绘出图形。 <figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sys <span class="keyword">x</span></span><br><span class="line">y = <span class="keyword">x</span>^<span class="number">2</span>－<span class="keyword">x</span>－<span class="number">1</span></span><br><span class="line">ezplot(y)</span><br></pre></td></tr></table></figure></li>
+</ul></li>
 <li>disp() 输出</li>
 </ul>
-<h2 id="日期与时钟"><a href="#日期与时钟" class="headerlink" title="日期与时钟"></a>日期与时钟</h2><h3 id="日期时间的三种表示及相互转换"><a href="#日期时间的三种表示及相互转换" class="headerlink" title="日期时间的三种表示及相互转换"></a>日期时间的三种表示及相互转换</h3><ol>
+<h2 id="日期与时钟">日期与时钟</h2>
+<h3 id="日期时间的三种表示及相互转换">日期时间的三种表示及相互转换</h3>
+<ol style="list-style-type: decimal">
 <li>日期数字(num)、日期字符串(str)、日期向量(vec)</li>
 </ol>
 <ul>
 <li>now</li>
 <li>date</li>
-<li>lock<br><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/kBFEe91GE8.png?imageslim" alt="mark"></li>
+<li>lock <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/kBFEe91GE8.png?imageslim" alt="mark"></li>
 </ul>
-<ol>
+<ol start="2" style="list-style-type: decimal">
 <li>转成“日期数字”(双精度)</li>
 </ol>
 <ul>
-<li>datenum()<br><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/K54LcadBD9.png?imageslim" alt="mark"></li>
+<li>datenum() <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/K54LcadBD9.png?imageslim" alt="mark"></li>
 </ul>
-<ol>
+<ol start="3" style="list-style-type: decimal">
 <li>转成“日期字符串”</li>
 </ol>
 <ul>
 <li>datestr() 转为字符串</li>
 </ul>
-<ol>
+<ol start="4" style="list-style-type: decimal">
 <li>转成“日期向量”</li>
 </ol>
 <ul>
-<li>datevec()<br><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/J8mflm6ji6.png?imageslim" alt="mark"></li>
+<li>datevec() <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/J8mflm6ji6.png?imageslim" alt="mark"></li>
 </ul>
-<h3 id="其它常用的日期函数"><a href="#其它常用的日期函数" class="headerlink" title="其它常用的日期函数"></a>其它常用的日期函数</h3><p>1.<code>[d w]=weakdate(日期数字或字符串)</code><br>2.<code>eomday(年，月)</code>    %返回一个月的最后一天<br>3.<code>calendar(年,月)</code>   %任何一个月的月历<br>4.<code>tic</code>命令或程序<code>tok</code>%tick-tock 嘀哒声。<br>Tic 启动一个秒表，toc 停止这个秒表并计算出所经历的时间。<br>5.<code>cputime</code> %MATLAB 启动之后所占用的 CPU 时间。</p>
-<h2 id="方程"><a href="#方程" class="headerlink" title="方程"></a>方程</h2><h3 id="三种求方程的办法"><a href="#三种求方程的办法" class="headerlink" title="三种求方程的办法"></a>三种求方程的办法</h3><h4 id="roots-是多项式根"><a href="#roots-是多项式根" class="headerlink" title="roots 是多项式根"></a><code>roots</code> 是多项式根</h4><p>此 MATLAB 函数 以列矢量的形式返回 p 表示的多项式的根。输入 p 是一个包含 n+1 多项式系数的矢量，以 xn 系数开头。0 系数表示方程中不存在的中间幂。例如：<code>p = [3 2 -2]</code>代表多项式<code>3x^2+2x-2</code></p>
+<h3 id="其它常用的日期函数">其它常用的日期函数</h3>
+<p>1.<code>[d w]=weakdate(日期数字或字符串)</code> 2.<code>eomday(年，月)</code> %返回一个月的最后一天 3.<code>calendar(年,月)</code> %任何一个月的月历 4.<code>tic</code>命令或程序<code>tok</code>%tick-tock 嘀哒声。 Tic 启动一个秒表，toc 停止这个秒表并计算出所经历的时间。 5.<code>cputime</code> %MATLAB 启动之后所占用的 CPU 时间。</p>
+<h2 id="方程">方程</h2>
+<h3 id="三种求方程的办法">三种求方程的办法</h3>
+<h4 id="roots-是多项式根"><code>roots</code> 是多项式根</h4>
+<p>此 MATLAB 函数 以列矢量的形式返回 p 表示的多项式的根。输入 p 是一个包含 n+1 多项式系数的矢量，以 xn 系数开头。0 系数表示方程中不存在的中间幂。例如：<code>p = [3 2 -2]</code>代表多项式<code>3x^2+2x-2</code></p>
 <p>所以<code>x1 = roots([1 -1 -1])</code> 等于 <code>x1 = x^2-x-1</code></p>
-<h4 id="fsolve是采用最小二乘法来求解非线性方程。"><a href="#fsolve是采用最小二乘法来求解非线性方程。" class="headerlink" title="fsolve是采用最小二乘法来求解非线性方程。"></a><code>fsolve</code>是采用最小二乘法来求解非线性方程。</h4><p>它的一般求解方式为： <code>X=fsolve(fun,X0,options)</code><br><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/IdILam9had.png?imageslim" alt="mark"><br>其中，fun是要求解的非线性方程，X0是变量初值，options由optimset函数产生的结构体，用于对优化参数的设置，可以省略（采用默认值）。<br>所以 f = @(x)-sqrt(1+x),p = @(x)x^2-x-1<br>Fslove(f,1) 表示初始变量x=1，时f()方程的解</p>
-<h4 id="syms"><a href="#syms" class="headerlink" title="syms"></a>syms</h4><p>syms 是定义符号变量,solve()内可直接输入函数(在matable中使用)<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">solve</span><span class="params">(<span class="string">'x^2-x-1'</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">solve</span><span class="params">(<span class="string">'x-sqrt(1+x)=0'</span>)</span></span></span><br></pre></td></tr></table></figure></p>
-<h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><p>矩阵的同行元素之间用空格或逗号<br>行与行之间用分号<code>;</code>或回车</p>
-<h4 id="zeros（i）-i阶矩阵"><a href="#zeros（i）-i阶矩阵" class="headerlink" title="zeros（i） i阶矩阵"></a>zeros（i） i阶矩阵</h4><p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/GgF7Fm00E3.png?imageslim" alt="mark"></p>
-<ul>
-<li>zeros（3, 4, 5）生成全零矩阵<h4 id="ones-全1矩阵"><a href="#ones-全1矩阵" class="headerlink" title="ones( ) 全1矩阵"></a>ones( ) 全1矩阵</h4><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/JFB9IA88k6.png?imageslim" alt="mark"><h4 id="eye-生成单位矩阵"><a href="#eye-生成单位矩阵" class="headerlink" title="eye( ) 生成单位矩阵"></a>eye( ) 生成单位矩阵</h4>生成对角矩阵<br><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/g9hH1al3F8.png?imageslim" alt="mark"><h4 id="magic"><a href="#magic" class="headerlink" title="magic()"></a>magic()</h4><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/E5KdIefF4j.png?imageslim" alt="mark"><h4 id="rand"><a href="#rand" class="headerlink" title="rand()"></a>rand()</h4><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/mfA7Klh9H4.png?imageslim" alt="mark"><h4 id="K-J-ndgrid"><a href="#K-J-ndgrid" class="headerlink" title="[K,J]=ndgrid( : )"></a>[K,J]=ndgrid( : )</h4><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/K3BAaJ1jjH.png?imageslim" alt="mark"></li>
-</ul>
+<h4 id="fsolve是采用最小二乘法来求解非线性方程"><code>fsolve</code>是采用最小二乘法来求解非线性方程。</h4>
+<p>它的一般求解方式为： <code>X=fsolve(fun,X0,options)</code> <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/IdILam9had.png?imageslim" alt="mark"> 其中，fun是要求解的非线性方程，X0是变量初值，options由optimset函数产生的结构体，用于对优化参数的设置，可以省略（采用默认值）。 所以 f = @(x)-sqrt(1+x),p = @(x)x^2-x-1 Fslove(f,1) 表示初始变量x=1，时f()方程的解 #### syms syms 是定义符号变量,solve()内可直接输入函数(在matable中使用) <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">solve</span><span class="params">(<span class="string">'x^2-x-1'</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">solve</span><span class="params">(<span class="string">'x-sqrt(1+x)=0'</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="矩阵">矩阵</h2>
+<p>矩阵的同行元素之间用空格或逗号 行与行之间用分号<code>;</code>或回车 #### zeros（i） i阶矩阵 <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/GgF7Fm00E3.png?imageslim" alt="mark"> - zeros（3, 4, 5）生成全零矩阵 #### ones( ) 全1矩阵 <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/JFB9IA88k6.png?imageslim" alt="mark"> #### eye( ) 生成单位矩阵 生成对角矩阵 <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/g9hH1al3F8.png?imageslim" alt="mark"> #### magic() <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/E5KdIefF4j.png?imageslim" alt="mark"> #### rand() <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/mfA7Klh9H4.png?imageslim" alt="mark"> #### [K,J]=ndgrid( : ) <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180102/K3BAaJ1jjH.png?imageslim" alt="mark"></p>
 
       
     </div>
@@ -708,7 +697,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查"><span class="nav-number">2.</span> <span class="nav-text">查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读写画"><span class="nav-number">3.</span> <span class="nav-text">读写画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读"><span class="nav-number">3.1.</span> <span class="nav-text">读</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读图片"><span class="nav-number">3.1.1.</span> <span class="nav-text">读图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读文件"><span class="nav-number">3.1.2.</span> <span class="nav-text">读文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写"><span class="nav-number">3.2.</span> <span class="nav-text">写</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写入图形"><span class="nav-number">3.2.1.</span> <span class="nav-text">写入图形</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#画图"><span class="nav-number">3.3.</span> <span class="nav-text">画图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#plot"><span class="nav-number">3.3.1.</span> <span class="nav-text">plot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绘图函数-dot2dot"><span class="nav-number">3.3.2.</span> <span class="nav-text">绘图函数 dot2dot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置"><span class="nav-number">3.3.3.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ezplot跟plot的区别"><span class="nav-number">3.3.4.</span> <span class="nav-text">ezplot跟plot的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期与时钟"><span class="nav-number">4.</span> <span class="nav-text">日期与时钟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#日期时间的三种表示及相互转换"><span class="nav-number">4.1.</span> <span class="nav-text">日期时间的三种表示及相互转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它常用的日期函数"><span class="nav-number">4.2.</span> <span class="nav-text">其它常用的日期函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方程"><span class="nav-number">5.</span> <span class="nav-text">方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种求方程的办法"><span class="nav-number">5.1.</span> <span class="nav-text">三种求方程的办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#roots-是多项式根"><span class="nav-number">5.1.1.</span> <span class="nav-text">roots 是多项式根</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fsolve是采用最小二乘法来求解非线性方程。"><span class="nav-number">5.1.2.</span> <span class="nav-text">fsolve是采用最小二乘法来求解非线性方程。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#syms"><span class="nav-number">5.1.3.</span> <span class="nav-text">syms</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵"><span class="nav-number">6.</span> <span class="nav-text">矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#zeros（i）-i阶矩阵"><span class="nav-number">6.0.1.</span> <span class="nav-text">zeros（i） i阶矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ones-全1矩阵"><span class="nav-number">6.0.2.</span> <span class="nav-text">ones( ) 全1矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#eye-生成单位矩阵"><span class="nav-number">6.0.3.</span> <span class="nav-text">eye( ) 生成单位矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#magic"><span class="nav-number">6.0.4.</span> <span class="nav-text">magic()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rand"><span class="nav-number">6.0.5.</span> <span class="nav-text">rand()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#K-J-ndgrid"><span class="nav-number">6.0.6.</span> <span class="nav-text">[K,J]=ndgrid( : )</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查"><span class="nav-number">2.</span> <span class="nav-text">查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读写画"><span class="nav-number">3.</span> <span class="nav-text">读写画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读"><span class="nav-number">3.1.</span> <span class="nav-text">读</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读图片"><span class="nav-number">3.1.1.</span> <span class="nav-text">读图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读文件"><span class="nav-number">3.1.2.</span> <span class="nav-text">读文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#画图"><span class="nav-number">3.2.</span> <span class="nav-text">画图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#plot"><span class="nav-number">3.2.1.</span> <span class="nav-text">plot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绘图函数-dot2dot"><span class="nav-number">3.2.2.</span> <span class="nav-text">绘图函数 dot2dot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置"><span class="nav-number">3.2.3.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ezplot跟plot的区别"><span class="nav-number">3.2.4.</span> <span class="nav-text">ezplot跟plot的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期与时钟"><span class="nav-number">4.</span> <span class="nav-text">日期与时钟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#日期时间的三种表示及相互转换"><span class="nav-number">4.1.</span> <span class="nav-text">日期时间的三种表示及相互转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它常用的日期函数"><span class="nav-number">4.2.</span> <span class="nav-text">其它常用的日期函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方程"><span class="nav-number">5.</span> <span class="nav-text">方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种求方程的办法"><span class="nav-number">5.1.</span> <span class="nav-text">三种求方程的办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#roots-是多项式根"><span class="nav-number">5.1.1.</span> <span class="nav-text">roots 是多项式根</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fsolve是采用最小二乘法来求解非线性方程"><span class="nav-number">5.1.2.</span> <span class="nav-text">fsolve是采用最小二乘法来求解非线性方程。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵"><span class="nav-number">6.</span> <span class="nav-text">矩阵</span></a></li></ol></div>
             
 
           </div>
@@ -744,7 +733,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">47.6k</span>
+    <span title="Site words total count">48.2k</span>
   
 </div>
 
@@ -771,7 +760,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共47.6k字</span>
+  <span class="post-count">博客全站共48.2k字</span>
 </div>
 
 
@@ -934,7 +923,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: window.location.pathname, 
+            id: decodeURI(window.location.pathname), 
             owner: 'ZHBIT92',
             repo: 'ZHBIT92.github.io',
             

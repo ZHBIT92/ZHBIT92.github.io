@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="一、基本运算 基础加法、减、乘123456import numpy as npa=np.array([10,20,30,40])   # array([10, 20, 30, 40])b=np.arange(4)              # array([0, 1, 2, 3])c=a+b   # array([10">
+<meta name="description" content="一、基本运算  基础加法、减、乘 123456import numpy as npa=np.array([10,20,30,40])   # array([10, 20, 30, 40])b=np.arange(4)              # array([0, 1, 2, 3])c=a+b   # array">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NumPy（矩阵运算）">
 <meta property="og:url" content="http://yoursite.com/2017/12/02/Python基础/NumPy（矩阵运算）/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="一、基本运算 基础加法、减、乘123456import numpy as npa=np.array([10,20,30,40])   # array([10, 20, 30, 40])b=np.arange(4)              # array([0, 1, 2, 3])c=a+b   # array([10, 21, 32, 43])c=a-b  # array([10, 19, 28">
+<meta property="og:description" content="一、基本运算  基础加法、减、乘 123456import numpy as npa=np.array([10,20,30,40])   # array([10, 20, 30, 40])b=np.arange(4)              # array([0, 1, 2, 3])c=a+b   # array([10, 21, 32, 43])c=a-b  # array([10, 19">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-12-20T15:41:36.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NumPy（矩阵运算）">
-<meta name="twitter:description" content="一、基本运算 基础加法、减、乘123456import numpy as npa=np.array([10,20,30,40])   # array([10, 20, 30, 40])b=np.arange(4)              # array([0, 1, 2, 3])c=a+b   # array([10, 21, 32, 43])c=a-b  # array([10, 19, 28">
+<meta name="twitter:description" content="一、基本运算  基础加法、减、乘 123456import numpy as npa=np.array([10,20,30,40])   # array([10, 20, 30, 40])b=np.arange(4)              # array([0, 1, 2, 3])c=a+b   # array([10, 21, 32, 43])c=a-b  # array([10, 19">
 
 
 
@@ -405,81 +405,62 @@
       
 
       
-        <h3 id="一、基本运算"><a href="#一、基本运算" class="headerlink" title="一、基本运算"></a>一、基本运算</h3><ol>
-<li>基础加法、减、乘<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">a=np.array([<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>])   # array([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>])</span><br><span class="line">b=np.arange(<span class="number">4</span>)              # array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">c=a+b   # array([<span class="number">10</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">43</span>])</span><br><span class="line">c=a-b  # array([<span class="number">10</span>, <span class="number">19</span>, <span class="number">28</span>, <span class="number">37</span>])</span><br><span class="line">c=a*b   # array([  <span class="number">0</span>,  <span class="number">20</span>,  <span class="number">60</span>, <span class="number">120</span>])</span><br></pre></td></tr></table></figure>
-</li>
+        <h3 id="一基本运算">一、基本运算</h3>
+<ol style="list-style-type: decimal">
+<li>基础加法、减、乘 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">a=np.array([<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>])   # array([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>])</span><br><span class="line">b=np.arange(<span class="number">4</span>)              # array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">c=a+b   # array([<span class="number">10</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">43</span>])</span><br><span class="line">c=a-b  # array([<span class="number">10</span>, <span class="number">19</span>, <span class="number">28</span>, <span class="number">37</span>])</span><br><span class="line">c=a*b   # array([  <span class="number">0</span>,  <span class="number">20</span>,  <span class="number">60</span>, <span class="number">120</span>])</span><br></pre></td></tr></table></figure></li>
 </ol>
 <ul>
-<li>矩阵的乘法，针对的是第一个矩阵的行与第二个矩阵的列  </li>
-<li>umpy中，想要求出矩阵中各个元素的乘方需要依赖双星符号 <code>**</code>，以二次方举例<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=b**<span class="number">2</span>  # array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>])</span><br></pre></td></tr></table></figure>
+<li>矩阵的乘法，针对的是第一个矩阵的行与第二个矩阵的列<br>
 </li>
+<li>umpy中，想要求出矩阵中各个元素的乘方需要依赖双星符号 <code>**</code>，以二次方举例 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=b**<span class="number">2</span>  # array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>])</span><br></pre></td></tr></table></figure></li>
 </ul>
-<ol>
+<ol start="2" style="list-style-type: decimal">
 <li>逻辑判断</li>
 </ol>
 <ul>
-<li>在脚本中对print函数进行一些修改可以进行逻辑判断：<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(b&lt;<span class="number">3</span>)  </span><br><span class="line"># <span class="keyword">array</span>([ <span class="literal">True</span>,  <span class="literal">True</span>,  <span class="literal">True</span>, <span class="literal">False</span>], dtype=bool)</span><br></pre></td></tr></table></figure>
-</li>
+<li>在脚本中对print函数进行一些修改可以进行逻辑判断： <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(b&lt;<span class="number">3</span>)  </span><br><span class="line"># <span class="keyword">array</span>([ <span class="literal">True</span>,  <span class="literal">True</span>,  <span class="literal">True</span>, <span class="literal">False</span>], dtype=bool)</span><br></pre></td></tr></table></figure></li>
 </ul>
 <a id="more"></a>
-<h3 id="二、矩阵操作函数"><a href="#二、矩阵操作函数" class="headerlink" title="二、矩阵操作函数"></a>二、矩阵操作函数</h3><ol>
+<h3 id="二矩阵操作函数">二、矩阵操作函数</h3>
+<ol style="list-style-type: decimal">
 <li>矩阵乘积</li>
 </ol>
 <ul>
 <li>NumPy 的 dot 函数和matmul函数</li>
-<li>二维矩阵下dot 和 matmul 函数的结果是相同的<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = np<span class="selector-class">.dot</span> (<span class="selector-tag">a</span>, b)</span><br><span class="line">c = np.matmul(<span class="selector-tag">a</span>, b)</span><br></pre></td></tr></table></figure>
-</li>
+<li>二维矩阵下dot 和 matmul 函数的结果是相同的 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = np<span class="selector-class">.dot</span> (<span class="selector-tag">a</span>, b)</span><br><span class="line">c = np.matmul(<span class="selector-tag">a</span>, b)</span><br></pre></td></tr></table></figure></li>
 </ul>
-<ol>
+<ol start="2" style="list-style-type: decimal">
 <li>展开矩阵</li>
 </ol>
 <ul>
 <li>flatten 将多维的矩阵进行展开成1行的数列</li>
-<li>lat是一个迭代器，本身是一个object属性。<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">print</span>(A.flatten())</span><br><span class="line"><span class="comment"># array([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> A.flat:</span><br><span class="line">    <span class="builtin-name">print</span>(item)</span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line"><span class="comment"># 4</span></span><br><span class="line">……</span><br><span class="line"><span class="comment"># 14</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>lat是一个迭代器，本身是一个object属性。 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">print</span>(A.flatten())</span><br><span class="line"><span class="comment"># array([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> A.flat:</span><br><span class="line">    <span class="builtin-name">print</span>(item)</span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line"><span class="comment"># 4</span></span><br><span class="line">……</span><br><span class="line"><span class="comment"># 14</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<ol>
+<ol start="3" style="list-style-type: decimal">
 <li>对矩阵的值进行操作</li>
 </ol>
 <ul>
-<li><p>最大最小，总值</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">np</span><span class="selector-class">.sum</span>(<span class="selector-tag">A</span>)   # 4<span class="selector-class">.4043622002745959</span></span><br><span class="line"><span class="selector-tag">np</span><span class="selector-class">.min</span>(<span class="selector-tag">A</span>)   # 0<span class="selector-class">.23651223533671784</span></span><br><span class="line"><span class="selector-tag">np</span><span class="selector-class">.max</span>(<span class="selector-tag">A</span>)   # 0<span class="selector-class">.90438450240606416</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>求均值的几种方法</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">np</span>.average(A)  </span><br><span class="line"><span class="built_in">np</span>.<span class="built_in">mean</span>(A) 或 A.<span class="built_in">mean</span>()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>求解中位数</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">A</span><span class="selector-class">.median</span>()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Cumsum累加<br>在<code>cumsum()</code>函数中：生成的每一项矩阵元素均是从原矩阵首项累加到对应项的元素之和。比如元素9，在cumsum()生成的矩阵中序号为3，即原矩阵中2，3，4三个元素的和。</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.cumsum(A)  <span class="meta"># 累加</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>diff累差<br>该函数计算的便是每一行中后一项与前一项之差。故一个3行4列矩阵通过函数计算得到的矩阵便是3行3列的矩阵。</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">np</span>.<span class="built_in">diff</span>(A)  # 累差</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>nonzero()函数<br>官方：numpy函数返回非零元素的目录。<br>返回值为元组， 两个值分别为两个维度， 包含了相应维度上非零元素的目录值。   可以通过a[nonzero(a)]来获得所有非零值。<br>个人：nonzero(a)  将对矩阵a的所有非零元素， 将其分为两个维度， 返回其在各维度上的目录值。</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">如果 a=mat([ [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],                          </span><br><span class="line">             [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">             [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]])                      </span><br><span class="line"> 则 nonzero(a) 返回值为 (array([<span class="number">0</span>]), array([<span class="number">0</span>]))   , 因为矩阵a只有一个非零值， 在第<span class="number">0</span>行， 第<span class="number">0</span>列。</span><br><span class="line"></span><br><span class="line">如果 a=mat([ [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],                          </span><br><span class="line">             [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">             [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]])                      </span><br><span class="line"> 则 nonzero(a) 返回值为 (array([<span class="number">0</span>, <span class="number">1</span>]), array([<span class="number">0</span>, <span class="number">0</span>]))   , 因为矩阵a只有两个非零值， 在第<span class="number">0</span>行、第<span class="number">0</span>列，和第<span class="number">1</span>行、第<span class="number">0</span>列。所以结果元组中，第一个行维度数据为（<span class="number">0</span>,<span class="number">1</span>） 元组第二个列维度都为（<span class="number">0</span>,<span class="number">0</span>）。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>sort排序函数<br>对所有元素进行仿照列表一样的排序操作，但仅针对每一行进行从小到大排序操作：</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">A = np.arange(<span class="number">14</span>,<span class="number">2</span>, <span class="number">-1</span>).reshape((<span class="number">3</span>,<span class="number">4</span>)) </span><br><span class="line"></span><br><span class="line"># array([[<span class="number">14</span>, <span class="number">13</span>, <span class="number">12</span>, <span class="number">11</span>],</span><br><span class="line">#       [<span class="number">10</span>,  <span class="number">9</span>,  <span class="number">8</span>,  <span class="number">7</span>],</span><br><span class="line">#       [ <span class="number">6</span>,  <span class="number">5</span>,  <span class="number">4</span>,  <span class="number">3</span>]])</span><br><span class="line"></span><br><span class="line">print(np.sort(A))    </span><br><span class="line"></span><br><span class="line"># array([[<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>]</span><br><span class="line">#        [ <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>,<span class="number">10</span>]</span><br><span class="line">#        [ <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>最大最小，总值 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">np</span><span class="selector-class">.sum</span>(<span class="selector-tag">A</span>)   # 4<span class="selector-class">.4043622002745959</span></span><br><span class="line"><span class="selector-tag">np</span><span class="selector-class">.min</span>(<span class="selector-tag">A</span>)   # 0<span class="selector-class">.23651223533671784</span></span><br><span class="line"><span class="selector-tag">np</span><span class="selector-class">.max</span>(<span class="selector-tag">A</span>)   # 0<span class="selector-class">.90438450240606416</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>求均值的几种方法 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">np</span>.average(A)  </span><br><span class="line"><span class="built_in">np</span>.<span class="built_in">mean</span>(A) 或 A.<span class="built_in">mean</span>()</span><br></pre></td></tr></table></figure></p></li>
+<li><p>求解中位数 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">A</span><span class="selector-class">.median</span>()</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Cumsum累加 在<code>cumsum()</code>函数中：生成的每一项矩阵元素均是从原矩阵首项累加到对应项的元素之和。比如元素9，在cumsum()生成的矩阵中序号为3，即原矩阵中2，3，4三个元素的和。 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.cumsum(A)  <span class="meta"># 累加</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>diff累差 该函数计算的便是每一行中后一项与前一项之差。故一个3行4列矩阵通过函数计算得到的矩阵便是3行3列的矩阵。 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">np</span>.<span class="built_in">diff</span>(A)  # 累差</span><br></pre></td></tr></table></figure></p></li>
+<li><p>nonzero()函数 官方：numpy函数返回非零元素的目录。 返回值为元组， 两个值分别为两个维度， 包含了相应维度上非零元素的目录值。 可以通过a[nonzero(a)]来获得所有非零值。 个人：nonzero(a) 将对矩阵a的所有非零元素， 将其分为两个维度， 返回其在各维度上的目录值。 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">如果 a=mat([ [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],                          </span><br><span class="line">             [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">             [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]])                      </span><br><span class="line"> 则 nonzero(a) 返回值为 (array([<span class="number">0</span>]), array([<span class="number">0</span>]))   , 因为矩阵a只有一个非零值， 在第<span class="number">0</span>行， 第<span class="number">0</span>列。</span><br><span class="line"></span><br><span class="line">如果 a=mat([ [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],                          </span><br><span class="line">             [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],</span><br><span class="line">             [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]])                      </span><br><span class="line"> 则 nonzero(a) 返回值为 (array([<span class="number">0</span>, <span class="number">1</span>]), array([<span class="number">0</span>, <span class="number">0</span>]))   , 因为矩阵a只有两个非零值， 在第<span class="number">0</span>行、第<span class="number">0</span>列，和第<span class="number">1</span>行、第<span class="number">0</span>列。所以结果元组中，第一个行维度数据为（<span class="number">0</span>,<span class="number">1</span>） 元组第二个列维度都为（<span class="number">0</span>,<span class="number">0</span>）。</span><br></pre></td></tr></table></figure></p></li>
+<li><p>sort排序函数 对所有元素进行仿照列表一样的排序操作，但仅针对每一行进行从小到大排序操作： <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">A = np.arange(<span class="number">14</span>,<span class="number">2</span>, <span class="number">-1</span>).reshape((<span class="number">3</span>,<span class="number">4</span>)) </span><br><span class="line"></span><br><span class="line"># array([[<span class="number">14</span>, <span class="number">13</span>, <span class="number">12</span>, <span class="number">11</span>],</span><br><span class="line">#       [<span class="number">10</span>,  <span class="number">9</span>,  <span class="number">8</span>,  <span class="number">7</span>],</span><br><span class="line">#       [ <span class="number">6</span>,  <span class="number">5</span>,  <span class="number">4</span>,  <span class="number">3</span>]])</span><br><span class="line"></span><br><span class="line">print(np.sort(A))    </span><br><span class="line"></span><br><span class="line"># array([[<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>]</span><br><span class="line">#        [ <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>,<span class="number">10</span>]</span><br><span class="line">#        [ <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br></pre></td></tr></table></figure></p></li>
 </ul>
-<h3 id="三、矩阵转置"><a href="#三、矩阵转置" class="headerlink" title="三、矩阵转置"></a>三、矩阵转置</h3><ol>
+<h3 id="三矩阵转置">三、矩阵转置</h3>
+<ol style="list-style-type: decimal">
 <li>对<code>axis</code>进行赋值</li>
 </ol>
 <ul>
-<li>当<code>axis</code>的值为0的时候，将会以列作为查找单元， 当axis的值为1的时候，将会以行作为查找单元。<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">print</span>(<span class="string">"sum ="</span>,np.sum(a,<span class="attribute">axis</span>=1))</span><br><span class="line"><span class="builtin-name">print</span>(<span class="string">"min ="</span>,np.min(a,<span class="attribute">axis</span>=0))</span><br><span class="line"><span class="builtin-name">print</span>(<span class="string">"max ="</span>,np.max(a,<span class="attribute">axis</span>=1))</span><br></pre></td></tr></table></figure>
-</li>
+<li>当<code>axis</code>的值为0的时候，将会以列作为查找单元， 当axis的值为1的时候，将会以行作为查找单元。 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">print</span>(<span class="string">"sum ="</span>,np.sum(a,<span class="attribute">axis</span>=1))</span><br><span class="line"><span class="builtin-name">print</span>(<span class="string">"min ="</span>,np.min(a,<span class="attribute">axis</span>=0))</span><br><span class="line"><span class="builtin-name">print</span>(<span class="string">"max ="</span>,np.max(a,<span class="attribute">axis</span>=1))</span><br></pre></td></tr></table></figure></li>
 </ul>
-<ol>
-<li><p>矩阵的转置有两种表示方法：</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="name">np</span>.transpose(<span class="name">A</span>))    </span><br><span class="line">print(<span class="name">A</span>.T)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>特殊转置clip()函数</p>
-</li>
+<ol start="2" style="list-style-type: decimal">
+<li><p>矩阵的转置有两种表示方法： <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="name">np</span>.transpose(<span class="name">A</span>))    </span><br><span class="line">print(<span class="name">A</span>.T)</span><br></pre></td></tr></table></figure></p></li>
+<li>特殊转置clip()函数</li>
 </ol>
 <ul>
-<li>这个函数的格式是<code>clip(Array,Array_min,Array_max)</code>，顾名思义，Array指的是将要被执行用的矩阵，而后面的最小值最大值则用于让函数判断矩阵中元素，将矩阵中比最小值小的或者比最大值大的元素转换为最小值或者最大值。<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">print(A)</span><br><span class="line"># array([[<span class="number">14</span>,<span class="number">13</span>,<span class="number">12</span>,<span class="number">11</span>]</span><br><span class="line">#        [<span class="number">10</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>]</span><br><span class="line">#        [ <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>]])</span><br><span class="line"></span><br><span class="line">print(np.clip(A,<span class="number">5</span>,<span class="number">9</span>))    </span><br><span class="line"># array([[ <span class="number">9</span>, <span class="number">9</span>, <span class="number">9</span>, <span class="number">9</span>]</span><br><span class="line">#        [ <span class="number">9</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>]</span><br><span class="line">#        [ <span class="number">6</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>]])</span><br></pre></td></tr></table></figure></li>
+<li>这个函数的格式是<code>clip(Array,Array_min,Array_max)</code>，顾名思义，Array指的是将要被执行用的矩阵，而后面的最小值最大值则用于让函数判断矩阵中元素，将矩阵中比最小值小的或者比最大值大的元素转换为最小值或者最大值。 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">print(A)</span><br><span class="line"># array([[<span class="number">14</span>,<span class="number">13</span>,<span class="number">12</span>,<span class="number">11</span>]</span><br><span class="line">#        [<span class="number">10</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>]</span><br><span class="line">#        [ <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>]])</span><br><span class="line"></span><br><span class="line">print(np.clip(A,<span class="number">5</span>,<span class="number">9</span>))    </span><br><span class="line"># array([[ <span class="number">9</span>, <span class="number">9</span>, <span class="number">9</span>, <span class="number">9</span>]</span><br><span class="line">#        [ <span class="number">9</span>, <span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>]</span><br><span class="line">#        [ <span class="number">6</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>]])</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -684,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、基本运算"><span class="nav-number">1.</span> <span class="nav-text">一、基本运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、矩阵操作函数"><span class="nav-number">2.</span> <span class="nav-text">二、矩阵操作函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、矩阵转置"><span class="nav-number">3.</span> <span class="nav-text">三、矩阵转置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一基本运算"><span class="nav-number">1.</span> <span class="nav-text">一、基本运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二矩阵操作函数"><span class="nav-number">2.</span> <span class="nav-text">二、矩阵操作函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三矩阵转置"><span class="nav-number">3.</span> <span class="nav-text">三、矩阵转置</span></a></li></ol></div>
             
 
           </div>
@@ -720,7 +701,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">47.6k</span>
+    <span title="Site words total count">48.2k</span>
   
 </div>
 
@@ -747,7 +728,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共47.6k字</span>
+  <span class="post-count">博客全站共48.2k字</span>
 </div>
 
 
@@ -910,7 +891,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: window.location.pathname, 
+            id: decodeURI(window.location.pathname), 
             owner: 'ZHBIT92',
             repo: 'ZHBIT92.github.io',
             
