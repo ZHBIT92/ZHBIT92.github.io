@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="一. 决策树 1. 概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。 优点   易于理解和解释，甚至比线性回归更直观；   与人类做">
+<meta name="description" content="一. 决策树1. 概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。优点  易于理解和解释，甚至比线性回归更直观；    与人类做决策思考的思维习惯契">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习实战二（决策树）">
 <meta property="og:url" content="http://yoursite.com/2017/11/02/机器学习实战/机器学习实战二（决策树）/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="一. 决策树 1. 概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。 优点   易于理解和解释，甚至比线性回归更直观；   与人类做决策思考的思维习惯契合；   模型可以通过树的形式进行可视化展示；">
+<meta property="og:description" content="一. 决策树1. 概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。优点  易于理解和解释，甚至比线性回归更直观；    与人类做决策思考的思维习惯契合；    模型可以通过树的形式进行可视化展示；    可以直接处理非数值型数据">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180106/i1mGd3Jel4.png?imageslim">
 <meta property="og:updated_time" content="2018-01-05T17:04:22.988Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习实战二（决策树）">
-<meta name="twitter:description" content="一. 决策树 1. 概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。 优点   易于理解和解释，甚至比线性回归更直观；   与人类做决策思考的思维习惯契合；   模型可以通过树的形式进行可视化展示；">
+<meta name="twitter:description" content="一. 决策树1. 概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。优点  易于理解和解释，甚至比线性回归更直观；    与人类做决策思考的思维习惯契合；    模型可以通过树的形式进行可视化展示；    可以直接处理非数值型数据">
 <meta name="twitter:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180106/i1mGd3Jel4.png?imageslim">
 
 
@@ -407,89 +407,79 @@
       
 
       
-        <h3 id="一.-决策树">一. 决策树</h3>
-<h4 id="概念-决策树学习是根据数据的属性采用树状结构建立的一种决策模型可以用此模型解决分类和回归问题常见的算法包括-cartclassification-and-regression-tree-id3-c4.5等">1. 概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。</h4>
-<h4 id="优点">优点</h4>
-<ul>
+        <h3 id="一-决策树"><a href="#一-决策树" class="headerlink" title="一. 决策树"></a>一. 决策树</h3><h4 id="1-概念：-决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括-CART-Classification-And-Regression-Tree-ID3-C4-5等。"><a href="#1-概念：-决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括-CART-Classification-And-Regression-Tree-ID3-C4-5等。" class="headerlink" title="1. 概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。"></a>1. 概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。</h4><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
 <li><ul>
 <li>易于理解和解释，甚至比线性回归更直观；</li>
-</ul></li>
+</ul>
+</li>
 <li><ul>
 <li>与人类做决策思考的思维习惯契合；</li>
-</ul></li>
+</ul>
+</li>
 <li><ul>
 <li>模型可以通过树的形式进行可视化展示；</li>
-</ul></li>
+</ul>
+</li>
 <li><ul>
 <li>可以直接处理非数值型数据，不需要进行哑变量的转化，甚至可以直接处理含缺失值的数据；</li>
-</ul></li>
 </ul>
-<h4 id="缺点">缺点：</h4>
-<ul>
+</li>
+</ul>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
 <li><ul>
 <li>对于有大量数值型输入和输出的问题，决策树未必是一个好的选择；</li>
-</ul></li>
+</ul>
+</li>
 <li><ul>
 <li>产生过拟合</li>
-</ul></li>
+</ul>
+</li>
 <li><ul>
 <li>特别是当数值型变量之间存在许多错综复杂的关系，如金融数据分析；</li>
-</ul></li>
+</ul>
+</li>
 <li><ul>
 <li>决定分类的因素取决于更多变量的复杂组合时；</li>
-</ul></li>
-<li><ul>
-<li>模型不够稳健，某一个节点的小小变化可能导致整个树会有很大的不同。 <a id="more"></a></li>
-</ul></li>
 </ul>
-<h3 id="二.-决策树算法">二. 决策树算法</h3>
-<h4 id="概念决策树算法主要是指决策树进行创建中进行树分裂划分数据集的时候选取最优特征的算法他的主要目的就是要选取一个特征能够将分开的数据集尽量的规整也就是尽可能的纯.-最大的原则就是-将无序的数据变得更加有序">1. 概念：决策树算法主要是指决策树进行创建中进行树分裂(划分数据集)的时候选取最优特征的算法，他的主要目的就是要选取一个特征能够将分开的数据集尽量的规整，也就是尽可能的纯. 最大的原则就是: ==将无序的数据变得更加有序==</h4>
-<h4 id="决策树学习算法主要由三部分构成">2. 决策树学习算法主要由三部分构成:</h4>
-<ul>
+</li>
+<li><ul>
+<li>模型不够稳健，某一个节点的小小变化可能导致整个树会有很大的不同。<a id="more"></a>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="二-决策树算法"><a href="#二-决策树算法" class="headerlink" title="二. 决策树算法"></a>二. 决策树算法</h3><h4 id="1-概念：决策树算法主要是指决策树进行创建中进行树分裂-划分数据集-的时候选取最优特征的算法，他的主要目的就是要选取一个特征能够将分开的数据集尽量的规整，也就是尽可能的纯-最大的原则就是-将无序的数据变得更加有序"><a href="#1-概念：决策树算法主要是指决策树进行创建中进行树分裂-划分数据集-的时候选取最优特征的算法，他的主要目的就是要选取一个特征能够将分开的数据集尽量的规整，也就是尽可能的纯-最大的原则就是-将无序的数据变得更加有序" class="headerlink" title="1. 概念：决策树算法主要是指决策树进行创建中进行树分裂(划分数据集)的时候选取最优特征的算法，他的主要目的就是要选取一个特征能够将分开的数据集尽量的规整，也就是尽可能的纯. 最大的原则就是: ==将无序的数据变得更加有序=="></a>1. 概念：决策树算法主要是指决策树进行创建中进行树分裂(划分数据集)的时候选取最优特征的算法，他的主要目的就是要选取一个特征能够将分开的数据集尽量的规整，也就是尽可能的纯. 最大的原则就是: ==将无序的数据变得更加有序==</h4><h4 id="2-决策树学习算法主要由三部分构成"><a href="#2-决策树学习算法主要由三部分构成" class="headerlink" title="2. 决策树学习算法主要由三部分构成:"></a>2. 决策树学习算法主要由三部分构成:</h4><ul>
 <li>特征选择</li>
 <li>决策树生成</li>
 <li>决策树的剪枝</li>
 </ul>
-<h3 id="三.-特征选择">三. 特征选择</h3>
-<h4 id="信息熵">信息熵</h4>
-<p>熵(entropy)概念最早来源于统计热力学，它是热力学系统混乱程度的一种度量。系统的混乱程度越低，其熵值就越小。 定义9-2 设δ为可取n个离散数值的随机变量，它取δi的概率为p(δi) (i=1,2,…,n)，则我们定义 <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180106/i1mGd3Jel4.png?imageslim" alt="mark"> 为随机变量的信息熵(Information Entropy)。 样本数据集S的任一属性A都可看作一个随机变量，假设其取值为{a1, a2 ,…, an}，则E(A)就是属性A所有取值的信息熵，其熵值越小所蕴含的不确定信息越小，越有利于数据的分类。</p>
-<h4 id="信息增益information-gain">信息增益(information gain)</h4>
-<h4 id="增益比率gain-ratio">增益比率(gain ratio)</h4>
-<h4 id="基尼不纯度gini-impurity">基尼不纯度(Gini impurity)</h4>
-<h4 id="代码实现">2. 代码实现</h4>
-<p>ID3算法为例 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为所有可能的分类创建字典</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">uniquecounts</span><span class="params">(rows)</span>:</span></span><br><span class="line">    results = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> rows:</span><br><span class="line">        <span class="comment"># 计数结果在最后一列</span></span><br><span class="line">        r = row[len(row)<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">if</span> r <span class="keyword">not</span> <span class="keyword">in</span> results:results[r] = <span class="number">0</span></span><br><span class="line">        results[r]+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> results <span class="comment"># 返回一个字典</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 熵</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">entropy</span><span class="params">(rows)</span>:</span></span><br><span class="line">    <span class="keyword">from</span> math <span class="keyword">import</span> log</span><br><span class="line">    log2 = <span class="keyword">lambda</span> x:log(x)/log(<span class="number">2</span>)</span><br><span class="line">    results = uniquecounts(rows)</span><br><span class="line">    <span class="comment"># 开始计算熵的值</span></span><br><span class="line">    ent = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> r <span class="keyword">in</span> results.keys():</span><br><span class="line">        p = float(results[r])/len(rows)</span><br><span class="line">        <span class="comment"># 以2为底求对数</span></span><br><span class="line">        ent = ent - p*log2(p)</span><br><span class="line">    <span class="keyword">return</span> ent</span><br></pre></td></tr></table></figure></p>
-<h3 id="四.-决策树的生成">四. 决策树的生成</h3>
-<h4 id="经典的实现算法">1. 经典的实现算法：</h4>
-<ul>
+<h3 id="三-特征选择"><a href="#三-特征选择" class="headerlink" title="三. 特征选择"></a>三. 特征选择</h3><h4 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h4><p>熵(entropy)概念最早来源于统计热力学，它是热力学系统混乱程度的一种度量。系统的混乱程度越低，其熵值就越小。<br>定义9-2 设δ为可取n个离散数值的随机变量，它取δi的概率为p(δi) (i=1,2,…,n)，则我们定义<br><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180106/i1mGd3Jel4.png?imageslim" alt="mark"><br>为随机变量的信息熵(Information Entropy)。<br>样本数据集S的任一属性A都可看作一个随机变量，假设其取值为{a1, a2 ,…, an}，则E(A)就是属性A所有取值的信息熵，其熵值越小所蕴含的不确定信息越小，越有利于数据的分类。</p>
+<h4 id="信息增益-information-gain"><a href="#信息增益-information-gain" class="headerlink" title="信息增益(information gain)"></a>信息增益(information gain)</h4><h4 id="增益比率-gain-ratio"><a href="#增益比率-gain-ratio" class="headerlink" title="增益比率(gain ratio)"></a>增益比率(gain ratio)</h4><h4 id="基尼不纯度-Gini-impurity"><a href="#基尼不纯度-Gini-impurity" class="headerlink" title="基尼不纯度(Gini impurity)"></a>基尼不纯度(Gini impurity)</h4><h4 id="2-代码实现"><a href="#2-代码实现" class="headerlink" title="2. 代码实现"></a>2. 代码实现</h4><p>ID3算法为例<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为所有可能的分类创建字典</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">uniquecounts</span><span class="params">(rows)</span>:</span></span><br><span class="line">    results = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> rows:</span><br><span class="line">        <span class="comment"># 计数结果在最后一列</span></span><br><span class="line">        r = row[len(row)<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">if</span> r <span class="keyword">not</span> <span class="keyword">in</span> results:results[r] = <span class="number">0</span></span><br><span class="line">        results[r]+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> results <span class="comment"># 返回一个字典</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 熵</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">entropy</span><span class="params">(rows)</span>:</span></span><br><span class="line">    <span class="keyword">from</span> math <span class="keyword">import</span> log</span><br><span class="line">    log2 = <span class="keyword">lambda</span> x:log(x)/log(<span class="number">2</span>)</span><br><span class="line">    results = uniquecounts(rows)</span><br><span class="line">    <span class="comment"># 开始计算熵的值</span></span><br><span class="line">    ent = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> r <span class="keyword">in</span> results.keys():</span><br><span class="line">        p = float(results[r])/len(rows)</span><br><span class="line">        <span class="comment"># 以2为底求对数</span></span><br><span class="line">        ent = ent - p*log2(p)</span><br><span class="line">    <span class="keyword">return</span> ent</span><br></pre></td></tr></table></figure></p>
+<h3 id="四-决策树的生成"><a href="#四-决策树的生成" class="headerlink" title="四. 决策树的生成"></a>四. 决策树的生成</h3><h4 id="1-经典的实现算法："><a href="#1-经典的实现算法：" class="headerlink" title="1. 经典的实现算法："></a>1. 经典的实现算法：</h4><ul>
 <li>ID3算法</li>
 <li>C4.5算法</li>
 <li>CART算法</li>
 </ul>
-<h4 id="id3的算法思想依据信息增益进行特征选取和分裂">2. ID3的算法思想（依据信息增益进行特征选取和分裂）</h4>
-<ul>
+<h4 id="2-ID3的算法思想（依据信息增益进行特征选取和分裂）"><a href="#2-ID3的算法思想（依据信息增益进行特征选取和分裂）" class="headerlink" title="2. ID3的算法思想（依据信息增益进行特征选取和分裂）"></a>2. ID3的算法思想（依据信息增益进行特征选取和分裂）</h4><ul>
 <li>从根节点开始，选择信息增益最大的特征作为结点的特征，并由该特征的不同取值构建子节点</li>
 <li>对子节点递归地调用以上方法，构建决策树</li>
-<li>直到所有特征的信息增益均很小或者没有特征可选时为止。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 算法框架如下</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DecisionTree</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, X, y)</span>:</span></span><br><span class="line">        <span class="comment"># 依据输入样本生成决策树</span></span><br><span class="line">        self.root = self._build_tree(X, y)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_build_tree</span><span class="params">(self, X, y, current_depth=<span class="number">0</span>)</span>:</span></span><br><span class="line">        <span class="comment">#1. 选取最佳分割特征，生成左右节点</span></span><br><span class="line">        <span class="comment">#2. 针对左右节点递归生成子树</span></span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict_value</span><span class="params">(self, x, tree=None)</span>:</span></span><br><span class="line">        <span class="comment"># 将输入样本传入决策树中，自顶向下进行判定</span></span><br><span class="line">        <span class="comment"># 到达叶子节点即为预测值</span></span><br></pre></td></tr></table></figure></li>
+<li>直到所有特征的信息增益均很小或者没有特征可选时为止。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 算法框架如下</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DecisionTree</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, X, y)</span>:</span></span><br><span class="line">        <span class="comment"># 依据输入样本生成决策树</span></span><br><span class="line">        self.root = self._build_tree(X, y)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_build_tree</span><span class="params">(self, X, y, current_depth=<span class="number">0</span>)</span>:</span></span><br><span class="line">        <span class="comment">#1. 选取最佳分割特征，生成左右节点</span></span><br><span class="line">        <span class="comment">#2. 针对左右节点递归生成子树</span></span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict_value</span><span class="params">(self, x, tree=None)</span>:</span></span><br><span class="line">        <span class="comment"># 将输入样本传入决策树中，自顶向下进行判定</span></span><br><span class="line">        <span class="comment"># 到达叶子节点即为预测值</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h4 id="c4.5算法">3. C4.5算法</h4>
-<ul>
+<h4 id="3-C4-5算法"><a href="#3-C4-5算法" class="headerlink" title="3. C4.5算法"></a>3. C4.5算法</h4><ul>
 <li>C4.5算法与ID3算法的区别主要在于它在生产决策树的过程中，使用==信息增益==比来进行特征选择。</li>
 </ul>
-<h4 id="cart算法">4. CART算法</h4>
-<ul>
+<h4 id="4-CART算法"><a href="#4-CART算法" class="headerlink" title="4. CART算法"></a>4. CART算法</h4><ul>
 <li>CART假设决策树是一个二叉树，它通过递归地二分每个特征，将特征空间划分为有限个单元，并在这些单元上确定预测的概率分布。</li>
 <li>CART算法中，对于回归树，采用的是平方误差最小化准则；对于分类树，采用基尼指数最小化准则。</li>
 <li>平方误差最小化</li>
 <li>基尼指数</li>
 </ul>
-<h3 id="五.-决策树的剪枝">五. 决策树的剪枝</h3>
-<h4 id="过拟合问题的解决方法">1. 过拟合问题的解决方法：</h4>
-<ul>
+<h3 id="五-决策树的剪枝"><a href="#五-决策树的剪枝" class="headerlink" title="五. 决策树的剪枝"></a>五. 决策树的剪枝</h3><h4 id="1-过拟合问题的解决方法："><a href="#1-过拟合问题的解决方法：" class="headerlink" title="1. 过拟合问题的解决方法："></a>1. 过拟合问题的解决方法：</h4><ul>
 <li>当熵减少的数量小于某一个阈值时，就停止分支的创建。这是一种贪心算法。（限制Gain的阈值）</li>
 <li>先创建完整的决策树，然后再尝试消除多余的节点，也就是采用减枝的方法。</li>
 </ul>
-<h3 id="六.-完整代码">六. 完整代码</h3>
-<ol style="list-style-type: decimal">
+<h3 id="六-完整代码"><a href="#六-完整代码" class="headerlink" title="六. 完整代码"></a>六. 完整代码</h3><ol>
 <li>完整代码</li>
 </ol>
 <ul>
@@ -698,7 +688,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一.-决策树"><span class="nav-number">1.</span> <span class="nav-text">一. 决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念-决策树学习是根据数据的属性采用树状结构建立的一种决策模型可以用此模型解决分类和回归问题常见的算法包括-cartclassification-and-regression-tree-id3-c4.5等"><span class="nav-number">1.1.</span> <span class="nav-text">1. 概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">1.3.</span> <span class="nav-text">缺点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二.-决策树算法"><span class="nav-number">2.</span> <span class="nav-text">二. 决策树算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念决策树算法主要是指决策树进行创建中进行树分裂划分数据集的时候选取最优特征的算法他的主要目的就是要选取一个特征能够将分开的数据集尽量的规整也就是尽可能的纯.-最大的原则就是-将无序的数据变得更加有序"><span class="nav-number">2.1.</span> <span class="nav-text">1. 概念：决策树算法主要是指决策树进行创建中进行树分裂(划分数据集)的时候选取最优特征的算法，他的主要目的就是要选取一个特征能够将分开的数据集尽量的规整，也就是尽可能的纯. 最大的原则就是: ==将无序的数据变得更加有序==</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树学习算法主要由三部分构成"><span class="nav-number">2.2.</span> <span class="nav-text">2. 决策树学习算法主要由三部分构成:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三.-特征选择"><span class="nav-number">3.</span> <span class="nav-text">三. 特征选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息熵"><span class="nav-number">3.1.</span> <span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#信息增益information-gain"><span class="nav-number">3.2.</span> <span class="nav-text">信息增益(information gain)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#增益比率gain-ratio"><span class="nav-number">3.3.</span> <span class="nav-text">增益比率(gain ratio)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基尼不纯度gini-impurity"><span class="nav-number">3.4.</span> <span class="nav-text">基尼不纯度(Gini impurity)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">3.5.</span> <span class="nav-text">2. 代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四.-决策树的生成"><span class="nav-number">4.</span> <span class="nav-text">四. 决策树的生成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#经典的实现算法"><span class="nav-number">4.1.</span> <span class="nav-text">1. 经典的实现算法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#id3的算法思想依据信息增益进行特征选取和分裂"><span class="nav-number">4.2.</span> <span class="nav-text">2. ID3的算法思想（依据信息增益进行特征选取和分裂）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c4.5算法"><span class="nav-number">4.3.</span> <span class="nav-text">3. C4.5算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cart算法"><span class="nav-number">4.4.</span> <span class="nav-text">4. CART算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五.-决策树的剪枝"><span class="nav-number">5.</span> <span class="nav-text">五. 决策树的剪枝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#过拟合问题的解决方法"><span class="nav-number">5.1.</span> <span class="nav-text">1. 过拟合问题的解决方法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六.-完整代码"><span class="nav-number">6.</span> <span class="nav-text">六. 完整代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-决策树"><span class="nav-number">1.</span> <span class="nav-text">一. 决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-概念：-决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括-CART-Classification-And-Regression-Tree-ID3-C4-5等。"><span class="nav-number">1.1.</span> <span class="nav-text">1. 概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">1.3.</span> <span class="nav-text">缺点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-决策树算法"><span class="nav-number">2.</span> <span class="nav-text">二. 决策树算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-概念：决策树算法主要是指决策树进行创建中进行树分裂-划分数据集-的时候选取最优特征的算法，他的主要目的就是要选取一个特征能够将分开的数据集尽量的规整，也就是尽可能的纯-最大的原则就是-将无序的数据变得更加有序"><span class="nav-number">2.1.</span> <span class="nav-text">1. 概念：决策树算法主要是指决策树进行创建中进行树分裂(划分数据集)的时候选取最优特征的算法，他的主要目的就是要选取一个特征能够将分开的数据集尽量的规整，也就是尽可能的纯. 最大的原则就是: ==将无序的数据变得更加有序==</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-决策树学习算法主要由三部分构成"><span class="nav-number">2.2.</span> <span class="nav-text">2. 决策树学习算法主要由三部分构成:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-特征选择"><span class="nav-number">3.</span> <span class="nav-text">三. 特征选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息熵"><span class="nav-number">3.1.</span> <span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#信息增益-information-gain"><span class="nav-number">3.2.</span> <span class="nav-text">信息增益(information gain)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#增益比率-gain-ratio"><span class="nav-number">3.3.</span> <span class="nav-text">增益比率(gain ratio)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基尼不纯度-Gini-impurity"><span class="nav-number">3.4.</span> <span class="nav-text">基尼不纯度(Gini impurity)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-代码实现"><span class="nav-number">3.5.</span> <span class="nav-text">2. 代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-决策树的生成"><span class="nav-number">4.</span> <span class="nav-text">四. 决策树的生成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-经典的实现算法："><span class="nav-number">4.1.</span> <span class="nav-text">1. 经典的实现算法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-ID3的算法思想（依据信息增益进行特征选取和分裂）"><span class="nav-number">4.2.</span> <span class="nav-text">2. ID3的算法思想（依据信息增益进行特征选取和分裂）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-C4-5算法"><span class="nav-number">4.3.</span> <span class="nav-text">3. C4.5算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-CART算法"><span class="nav-number">4.4.</span> <span class="nav-text">4. CART算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-决策树的剪枝"><span class="nav-number">5.</span> <span class="nav-text">五. 决策树的剪枝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-过拟合问题的解决方法："><span class="nav-number">5.1.</span> <span class="nav-text">1. 过拟合问题的解决方法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-完整代码"><span class="nav-number">6.</span> <span class="nav-text">六. 完整代码</span></a></li></ol></div>
             
 
           </div>
@@ -734,7 +724,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">48.2k</span>
+    <span title="Site words total count">47.6k</span>
   
 </div>
 
@@ -761,7 +751,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共48.2k字</span>
+  <span class="post-count">博客全站共47.6k字</span>
 </div>
 
 

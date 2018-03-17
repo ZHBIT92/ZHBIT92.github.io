@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="* NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。 ### 二、单层神经元 #### 1. 问题描述 1. 问题 * 假设在一群人中，我们只能获得每个人的三个特征： 1. 特征1：长发（1）还是短发（0） 2. 特征2：衣服颜色是红色（1）还是">
+<meta name="description" content="NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。二、单层神经元1. 问题描述   问题   假设在一群人中，我们只能获得每个人的三个特征：   特征1：长发（1）还是短发（0） 特征2：衣服颜色是红色（1）还是不是红色（0） 特征3：身高大于17">
 <meta name="keywords" content="机器学习,神经网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习实战四（神经网络）">
 <meta property="og:url" content="http://yoursite.com/2017/11/08/机器学习实战/机器学习实战四（神经网络）/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="* NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。 ### 二、单层神经元 #### 1. 问题描述 1. 问题 * 假设在一群人中，我们只能获得每个人的三个特征： 1. 特征1：长发（1）还是短发（0） 2. 特征2：衣服颜色是红色（1）还是不是红色（0） 3. 特征3：身高大于178cm（1）还是不超过178（0）">
+<meta property="og:description" content="NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。二、单层神经元1. 问题描述   问题   假设在一群人中，我们只能获得每个人的三个特征：   特征1：长发（1）还是短发（0） 特征2：衣服颜色是红色（1）还是不是红色（0） 特征3：身高大于178cm（1）还是不超过178（0）   假设我们只知道其中四个人的性别（男：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2119554-99babd034ca437fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://wikimedia.org/api/rest_v1/media/math/render/svg/a26a3fa3cbb41a3abfe4c7ff88d47f0181489d13">
@@ -95,7 +95,7 @@
 <meta property="og:updated_time" content="2018-03-08T01:44:38.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习实战四（神经网络）">
-<meta name="twitter:description" content="* NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。 ### 二、单层神经元 #### 1. 问题描述 1. 问题 * 假设在一群人中，我们只能获得每个人的三个特征： 1. 特征1：长发（1）还是短发（0） 2. 特征2：衣服颜色是红色（1）还是不是红色（0） 3. 特征3：身高大于178cm（1）还是不超过178（0）">
+<meta name="twitter:description" content="NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。二、单层神经元1. 问题描述   问题   假设在一群人中，我们只能获得每个人的三个特征：   特征1：长发（1）还是短发（0） 特征2：衣服颜色是红色（1）还是不是红色（0） 特征3：身高大于178cm（1）还是不超过178（0）   假设我们只知道其中四个人的性别（男：">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2119554-99babd034ca437fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,110字
+                  1,108字
                 </span>
               
 
@@ -411,10 +411,32 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/2119554-99babd034ca437fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"> * NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。 ### 二、单层神经元 #### 1. 问题描述 1. 问题 * 假设在一群人中，我们只能获得每个人的三个特征： 1. 特征1：长发（1）还是短发（0） 2. 特征2：衣服颜色是红色（1）还是不是红色（0） 3. 特征3：身高大于178cm（1）还是不超过178（0） * 假设我们只知道其中四个人的性别（男：0，女：1），我们需要依据这四个人的三个特征以及性别训练一个神经网络，用于预测一个人的性别。 * 因此该问题有三个输入，一个输出。 <a id="more"></a> 2. 样本信息如下：</p>
+        <p><img src="http://upload-images.jianshu.io/upload_images/2119554-99babd034ca437fd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<ul>
+<li>NumPy 是Python语言的一个扩充程序库。支持高级大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。<h3 id="二、单层神经元"><a href="#二、单层神经元" class="headerlink" title="二、单层神经元"></a>二、单层神经元</h3><h4 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h4></li>
+</ul>
+<ol>
+<li>问题</li>
+</ol>
+<ul>
+<li>假设在一群人中，我们只能获得每个人的三个特征：</li>
+</ul>
+<ol>
+<li>特征1：长发（1）还是短发（0）</li>
+<li>特征2：衣服颜色是红色（1）还是不是红色（0）</li>
+<li>特征3：身高大于178cm（1）还是不超过178（0）</li>
+</ol>
+<ul>
+<li>假设我们只知道其中四个人的性别（男：0，女：1），我们需要依据这四个人的三个特征以及性别训练一个神经网络，用于预测一个人的性别。</li>
+<li>因此该问题有三个输入，一个输出。<a id="more"></a></li>
+</ul>
+<ol>
+<li>样本信息如下：</li>
+</ol>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>头发</th>
 <th>衣服</th>
 <th>身高</th>
@@ -422,25 +444,25 @@
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>0</td>
 <td>0</td>
 <td>1</td>
 <td>0</td>
 </tr>
-<tr class="even">
+<tr>
 <td>1</td>
 <td>1</td>
 <td>1</td>
 <td>1</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td>0</td>
 <td>1</td>
 <td>1</td>
 </tr>
-<tr class="even">
+<tr>
 <td>0</td>
 <td>1</td>
 <td>1</td>
@@ -448,15 +470,19 @@
 </tr>
 </tbody>
 </table>
-<h4 id="简单的单层神经网络">2. 简单的单层神经网络</h4>
-<ol style="list-style-type: decimal">
-<li><p>用X表示输入的特征向量，由于每个样本有三个特征，一共有四个样本，所以我们定义一个4X3的矩阵，每一行代表一个样本 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import numpy</span><br><span class="line">import numpy as np</span><br><span class="line"># input dataset</span><br><span class="line">X = np.array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]])</span><br></pre></td></tr></table></figure></p></li>
-<li>而四个样本对应输出（分类结果）我们用一个1X4的矩阵表示。“.T” 为转置函数，转置后变成了4X1的矩阵。</li>
+</div>
+<h4 id="2-简单的单层神经网络"><a href="#2-简单的单层神经网络" class="headerlink" title="2. 简单的单层神经网络"></a>2. 简单的单层神经网络</h4><ol>
+<li><p>用X表示输入的特征向量，由于每个样本有三个特征，一共有四个样本，所以我们定义一个4X3的矩阵，每一行代表一个样本</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import numpy</span><br><span class="line">import numpy as np</span><br><span class="line"># input dataset</span><br><span class="line">X = np.array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>而四个样本对应输出（分类结果）我们用一个1X4的矩阵表示。“.T” 为转置函数，转置后变成了4X1的矩阵。</p>
+</li>
 </ol>
 <ul>
-<li>同我们的输入一致，每一行是一个训练实例，而每一列（仅有一列）对应一个输出节点。 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = np.array(<span class="string">[[0, 0, 1, 1]]</span>).T</span><br></pre></td></tr></table></figure></li>
+<li>同我们的输入一致，每一行是一个训练实例，而每一列（仅有一列）对应一个输出节点。<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = np.array(<span class="string">[[0, 0, 1, 1]]</span>).T</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<ol start="3" style="list-style-type: decimal">
+<ol>
 <li>初始化神经网络的权重</li>
 </ol>
 <ul>
@@ -469,54 +495,53 @@
 <li>由于我们要将随机初始化的权重矩阵均值设定为0，因此要计算syn0(第一层网络间的权重矩阵)</li>
 </ul>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">syn0 = <span class="number">2</span>*np.random.random((<span class="number">3</span>,<span class="number">1</span>)) - <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<ol start="4" style="list-style-type: decimal">
+<ol>
 <li>sigmoid函数</li>
 </ol>
 <ul>
-<li>定义为：<br>
-<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a26a3fa3cbb41a3abfe4c7ff88d47f0181489d13" alt="image"></li>
+<li>定义为：<br><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a26a3fa3cbb41a3abfe4c7ff88d47f0181489d13" alt="image"></li>
 <li>特点：其导数可以用其自身表示出来，在计算的时候，我们只需要计算出其函数值，就可以计算出其导数值，从而可以减少浮点运算次数，提高效率</li>
-<li>导数为： <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8bd55fe42bb92cd736ab2bf965bf2644624cc46d" alt="image"></li>
-<li><p>python中代码实现 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sigmoid function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nonlin</span><span class="params">(x,deriv=False)</span>:</span></span><br><span class="line">    <span class="keyword">if</span>(deriv==<span class="keyword">True</span>):</span><br><span class="line">        <span class="keyword">return</span> x*(<span class="number">1</span>-x)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>+np.exp(-x))</span><br></pre></td></tr></table></figure></p></li>
-<li><p>其中，deriv参数表示是否计算的是其导数值：</p></li>
+<li>导数为：  <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8bd55fe42bb92cd736ab2bf965bf2644624cc46d" alt="image"></li>
+<li><p>python中代码实现</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sigmoid function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">nonlin</span><span class="params">(x,deriv=False)</span>:</span></span><br><span class="line">    <span class="keyword">if</span>(deriv==<span class="keyword">True</span>):</span><br><span class="line">        <span class="keyword">return</span> x*(<span class="number">1</span>-x)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>+np.exp(-x))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其中，deriv参数表示是否计算的是其导数值：</p>
+</li>
 </ul>
-<h4 id="开始训练神经网络">3. 开始训练神经网络</h4>
-<ul>
+<h4 id="3-开始训练神经网络"><a href="#3-开始训练神经网络" class="headerlink" title="3. 开始训练神经网络"></a>3. 开始训练神经网络</h4><ul>
 <li>迭代10000次，每一次迭代可描述如下</li>
 </ul>
-<ol style="list-style-type: decimal">
+<ol>
 <li>计算输入层的加权和，即用输入矩阵L0乘以权重矩阵syn0，并通过sigmid函数进行归一化。得到输出结果l1；</li>
 <li>计算输出结果L1与真实结果y之间的误差L1_error；</li>
 <li>计算权重矩阵的修正L1_delta，即用误差乘以sigmoid在L处的导数；（<a href="http://note.youdao.com/noteshare?id=5fa04030a309f646aaa6740d70cce424&amp;sub=WEB71e05a4674162866c962c4d91318f092" target="_blank" rel="noopener">阶梯下降法</a>）</li>
-<li>用L1_delta更新权重矩阵syn0 <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">for iter <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment"># forward propagation</span></span><br><span class="line">    <span class="attr">l0</span> = X</span><br><span class="line">    <span class="attr">l1</span> = nonlin(np.dot(l0,syn0))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># how much did we miss?</span></span><br><span class="line">    <span class="attr">l1_error</span> = y - l1</span><br><span class="line"></span><br><span class="line">    <span class="comment"># multiply how much we missed by the </span></span><br><span class="line">    <span class="comment"># slope of the sigmoid at the values in l1</span></span><br><span class="line">    <span class="attr">l1_delta</span> = l1_error * nonlin(l1,True)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># update weights</span></span><br><span class="line">    syn0 += np.dot(l0.T,l1_delta)</span><br></pre></td></tr></table></figure></li>
+<li>用L1_delta更新权重矩阵syn0<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">for iter <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    <span class="comment"># forward propagation</span></span><br><span class="line">    <span class="attr">l0</span> = X</span><br><span class="line">    <span class="attr">l1</span> = nonlin(np.dot(l0,syn0))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># how much did we miss?</span></span><br><span class="line">    <span class="attr">l1_error</span> = y - l1</span><br><span class="line"></span><br><span class="line">    <span class="comment"># multiply how much we missed by the </span></span><br><span class="line">    <span class="comment"># slope of the sigmoid at the values in l1</span></span><br><span class="line">    <span class="attr">l1_delta</span> = l1_error * nonlin(l1,True)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># update weights</span></span><br><span class="line">    syn0 += np.dot(l0.T,l1_delta)</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h4 id="一次训练过程的参数更新如下图所示">4. 一次训练过程的参数更新如下图所示：</h4>
-<ul>
-<li><div class="figure">
-<img src="http://upload-images.jianshu.io/upload_images/2119554-d87ab086108ddb17.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image">
-<p class="caption">image</p>
-</div></li>
-<li><p>批量循环训练 <img src="http://upload-images.jianshu.io/upload_images/2119554-6311b757f416bfbd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p></li>
+<h4 id="4-一次训练过程的参数更新如下图所示："><a href="#4-一次训练过程的参数更新如下图所示：" class="headerlink" title="4. 一次训练过程的参数更新如下图所示："></a>4. 一次训练过程的参数更新如下图所示：</h4><ul>
+<li><p><img src="http://upload-images.jianshu.io/upload_images/2119554-d87ab086108ddb17.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+</li>
+<li><p>批量循环训练<br><img src="http://upload-images.jianshu.io/upload_images/2119554-6311b757f416bfbd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+</li>
 </ul>
-<h4 id="结果">5.结果</h4>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Output syn0 After Training:</span><br><span class="line"><span class="string">[[ 9.67299303]</span></span><br><span class="line"><span class="string"> [-0.2078435 ]</span></span><br><span class="line"><span class="string"> [-4.62963669]]</span></span><br></pre></td></tr></table></figure>
-<ol style="list-style-type: decimal">
+<h4 id="5-结果"><a href="#5-结果" class="headerlink" title="5.结果"></a>5.结果</h4><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Output syn0 After Training:</span><br><span class="line"><span class="string">[[ 9.67299303]</span></span><br><span class="line"><span class="string"> [-0.2078435 ]</span></span><br><span class="line"><span class="string"> [-4.62963669]]</span></span><br></pre></td></tr></table></figure>
+<ol>
 <li>从syn0迭代后的输出可看出</li>
 </ol>
 <ul>
 <li>yn0的第一个元素，也就是第一个输入特征（长发）的权重最大，而第二个和第三个特征都很小</li>
 <li>所以神经网络学习的结果是加重第一个特征的权重，而其他两个特征对于是女性这个推测的贡献较小，所以减小其权重。</li>
 </ul>
-<ol start="2" style="list-style-type: decimal">
+<ol>
 <li>为了验证训练结果，我们加入两组新数据，(短头发，红衣服，矮个子)，(长头发，不是红衣服，矮个子)，并用神经网络来进行分类：</li>
 </ol>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X_new = np.array([[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>],</span><br><span class="line">                  [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>]])</span><br><span class="line">y_new = np.dot(X_new,syn0)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>计算结果如下： <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Predicte With syn0:</span><br><span class="line"><span class="string">[[-0.2078435 ]</span></span><br><span class="line"><span class="string"> [ 9.67299303]]</span></span><br></pre></td></tr></table></figure></li>
+<li>计算结果如下：<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Predicte With syn0:</span><br><span class="line"><span class="string">[[-0.2078435 ]</span></span><br><span class="line"><span class="string"> [ 9.67299303]]</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <p><a href="http://note.youdao.com/" target="_blank" rel="noopener">完整代码</a></p>
-<h3 id="三二层神经网络">三、二层神经网络</h3>
-
+<h3 id="三、二层神经网络"><a href="#三、二层神经网络" class="headerlink" title="三、二层神经网络"></a>三、二层神经网络</h3>
       
     </div>
     
@@ -721,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单的单层神经网络"><span class="nav-number">1.</span> <span class="nav-text">2. 简单的单层神经网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开始训练神经网络"><span class="nav-number">2.</span> <span class="nav-text">3. 开始训练神经网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一次训练过程的参数更新如下图所示"><span class="nav-number">3.</span> <span class="nav-text">4. 一次训练过程的参数更新如下图所示：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结果"><span class="nav-number">4.</span> <span class="nav-text">5.结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三二层神经网络"><span class="nav-number"></span> <span class="nav-text">三、二层神经网络</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#二、单层神经元"><span class="nav-number">1.</span> <span class="nav-text">二、单层神经元</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">1. 问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-简单的单层神经网络"><span class="nav-number">1.2.</span> <span class="nav-text">2. 简单的单层神经网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-开始训练神经网络"><span class="nav-number">1.3.</span> <span class="nav-text">3. 开始训练神经网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-一次训练过程的参数更新如下图所示："><span class="nav-number">1.4.</span> <span class="nav-text">4. 一次训练过程的参数更新如下图所示：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-结果"><span class="nav-number">1.5.</span> <span class="nav-text">5.结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、二层神经网络"><span class="nav-number">2.</span> <span class="nav-text">三、二层神经网络</span></a></li></ol></div>
             
 
           </div>
@@ -757,7 +782,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">48.2k</span>
+    <span title="Site words total count">47.6k</span>
   
 </div>
 
@@ -784,7 +809,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共48.2k字</span>
+  <span class="post-count">博客全站共47.6k字</span>
 </div>
 
 
