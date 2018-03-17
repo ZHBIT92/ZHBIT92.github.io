@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Tensorflow 基本流程 步骤  创建尚未执行/评估的张量（变量） 在这些张量之间写入操作 初始化你的张量 创建一个会话 运行会话。这将运行你上面写的操作 eg：初始化你的变量，创建一个会话并在会话中运行这些操作  例子 12345678910# 初始化变量a = tf.constant(2">
+<meta name="description" content="Tensorflow  基本流程  步骤  创建尚未执行/评估的张量（变量） 在这些张量之间写入操作 初始化你的张量 创建一个会话 运行会话。这将运行你上面写的操作 eg：初始化你的变量，创建一个会话并在会话中运行这些操作   例子 12345678910# 初始化变量a = tf.constant(2)b = tf.">
 <meta name="keywords" content="深度学习,机器学习,神经网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第五章-Tensorflow">
 <meta property="og:url" content="http://yoursite.com/2018/03/07/吴恩达深度学习/w第五章-Tensorflow/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="Tensorflow 基本流程 步骤  创建尚未执行/评估的张量（变量） 在这些张量之间写入操作 初始化你的张量 创建一个会话 运行会话。这将运行你上面写的操作 eg：初始化你的变量，创建一个会话并在会话中运行这些操作  例子 12345678910# 初始化变量a = tf.constant(2)b = tf.constant(10)c = tf.multiply(a,b)">
+<meta property="og:description" content="Tensorflow  基本流程  步骤  创建尚未执行/评估的张量（变量） 在这些张量之间写入操作 初始化你的张量 创建一个会话 运行会话。这将运行你上面写的操作 eg：初始化你的变量，创建一个会话并在会话中运行这些操作   例子 12345678910# 初始化变量a = tf.constant(2)b = tf.constant(10)c = tf.multiply(a,b)print(c">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180310/8a6I4D4Lb1.png?imageslim">
 <meta property="og:updated_time" content="2018-03-11T08:06:11.589Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第五章-Tensorflow">
-<meta name="twitter:description" content="Tensorflow 基本流程 步骤  创建尚未执行/评估的张量（变量） 在这些张量之间写入操作 初始化你的张量 创建一个会话 运行会话。这将运行你上面写的操作 eg：初始化你的变量，创建一个会话并在会话中运行这些操作  例子 12345678910# 初始化变量a = tf.constant(2)b = tf.constant(10)c = tf.multiply(a,b)">
+<meta name="twitter:description" content="Tensorflow  基本流程  步骤  创建尚未执行/评估的张量（变量） 在这些张量之间写入操作 初始化你的张量 创建一个会话 运行会话。这将运行你上面写的操作 eg：初始化你的变量，创建一个会话并在会话中运行这些操作   例子 12345678910# 初始化变量a = tf.constant(2)b = tf.constant(10)c = tf.multiply(a,b)print(c">
 <meta name="twitter:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180310/8a6I4D4Lb1.png?imageslim">
 
 
@@ -407,37 +407,49 @@
       
 
       
-        <h2 id="tensorflow">Tensorflow</h2>
-<h3 id="基本流程">基本流程</h3>
-<h4 id="步骤">步骤</h4>
+        <h2 id="tensorflow"><a class="markdownIt-Anchor" href="#tensorflow"></a> Tensorflow</h2>
+<h3 id="基本流程"><a class="markdownIt-Anchor" href="#基本流程"></a> 基本流程</h3>
+<h4 id="步骤"><a class="markdownIt-Anchor" href="#步骤"></a> 步骤</h4>
 <ul>
 <li>创建尚未执行/评估的张量（变量）</li>
 <li>在这些张量之间写入操作</li>
 <li>初始化你的张量</li>
 <li>创建一个会话</li>
-<li>运行会话。这将运行你上面写的操作 eg：<strong>初始化你的变量，创建一个会话并在会话中运行这些操作</strong></li>
+<li>运行会话。这将运行你上面写的操作<br>
+eg：<strong>初始化你的变量，创建一个会话并在会话中运行这些操作</strong></li>
 </ul>
-<h4 id="例子">例子</h4>
+<h4 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h4>
 <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化变量</span></span><br><span class="line">a = tf.constant(<span class="number">2</span>)</span><br><span class="line">b = tf.constant(<span class="number">10</span>)</span><br><span class="line">c = tf.multiply(a,b)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line"><span class="function">--&gt;</span>Tensor(<span class="string">"Mul_1:0"</span>, shape=(), dtype=int32)</span><br><span class="line"><span class="comment"># 运行会话</span></span><br><span class="line">sess = tf.Session()</span><br><span class="line"><span class="built_in">print</span>(sess.run(c))</span><br><span class="line"><span class="function">--&gt;</span><span class="number">20</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="会话">会话</h3>
-<h4 id="方法一">方法一：</h4>
+<h3 id="会话"><a class="markdownIt-Anchor" href="#会话"></a> 会话</h3>
+<h4 id="方法一"><a class="markdownIt-Anchor" href="#方法一"></a> 方法一：</h4>
 <figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sess = tf.<span class="type">Session</span>()</span><br><span class="line"><span class="comment"># 运行变量初始化</span></span><br><span class="line"><span class="literal">result</span> = sess.run(..., feed_dict = <span class="meta">&#123;...&#125;</span>)</span><br><span class="line">sess.close()</span><br></pre></td></tr></table></figure>
-<h4 id="方法二">方法二：</h4>
+<h4 id="方法二"><a class="markdownIt-Anchor" href="#方法二"></a> 方法二：</h4>
 <figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.<span class="type">Session</span>() <span class="keyword">as</span> sess: </span><br><span class="line">    <span class="comment"># 运行变量初始化</span></span><br><span class="line">    <span class="literal">result</span> = sess.run(..., feed_dict = <span class="meta">&#123;...&#125;</span>)</span><br><span class="line">    <span class="comment"># 自动关闭会话</span></span><br></pre></td></tr></table></figure>
-<h3 id="占位符">占位符</h3>
-<p>占位符只是一个变量（第一次定义时无需为它指定一个值），仅在运行会话时为其<strong>分配数据</strong> #### 步骤 * 创建占位符 * 指定与您要计算的操作对应的计算图 * 创建会话 * 运行会话，必要时使用Feed字典来指定占位符变量的值。</p>
-<h4 id="例子tf实现sigmoid函数">例子(tf实现sigmoid函数)</h4>
+<h3 id="占位符"><a class="markdownIt-Anchor" href="#占位符"></a> 占位符</h3>
+<p>占位符只是一个变量（第一次定义时无需为它指定一个值），仅在运行会话时为其<strong>分配数据</strong></p>
+<h4 id="步骤-2"><a class="markdownIt-Anchor" href="#步骤-2"></a> 步骤</h4>
+<ul>
+<li>创建占位符</li>
+<li>指定与您要计算的操作对应的计算图</li>
+<li>创建会话</li>
+<li>运行会话，必要时使用Feed字典来指定占位符变量的值。</li>
+</ul>
+<h4 id="例子tf实现sigmoid函数"><a class="markdownIt-Anchor" href="#例子tf实现sigmoid函数"></a> 例子(tf实现sigmoid函数)</h4>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def sigmoid(z):</span><br><span class="line">   <span class="comment">#  创建占位符</span></span><br><span class="line">    x = tf.placeholder(tf.float32, <span class="built_in">name</span> = <span class="string">"x"</span>)</span><br><span class="line">    <span class="comment"># 指定与您要计算的操作对应的计算图</span></span><br><span class="line">    sigmoid = tf.sigmoid(x)</span><br><span class="line">    <span class="comment"># 创建会话</span></span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">        <span class="comment"># 运行会话</span></span><br><span class="line">        <span class="literal">result</span> = sess.<span class="built_in">run</span>(sigmoid, feed_dict = &#123;x:z&#125;)</span><br><span class="line">    </span><br><span class="line"><span class="built_in">    return</span> <span class="literal">result</span></span><br></pre></td></tr></table></figure>
-<h3 id="one-hot编码tf.one_hot">ONE-HOT编码（tf.one_hot()）</h3>
-<p>编码方式如图： <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180310/8a6I4D4Lb1.png?imageslim" alt="mark"> #### 代码实现 使用tf.one_hot()实现 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">labels</span> = <span class="built_in">np</span>.<span class="built_in">array</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">1</span>])</span><br><span class="line">one_hot = one_hot_matrix(<span class="built_in">labels</span>, C = <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">def one_hot_matrix(<span class="built_in">labels</span>, C):</span><br><span class="line">    C = tf.<span class="built_in">constant</span>(C, name=<span class="string">"C"</span>)</span><br><span class="line">    one_hot_matrix = tf.one_hot(<span class="built_in">labels</span>, C, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    sess = tf.Session()</span><br><span class="line">    one_hot = sess.run(one_hot_matrix).T</span><br><span class="line">    sess.<span class="built_in">close</span>()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> one_hot</span><br></pre></td></tr></table></figure></p>
-<h3 id="初始化零和向量tf.ones">初始化零和向量（tf.ones()）</h3>
+<h3 id="one-hot编码tfone_hot"><a class="markdownIt-Anchor" href="#one-hot编码tfone_hot"></a> ONE-HOT编码（tf.one_hot()）</h3>
+<p>编码方式如图：<br>
+<img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180310/8a6I4D4Lb1.png?imageslim" alt="mark"></p>
+<h4 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h4>
+<p>使用tf.one_hot()实现</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">labels</span> = <span class="built_in">np</span>.<span class="built_in">array</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">1</span>])</span><br><span class="line">one_hot = one_hot_matrix(<span class="built_in">labels</span>, C = <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">def one_hot_matrix(<span class="built_in">labels</span>, C):</span><br><span class="line">    C = tf.<span class="built_in">constant</span>(C, name=<span class="string">"C"</span>)</span><br><span class="line">    one_hot_matrix = tf.one_hot(<span class="built_in">labels</span>, C, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    sess = tf.Session()</span><br><span class="line">    one_hot = sess.run(one_hot_matrix).T</span><br><span class="line">    sess.<span class="built_in">close</span>()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">return</span> one_hot</span><br></pre></td></tr></table></figure>
+<h3 id="初始化零和向量tfones"><a class="markdownIt-Anchor" href="#初始化零和向量tfones"></a> 初始化零和向量（tf.ones()）</h3>
 <figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 创建一个一维数组</span></span><br><span class="line">def <span class="built_in">ones</span>(shape):</span><br><span class="line">    <span class="built_in">ones</span> = tf.<span class="built_in">ones</span>(shape)</span><br><span class="line">    sess = tf.Session()</span><br><span class="line">    <span class="built_in">ones</span> = sess.<span class="keyword">run</span>(<span class="built_in">ones</span>)</span><br><span class="line">    sess.<span class="built_in">close</span>()</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">ones</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"ones = "</span> + str(<span class="built_in">ones</span>([<span class="number">3</span>])))</span><br><span class="line">--&gt;<span class="built_in">ones</span> = [ <span class="number">1.</span>  <span class="number">1.</span>  <span class="number">1.</span>]</span><br></pre></td></tr></table></figure>
-<h2 id="代码">代码</h2>
+<h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h2>
 <ul>
 <li><a href="https://github.com/ZHBIT92/Deep-Learning" target="_blank" rel="noopener">课程代码-GitHub</a></li>
 </ul>
-<h2 id="参考资料">参考资料</h2>
+<h2 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h2>
 <ul>
 <li><a href="http://mooc.study.163.com/course/2001281002#/info" target="_blank" rel="noopener">吴恩达-神经网络与深度学习-网易云课堂</a></li>
 <li><a href="https://github.com/BinWeber/Machine-Learning" target="_blank" rel="noopener">Deep Learning系列课程资料笔记</a></li>
@@ -476,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/04/吴恩达深度学习/w第四章-优化-初始化&正则化/" rel="next" title="第四章-深度神经网络优化（初始化&正则化）">
-                <i class="fa fa-chevron-left"></i> 第四章-深度神经网络优化（初始化&正则化）
+              <a href="/2018/03/07/吴恩达深度学习/w第四章-优化-梯度下降/" rel="next" title="第四章-深度神经网络优化（梯度下降法）">
+                <i class="fa fa-chevron-left"></i> 第四章-深度神经网络优化（梯度下降法）
               </a>
             
           </div>
@@ -486,8 +498,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/07/吴恩达深度学习/w第四章-优化-梯度下降/" rel="prev" title="第四章-深度神经网络优化（梯度下降法）">
-                第四章-深度神经网络优化（梯度下降法） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/13/人脸检测及识别python实现/人脸检测及识别python实现/" rel="prev" title="人脸检测及识别python实现">
+                人脸检测及识别python实现 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -647,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tensorflow"><span class="nav-number">1.</span> <span class="nav-text">Tensorflow</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本流程"><span class="nav-number">1.1.</span> <span class="nav-text">基本流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤"><span class="nav-number">1.1.1.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">1.1.2.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话"><span class="nav-number">1.2.</span> <span class="nav-text">会话</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法一"><span class="nav-number">1.2.1.</span> <span class="nav-text">方法一：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二"><span class="nav-number">1.2.2.</span> <span class="nav-text">方法二：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#占位符"><span class="nav-number">1.3.</span> <span class="nav-text">占位符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例子tf实现sigmoid函数"><span class="nav-number">1.3.1.</span> <span class="nav-text">例子(tf实现sigmoid函数)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#one-hot编码tf.one_hot"><span class="nav-number">1.4.</span> <span class="nav-text">ONE-HOT编码（tf.one_hot()）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化零和向量tf.ones"><span class="nav-number">1.5.</span> <span class="nav-text">初始化零和向量（tf.ones()）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tensorflow"><span class="nav-number">1.</span> <span class="nav-text"> Tensorflow</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本流程"><span class="nav-number">1.1.</span> <span class="nav-text"> 基本流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">1.1.2.</span> <span class="nav-text"> 例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话"><span class="nav-number">1.2.</span> <span class="nav-text"> 会话</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法一"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 方法一：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二"><span class="nav-number">1.2.2.</span> <span class="nav-text"> 方法二：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#占位符"><span class="nav-number">1.3.</span> <span class="nav-text"> 占位符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤-2"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子tf实现sigmoid函数"><span class="nav-number">1.3.2.</span> <span class="nav-text"> 例子(tf实现sigmoid函数)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#one-hot编码tfone_hot"><span class="nav-number">1.4.</span> <span class="nav-text"> ONE-HOT编码（tf.one_hot()）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">1.4.1.</span> <span class="nav-text"> 代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化零和向量tfones"><span class="nav-number">1.5.</span> <span class="nav-text"> 初始化零和向量（tf.ones()）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text"> 代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text"> 参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -683,7 +695,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">48.2k</span>
+    <span title="Site words total count">48.9k</span>
   
 </div>
 
@@ -710,7 +722,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共48.2k字</span>
+  <span class="post-count">博客全站共48.9k字</span>
 </div>
 
 
@@ -875,7 +887,7 @@
         var gitment = new Gitmint({
             id: window.location.pathname, 
             owner: 'ZHBIT92',
-            repo: 'zhbit92.github.io',
+            repo: 'ZHBIT92.github.io',
             
             lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
             

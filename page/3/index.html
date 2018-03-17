@@ -399,10 +399,14 @@
         
           
           
-1、请你自我介绍一下你自己， 　　回答提示：姓名、大三，其实，企业最希望知道的是求职者能否胜任工作，包括：最强的技能、最深入研究的知识领域、个性中最积极的部分、做过的最成功的事，主要的成就等，这些都可以和学习无关，也可以和学习有关，但要突出积极的个性和做事的能力，说得合情合理企业才会相信。企业很重视一个人的礼貌，求职者要尊重考官，在回答每个问题之后都说一句“谢谢”。企业喜欢有礼貌的求职者。
+1、请你自我介绍一下你自己，
+　　回答提示：姓名、大三，其实，企业最希望知道的是求职者能否胜任工作，包括：最强的技能、最深入研究的知识领域、个性中最积极的部分、做过的最成功的事，主要的成就等，这些都可以和学习无关，也可以和学习有关，但要突出积极的个性和做事的能力，说得合情合理企业才会相信。企业很重视一个人的礼貌，求职者要尊重考官，在回答每个问题之后都说一句“谢谢”。企业喜欢有礼貌的求职者。
 
-　　2、你觉得你个性上最大的优点是什么？ 　　回答提示：沉着冷静、条理清楚、立场坚定、细心。 　　乐于助人和关心他人、适应能力和幽默感、乐观和友爱。
-　　3、说说你最大的缺点？ 　　回答提示：这
+2、你觉得你个性上最大的优点是什么？
+　　回答提示：沉着冷静、条理清楚、立场坚定、细心。
+　　乐于助人和关心他人、适应能力和幽默感、乐观和友爱。
+3、说说你最大的缺点？
+　　回答提示：这个问题企业问的概
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -568,11 +572,13 @@
 
       
         
-          <h2 id="例子1">例子1</h2>
-<h3 id="创建数据">创建数据</h3>
-<p>加载 tensorflow 和 numpy 两个模块, 并且使用 numpy 来创建我们的数据. <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"># create data</span><br><span class="line"><span class="title">x_data</span> = np.random.rand(<span class="number">100</span>).<span class="keyword">as</span><span class="keyword">type</span>(np.float32)</span><br><span class="line"><span class="title">y_data</span> = x_data*<span class="number">0.1</span> + <span class="number">0.3</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="搭建模型">搭建模型</h3>
-<p>用 tf.Variable 来创建描述 y 的参数. 我们可以把<code>y_data = x_data*0.1 + 0.3</code>想象成<code>y=Weights * x + biases</code>, 然后神经网络也就是学着把 Weights 变成 0.1, biases 变成 0.3. <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Weights</span> = tf.Variable(tf.random_uniform([<span class="number">1</span>], -<span class="number">1.0</span>, <span class="number">1.0</span>))</span><br><span class="line"><span class="attr">biases</span> = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line"><span class="attr">y</span> = Weights*x_data + biases</span><br></pre></td></tr></table></figure></p>
+          <h2 id="例子1"><a class="markdownIt-Anchor" href="#例子1"></a> 例子1</h2>
+<h3 id="创建数据"><a class="markdownIt-Anchor" href="#创建数据"></a> 创建数据</h3>
+<p>加载 tensorflow 和 numpy 两个模块, 并且使用 numpy 来创建我们的数据.</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"># create data</span><br><span class="line"><span class="title">x_data</span> = np.random.rand(<span class="number">100</span>).<span class="keyword">as</span><span class="keyword">type</span>(np.float32)</span><br><span class="line"><span class="title">y_data</span> = x_data*<span class="number">0.1</span> + <span class="number">0.3</span></span><br></pre></td></tr></table></figure>
+<h3 id="搭建模型"><a class="markdownIt-Anchor" href="#搭建模型"></a> 搭建模型</h3>
+<p>用 tf.Variable 来创建描述 y 的参数. 我们可以把<code>y_data = x_data*0.1 + 0.3</code>想象成<code>y=Weights * x + biases</code>, 然后神经网络也就是学着把 Weights 变成 0.1, biases 变成 0.3.</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Weights</span> = tf.Variable(tf.random_uniform([<span class="number">1</span>], -<span class="number">1.0</span>, <span class="number">1.0</span>))</span><br><span class="line"><span class="attr">biases</span> = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line"><span class="attr">y</span> = Weights*x_data + biases</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/23/机器学习库/TensorFlow基础/#more" rel="contents">
@@ -737,13 +743,20 @@
 
       
         
-          <h2 id="什么是tensorflow">什么是TensorFlow?</h2>
+          <h2 id="什么是tensorflow"><a class="markdownIt-Anchor" href="#什么是tensorflow"></a> 什么是TensorFlow?</h2>
 <p>TensorFlow是Google开发的一款神经网络的Python外部的结构包, 也是一个采用数据流图来进行数值计算的开源软件库.TensorFlow 让我们可以先绘制计算结构图, 也可以称是一系列可人机交互的计算操作, 然后把编辑好的Python文件 转换成 更高效的C++, 并在后端进行计算.</p>
-<h2 id="安装">安装</h2>
-<h3 id="anaconda下安装tensorflow">Anaconda下安装TensorFlow</h3>
-<p>Windows下我使用<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">Anaconda</a>,基本包括了python机器学习需要的库 结果我的Anaconda下并没有TensorFlow，老老实实的安装</p>
-<h3 id="搭建tensorflow-依赖环境">搭建TensorFlow 依赖环境</h3>
-<p>在 Anaconda Prompt 窗口输入： <code>conda create -n tensorflow python=3.5</code> 按提示安装依赖包 激活tensorflow虚拟环境（这里选择激活） <code>activate tensorflow</code> 关闭tensorflow虚拟环境 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deactivate tensorflow</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2>
+<h3 id="anaconda下安装tensorflow"><a class="markdownIt-Anchor" href="#anaconda下安装tensorflow"></a> Anaconda下安装TensorFlow</h3>
+<p>Windows下我使用<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">Anaconda</a>,基本包括了python机器学习需要的库<br>
+结果我的Anaconda下并没有TensorFlow，老老实实的安装</p>
+<h3 id="搭建tensorflow-依赖环境"><a class="markdownIt-Anchor" href="#搭建tensorflow-依赖环境"></a> 搭建TensorFlow 依赖环境</h3>
+<p>在 Anaconda Prompt 窗口输入：<br>
+<code>conda create -n tensorflow python=3.5</code><br>
+按提示安装依赖包<br>
+激活tensorflow虚拟环境（这里选择激活）<br>
+<code>activate tensorflow</code><br>
+关闭tensorflow虚拟环境</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deactivate tensorflow</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/21/机器学习库/TensorFlow安装与配置/#more" rel="contents">
@@ -882,7 +895,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  387字
+                  381字
                 </span>
               
 
@@ -908,9 +921,12 @@
 
       
         
-          <h2 id="正交化-normalization">正交化 Normalization</h2>
-<h3 id="数据标准化">数据标准化</h3>
-<p>preprocessing.scale( ) preprocessing.minmax_scale(X,feature_range=(0,1) ): feature_range是设置数据标准化后数据的范围，默认为0~1 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import preprocessing #标准化数据模块</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">#建立Array</span><br><span class="line">a = np.array([[<span class="number">10</span>, <span class="number">2.7</span>, <span class="number">3.6</span>],</span><br><span class="line">              [<span class="number">-100</span>, <span class="number">5</span>, <span class="number">-2</span>],</span><br><span class="line">              [<span class="number">120</span>, <span class="number">20</span>, <span class="number">40</span>]], dtype=np.float64)</span><br><span class="line"># 打印出原来的a</span><br><span class="line">print(a)</span><br><span class="line">#将normalized后的a打印出</span><br><span class="line">print(preprocessing.scale(a))</span><br><span class="line"># [[ <span class="number">0.</span>         <span class="number">-0.85170713</span> <span class="number">-0.55138018</span>]</span><br><span class="line">#  [<span class="number">-1.22474487</span> <span class="number">-0.55187146</span> <span class="number">-0.852133</span>  ]</span><br><span class="line">#  [ <span class="number">1.22474487</span>  <span class="number">1.40357859</span>  <span class="number">1.40351318</span>]]</span><br></pre></td></tr></table></figure></p>
+          <h2 id="正交化-normalization"><a class="markdownIt-Anchor" href="#正交化-normalization"></a> 正交化 Normalization</h2>
+<h3 id="数据标准化"><a class="markdownIt-Anchor" href="#数据标准化"></a> 数据标准化</h3>
+<p>preprocessing.scale( )<br>
+preprocessing.minmax_scale(X,feature_range=(0,1) ):<br>
+feature_range是设置数据标准化后数据的范围，默认为0~1</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import preprocessing #标准化数据模块</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">#建立Array</span><br><span class="line">a = np.array([[<span class="number">10</span>, <span class="number">2.7</span>, <span class="number">3.6</span>],</span><br><span class="line">              [<span class="number">-100</span>, <span class="number">5</span>, <span class="number">-2</span>],</span><br><span class="line">              [<span class="number">120</span>, <span class="number">20</span>, <span class="number">40</span>]], dtype=np.float64)</span><br><span class="line"># 打印出原来的a</span><br><span class="line">print(a)</span><br><span class="line">#将normalized后的a打印出</span><br><span class="line">print(preprocessing.scale(a))</span><br><span class="line"># [[ <span class="number">0.</span>         <span class="number">-0.85170713</span> <span class="number">-0.55138018</span>]</span><br><span class="line">#  [<span class="number">-1.22474487</span> <span class="number">-0.55187146</span> <span class="number">-0.852133</span>  ]</span><br><span class="line">#  [ <span class="number">1.22474487</span>  <span class="number">1.40357859</span>  <span class="number">1.40351318</span>]]</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/20/机器学习库/Sklearn进阶/#more" rel="contents">
@@ -1049,7 +1065,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  204字
+                  208字
                 </span>
               
 
@@ -1075,9 +1091,13 @@
 
       
         
-          <h2 id="安装与更新">安装与更新</h2>
-<h3 id="安装源">安装源</h3>
-<p>在 https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/ 寻找你与你电脑系统对应的版本进行安装 ### 测试 下载并安装完成后，打开Anaconda Prompt， 输入 ‘conda –V’, 如果输出如下信息 <code>conda 4.3.30</code> 说明Anaconda 安装成功。
+          <h2 id="安装与更新"><a class="markdownIt-Anchor" href="#安装与更新"></a> 安装与更新</h2>
+<h3 id="安装源"><a class="markdownIt-Anchor" href="#安装源"></a> 安装源</h3>
+<p>在 <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a> 寻找你与你电脑系统对应的版本进行安装</p>
+<h3 id="测试"><a class="markdownIt-Anchor" href="#测试"></a> 测试</h3>
+<p>下载并安装完成后，打开Anaconda Prompt， 输入 ‘conda –V’, 如果输出如下信息<br>
+<code>conda 4.3.30</code><br>
+说明Anaconda 安装成功。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/19/Anaconda基础/#more" rel="contents">
@@ -1242,12 +1262,19 @@
 
       
         
-          <h2 id="简介与安装">简介与安装</h2>
-<h3 id="概述">概述</h3>
+          <h2 id="简介与安装"><a class="markdownIt-Anchor" href="#简介与安装"></a> 简介与安装</h2>
+<h3 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h3>
 <p>Scikit learn 也简称 sklearn, 是机器学习领域当中最知名的 python 模块之一.其包含了许多机器学习的方法的</p>
-<p>Sklearn 把所有机器学习的模式整合统一起来了，学会了一个模式就可以通吃其他不同类型的学习模式。 ### 安装 * Windows下使用Anaconda(https://www.anaconda.com/download/)</p>
-<h2 id="选择学习方法模型流程">选择学习方法（模型流程）</h2>
-<p>安装完 Sklearn 后，不要直接去用，先了解一下都有什么模型方法，然后选择适当的方法，来达到你的目标。 ### 看流程图选方法 klearn 官网提供了一个<a href="http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html" target="_blank" rel="noopener">流程图</a>，蓝色圆圈内是判断条件，绿色方框内是可以选择的算法： <img src="http://upload-images.jianshu.io/upload_images/1667471-b9cf0b0ca146ecca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<p>Sklearn 把所有机器学习的模式整合统一起来了，学会了一个模式就可以通吃其他不同类型的学习模式。</p>
+<h3 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h3>
+<ul>
+<li>Windows下使用Anaconda(<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">https://www.anaconda.com/download/</a>)</li>
+</ul>
+<h2 id="选择学习方法模型流程"><a class="markdownIt-Anchor" href="#选择学习方法模型流程"></a> 选择学习方法（模型流程）</h2>
+<p>安装完 Sklearn 后，不要直接去用，先了解一下都有什么模型方法，然后选择适当的方法，来达到你的目标。</p>
+<h3 id="看流程图选方法"><a class="markdownIt-Anchor" href="#看流程图选方法"></a> 看流程图选方法</h3>
+<p>klearn 官网提供了一个<a href="http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html" target="_blank" rel="noopener">流程图</a>，蓝色圆圈内是判断条件，绿色方框内是可以选择的算法：<br>
+<img src="http://upload-images.jianshu.io/upload_images/1667471-b9cf0b0ca146ecca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/18/机器学习库/Sklearn基础/#more" rel="contents">
@@ -1386,7 +1413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,317字
+                  1,325字
                 </span>
               
 
@@ -1412,19 +1439,21 @@
 
       
         
-          <p>优化(http://blog.csdn.net/mynamelijun/article/details/52196184)</p>
-<h2 id="速度优化">速度优化</h2>
+          <p>优化(<a href="http://blog.csdn.net/mynamelijun/article/details/52196184" target="_blank" rel="noopener">http://blog.csdn.net/mynamelijun/article/details/52196184</a>)</p>
+<h2 id="速度优化"><a class="markdownIt-Anchor" href="#速度优化"></a> 速度优化</h2>
 <ul>
 <li><a href="http://www.joryhe.com/2016-06-05-hexo_site_seo_speed_more_optimization.html" target="_blank" rel="noopener">Hexo博客优化，如何加快你的博客访问速度</a></li>
 </ul>
-<h2 id="主题优化">主题优化</h2>
+<h2 id="主题优化"><a class="markdownIt-Anchor" href="#主题优化"></a> 主题优化</h2>
 <ul>
 <li>参考<a href="http://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" rel="noopener">next主题优化</a></li>
 </ul>
-<h2 id="next主题外观优化">next主题外观优化</h2>
-<h3 id="侧边栏社交小图标设置">侧边栏社交小图标设置</h3>
+<h2 id="next主题外观优化"><a class="markdownIt-Anchor" href="#next主题外观优化"></a> next主题外观优化</h2>
+<h3 id="侧边栏社交小图标设置"><a class="markdownIt-Anchor" href="#侧边栏社交小图标设置"></a> 侧边栏社交小图标设置</h3>
 <ul>
-<li>实现效果图 <img src="http://upload-images.jianshu.io/upload_images/5308475-20e8bba1ad3b343f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<li>实现效果图<br>
+<img src="http://upload-images.jianshu.io/upload_images/5308475-20e8bba1ad3b343f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/04/hexo相关/Hexo优化/#more" rel="contents">
@@ -1589,17 +1618,19 @@
 
       
         
-          <h2 id="想法">想法</h2>
+          <h2 id="想法"><a class="markdownIt-Anchor" href="#想法"></a> 想法</h2>
 <ul>
-<li>看到人家的博客界面很漂亮，最近学习压力又大，就想自己写一个啦 看到是用node.js的一个框架Hexo，简单又漂亮，还可以放在github上直接打开博客，那就直接上手吧。</li>
+<li>看到人家的博客界面很漂亮，最近学习压力又大，就想自己写一个啦<br>
+看到是用node.js的一个框架Hexo，简单又漂亮，还可以放在github上直接打开博客，那就直接上手吧。</li>
 <li>hexo文档<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">链接</a></li>
 </ul>
-<h2 id="安装">安装</h2>
-<h3 id="首先安装依赖环境">首先安装依赖环境</h3>
+<h2 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h2>
+<h3 id="首先安装依赖环境"><a class="markdownIt-Anchor" href="#首先安装依赖环境"></a> 首先安装依赖环境</h3>
 <ul>
 <li><a href="http://www.jianshu.com/p/189fd945f38f" target="_blank" rel="noopener">搭建个人博客-hexo+github详细完整步骤</a></li>
 <li>hexo安装失败(地址被“墙”)请参考-<a href="http://blog.csdn.net/jzooo/article/details/46781805" target="_blank" rel="noopener">零基础免费搭建个人博客-hexo+github</a></li>
-<li>注：如用淘宝安装请改为<code>cnpm install</code>
+<li>注：如用淘宝安装请改为<code>cnpm install</code></li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/04/hexo相关/Hello-Hexo/#more" rel="contents">
@@ -1764,11 +1795,15 @@
 
       
         
-          <h3 id="一numpy索引">一、Numpy索引</h3>
-<ol style="list-style-type: decimal">
-<li><p>一维索引 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">A = np.arange(<span class="number">3</span>,<span class="number">15</span>)</span><br><span class="line"># array([<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>])</span><br><span class="line">         </span><br><span class="line">print(A[<span class="number">3</span>])    # <span class="number">6</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>二维索引 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A = np.arange(<span class="number">3</span>,<span class="number">15</span>).reshape((<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line"><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">array([[ 3,  4,  5,  6]</span></span><br><span class="line"><span class="string">       [ 7,  8,  9, 10]</span></span><br><span class="line"><span class="string">       [11, 12, 13, 14]])</span></span><br><span class="line"><span class="string">"</span><span class="string">""</span></span><br><span class="line">         </span><br><span class="line">print(A[<span class="number">2</span>])         # [<span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span>]</span><br></pre></td></tr></table></figure></p></li>
+          <h3 id="一-numpy索引"><a class="markdownIt-Anchor" href="#一-numpy索引"></a> 一、Numpy索引</h3>
+<ol>
+<li>一维索引</li>
 </ol>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">A = np.arange(<span class="number">3</span>,<span class="number">15</span>)</span><br><span class="line"># array([<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>])</span><br><span class="line">         </span><br><span class="line">print(A[<span class="number">3</span>])    # <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>二维索引</li>
+</ol>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A = np.arange(<span class="number">3</span>,<span class="number">15</span>).reshape((<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line"><span class="string">""</span><span class="string">"</span></span><br><span class="line"><span class="string">array([[ 3,  4,  5,  6]</span></span><br><span class="line"><span class="string">       [ 7,  8,  9, 10]</span></span><br><span class="line"><span class="string">       [11, 12, 13, 14]])</span></span><br><span class="line"><span class="string">"</span><span class="string">""</span></span><br><span class="line">         </span><br><span class="line">print(A[<span class="number">2</span>])         # [<span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span>]</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/04/Python基础/NumPy（索引、array合并与分割）/#more" rel="contents">
@@ -1933,21 +1968,23 @@
 
       
         
-          <h3 id="一基本运算">一、基本运算</h3>
-<ol style="list-style-type: decimal">
-<li>基础加法、减、乘 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">a=np.array([<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>])   # array([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>])</span><br><span class="line">b=np.arange(<span class="number">4</span>)              # array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">c=a+b   # array([<span class="number">10</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">43</span>])</span><br><span class="line">c=a-b  # array([<span class="number">10</span>, <span class="number">19</span>, <span class="number">28</span>, <span class="number">37</span>])</span><br><span class="line">c=a*b   # array([  <span class="number">0</span>,  <span class="number">20</span>,  <span class="number">60</span>, <span class="number">120</span>])</span><br></pre></td></tr></table></figure></li>
+          <h3 id="一-基本运算"><a class="markdownIt-Anchor" href="#一-基本运算"></a> 一、基本运算</h3>
+<ol>
+<li>基础加法、减、乘</li>
 </ol>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">a=np.array([<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>])   # array([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>])</span><br><span class="line">b=np.arange(<span class="number">4</span>)              # array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">c=a+b   # array([<span class="number">10</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">43</span>])</span><br><span class="line">c=a-b  # array([<span class="number">10</span>, <span class="number">19</span>, <span class="number">28</span>, <span class="number">37</span>])</span><br><span class="line">c=a*b   # array([  <span class="number">0</span>,  <span class="number">20</span>,  <span class="number">60</span>, <span class="number">120</span>])</span><br></pre></td></tr></table></figure>
 <ul>
-<li>矩阵的乘法，针对的是第一个矩阵的行与第二个矩阵的列<br>
-</li>
-<li>umpy中，想要求出矩阵中各个元素的乘方需要依赖双星符号 <code>**</code>，以二次方举例 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=b**<span class="number">2</span>  # array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>])</span><br></pre></td></tr></table></figure></li>
+<li>矩阵的乘法，针对的是第一个矩阵的行与第二个矩阵的列</li>
+<li>umpy中，想要求出矩阵中各个元素的乘方需要依赖双星符号 <code>**</code>，以二次方举例</li>
 </ul>
-<ol start="2" style="list-style-type: decimal">
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=b**<span class="number">2</span>  # array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>])</span><br></pre></td></tr></table></figure>
+<ol start="2">
 <li>逻辑判断</li>
 </ol>
 <ul>
-<li>在脚本中对print函数进行一些修改可以进行逻辑判断： <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(b&lt;<span class="number">3</span>)  </span><br><span class="line"># <span class="keyword">array</span>([ <span class="literal">True</span>,  <span class="literal">True</span>,  <span class="literal">True</span>, <span class="literal">False</span>], dtype=bool)</span><br></pre></td></tr></table></figure></li>
+<li>在脚本中对print函数进行一些修改可以进行逻辑判断：</li>
 </ul>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(b&lt;<span class="number">3</span>)  </span><br><span class="line"># <span class="keyword">array</span>([ <span class="literal">True</span>,  <span class="literal">True</span>,  <span class="literal">True</span>, <span class="literal">False</span>], dtype=bool)</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/02/Python基础/NumPy（矩阵运算）/#more" rel="contents">
@@ -2133,7 +2170,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">48.2k</span>
+    <span title="Site words total count">48.9k</span>
   
 </div>
 
@@ -2160,7 +2197,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共48.2k字</span>
+  <span class="post-count">博客全站共48.9k字</span>
 </div>
 
 
