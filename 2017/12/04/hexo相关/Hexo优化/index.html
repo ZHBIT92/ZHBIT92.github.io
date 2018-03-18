@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5308475-ef8a4643f33fbaa1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5308475-bd6fb55b6847d13a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-bb96dd5d344104d4.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-03-18T12:24:51.166Z">
+<meta property="og:updated_time" content="2018-03-18T13:03:01.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello优化相关">
 <meta name="twitter:description" content="速度优化  Hexo博客优化，如何加快你的博客访问速度  主题优化  参考next主题优化  next主题外观优化 侧边栏社交小图标设置  实现效果图">
@@ -339,7 +339,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-18T20:24:51+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-18T21:03:01+08:00">
                 2018-03-18
               </time>
             
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,450字
+                  1,467字
                 </span>
               
 
@@ -469,12 +469,15 @@
 <p>把<code>enable</code> 的<code>false</code>改成<code>true</code>就行了，然后<code>length</code>是设定文章预览的文本长度。 修改后重启 hexo 就ok了。 2. 方法一：手动显示 在你写 md 文章的时候，可以在内容中加上 <code>&lt;!--more--&gt;</code>，这样首页和列表页展示的文章内容就是 <code>&lt;!--more--&gt;</code>之前的文字，而之后的就不会显示了。</p>
 <h3 id="文章更新时间">文章更新时间</h3>
 <p><a href="http://blog.csdn.net/ganzhilin520/article/details/79053399" target="_blank" rel="noopener">hexo添加文章更新时间</a></p>
+<h3 id="自动推送">自动推送</h3>
+<p>将主题配置文件中的<code>baidu_push</code>设置为<code>true</code></p>
 <h3 id="修改文章底部的那个带号的标签">修改文章底部的那个带#号的标签</h3>
 <ul>
 <li>具体实现方法</li>
-<li>修改模板/themes/next/layout/_macro/post.swig，搜索 <code>rel=&quot;tag&quot;&gt;#</code>，将 # 换成<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code> ### 主页文章添加阴影效果 具体实现方法</li>
-<li>打开<code>\themes\next\source\css\_custom\custom.styl</code>,向里面加入： <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主页文章添加阴影效果</span></span><br><span class="line"> <span class="selector-class">.post</span> &#123;</span><br><span class="line">   <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">   -webkit-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, .<span class="number">5</span>);</span><br><span class="line">   -moz-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, .<span class="number">5</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
+<li>修改模板/themes/next/layout/_macro/post.swig，搜索 <code>rel=&quot;tag&quot;&gt;#</code>，将 # 换成<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code></li>
 </ul>
+<h3 id="主页文章添加阴影效果">主页文章添加阴影效果</h3>
+<p>具体实现方法 * 打开<code>\themes\next\source\css\_custom\custom.styl</code>,向里面加入： <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主页文章添加阴影效果</span></span><br><span class="line"> <span class="selector-class">.post</span> &#123;</span><br><span class="line">   <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">margin-bottom</span>: <span class="number">60px</span>;</span><br><span class="line">   <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">   -webkit-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">203</span>, .<span class="number">5</span>);</span><br><span class="line">   -moz-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">5px</span> rgba(<span class="number">202</span>, <span class="number">203</span>, <span class="number">204</span>, .<span class="number">5</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="实现文章统计功能">实现文章统计功能</h3>
 <p>在根目录下安装 <code>hexo-wordcount</code>运行 : <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cnpm install hexo-wordcount --save</span></span><br></pre></td></tr></table></figure></p>
 <p>然后在主题的配置文件中，配置如下： <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Post wordcount display settings</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/willin/hexo-wordcount</span></span><br><span class="line"><span class="attr">post_wordcount:</span></span><br><span class="line"><span class="attr">  item_text:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  wordcount:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  min2read:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
@@ -716,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#速度优化"><span class="nav-number">1.</span> <span class="nav-text">速度优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题优化"><span class="nav-number">2.</span> <span class="nav-text">主题优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next主题外观优化"><span class="nav-number">3.</span> <span class="nav-text">next主题外观优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#侧边栏社交小图标设置"><span class="nav-number">3.1.</span> <span class="nav-text">侧边栏社交小图标设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在网站底部加上访问量"><span class="nav-number">3.2.</span> <span class="nav-text">在网站底部加上访问量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站底部字数统计"><span class="nav-number">3.3.</span> <span class="nav-text">网站底部字数统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为博客添加萌萌哒的宠物"><span class="nav-number">3.4.</span> <span class="nav-text">为博客添加萌萌哒的宠物</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章优化"><span class="nav-number">4.</span> <span class="nav-text">文章优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章链接持久化"><span class="nav-number">4.1.</span> <span class="nav-text">文章链接持久化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读全文设置"><span class="nav-number">4.2.</span> <span class="nav-text">阅读全文设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章更新时间"><span class="nav-number">4.3.</span> <span class="nav-text">文章更新时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章底部的那个带号的标签"><span class="nav-number">4.4.</span> <span class="nav-text">修改文章底部的那个带#号的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现文章统计功能"><span class="nav-number">4.5.</span> <span class="nav-text">实现文章统计功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学符号渲染"><span class="nav-number">5.</span> <span class="nav-text">数学符号渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在主题中只需要开启mathjax开关"><span class="nav-number">5.1.</span> <span class="nav-text">在主题中只需要开启mathjax开关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在文章的front-matter中打开mathjax开关mathjax加载耗资源只在需要的文章中加载"><span class="nav-number">5.2.</span> <span class="nav-text">在文章的Front-matter中打开mathjax开关(mathjax加载耗资源，只在需要的文章中加载)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论系统"><span class="nav-number">6.</span> <span class="nav-text">评论系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#来必力韩国人的不怎么喜欢"><span class="nav-number">6.1.</span> <span class="nav-text">来必力(韩国人的，不怎么喜欢)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gitment推荐next主题下以集成gitment"><span class="nav-number">6.2.</span> <span class="nav-text">gitment(推荐，Next主题下以集成gitment)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可能产生的错误"><span class="nav-number">6.3.</span> <span class="nav-text">可能产生的错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexogitment的errorvalidation-failed"><span class="nav-number">6.3.1.</span> <span class="nav-text">Hexo+gitment的Error：validation failed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他错误"><span class="nav-number">6.3.2.</span> <span class="nav-text">其他错误</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误集合"><span class="nav-number">7.</span> <span class="nav-text">错误集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考的网站"><span class="nav-number">8.</span> <span class="nav-text">参考的网站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主题"><span class="nav-number">8.1.</span> <span class="nav-text">主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">8.2.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#速度优化"><span class="nav-number">1.</span> <span class="nav-text">速度优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题优化"><span class="nav-number">2.</span> <span class="nav-text">主题优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next主题外观优化"><span class="nav-number">3.</span> <span class="nav-text">next主题外观优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#侧边栏社交小图标设置"><span class="nav-number">3.1.</span> <span class="nav-text">侧边栏社交小图标设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在网站底部加上访问量"><span class="nav-number">3.2.</span> <span class="nav-text">在网站底部加上访问量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站底部字数统计"><span class="nav-number">3.3.</span> <span class="nav-text">网站底部字数统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为博客添加萌萌哒的宠物"><span class="nav-number">3.4.</span> <span class="nav-text">为博客添加萌萌哒的宠物</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章优化"><span class="nav-number">4.</span> <span class="nav-text">文章优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章链接持久化"><span class="nav-number">4.1.</span> <span class="nav-text">文章链接持久化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读全文设置"><span class="nav-number">4.2.</span> <span class="nav-text">阅读全文设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章更新时间"><span class="nav-number">4.3.</span> <span class="nav-text">文章更新时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动推送"><span class="nav-number">4.4.</span> <span class="nav-text">自动推送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章底部的那个带号的标签"><span class="nav-number">4.5.</span> <span class="nav-text">修改文章底部的那个带#号的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主页文章添加阴影效果"><span class="nav-number">4.6.</span> <span class="nav-text">主页文章添加阴影效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现文章统计功能"><span class="nav-number">4.7.</span> <span class="nav-text">实现文章统计功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学符号渲染"><span class="nav-number">5.</span> <span class="nav-text">数学符号渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在主题中只需要开启mathjax开关"><span class="nav-number">5.1.</span> <span class="nav-text">在主题中只需要开启mathjax开关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在文章的front-matter中打开mathjax开关mathjax加载耗资源只在需要的文章中加载"><span class="nav-number">5.2.</span> <span class="nav-text">在文章的Front-matter中打开mathjax开关(mathjax加载耗资源，只在需要的文章中加载)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论系统"><span class="nav-number">6.</span> <span class="nav-text">评论系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#来必力韩国人的不怎么喜欢"><span class="nav-number">6.1.</span> <span class="nav-text">来必力(韩国人的，不怎么喜欢)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gitment推荐next主题下以集成gitment"><span class="nav-number">6.2.</span> <span class="nav-text">gitment(推荐，Next主题下以集成gitment)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可能产生的错误"><span class="nav-number">6.3.</span> <span class="nav-text">可能产生的错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexogitment的errorvalidation-failed"><span class="nav-number">6.3.1.</span> <span class="nav-text">Hexo+gitment的Error：validation failed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他错误"><span class="nav-number">6.3.2.</span> <span class="nav-text">其他错误</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误集合"><span class="nav-number">7.</span> <span class="nav-text">错误集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考的网站"><span class="nav-number">8.</span> <span class="nav-text">参考的网站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主题"><span class="nav-number">8.1.</span> <span class="nav-text">主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">8.2.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -752,7 +755,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">48.4k</span>
+    <span title="Site words total count">48.5k</span>
   
 </div>
 
@@ -779,7 +782,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共48.4k字</span>
+  <span class="post-count">博客全站共48.5k字</span>
 </div>
 
 
@@ -1298,6 +1301,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   
