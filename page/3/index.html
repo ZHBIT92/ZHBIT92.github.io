@@ -25,6 +25,8 @@
 
 
 
+  <meta name="google-site-verification" content="utLFbv6x7eHYKEQtEIoU4NAlFUxB5LQJbHnbW1obQzk" />
+
 
 
 
@@ -286,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/27/机器学习实战/机器学习实战六（K-均值聚类算法）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/27/数据挖掘/算法概论（聚类）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LEMON">
@@ -305,7 +307,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/27/机器学习实战/机器学习实战六（K-均值聚类算法）/" itemprop="url">机器学习实战六（K-均值聚类算法）</a></h1>
+                <a class="post-title-link" href="/2017/12/27/数据挖掘/算法概论（聚类）/" itemprop="url">算法概论（聚类）</a></h1>
         
 
         <div class="post-meta">
@@ -334,8 +336,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-27T11:03:26+08:00">
-                2017-12-27
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-08T09:43:48+08:00">
+                2018-03-08
               </time>
             
           </span>
@@ -353,8 +355,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习实战/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习实战</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -384,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,165字
+                  2,374字
                 </span>
               
 
@@ -410,28 +412,13 @@
 
       
         
-          <h2 id="一概述">一、概述</h2>
-<h3 id="原理">1. 原理：</h3>
-<ul>
-<li>工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测.</li>
-<li>通常k是不大于20的整数</li>
-</ul>
-<h3 id="优缺点">2. 优缺点</h3>
-<ul>
-<li>优点：精度高、对异常值不敏感、无数据输入假定</li>
-<li>缺点：</li>
-<li><ul>
-<li>计算复杂度高、空间复杂度高，占用存储空间</li>
-</ul></li>
-<li><ul>
-<li>无法给出数据的内在含义</li>
-</ul></li>
-<li>适用数据范围：数值型和标称型 ### 3. 懒惰算法：</li>
-<li>此类学习技术在训练阶段仅仅把样本保存起来</li>
-<li>==训练开支为零==，待收到测试样本后再进行处理
+          <h2 id="聚类分析基础">聚类分析基础</h2>
+<h3 id="概述">概述</h3>
+<h4 id="概念">概念</h4>
+<p>聚类是将数据对象的集合分成相似的对象类的过程。使得同一个簇（或类）中的对象之间具有较高的相似性，而不同簇中的对象具有较高的相异性。 #### 表示形式 聚类分析(clustering analysis)就是根据某种相似性度量标准，将一个没有类别标号的数据集S直接拆分成若干个子集Ci (i=1,2, …,k; m≤n)，并使每个子集内部数据对象之间相似度很高，而不同子集的对象之间不相似或相似度很低。 每个子集Ci称为一个簇，所有簇构成的集合C={C1 ,C2, …,Ck}称为数据集S的一个聚类。 <img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180106/4ca8ljC7Ei.png?imageslim" alt="mark">
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/27/机器学习实战/机器学习实战六（K-均值聚类算法）/#more" rel="contents">
+            <a class="btn" href="/2017/12/27/数据挖掘/算法概论（聚类）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
