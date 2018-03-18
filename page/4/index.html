@@ -286,6 +286,198 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/Python基础/NumPy（矩阵运算）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/02/Python基础/NumPy（矩阵运算）/" itemprop="url">NumPy（矩阵运算）</a></h1>
+        
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T15:31:21+08:00">
+                2017-12-02
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-20T23:41:36+08:00">
+                2017-12-20
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Python基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,038字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="一基本运算">一、基本运算</h3>
+<ol style="list-style-type: decimal">
+<li>基础加法、减、乘 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">a=np.array([<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>])   # array([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>])</span><br><span class="line">b=np.arange(<span class="number">4</span>)              # array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">c=a+b   # array([<span class="number">10</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">43</span>])</span><br><span class="line">c=a-b  # array([<span class="number">10</span>, <span class="number">19</span>, <span class="number">28</span>, <span class="number">37</span>])</span><br><span class="line">c=a*b   # array([  <span class="number">0</span>,  <span class="number">20</span>,  <span class="number">60</span>, <span class="number">120</span>])</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>矩阵的乘法，针对的是第一个矩阵的行与第二个矩阵的列<br>
+</li>
+<li>umpy中，想要求出矩阵中各个元素的乘方需要依赖双星符号 <code>**</code>，以二次方举例 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c=b**<span class="number">2</span>  # array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>])</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>逻辑判断</li>
+</ol>
+<ul>
+<li>在脚本中对print函数进行一些修改可以进行逻辑判断： <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(b&lt;<span class="number">3</span>)  </span><br><span class="line"># <span class="keyword">array</span>([ <span class="literal">True</span>,  <span class="literal">True</span>,  <span class="literal">True</span>, <span class="literal">False</span>], dtype=bool)</span><br></pre></td></tr></table></figure></li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/02/Python基础/NumPy（矩阵运算）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/Python基础/NumPy（基础）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -309,6 +501,7 @@
         
 
         <div class="post-meta">
+         
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -323,7 +516,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-04T16:59:03+08:00">
+                2018-01-04
+              </time>
             
           </span>
 
@@ -487,6 +692,7 @@
         
 
         <div class="post-meta">
+         
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -501,7 +707,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-08T09:43:02+08:00">
+                2018-03-08
+              </time>
             
           </span>
 
@@ -656,6 +874,7 @@
         
 
         <div class="post-meta">
+         
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -670,7 +889,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-08T09:42:44+08:00">
+                2018-03-08
+              </time>
             
           </span>
 
@@ -833,6 +1064,7 @@
         
 
         <div class="post-meta">
+         
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -847,7 +1079,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-04T00:03:44+08:00">
+                2018-01-04
+              </time>
             
           </span>
 
@@ -1005,6 +1249,7 @@
         
 
         <div class="post-meta">
+         
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -1019,7 +1264,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-08T09:44:38+08:00">
+                2018-03-08
+              </time>
             
           </span>
 
@@ -1170,6 +1427,7 @@
         
 
         <div class="post-meta">
+         
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -1184,7 +1442,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-08T09:45:02+08:00">
+                2018-03-08
+              </time>
             
           </span>
 
@@ -1354,6 +1624,7 @@
         
 
         <div class="post-meta">
+         
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -1368,7 +1639,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-04T15:21:33+08:00">
+                2018-01-04
+              </time>
             
           </span>
 
@@ -1532,6 +1815,7 @@
         
 
         <div class="post-meta">
+         
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -1546,7 +1830,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-20T23:39:54+08:00">
+                2017-12-20
+              </time>
             
           </span>
 
@@ -1713,6 +2009,7 @@
         
 
         <div class="post-meta">
+         
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -1727,7 +2024,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-08T09:43:25+08:00">
+                2018-03-08
+              </time>
             
           </span>
 
@@ -1853,203 +2162,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/02/机器学习实战/机器学习实战二（决策树）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LEMON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LEMON的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/02/机器学习实战/机器学习实战二（决策树）/" itemprop="url">机器学习实战二（决策树）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-02T14:54:21+08:00">
-                2017-11-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习实战/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习实战</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,230字
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="一.-决策树">一. 决策树</h3>
-<h4 id="概念-决策树学习是根据数据的属性采用树状结构建立的一种决策模型可以用此模型解决分类和回归问题常见的算法包括-cartclassification-and-regression-tree-id3-c4.5等">1. 概念： 决策树学习是根据数据的属性采用树状结构建立的一种决策模型，可以用此模型解决分类和回归问题。常见的算法包括 CART(Classification And Regression Tree), ID3, C4.5等。</h4>
-<h4 id="优点">优点</h4>
-<ul>
-<li><ul>
-<li>易于理解和解释，甚至比线性回归更直观；</li>
-</ul></li>
-<li><ul>
-<li>与人类做决策思考的思维习惯契合；</li>
-</ul></li>
-<li><ul>
-<li>模型可以通过树的形式进行可视化展示；</li>
-</ul></li>
-<li><ul>
-<li>可以直接处理非数值型数据，不需要进行哑变量的转化，甚至可以直接处理含缺失值的数据；</li>
-</ul></li>
-</ul>
-<h4 id="缺点">缺点：</h4>
-<ul>
-<li><ul>
-<li>对于有大量数值型输入和输出的问题，决策树未必是一个好的选择；</li>
-</ul></li>
-<li><ul>
-<li>产生过拟合</li>
-</ul></li>
-<li><ul>
-<li>特别是当数值型变量之间存在许多错综复杂的关系，如金融数据分析；</li>
-</ul></li>
-<li><ul>
-<li>决定分类的因素取决于更多变量的复杂组合时；</li>
-</ul></li>
-<li><ul>
-<li>模型不够稳健，某一个节点的小小变化可能导致整个树会有很大的不同。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/02/机器学习实战/机器学习实战二（决策树）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2104,7 +2216,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2195,7 +2307,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">48.2k</span>
+    <span title="Site words total count">48.4k</span>
   
 </div>
 
@@ -2222,7 +2334,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共48.2k字</span>
+  <span class="post-count">博客全站共48.4k字</span>
 </div>
 
 

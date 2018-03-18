@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="LEMON的博客">
 <meta property="og:description" content="想法  看到人家的博客界面很漂亮，最近学习压力又大，就想自己写一个啦 看到是用node.js的一个框架Hexo，简单又漂亮，还可以放在github上直接打开博客，那就直接上手吧。 hexo文档链接  安装 首先安装依赖环境  搭建个人博客-hexo+github详细完整步骤 hexo安装失败(地址被“墙”)请参考-零基础免费搭建个人博客-hexo+github 注：如用淘宝安装">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T15:56:59.536Z">
+<meta property="og:updated_time" content="2018-03-18T04:24:27.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello Hexo(基本配置)">
 <meta name="twitter:description" content="想法  看到人家的博客界面很漂亮，最近学习压力又大，就想自己写一个啦 看到是用node.js的一个框架Hexo，简单又漂亮，还可以放在github上直接打开博客，那就直接上手吧。 hexo文档链接  安装 首先安装依赖环境  搭建个人博客-hexo+github详细完整步骤 hexo安装失败(地址被“墙”)请参考-零基础免费搭建个人博客-hexo+github 注：如用淘宝安装">
@@ -308,6 +308,7 @@
         
 
         <div class="post-meta">
+         
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -322,7 +323,19 @@
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-18T12:24:27+08:00">
+                2018-03-18
+              </time>
             
           </span>
 
@@ -380,7 +393,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  683字
+                  700字
                 </span>
               
 
@@ -448,6 +461,8 @@
 <li>删除根目录和主题目录下的.git文件夹。</li>
 <li>修改根目录下的.gitignore文件为：<code>/.deploy_git/public</code>其实第一行留不留都一样，它是hexo默认的git配置文件夹，里面也有一个.git，使/.deploy_git里的文件无法被提交。public是每次hexo g新生成的静态博客文件，不需要同步。每次写完博客，hexo d之后再push一次就行</li>
 </ol>
+<h2 id="其他">其他</h2>
+<p>swig文件中使用注释 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="meta">#</span></span><br><span class="line">我是注释</span><br><span class="line"><span class="meta">#&#125;</span></span><br></pre></td></tr></table></figure></p>
 <p>相关资料 https://www.cnblogs.com/tengj/p/5352572.html http://sobaigu.com/goodhexo-faq.html</p>
 <ul>
 <li>更新next到远程 http://w4lle.com/2016/06/06/Hexo-themes/index.html</li>
@@ -584,7 +599,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -655,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#想法"><span class="nav-number">1.</span> <span class="nav-text">想法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先安装依赖环境"><span class="nav-number">2.1.</span> <span class="nav-text">首先安装依赖环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题可选"><span class="nav-number">3.</span> <span class="nav-text">主题(可选)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#人靠衣装马靠鞍来加上这个好看的next主题来一波特技"><span class="nav-number">3.1.</span> <span class="nav-text">人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next主题的官方文档"><span class="nav-number">3.2.</span> <span class="nav-text">next主题的官方文档</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把博客静态文件上传到github或coding上"><span class="nav-number">4.</span> <span class="nav-text">把博客静态文件上传到github或coding上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把源代码上传到coding.net上可选"><span class="nav-number">5.</span> <span class="nav-text">把源代码上传到coding.net上(可选)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加密匙"><span class="nav-number">5.1.</span> <span class="nav-text">添加密匙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo中上传到github"><span class="nav-number">5.2.</span> <span class="nav-text">Hexo中上传到github</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#想法"><span class="nav-number">1.</span> <span class="nav-text">想法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先安装依赖环境"><span class="nav-number">2.1.</span> <span class="nav-text">首先安装依赖环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题可选"><span class="nav-number">3.</span> <span class="nav-text">主题(可选)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#人靠衣装马靠鞍来加上这个好看的next主题来一波特技"><span class="nav-number">3.1.</span> <span class="nav-text">人靠衣装马靠鞍，来，加上这个好看的next主题来一波特技</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next主题的官方文档"><span class="nav-number">3.2.</span> <span class="nav-text">next主题的官方文档</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把博客静态文件上传到github或coding上"><span class="nav-number">4.</span> <span class="nav-text">把博客静态文件上传到github或coding上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把源代码上传到coding.net上可选"><span class="nav-number">5.</span> <span class="nav-text">把源代码上传到coding.net上(可选)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加密匙"><span class="nav-number">5.1.</span> <span class="nav-text">添加密匙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo中上传到github"><span class="nav-number">5.2.</span> <span class="nav-text">Hexo中上传到github</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">6.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
 
           </div>
@@ -691,7 +706,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">48.2k</span>
+    <span title="Site words total count">48.4k</span>
   
 </div>
 
@@ -718,7 +733,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共48.2k字</span>
+  <span class="post-count">博客全站共48.4k字</span>
 </div>
 
 
