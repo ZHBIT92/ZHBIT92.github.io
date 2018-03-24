@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="什么是TensorFlow? TensorFlow是Google开发的一款神经网络的Python外部的结构包, 也是一个采用数据流图来进行数值计算的开源软件库.TensorFlow 让我们可以先绘制计算结构图, 也可以称是一系列可人机交互的计算操作, 然后把编辑好的Python文件 转换成 更高效的C++, 并在后端">
+<meta name="description" content="什么是TensorFlow?TensorFlow是Google开发的一款神经网络的Python外部的结构包, 也是一个采用数据流图来进行数值计算的开源软件库.TensorFlow 让我们可以先绘制计算结构图, 也可以称是一系列可人机交互的计算操作, 然后把编辑好的Python文件 转换成 更高效的C++, 并在后端进行">
 <meta name="keywords" content="Anaconda,机器学习,神经网络,TensorFlow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow安装与配置">
 <meta property="og:url" content="http://yoursite.com/2017/12/21/机器学习库/TensorFlow安装与配置/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="什么是TensorFlow? TensorFlow是Google开发的一款神经网络的Python外部的结构包, 也是一个采用数据流图来进行数值计算的开源软件库.TensorFlow 让我们可以先绘制计算结构图, 也可以称是一系列可人机交互的计算操作, 然后把编辑好的Python文件 转换成 更高效的C++, 并在后端进行计算. 安装 Anaconda下安装TensorFlow Window">
+<meta property="og:description" content="什么是TensorFlow?TensorFlow是Google开发的一款神经网络的Python外部的结构包, 也是一个采用数据流图来进行数值计算的开源软件库.TensorFlow 让我们可以先绘制计算结构图, 也可以称是一系列可人机交互的计算操作, 然后把编辑好的Python文件 转换成 更高效的C++, 并在后端进行计算. 安装Anaconda下安装TensorFlowWindows下我使用An">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-03-18T05:24:04.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow安装与配置">
-<meta name="twitter:description" content="什么是TensorFlow? TensorFlow是Google开发的一款神经网络的Python外部的结构包, 也是一个采用数据流图来进行数值计算的开源软件库.TensorFlow 让我们可以先绘制计算结构图, 也可以称是一系列可人机交互的计算操作, 然后把编辑好的Python文件 转换成 更高效的C++, 并在后端进行计算. 安装 Anaconda下安装TensorFlow Window">
+<meta name="twitter:description" content="什么是TensorFlow?TensorFlow是Google开发的一款神经网络的Python外部的结构包, 也是一个采用数据流图来进行数值计算的开源软件库.TensorFlow 让我们可以先绘制计算结构图, 也可以称是一系列可人机交互的计算操作, 然后把编辑好的Python文件 转换成 更高效的C++, 并在后端进行计算. 安装Anaconda下安装TensorFlowWindows下我使用An">
 
 
 
@@ -420,25 +420,16 @@
       
 
       
-        <h2 id="什么是tensorflow">什么是TensorFlow?</h2>
-<p>TensorFlow是Google开发的一款神经网络的Python外部的结构包, 也是一个采用数据流图来进行数值计算的开源软件库.TensorFlow 让我们可以先绘制计算结构图, 也可以称是一系列可人机交互的计算操作, 然后把编辑好的Python文件 转换成 更高效的C++, 并在后端进行计算.</p>
-<h2 id="安装">安装</h2>
-<h3 id="anaconda下安装tensorflow">Anaconda下安装TensorFlow</h3>
-<p>Windows下我使用<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">Anaconda</a>,基本包括了python机器学习需要的库 结果我的Anaconda下并没有TensorFlow，老老实实的安装</p>
-<h3 id="搭建tensorflow-依赖环境">搭建TensorFlow 依赖环境</h3>
-<p>在 Anaconda Prompt 窗口输入： <code>conda create -n tensorflow python=3.5</code> 按提示安装依赖包 激活tensorflow虚拟环境（这里选择激活） <code>activate tensorflow</code> 关闭tensorflow虚拟环境 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deactivate tensorflow</span></span><br></pre></td></tr></table></figure></p>
+        <h2 id="什么是TensorFlow"><a href="#什么是TensorFlow" class="headerlink" title="什么是TensorFlow?"></a>什么是TensorFlow?</h2><p>TensorFlow是Google开发的一款神经网络的Python外部的结构包, 也是一个采用数据流图来进行数值计算的开源软件库.TensorFlow 让我们可以先绘制计算结构图, 也可以称是一系列可人机交互的计算操作, 然后把编辑好的Python文件 转换成 更高效的C++, 并在后端进行计算.</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="Anaconda下安装TensorFlow"><a href="#Anaconda下安装TensorFlow" class="headerlink" title="Anaconda下安装TensorFlow"></a>Anaconda下安装TensorFlow</h3><p>Windows下我使用<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">Anaconda</a>,基本包括了python机器学习需要的库<br>结果我的Anaconda下并没有TensorFlow，老老实实的安装</p>
+<h3 id="搭建TensorFlow-依赖环境"><a href="#搭建TensorFlow-依赖环境" class="headerlink" title="搭建TensorFlow 依赖环境"></a>搭建TensorFlow 依赖环境</h3><p>在 Anaconda Prompt 窗口输入：<br><code>conda create -n tensorflow python=3.5</code><br>按提示安装依赖包<br>激活tensorflow虚拟环境（这里选择激活）<br><code>activate tensorflow</code><br>关闭tensorflow虚拟环境<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deactivate tensorflow</span></span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h3 id="安装tensorflow">安装TensorFlow</h3>
-<p>在TensorFlow环境下安装 CPU 版本，CPU的其他版本参考<a href="https://mirrors.tuna.tsinghua.edu.cn/tensorflow/" target="_blank" rel="noopener">清华大学开源</a> <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https:<span class="regexp">//</span>pypi.tuna.tsinghua.edu.cn<span class="regexp">/simple/</span> https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/tensorflow/</span>windows<span class="regexp">/cpu/</span>tensorflow-<span class="number">1.1</span>.<span class="number">0</span>-cp35-cp35m-win_amd64.whl</span><br></pre></td></tr></table></figure></p>
-<p>安装spyder <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="keyword">install</span> spyder</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装TensorFlow"><a href="#安装TensorFlow" class="headerlink" title="安装TensorFlow"></a>安装TensorFlow</h3><p>在TensorFlow环境下安装 CPU 版本，CPU的其他版本参考<a href="https://mirrors.tuna.tsinghua.edu.cn/tensorflow/" target="_blank" rel="noopener">清华大学开源</a><br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https:<span class="regexp">//</span>pypi.tuna.tsinghua.edu.cn<span class="regexp">/simple/</span> https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/tensorflow/</span>windows<span class="regexp">/cpu/</span>tensorflow-<span class="number">1.1</span>.<span class="number">0</span>-cp35-cp35m-win_amd64.whl</span><br></pre></td></tr></table></figure></p>
+<p>安装spyder<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="keyword">install</span> spyder</span><br></pre></td></tr></table></figure></p>
 <p><a href="https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/1-2-install/#Windows" target="_blank" rel="noopener">其他请看</a></p>
-<h2 id="测试">测试</h2>
-<h3 id="开启tensorflow环境">开启TensorFlow环境</h3>
-<p><code>activate tensorflow</code></p>
-<h3 id="打开spyder">打开spyder</h3>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">spyder</span></span><br></pre></td></tr></table></figure>
-<h3 id="spyder下">spyder下</h3>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> TensorFlow</span><br></pre></td></tr></table></figure>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="开启TensorFlow环境"><a href="#开启TensorFlow环境" class="headerlink" title="开启TensorFlow环境"></a>开启TensorFlow环境</h3><p><code>activate tensorflow</code></p>
+<h3 id="打开spyder"><a href="#打开spyder" class="headerlink" title="打开spyder"></a>打开spyder</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">spyder</span></span><br></pre></td></tr></table></figure>
+<h3 id="spyder下"><a href="#spyder下" class="headerlink" title="spyder下"></a>spyder下</h3><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> TensorFlow</span><br></pre></td></tr></table></figure>
 <p>如果没有报错，安装成功</p>
 
       
@@ -578,7 +569,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">47</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -589,7 +580,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -649,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是tensorflow"><span class="nav-number">1.</span> <span class="nav-text">什么是TensorFlow?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#anaconda下安装tensorflow"><span class="nav-number">2.1.</span> <span class="nav-text">Anaconda下安装TensorFlow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建tensorflow-依赖环境"><span class="nav-number">2.2.</span> <span class="nav-text">搭建TensorFlow 依赖环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装tensorflow"><span class="nav-number">2.3.</span> <span class="nav-text">安装TensorFlow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开启tensorflow环境"><span class="nav-number">3.1.</span> <span class="nav-text">开启TensorFlow环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开spyder"><span class="nav-number">3.2.</span> <span class="nav-text">打开spyder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spyder下"><span class="nav-number">3.3.</span> <span class="nav-text">spyder下</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是TensorFlow"><span class="nav-number">1.</span> <span class="nav-text">什么是TensorFlow?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Anaconda下安装TensorFlow"><span class="nav-number">2.1.</span> <span class="nav-text">Anaconda下安装TensorFlow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建TensorFlow-依赖环境"><span class="nav-number">2.2.</span> <span class="nav-text">搭建TensorFlow 依赖环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装TensorFlow"><span class="nav-number">2.3.</span> <span class="nav-text">安装TensorFlow</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开启TensorFlow环境"><span class="nav-number">3.1.</span> <span class="nav-text">开启TensorFlow环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开spyder"><span class="nav-number">3.2.</span> <span class="nav-text">打开spyder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spyder下"><span class="nav-number">3.3.</span> <span class="nav-text">spyder下</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -702,7 +693,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共48.5k字</span>
+  <span class="post-count">博客全站共51.0k字</span>
 </div>
 
 
