@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="配置 python3 Tensorflow opencv2  步骤 获取并显示摄像头实时视频&amp;amp;读取本地视频 从实时视频流中识别出人脸区域 准备人脸数据 建立CNN（卷积神经网络）模型 利用keras库训练人脸识别模型 利用训练数据进行识别人脸">
+<meta name="description" content="配置  python3 Tensorflow opencv2  步骤  获取并显示摄像头实时视频&amp;amp;读取本地视频 从实时视频流中识别出人脸区域 准备人脸数据 建立CNN（卷积神经网络）模型 利用keras库训练人脸识别模型 利用训练数据进行识别人脸">
 <meta name="keywords" content="深度学习,机器学习,神经网络,人脸检测">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tensorflow+opencv2实现人脸识别">
 <meta property="og:url" content="http://yoursite.com/2018/03/13/人脸检测及识别python实现/人脸检测及识别python实现/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="配置 python3 Tensorflow opencv2  步骤 获取并显示摄像头实时视频&amp;amp;读取本地视频 从实时视频流中识别出人脸区域 准备人脸数据 建立CNN（卷积神经网络）模型 利用keras库训练人脸识别模型 利用训练数据进行识别人脸">
+<meta property="og:description" content="配置  python3 Tensorflow opencv2  步骤  获取并显示摄像头实时视频&amp;amp;读取本地视频 从实时视频流中识别出人脸区域 准备人脸数据 建立CNN（卷积神经网络）模型 利用keras库训练人脸识别模型 利用训练数据进行识别人脸">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180315/IjF0H76i8F.png?imageslim">
 <meta property="og:updated_time" content="2018-03-20T06:11:43.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tensorflow+opencv2实现人脸识别">
-<meta name="twitter:description" content="配置 python3 Tensorflow opencv2  步骤 获取并显示摄像头实时视频&amp;amp;读取本地视频 从实时视频流中识别出人脸区域 准备人脸数据 建立CNN（卷积神经网络）模型 利用keras库训练人脸识别模型 利用训练数据进行识别人脸">
+<meta name="twitter:description" content="配置  python3 Tensorflow opencv2  步骤  获取并显示摄像头实时视频&amp;amp;读取本地视频 从实时视频流中识别出人脸区域 准备人脸数据 建立CNN（卷积神经网络）模型 利用keras库训练人脸识别模型 利用训练数据进行识别人脸">
 <meta name="twitter:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180315/IjF0H76i8F.png?imageslim">
 
 
@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  727字
+                  728字
                 </span>
               
 
@@ -422,39 +422,56 @@
       
 
       
-        <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
+        <h2 id="配置">配置</h2>
+<ul>
 <li>python3</li>
 <li>Tensorflow</li>
 <li>opencv2</li>
 </ul>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<h2 id="步骤">步骤</h2>
+<ol style="list-style-type: decimal">
 <li>获取并显示摄像头实时视频&amp;读取本地视频</li>
 <li>从实时视频流中识别出人脸区域</li>
 <li>准备人脸数据</li>
 <li>建立CNN（卷积神经网络）模型</li>
 <li>利用keras库训练人脸识别模型</li>
-<li>利用训练数据进行识别人脸<a id="more"></a>
-</li>
+<li>利用训练数据进行识别人脸 <a id="more"></a></li>
 </ol>
-<h2 id="获取并显示摄像头实时视频-amp-读取本地视频"><a href="#获取并显示摄像头实时视频-amp-读取本地视频" class="headerlink" title="获取并显示摄像头实时视频&amp;读取本地视频"></a>获取并显示摄像头实时视频&amp;读取本地视频</h2><h3 id="利用OpenCV读取视频流"><a href="#利用OpenCV读取视频流" class="headerlink" title="利用OpenCV读取视频流"></a>利用OpenCV读取视频流</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cv2.namedWindow(window_name)</span><br><span class="line"><span class="comment"># 视频来源</span></span><br><span class="line">cap = cv2.VideoCapture(camera_idx) </span><br><span class="line"><span class="comment"># 读取视频信息</span></span><br><span class="line"><span class="keyword">while</span> cap.isOpened():</span><br><span class="line">        frame = cap.<span class="built_in">read</span>() <span class="comment">#读取一帧数据</span></span><br><span class="line">        <span class="comment"># 显示图像</span></span><br><span class="line">        cv2.imshow(window_name, frame)</span><br></pre></td></tr></table></figure>
-<h3 id="释放视频信息并销毁所有窗口"><a href="#释放视频信息并销毁所有窗口" class="headerlink" title="释放视频信息并销毁所有窗口"></a>释放视频信息并销毁所有窗口</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 释放摄像头并销毁所有窗口</span><br><span class="line"><span class="selector-tag">cap</span><span class="selector-class">.release</span>()</span><br><span class="line"><span class="selector-tag">cv2</span><span class="selector-class">.destroyAllWindows</span>()</span><br></pre></td></tr></table></figure>
-<h2 id="从实时视频流中识别出人脸区域"><a href="#从实时视频流中识别出人脸区域" class="headerlink" title="从实时视频流中识别出人脸区域"></a>从实时视频流中识别出人脸区域</h2><h3 id="使用人脸识别分类器"><a href="#使用人脸识别分类器" class="headerlink" title="使用人脸识别分类器"></a>使用人脸识别分类器</h3><p>opencv自带许多个人脸识别分类器，可以看下<a href="https://github.com/opencv/opencv/tree/master/data/haarcascades" target="_blank" rel="noopener">官方源码</a><br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用人脸识别分类器</span></span><br><span class="line"><span class="attr">classfier</span> = cv2.CascadeClassifier(<span class="string">"haarcascade_frontalface_alt2.xml"</span>)</span><br><span class="line"><span class="comment"># 识别出人脸后要画的边框的颜色，RGB格式</span></span><br><span class="line"><span class="attr">color</span> = (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment"># 将当前帧转换成灰度图像</span></span><br><span class="line"><span class="attr">grey</span> = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)</span><br></pre></td></tr></table></figure></p>
-<h3 id="人脸检测并框出人像"><a href="#人脸检测并框出人像" class="headerlink" title="人脸检测并框出人像"></a>人脸检测并框出人像</h3><p>读取视频信息后<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 人脸检测，1.2和2分别为图片缩放比例和需要检测的有效点数</span></span><br><span class="line"><span class="attr">faceRects</span> = classfier.detectMultiScale(grey, <span class="attr">scaleFactor</span> = <span class="number">1.2</span>, <span class="attr">minNeighbors</span> = <span class="number">1</span>, <span class="attr">minSize</span> = (<span class="number">64</span>, <span class="number">64</span>))</span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> len(faceRects) &gt; <span class="number">0</span>:            <span class="comment">#大于0则检测到人脸                                   </span></span><br><span class="line">    for faceRect <span class="keyword">in</span> faceRects:  <span class="comment">#单独框出每一张人脸</span></span><br><span class="line">         x, y, w, <span class="attr">h</span> = faceRect        </span><br><span class="line">         cv2.rectangle(frame, (x - <span class="number">10</span>, y - <span class="number">10</span>), (x + w + <span class="number">10</span>, y + h + <span class="number">10</span>), color, <span class="number">2</span>)</span><br></pre></td></tr></table></figure></p>
-<h2 id="准备人脸数据"><a href="#准备人脸数据" class="headerlink" title="准备人脸数据"></a>准备人脸数据</h2><h3 id="把框出的人脸数据保存为图片"><a href="#把框出的人脸数据保存为图片" class="headerlink" title="把框出的人脸数据保存为图片"></a>把框出的人脸数据保存为图片</h3><ul>
-<li>num是图片数<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将当前帧保存为图片</span></span><br><span class="line">img_name = '%s/%d.jpg'%(path_name, num)                </span><br><span class="line">image = frame[y - 10: y + h + 10, x - 10: x + w + 10]</span><br><span class="line">cv2.imwrite(img_name, image)</span><br></pre></td></tr></table></figure>
-</li>
+<h2 id="获取并显示摄像头实时视频读取本地视频">获取并显示摄像头实时视频&amp;读取本地视频</h2>
+<h3 id="利用opencv读取视频流">利用OpenCV读取视频流</h3>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cv2.namedWindow(window_name)</span><br><span class="line"><span class="comment"># 视频来源</span></span><br><span class="line">cap = cv2.VideoCapture(camera_idx) </span><br><span class="line"><span class="comment"># 读取视频信息</span></span><br><span class="line"><span class="keyword">while</span> cap.isOpened():</span><br><span class="line">        frame = cap.<span class="built_in">read</span>() <span class="comment">#读取一帧数据</span></span><br><span class="line">        <span class="comment"># 显示图像</span></span><br><span class="line">        cv2.imshow(window_name, frame)</span><br></pre></td></tr></table></figure>
+<h3 id="释放视频信息并销毁所有窗口">释放视频信息并销毁所有窗口</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 释放摄像头并销毁所有窗口</span><br><span class="line"><span class="selector-tag">cap</span><span class="selector-class">.release</span>()</span><br><span class="line"><span class="selector-tag">cv2</span><span class="selector-class">.destroyAllWindows</span>()</span><br></pre></td></tr></table></figure>
+<h2 id="从实时视频流中识别出人脸区域">从实时视频流中识别出人脸区域</h2>
+<h3 id="使用人脸识别分类器">使用人脸识别分类器</h3>
+<p>opencv自带许多个人脸识别分类器，可以看下<a href="https://github.com/opencv/opencv/tree/master/data/haarcascades" target="_blank" rel="noopener">官方源码</a> <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用人脸识别分类器</span></span><br><span class="line"><span class="attr">classfier</span> = cv2.CascadeClassifier(<span class="string">"haarcascade_frontalface_alt2.xml"</span>)</span><br><span class="line"><span class="comment"># 识别出人脸后要画的边框的颜色，RGB格式</span></span><br><span class="line"><span class="attr">color</span> = (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>)</span><br><span class="line"><span class="comment"># 将当前帧转换成灰度图像</span></span><br><span class="line"><span class="attr">grey</span> = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)</span><br></pre></td></tr></table></figure></p>
+<h3 id="人脸检测并框出人像">人脸检测并框出人像</h3>
+<p>读取视频信息后 <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 人脸检测，1.2和2分别为图片缩放比例和需要检测的有效点数</span></span><br><span class="line"><span class="attr">faceRects</span> = classfier.detectMultiScale(grey, <span class="attr">scaleFactor</span> = <span class="number">1.2</span>, <span class="attr">minNeighbors</span> = <span class="number">1</span>, <span class="attr">minSize</span> = (<span class="number">64</span>, <span class="number">64</span>))</span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> len(faceRects) &gt; <span class="number">0</span>:            <span class="comment">#大于0则检测到人脸                                   </span></span><br><span class="line">    for faceRect <span class="keyword">in</span> faceRects:  <span class="comment">#单独框出每一张人脸</span></span><br><span class="line">         x, y, w, <span class="attr">h</span> = faceRect        </span><br><span class="line">         cv2.rectangle(frame, (x - <span class="number">10</span>, y - <span class="number">10</span>), (x + w + <span class="number">10</span>, y + h + <span class="number">10</span>), color, <span class="number">2</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="准备人脸数据">准备人脸数据</h2>
+<h3 id="把框出的人脸数据保存为图片">把框出的人脸数据保存为图片</h3>
+<ul>
+<li>num是图片数 <figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将当前帧保存为图片</span></span><br><span class="line">img_name = '%s/%d.jpg'%(path_name, num)                </span><br><span class="line">image = frame[y - 10: y + h + 10, x - 10: x + w + 10]</span><br><span class="line">cv2.imwrite(img_name, image)</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="显示当前捕捉到了多少人脸图片"><a href="#显示当前捕捉到了多少人脸图片" class="headerlink" title="显示当前捕捉到了多少人脸图片"></a>显示当前捕捉到了多少人脸图片</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">font</span> = cv2.FONT_HERSHEY_SIMPLEX</span><br><span class="line">                cv2.putText(frame,'<span class="built_in">num</span>:%d' <span class="symbol">%</span> (<span class="built_in">num</span>),(x + <span class="number">30</span>, y + <span class="number">30</span>), <span class="built_in">font</span>, <span class="number">1</span>, (<span class="number">255</span>,<span class="number">0</span>,<span class="number">255</span>),<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><p><a href="https://github.com/ZHBIT92/Deep-Learning/tree/master/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5/OpenCV" target="_blank" rel="noopener">地址</a></p>
-<h2 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下"></a>效果如下</h2><p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180315/IjF0H76i8F.png?imageslim" alt="mark"><br><!--more--></p>
-<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><h3 id="error-215-empty-in-function-cv-CascadeClassifier-detectMultiScale"><a href="#error-215-empty-in-function-cv-CascadeClassifier-detectMultiScale" class="headerlink" title="error: (-215) !empty() in function cv::CascadeClassifier::detectMultiScale"></a>error: (-215) !empty() in function cv::CascadeClassifier::detectMultiScale</h3><p>路径错误提示：<br>找不到你的xml文件，说明你的xml的路径出错了</p>
+<h3 id="显示当前捕捉到了多少人脸图片">显示当前捕捉到了多少人脸图片</h3>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">font</span> = cv2.FONT_HERSHEY_SIMPLEX</span><br><span class="line">                cv2.putText(frame,'<span class="built_in">num</span>:%d' <span class="symbol">%</span> (<span class="built_in">num</span>),(x + <span class="number">30</span>, y + <span class="number">30</span>), <span class="built_in">font</span>, <span class="number">1</span>, (<span class="number">255</span>,<span class="number">0</span>,<span class="number">255</span>),<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="完整代码">完整代码</h2>
+<p><a href="https://github.com/ZHBIT92/Deep-Learning/tree/master/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E5%AE%9E%E8%B7%B5/OpenCV" target="_blank" rel="noopener">地址</a></p>
+<h2 id="效果如下">效果如下</h2>
+<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180315/IjF0H76i8F.png?imageslim" alt="mark"> <!--more--></p>
+<h2 id="错误">错误</h2>
+<h3 id="error--215-empty-in-function-cvcascadeclassifierdetectmultiscale">error: (-215) !empty() in function cv::CascadeClassifier::detectMultiScale</h3>
+<p>路径错误提示： 找不到你的xml文件，说明你的xml的路径出错了</p>
 <p>eg：我的xml在data文件下的data文件中</p>
-<h3 id="Keras-2-0版本运行无更新函数出错"><a href="#Keras-2-0版本运行无更新函数出错" class="headerlink" title="Keras 2.0版本运行无更新函数出错"></a>Keras 2.0版本运行无更新函数出错</h3><h4 id="Update-your-Conv2D-call-to-the-Keras-2-API"><a href="#Update-your-Conv2D-call-to-the-Keras-2-API" class="headerlink" title="Update your Conv2D call to the Keras 2 API"></a>Update your <code>Conv2D</code> call to the Keras 2 API</h4><p>出现这些警告是由于keras的版本更新的问题</p>
-<p>Keras 2.0版本中，定义卷积层需要用<code>Conv2D</code>而不再是<code>Convolution2D</code><br>即使用<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.<span class="builtin-name">add</span>(Conv2D(64, 3, 3, <span class="attribute">border_mode</span>=<span class="string">'same'</span>))</span><br></pre></td></tr></table></figure></p>
-<p>而不是<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.<span class="builtin-name">add</span>(Convolution2D(64, 3, 3, <span class="attribute">border_mode</span>=<span class="string">'same'</span>))</span><br></pre></td></tr></table></figure></p>
-<p>同时更改<code>import</code>为<br><figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Conv2D</span><br></pre></td></tr></table></figure></p>
-<h4 id="Keras测试错误ProgbarLogger-39-no-attribute-39-log-values"><a href="#Keras测试错误ProgbarLogger-39-no-attribute-39-log-values" class="headerlink" title="Keras测试错误ProgbarLogger&#39; no attribute &#39;log_values"></a>Keras测试错误<code>ProgbarLogger&#39; no attribute &#39;log_values</code></h4><p>由无使用<code>Conv2D</code>函数而引发的错误<br>描述为：没找到log_values属性<br>解决方法： 在定义卷积层时使用<code>Conv2D</code>函数，该错误消失</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<h3 id="keras-2.0版本运行无更新函数出错">Keras 2.0版本运行无更新函数出错</h3>
+<h4 id="update-your-conv2d-call-to-the-keras-2-api">Update your <code>Conv2D</code> call to the Keras 2 API</h4>
+<p>出现这些警告是由于keras的版本更新的问题</p>
+<p>Keras 2.0版本中，定义卷积层需要用<code>Conv2D</code>而不再是<code>Convolution2D</code> 即使用 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.<span class="builtin-name">add</span>(Conv2D(64, 3, 3, <span class="attribute">border_mode</span>=<span class="string">'same'</span>))</span><br></pre></td></tr></table></figure></p>
+<p>而不是 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.<span class="builtin-name">add</span>(Convolution2D(64, 3, 3, <span class="attribute">border_mode</span>=<span class="string">'same'</span>))</span><br></pre></td></tr></table></figure></p>
+<p>同时更改<code>import</code>为 <figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Conv2D</span><br></pre></td></tr></table></figure></p>
+<h4 id="keras测试错误progbarlogger-no-attribute-log_values">Keras测试错误<code>ProgbarLogger' no attribute 'log_values</code></h4>
+<p>由无使用<code>Conv2D</code>函数而引发的错误 描述为：没找到log_values属性 解决方法： 在定义卷积层时使用<code>Conv2D</code>函数，该错误消失</p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
 <li><a href="http://mooc.study.163.com/course/2001281002#/info" target="_blank" rel="noopener">吴恩达-神经网络与深度学习-网易云课堂</a></li>
 <li><a href="http://www.cnblogs.com/neo-T/category/951647.html" target="_blank" rel="noopener">Neo-T的图像识别系列博客</a></li>
 </ul>
@@ -504,8 +521,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/20/Kaggle/Kaggle比赛入门资料/" rel="prev" title="Kaggle比赛入门资料">
-                Kaggle比赛入门资料 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/21/Kaggle/Kaggle比赛入门-房价预测/" rel="prev" title="Kaggle比赛入门-房价预测">
+                Kaggle比赛入门-房价预测 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -596,7 +613,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -607,7 +624,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -618,7 +635,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -667,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取并显示摄像头实时视频-amp-读取本地视频"><span class="nav-number">3.</span> <span class="nav-text">获取并显示摄像头实时视频&读取本地视频</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#利用OpenCV读取视频流"><span class="nav-number">3.1.</span> <span class="nav-text">利用OpenCV读取视频流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#释放视频信息并销毁所有窗口"><span class="nav-number">3.2.</span> <span class="nav-text">释放视频信息并销毁所有窗口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从实时视频流中识别出人脸区域"><span class="nav-number">4.</span> <span class="nav-text">从实时视频流中识别出人脸区域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用人脸识别分类器"><span class="nav-number">4.1.</span> <span class="nav-text">使用人脸识别分类器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#人脸检测并框出人像"><span class="nav-number">4.2.</span> <span class="nav-text">人脸检测并框出人像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备人脸数据"><span class="nav-number">5.</span> <span class="nav-text">准备人脸数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#把框出的人脸数据保存为图片"><span class="nav-number">5.1.</span> <span class="nav-text">把框出的人脸数据保存为图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示当前捕捉到了多少人脸图片"><span class="nav-number">5.2.</span> <span class="nav-text">显示当前捕捉到了多少人脸图片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完整代码"><span class="nav-number">6.</span> <span class="nav-text">完整代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果如下"><span class="nav-number">7.</span> <span class="nav-text">效果如下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误"><span class="nav-number">8.</span> <span class="nav-text">错误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#error-215-empty-in-function-cv-CascadeClassifier-detectMultiScale"><span class="nav-number">8.1.</span> <span class="nav-text">error: (-215) !empty() in function cv::CascadeClassifier::detectMultiScale</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Keras-2-0版本运行无更新函数出错"><span class="nav-number">8.2.</span> <span class="nav-text">Keras 2.0版本运行无更新函数出错</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Update-your-Conv2D-call-to-the-Keras-2-API"><span class="nav-number">8.2.1.</span> <span class="nav-text">Update your Conv2D call to the Keras 2 API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Keras测试错误ProgbarLogger-39-no-attribute-39-log-values"><span class="nav-number">8.2.2.</span> <span class="nav-text">Keras测试错误ProgbarLogger' no attribute 'log_values</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取并显示摄像头实时视频读取本地视频"><span class="nav-number">3.</span> <span class="nav-text">获取并显示摄像头实时视频&读取本地视频</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#利用opencv读取视频流"><span class="nav-number">3.1.</span> <span class="nav-text">利用OpenCV读取视频流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#释放视频信息并销毁所有窗口"><span class="nav-number">3.2.</span> <span class="nav-text">释放视频信息并销毁所有窗口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从实时视频流中识别出人脸区域"><span class="nav-number">4.</span> <span class="nav-text">从实时视频流中识别出人脸区域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用人脸识别分类器"><span class="nav-number">4.1.</span> <span class="nav-text">使用人脸识别分类器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#人脸检测并框出人像"><span class="nav-number">4.2.</span> <span class="nav-text">人脸检测并框出人像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备人脸数据"><span class="nav-number">5.</span> <span class="nav-text">准备人脸数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#把框出的人脸数据保存为图片"><span class="nav-number">5.1.</span> <span class="nav-text">把框出的人脸数据保存为图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示当前捕捉到了多少人脸图片"><span class="nav-number">5.2.</span> <span class="nav-text">显示当前捕捉到了多少人脸图片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完整代码"><span class="nav-number">6.</span> <span class="nav-text">完整代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果如下"><span class="nav-number">7.</span> <span class="nav-text">效果如下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误"><span class="nav-number">8.</span> <span class="nav-text">错误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#error--215-empty-in-function-cvcascadeclassifierdetectmultiscale"><span class="nav-number">8.1.</span> <span class="nav-text">error: (-215) !empty() in function cv::CascadeClassifier::detectMultiScale</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keras-2.0版本运行无更新函数出错"><span class="nav-number">8.2.</span> <span class="nav-text">Keras 2.0版本运行无更新函数出错</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#update-your-conv2d-call-to-the-keras-2-api"><span class="nav-number">8.2.1.</span> <span class="nav-text">Update your Conv2D call to the Keras 2 API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#keras测试错误progbarlogger-no-attribute-log_values"><span class="nav-number">8.2.2.</span> <span class="nav-text">Keras测试错误ProgbarLogger' no attribute 'log_values</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -720,7 +737,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.0k字</span>
+  <span class="post-count">博客全站共51.3k字</span>
 </div>
 
 

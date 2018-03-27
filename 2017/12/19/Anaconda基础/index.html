@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="安装与更新安装源在 https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/ 寻找你与你电脑系统对应的版本进行安装 测试下载并安装完成后，打开Anaconda Prompt， 输入 ‘conda –V’, 如果输出如下信息conda 4.3.30说明Anaconda ">
+<meta name="description" content="安装与更新 安装源 在 https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/ 寻找你与你电脑系统对应的版本进行安装 ### 测试 下载并安装完成后，打开Anaconda Prompt， 输入 ‘conda –V’, 如果输出如下信息 conda 4.3.30 ">
 <meta name="keywords" content="Anaconda">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Anaconda基础">
 <meta property="og:url" content="http://yoursite.com/2017/12/19/Anaconda基础/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="安装与更新安装源在 https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/ 寻找你与你电脑系统对应的版本进行安装 测试下载并安装完成后，打开Anaconda Prompt， 输入 ‘conda –V’, 如果输出如下信息conda 4.3.30说明Anaconda 安装成功。">
+<meta property="og:description" content="安装与更新 安装源 在 https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/ 寻找你与你电脑系统对应的版本进行安装 ### 测试 下载并安装完成后，打开Anaconda Prompt， 输入 ‘conda –V’, 如果输出如下信息 conda 4.3.30 说明Anaconda 安装成功。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-f086df2d471e294f.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:updated_time" content="2018-03-08T03:38:07.746Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Anaconda基础">
-<meta name="twitter:description" content="安装与更新安装源在 https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/ 寻找你与你电脑系统对应的版本进行安装 测试下载并安装完成后，打开Anaconda Prompt， 输入 ‘conda –V’, 如果输出如下信息conda 4.3.30说明Anaconda 安装成功。">
+<meta name="twitter:description" content="安装与更新 安装源 在 https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/ 寻找你与你电脑系统对应的版本进行安装 ### 测试 下载并安装完成后，打开Anaconda Prompt， 输入 ‘conda –V’, 如果输出如下信息 conda 4.3.30 说明Anaconda 安装成功。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/8448458-f086df2d471e294f.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  208字
+                  204字
                 </span>
               
 
@@ -422,13 +422,19 @@
       
 
       
-        <h2 id="安装与更新"><a href="#安装与更新" class="headerlink" title="安装与更新"></a>安装与更新</h2><h3 id="安装源"><a href="#安装源" class="headerlink" title="安装源"></a>安装源</h3><p>在 <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a> 寻找你与你电脑系统对应的版本进行安装</p>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>下载并安装完成后，打开Anaconda Prompt， 输入 ‘conda –V’, 如果输出如下信息<br><code>conda 4.3.30</code><br>说明Anaconda 安装成功。<br><a id="more"></a></p>
-<h3 id="设置-Anaconda-仓库镜像（提高下载速度）"><a href="#设置-Anaconda-仓库镜像（提高下载速度）" class="headerlink" title="设置 Anaconda 仓库镜像（提高下载速度）"></a>设置 Anaconda 仓库镜像（提高下载速度）</h3><p>打开 Anaconda Prompt, 输入：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="built_in">config</span> <span class="comment">--add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span></span><br><span class="line">conda <span class="built_in">config</span> <span class="comment">--set show_channel_urls yes</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="更新包"><a href="#更新包" class="headerlink" title="更新包"></a>更新包</h3><p>输入 ‘conda list’查看安装的包<br>输入‘conda update package_name’更新单个包<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda<span class="built_in"> upgrade </span>   --all #更新全部包</span><br></pre></td></tr></table></figure></p>
-<h2 id="工作路径设置-jupyter-notebook的使用"><a href="#工作路径设置-jupyter-notebook的使用" class="headerlink" title="工作路径设置(jupyter notebook的使用)"></a>工作路径设置(jupyter notebook的使用)</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>找到Anaconda创建的快捷方式<br>目标中的属性如下<br>D:\ProgramData\Anaconda3\python.exe……D:/ProgramData/Anaconda3/Scripts/jupyter-notebook-script.py” %USERPROFILE%</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/8448458-f086df2d471e294f.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>把最后的%USERPROFILE%改为你要用的目录地址如D:\Users\Administrator</p>
+        <h2 id="安装与更新">安装与更新</h2>
+<h3 id="安装源">安装源</h3>
+<p>在 https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/ 寻找你与你电脑系统对应的版本进行安装 ### 测试 下载并安装完成后，打开Anaconda Prompt， 输入 ‘conda –V’, 如果输出如下信息 <code>conda 4.3.30</code> 说明Anaconda 安装成功。 <a id="more"></a> ### 设置 Anaconda 仓库镜像（提高下载速度） 打开 Anaconda Prompt, 输入： <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda <span class="built_in">config</span> <span class="comment">--add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span></span><br><span class="line">conda <span class="built_in">config</span> <span class="comment">--set show_channel_urls yes</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="更新包">更新包</h3>
+<p>输入 ‘conda list’查看安装的包 输入‘conda update package_name’更新单个包 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda<span class="built_in"> upgrade </span>   --all #更新全部包</span><br></pre></td></tr></table></figure></p>
+<h2 id="工作路径设置jupyter-notebook的使用">工作路径设置(jupyter notebook的使用)</h2>
+<h3 id="方法一">方法一</h3>
+<p>找到Anaconda创建的快捷方式 目标中的属性如下 D:3.exe......D:/ProgramData/Anaconda3/Scripts/jupyter-notebook-script.py&quot; %USERPROFILE%</p>
+<div class="figure">
+<img src="http://upload-images.jianshu.io/upload_images/8448458-f086df2d471e294f.JPG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+</div>
+<p>把最后的%USERPROFILE%改为你要用的目录地址如D:</p>
 
       
     </div>
@@ -561,7 +567,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -572,7 +578,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -583,7 +589,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -632,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装与更新"><span class="nav-number">1.</span> <span class="nav-text">安装与更新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装源"><span class="nav-number">1.1.</span> <span class="nav-text">安装源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">1.2.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置-Anaconda-仓库镜像（提高下载速度）"><span class="nav-number">1.3.</span> <span class="nav-text">设置 Anaconda 仓库镜像（提高下载速度）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新包"><span class="nav-number">1.4.</span> <span class="nav-text">更新包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作路径设置-jupyter-notebook的使用"><span class="nav-number">2.</span> <span class="nav-text">工作路径设置(jupyter notebook的使用)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">2.1.</span> <span class="nav-text">方法一</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装与更新"><span class="nav-number">1.</span> <span class="nav-text">安装与更新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装源"><span class="nav-number">1.1.</span> <span class="nav-text">安装源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新包"><span class="nav-number">1.2.</span> <span class="nav-text">更新包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作路径设置jupyter-notebook的使用"><span class="nav-number">2.</span> <span class="nav-text">工作路径设置(jupyter notebook的使用)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">2.1.</span> <span class="nav-text">方法一</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -685,7 +691,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.0k字</span>
+  <span class="post-count">博客全站共51.3k字</span>
 </div>
 
 
