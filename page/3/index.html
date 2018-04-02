@@ -515,8 +515,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-27T11:03:26+08:00">
-                2017-12-27
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-02T23:54:23+08:00">
+                2018-04-02
               </time>
             
           </span>
@@ -591,23 +591,16 @@
 
       
         
-          <h2 id="一概述">一、概述</h2>
-<h3 id="原理">1. 原理：</h3>
-<ul>
+          <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><h3 id="1-原理："><a href="#1-原理：" class="headerlink" title="1. 原理："></a>1. 原理：</h3><ul>
 <li>工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测.</li>
 <li>通常k是不大于20的整数</li>
 </ul>
-<h3 id="优缺点">2. 优缺点</h3>
-<ul>
+<h3 id="2-优缺点"><a href="#2-优缺点" class="headerlink" title="2. 优缺点"></a>2. 优缺点</h3><ul>
 <li>优点：精度高、对异常值不敏感、无数据输入假定</li>
-<li>缺点：</li>
-<li><ul>
-<li>计算复杂度高、空间复杂度高，占用存储空间</li>
-</ul></li>
-<li><ul>
-<li>无法给出数据的内在含义</li>
-</ul></li>
-<li>适用数据范围：数值型和标称型 ### 3. 懒惰算法：</li>
+<li>缺点：<br>计算复杂度高、空间复杂度高，占用存储空间<br>无法给出数据的内在含义    </li>
+<li>适用数据范围：数值型和标称型</li>
+</ul>
+<h3 id="3-懒惰算法："><a href="#3-懒惰算法：" class="headerlink" title="3. 懒惰算法："></a>3. 懒惰算法：</h3><ul>
 <li>此类学习技术在训练阶段仅仅把样本保存起来</li>
 <li>==训练开支为零==，待收到测试样本后再进行处理
           <!--noindex-->
@@ -1076,8 +1069,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-27T17:39:49+08:00">
-                2017-12-27
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-27T15:45:10+08:00">
+                2018-03-27
               </time>
             
           </span>
@@ -1095,8 +1088,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TensorFlow/" itemprop="url" rel="index">
-                    <span itemprop="name">TensorFlow</span>
+                  <a href="/categories/机器学习相关库/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习相关库</span>
                   </a>
                 </span>
 
@@ -1258,8 +1251,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-18T13:24:04+08:00">
-                2018-03-18
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-27T15:45:16+08:00">
+                2018-03-27
               </time>
             
           </span>
@@ -1277,8 +1270,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/TensorFlow/" itemprop="url" rel="index">
-                    <span itemprop="name">TensorFlow</span>
+                  <a href="/categories/机器学习相关库/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习相关库</span>
                   </a>
                 </span>
 
@@ -1442,7 +1435,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-27T15:27:39+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-27T15:45:06+08:00">
                 2018-03-27
               </time>
             
@@ -1461,8 +1454,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/scikit-learn/" itemprop="url" rel="index">
-                    <span itemprop="name">scikit-learn</span>
+                  <a href="/categories/机器学习相关库/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习相关库</span>
                   </a>
                 </span>
 
@@ -1492,7 +1485,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  381字
+                  387字
                 </span>
               
 
@@ -1518,7 +1511,9 @@
 
       
         
-          <h2 id="正交化-Normalization"><a href="#正交化-Normalization" class="headerlink" title="正交化 Normalization"></a>正交化 Normalization</h2><h3 id="数据标准化"><a href="#数据标准化" class="headerlink" title="数据标准化"></a>数据标准化</h3><p>preprocessing.scale( )<br>preprocessing.minmax_scale(X,feature_range=(0,1) ):<br>feature_range是设置数据标准化后数据的范围，默认为0~1<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import preprocessing #标准化数据模块</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">#建立Array</span><br><span class="line">a = np.array([[<span class="number">10</span>, <span class="number">2.7</span>, <span class="number">3.6</span>],</span><br><span class="line">              [<span class="number">-100</span>, <span class="number">5</span>, <span class="number">-2</span>],</span><br><span class="line">              [<span class="number">120</span>, <span class="number">20</span>, <span class="number">40</span>]], dtype=np.float64)</span><br><span class="line"># 打印出原来的a</span><br><span class="line">print(a)</span><br><span class="line">#将normalized后的a打印出</span><br><span class="line">print(preprocessing.scale(a))</span><br><span class="line"># [[ <span class="number">0.</span>         <span class="number">-0.85170713</span> <span class="number">-0.55138018</span>]</span><br><span class="line">#  [<span class="number">-1.22474487</span> <span class="number">-0.55187146</span> <span class="number">-0.852133</span>  ]</span><br><span class="line">#  [ <span class="number">1.22474487</span>  <span class="number">1.40357859</span>  <span class="number">1.40351318</span>]]</span><br></pre></td></tr></table></figure></p>
+          <h2 id="正交化-normalization">正交化 Normalization</h2>
+<h3 id="数据标准化">数据标准化</h3>
+<p>preprocessing.scale( ) preprocessing.minmax_scale(X,feature_range=(0,1) ): feature_range是设置数据标准化后数据的范围，默认为0~1 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import preprocessing #标准化数据模块</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">#建立Array</span><br><span class="line">a = np.array([[<span class="number">10</span>, <span class="number">2.7</span>, <span class="number">3.6</span>],</span><br><span class="line">              [<span class="number">-100</span>, <span class="number">5</span>, <span class="number">-2</span>],</span><br><span class="line">              [<span class="number">120</span>, <span class="number">20</span>, <span class="number">40</span>]], dtype=np.float64)</span><br><span class="line"># 打印出原来的a</span><br><span class="line">print(a)</span><br><span class="line">#将normalized后的a打印出</span><br><span class="line">print(preprocessing.scale(a))</span><br><span class="line"># [[ <span class="number">0.</span>         <span class="number">-0.85170713</span> <span class="number">-0.55138018</span>]</span><br><span class="line">#  [<span class="number">-1.22474487</span> <span class="number">-0.55187146</span> <span class="number">-0.852133</span>  ]</span><br><span class="line">#  [ <span class="number">1.22474487</span>  <span class="number">1.40357859</span>  <span class="number">1.40351318</span>]]</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/20/机器学习库/Sklearn进阶/#more" rel="contents">
@@ -1800,7 +1795,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-27T15:27:46+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-27T15:45:01+08:00">
                 2018-03-27
               </time>
             
@@ -1819,8 +1814,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/scikit-learn/" itemprop="url" rel="index">
-                    <span itemprop="name">scikit-learn</span>
+                  <a href="/categories/机器学习相关库/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习相关库</span>
                   </a>
                 </span>
 
@@ -1876,13 +1871,12 @@
 
       
         
-          <h2 id="简介与安装"><a href="#简介与安装" class="headerlink" title="简介与安装"></a>简介与安装</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>Scikit learn 也简称 sklearn, 是机器学习领域当中最知名的 python 模块之一.其包含了许多机器学习的方法的</p>
-<p>Sklearn 把所有机器学习的模式整合统一起来了，学会了一个模式就可以通吃其他不同类型的学习模式。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
-<li>Windows下使用Anaconda(<a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">https://www.anaconda.com/download/</a>)</li>
-</ul>
-<h2 id="选择学习方法（模型流程）"><a href="#选择学习方法（模型流程）" class="headerlink" title="选择学习方法（模型流程）"></a>选择学习方法（模型流程）</h2><p>安装完 Sklearn 后，不要直接去用，先了解一下都有什么模型方法，然后选择适当的方法，来达到你的目标。</p>
-<h3 id="看流程图选方法"><a href="#看流程图选方法" class="headerlink" title="看流程图选方法"></a>看流程图选方法</h3><p>klearn 官网提供了一个<a href="http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html" target="_blank" rel="noopener">流程图</a>，蓝色圆圈内是判断条件，绿色方框内是可以选择的算法：<br><img src="http://upload-images.jianshu.io/upload_images/1667471-b9cf0b0ca146ecca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>
+          <h2 id="简介与安装">简介与安装</h2>
+<h3 id="概述">概述</h3>
+<p>Scikit learn 也简称 sklearn, 是机器学习领域当中最知名的 python 模块之一.其包含了许多机器学习的方法的</p>
+<p>Sklearn 把所有机器学习的模式整合统一起来了，学会了一个模式就可以通吃其他不同类型的学习模式。 ### 安装 * Windows下使用Anaconda(https://www.anaconda.com/download/)</p>
+<h2 id="选择学习方法模型流程">选择学习方法（模型流程）</h2>
+<p>安装完 Sklearn 后，不要直接去用，先了解一下都有什么模型方法，然后选择适当的方法，来达到你的目标。 ### 看流程图选方法 klearn 官网提供了一个<a href="http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html" target="_blank" rel="noopener">流程图</a>，蓝色圆圈内是判断条件，绿色方框内是可以选择的算法： <img src="http://upload-images.jianshu.io/upload_images/1667471-b9cf0b0ca146ecca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/18/机器学习库/Sklearn基础/#more" rel="contents">
@@ -2177,7 +2171,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2188,7 +2182,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2274,7 +2268,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.3k字</span>
+  <span class="post-count">博客全站共49.6k字</span>
 </div>
 
 
