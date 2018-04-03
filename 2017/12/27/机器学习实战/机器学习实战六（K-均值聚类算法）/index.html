@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数  2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：计算复杂度高、空间复杂度高，占用存储空间无法给出数据的内在含义     适用数据范">
+<meta name="description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数  2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：计算复杂度高、空间复杂度高，占用存储空间。无法给出数据的内在含义      适用数">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习实战六（K-均值聚类算法）">
 <meta property="og:url" content="http://yoursite.com/2017/12/27/机器学习实战/机器学习实战六（K-均值聚类算法）/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数  2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：计算复杂度高、空间复杂度高，占用存储空间无法给出数据的内在含义     适用数据范围：数值型和标称型  3. 懒惰算法： 此类学习技术在训练阶段仅仅把样本保存起来">
+<meta property="og:description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数  2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：计算复杂度高、空间复杂度高，占用存储空间。无法给出数据的内在含义      适用数据范围：数值型和标称型   3. 懒惰算法： 此类学习技术在训练阶段仅仅把样本保">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-02T15:54:23.367Z">
+<meta property="og:updated_time" content="2018-04-02T16:01:50.300Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习实战六（K-均值聚类算法）">
-<meta name="twitter:description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数  2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：计算复杂度高、空间复杂度高，占用存储空间无法给出数据的内在含义     适用数据范围：数值型和标称型  3. 懒惰算法： 此类学习技术在训练阶段仅仅把样本保存起来">
+<meta name="twitter:description" content="一、概述1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数  2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：计算复杂度高、空间复杂度高，占用存储空间。无法给出数据的内在含义      适用数据范围：数值型和标称型   3. 懒惰算法： 此类学习技术在训练阶段仅仅把样本保">
 
 
 
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-02T23:54:23+08:00">
-                2018-04-02
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-03T00:01:50+08:00">
+                2018-04-03
               </time>
             
           </span>
@@ -426,12 +426,14 @@
 </ul>
 <h3 id="2-优缺点"><a href="#2-优缺点" class="headerlink" title="2. 优缺点"></a>2. 优缺点</h3><ul>
 <li>优点：精度高、对异常值不敏感、无数据输入假定</li>
-<li>缺点：<br>计算复杂度高、空间复杂度高，占用存储空间<br>无法给出数据的内在含义    </li>
-<li>适用数据范围：数值型和标称型</li>
+<li><p>缺点：计算复杂度高、空间复杂度高，占用存储空间。无法给出数据的内在含义    </p>
+</li>
+<li><p>适用数据范围：数值型和标称型</p>
+</li>
 </ul>
 <h3 id="3-懒惰算法："><a href="#3-懒惰算法：" class="headerlink" title="3. 懒惰算法："></a>3. 懒惰算法：</h3><ul>
 <li>此类学习技术在训练阶段仅仅把样本保存起来</li>
-<li>==训练开支为零==，待收到测试样本后再进行处理<a id="more"></a>
+<li><strong>训练开支为零</strong>，待收到测试样本后再进行处理<a id="more"></a>
 </li>
 </ul>
 <h2 id="二、算法流程"><a href="#二、算法流程" class="headerlink" title="二、算法流程"></a>二、算法流程</h2><ol>
@@ -490,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/27/数据挖掘/算法概论（聚类）/" rel="next" title="算法概论（聚类）">
-                <i class="fa fa-chevron-left"></i> 算法概论（聚类）
+              <a href="/2017/12/24/周总结/" rel="next" title="面试大纲">
+                <i class="fa fa-chevron-left"></i> 面试大纲
               </a>
             
           </div>
@@ -500,8 +502,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/02/MATLAB/MATLAB-基础/" rel="prev" title="MATLAB">
-                MATLAB <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/27/数据挖掘/算法概论（聚类）/" rel="prev" title="算法概论（聚类）">
+                算法概论（聚类） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -716,7 +718,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共49.6k字</span>
+  <span class="post-count">博客全站共49.0k字</span>
 </div>
 
 

@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="零. 常见 1TypeError: &apos;range&apos; object doesn&apos;t support item deletion  注：3.x中range()要改为list(rang())，因为python3中range不返回数组对象，而是返回range对象  1AttributeE">
+<meta name="description" content="零. 常见1TypeError: &apos;range&apos; object doesn&apos;t support item deletion  注：3.x中range()要改为list(rang())，因为python3中range不返回数组对象，而是返回range对象  1AttributeError: ">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习实战-Py3.X错误合集">
 <meta property="og:url" content="http://yoursite.com/2017/11/05/机器学习实战/机器学习实战-Py3.X错误合集/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="零. 常见 1TypeError: &apos;range&apos; object doesn&apos;t support item deletion  注：3.x中range()要改为list(rang())，因为python3中range不返回数组对象，而是返回range对象  1AttributeError: &apos;dict&apos; object has no attribute &apos;iteritems&apos;  ite">
+<meta property="og:description" content="零. 常见1TypeError: &apos;range&apos; object doesn&apos;t support item deletion  注：3.x中range()要改为list(rang())，因为python3中range不返回数组对象，而是返回range对象  1AttributeError: &apos;dict&apos; object has no attribute &apos;iteritems&apos;  iteritems()">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-01-04T07:21:33.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习实战-Py3.X错误合集">
-<meta name="twitter:description" content="零. 常见 1TypeError: &apos;range&apos; object doesn&apos;t support item deletion  注：3.x中range()要改为list(rang())，因为python3中range不返回数组对象，而是返回range对象  1AttributeError: &apos;dict&apos; object has no attribute &apos;iteritems&apos;  ite">
+<meta name="twitter:description" content="零. 常见1TypeError: &apos;range&apos; object doesn&apos;t support item deletion  注：3.x中range()要改为list(rang())，因为python3中range不返回数组对象，而是返回range对象  1AttributeError: &apos;dict&apos; object has no attribute &apos;iteritems&apos;  iteritems()">
 
 
 
@@ -420,8 +420,7 @@
       
 
       
-        <h2 id="零.-常见">零. 常见</h2>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: <span class="string">'range'</span> <span class="selector-tag">object</span> doesn<span class="string">'t support item deletion</span></span><br></pre></td></tr></table></figure>
+        <h2 id="零-常见"><a href="#零-常见" class="headerlink" title="零. 常见"></a>零. 常见</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: <span class="string">'range'</span> <span class="selector-tag">object</span> doesn<span class="string">'t support item deletion</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>注：3.x中range()要改为list(rang())，因为python3中range不返回数组对象，而是返回range对象</li>
 </ul>
@@ -429,35 +428,49 @@
 <ul>
 <li>iteritems()要改为items()</li>
 </ul>
-<h2 id="二.-knn">二. kNN</h2>
-<ul>
-<li><p>报错： <figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NameError: <span class="keyword">name</span> <span class="string">'reload'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br></pre></td></tr></table></figure></p></li>
-<li><p>在前面加入命令(个人推荐直接写在mian函数里面简单快捷) <figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> imp <span class="keyword">import</span> reload</span><br></pre></td></tr></table></figure></p></li>
+<h2 id="二-kNN"><a href="#二-kNN" class="headerlink" title="二. kNN"></a>二. kNN</h2><ul>
+<li><p>报错：</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NameError: <span class="keyword">name</span> <span class="string">'reload'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在前面加入命令(个人推荐直接写在mian函数里面简单快捷)</p>
+<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> imp <span class="keyword">import</span> reload</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <a id="more"></a>
-<h2 id="四.-朴素贝叶斯">四. 朴素贝叶斯</h2>
-<ul>
-<li><p>报错： <figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UnicodeDecodeError: <span class="symbol">'gbk</span>' codec can<span class="symbol">'t</span> decode byte <span class="number">0</span>xae <span class="keyword">in</span> position <span class="number">199</span>: illegal multibyte <span class="keyword">sequence</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>那是因为书上的下面这两行代码有点问题： <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wordList = textParse(<span class="name">open</span>('email/spam/%d.txt' % i).read()</span><br><span class="line">wordList = textParse(<span class="name">open</span>('email/ham/%d.txt' % i).read()</span><br><span class="line">需要将上面的代码更为下面这两行：</span><br><span class="line">wordList = textParse(<span class="name">open</span>('email/spam/%d.txt' % i, <span class="string">"rb"</span>).read().decode('GBK','ignore') )</span><br><span class="line">wordList = textParse(<span class="name">open</span>('email/ham/%d.txt' % i,  <span class="string">"rb"</span>).read().decode('GBK','ignore') )</span><br><span class="line"></span><br><span class="line">因为有可能文件中存在类似“�”非法字符。</span><br></pre></td></tr></table></figure></p></li>
-<li><p>报错： <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: <span class="string">'range'</span> <span class="selector-tag">object</span> doesn<span class="string">'t support item deletion</span></span><br></pre></td></tr></table></figure></p></li>
+<h2 id="四-朴素贝叶斯"><a href="#四-朴素贝叶斯" class="headerlink" title="四. 朴素贝叶斯"></a>四. 朴素贝叶斯</h2><ul>
+<li><p>报错：</p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UnicodeDecodeError: <span class="symbol">'gbk</span>' codec can<span class="symbol">'t</span> decode byte <span class="number">0</span>xae <span class="keyword">in</span> position <span class="number">199</span>: illegal multibyte <span class="keyword">sequence</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>那是因为书上的下面这两行代码有点问题：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wordList = textParse(<span class="name">open</span>('email/spam/%d.txt' % i).read()</span><br><span class="line">wordList = textParse(<span class="name">open</span>('email/ham/%d.txt' % i).read()</span><br><span class="line">需要将上面的代码更为下面这两行：</span><br><span class="line">wordList = textParse(<span class="name">open</span>('email/spam/%d.txt' % i, <span class="string">"rb"</span>).read().decode('GBK','ignore') )</span><br><span class="line">wordList = textParse(<span class="name">open</span>('email/ham/%d.txt' % i,  <span class="string">"rb"</span>).read().decode('GBK','ignore') )</span><br><span class="line"></span><br><span class="line">因为有可能文件中存在类似“�”非法字符。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>报错：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: <span class="string">'range'</span> <span class="selector-tag">object</span> doesn<span class="string">'t support item deletion</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: <span class="string">'dict'</span> <span class="selector-tag">object</span> has no attribute <span class="string">'iteritems'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>参考常见错误</li>
 </ul>
-<h2 id="五.-logistic回归">五. Logistic回归</h2>
-<ul>
-<li>报错： <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: <span class="string">'numpy.float64'</span> object cannot be interpreted <span class="keyword">as</span> <span class="keyword">an</span> <span class="keyword">integer</span></span><br></pre></td></tr></table></figure></li>
+<h2 id="五-Logistic回归"><a href="#五-Logistic回归" class="headerlink" title="五. Logistic回归"></a>五. Logistic回归</h2><ul>
+<li>报错：<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: <span class="string">'numpy.float64'</span> object cannot be interpreted <span class="keyword">as</span> <span class="keyword">an</span> <span class="keyword">integer</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>这里是因为numpy版本问题，更改版本解决 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U numpy==<span class="number">1.11</span><span class="number">.0</span></span><br></pre></td></tr></table></figure></p>
+<p>这里是因为numpy版本问题，更改版本解决<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U numpy==<span class="number">1.11</span><span class="number">.0</span></span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><p>报错： <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: <span class="string">'range'</span> <span class="selector-tag">object</span> doesn<span class="string">'t support item deletion</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>参考常见错误</p></li>
-<li><p>报错： <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: <span class="string">'numpy.ndarray'</span> <span class="selector-tag">object</span> has no attribute <span class="string">'getA'</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>注释掉plotBestFit()的矩阵转为数组，因为在输入时已经转换为数组了 <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plotBestFit(weights)</span><br><span class="line">'''</span><br><span class="line"><span class="code">    # 矩阵变为数组,使用gradAscent时加入</span></span><br><span class="line"><span class="code">    weights = wei.getA()</span></span><br><span class="line">'''</span><br></pre></td></tr></table></figure></p></li>
+<li><p>报错：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: <span class="string">'range'</span> <span class="selector-tag">object</span> doesn<span class="string">'t support item deletion</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参考常见错误</p>
+</li>
+<li><p>报错：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: <span class="string">'numpy.ndarray'</span> <span class="selector-tag">object</span> has no attribute <span class="string">'getA'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注释掉plotBestFit()的矩阵转为数组，因为在输入时已经转换为数组了</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plotBestFit(weights)</span><br><span class="line">'''</span><br><span class="line"><span class="code">    # 矩阵变为数组,使用gradAscent时加入</span></span><br><span class="line"><span class="code">    weights = wei.getA()</span></span><br><span class="line">'''</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="参考来自">参考来自</h3>
-<p><a href="http://www.jianshu.com/p/9eea9af8529b" target="_blank" rel="noopener">机器学习实战Py3.x填坑记</a></p>
+<h3 id="参考来自"><a href="#参考来自" class="headerlink" title="参考来自"></a>参考来自</h3><p><a href="http://www.jianshu.com/p/9eea9af8529b" target="_blank" rel="noopener">机器学习实战Py3.x填坑记</a></p>
 
       
     </div>
@@ -661,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#零.-常见"><span class="nav-number">1.</span> <span class="nav-text">零. 常见</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二.-knn"><span class="nav-number">2.</span> <span class="nav-text">二. kNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四.-朴素贝叶斯"><span class="nav-number">3.</span> <span class="nav-text">四. 朴素贝叶斯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五.-logistic回归"><span class="nav-number">4.</span> <span class="nav-text">五. Logistic回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考来自"><span class="nav-number">4.1.</span> <span class="nav-text">参考来自</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#零-常见"><span class="nav-number">1.</span> <span class="nav-text">零. 常见</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-kNN"><span class="nav-number">2.</span> <span class="nav-text">二. kNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-朴素贝叶斯"><span class="nav-number">3.</span> <span class="nav-text">四. 朴素贝叶斯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-Logistic回归"><span class="nav-number">4.</span> <span class="nav-text">五. Logistic回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考来自"><span class="nav-number">4.1.</span> <span class="nav-text">参考来自</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -714,7 +727,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共49.6k字</span>
+  <span class="post-count">博客全站共49.0k字</span>
 </div>
 
 

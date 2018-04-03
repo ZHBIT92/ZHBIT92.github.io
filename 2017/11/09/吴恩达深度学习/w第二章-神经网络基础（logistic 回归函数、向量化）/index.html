@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="2.1 二分分类  计算机保存一张图片，要保存三个独立矩阵，分别对应红、绿、蓝三个颜色通道 举例：图为一张猫图，像素为 64x64， 就有三个 64x64 的矩阵  用特征向量 x 来表示图片 则图片的维度n = nx = 64 * 64 * 3 = 12 288 在二分类问题中，目标是训练出一个分类器（x 作">
+<meta name="description" content="2.1 二分分类 计算机保存一张图片，要保存三个独立矩阵，分别对应红、绿、蓝三个颜色通道举例：图为一张猫图，像素为 64x64， 就有三个 64x64 的矩阵 用特征向量 x 来表示图片则图片的维度n = nx = 64  64  3 = 12 288 在二分类问题中，目标是训练出一个分类器（x 作为输入，预测输出的结">
 <meta name="keywords" content="深度学习,机器学习,神经网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二章-神经网络基础（logistic 回归函数、向量化）">
 <meta property="og:url" content="http://yoursite.com/2017/11/09/吴恩达深度学习/w第二章-神经网络基础（logistic 回归函数、向量化）/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="2.1 二分分类  计算机保存一张图片，要保存三个独立矩阵，分别对应红、绿、蓝三个颜色通道 举例：图为一张猫图，像素为 64x64， 就有三个 64x64 的矩阵  用特征向量 x 来表示图片 则图片的维度n = nx = 64 * 64 * 3 = 12 288 在二分类问题中，目标是训练出一个分类器（x 作为输入，预测输出的结果标签为 y）  上图表现的是x是nx维的特征向量 训练">
+<meta property="og:description" content="2.1 二分分类 计算机保存一张图片，要保存三个独立矩阵，分别对应红、绿、蓝三个颜色通道举例：图为一张猫图，像素为 64x64， 就有三个 64x64 的矩阵 用特征向量 x 来表示图片则图片的维度n = nx = 64  64  3 = 12 288 在二分类问题中，目标是训练出一个分类器（x 作为输入，预测输出的结果标签为 y） 上图表现的是x是nx维的特征向量 训练集由m个训练样本构成 X矩">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-d9544ba0627121c1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/8448458-9d25ceb326c80a72.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -99,7 +99,7 @@
 <meta property="og:updated_time" content="2018-01-03T16:03:44.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二章-神经网络基础（logistic 回归函数、向量化）">
-<meta name="twitter:description" content="2.1 二分分类  计算机保存一张图片，要保存三个独立矩阵，分别对应红、绿、蓝三个颜色通道 举例：图为一张猫图，像素为 64x64， 就有三个 64x64 的矩阵  用特征向量 x 来表示图片 则图片的维度n = nx = 64 * 64 * 3 = 12 288 在二分类问题中，目标是训练出一个分类器（x 作为输入，预测输出的结果标签为 y）  上图表现的是x是nx维的特征向量 训练">
+<meta name="twitter:description" content="2.1 二分分类 计算机保存一张图片，要保存三个独立矩阵，分别对应红、绿、蓝三个颜色通道举例：图为一张猫图，像素为 64x64， 就有三个 64x64 的矩阵 用特征向量 x 来表示图片则图片的维度n = nx = 64  64  3 = 12 288 在二分类问题中，目标是训练出一个分类器（x 作为输入，预测输出的结果标签为 y） 上图表现的是x是nx维的特征向量 训练集由m个训练样本构成 X矩">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/8448458-d9544ba0627121c1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -403,7 +403,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,259字
+                  1,253字
                 </span>
               
 
@@ -428,82 +428,73 @@
       
 
       
-        <h3 id="二分分类">2.1 二分分类</h3>
-<ul>
-<li>计算机保存一张图片，要保存三个独立矩阵，分别对应红、绿、蓝三个颜色通道 举例：图为一张猫图，像素为 64x64， 就有三个 64x64 的矩阵 <img src="http://upload-images.jianshu.io/upload_images/8448458-d9544ba0627121c1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-1.jpg"></li>
-<li>用特征向量 x 来表示图片 则图片的维度n = nx = 64 * 64 * 3 = 12 288</li>
-<li>在二分类问题中，目标是训练出一个分类器（x 作为输入，预测输出的结果标签为 y） <img src="http://upload-images.jianshu.io/upload_images/8448458-9d25ceb326c80a72.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-2.jpg"></li>
+        <h3 id="2-1-二分分类"><a href="#2-1-二分分类" class="headerlink" title="2.1 二分分类"></a>2.1 二分分类</h3><ul>
+<li>计算机保存一张图片，要保存三个独立矩阵，分别对应红、绿、蓝三个颜色通道<br>举例：图为一张猫图，像素为 64x64， 就有三个 64x64 的矩阵<br><img src="http://upload-images.jianshu.io/upload_images/8448458-d9544ba0627121c1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-1.jpg"></li>
+<li>用特征向量 x 来表示图片<br>则图片的维度n = nx = 64 <em> 64 </em> 3 = 12 288</li>
+<li>在二分类问题中，目标是训练出一个分类器（x 作为输入，预测输出的结果标签为 y）<br><img src="http://upload-images.jianshu.io/upload_images/8448458-9d25ceb326c80a72.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-2.jpg"></li>
 <li>上图表现的是x是nx维的特征向量</li>
 <li>训练集由m个训练样本构成</li>
-<li>X矩阵式m列 高为nx （训练样本作为列向量堆叠）（约定格式） 注： 也有(训练样本作为行向量堆叠）的矩阵形式，但在神经网络中一般用约定格式 <a id="more"></a></li>
+<li>X矩阵式m列 高为nx （训练样本作为列向量堆叠）（约定格式）<br>注： 也有(训练样本作为行向量堆叠）的矩阵形式，但在神经网络中一般用约定格式<a id="more"></a>
+</li>
 </ul>
-<h3 id="logistic-回归模型">2.2 logistic 回归模型</h3>
-<div class="figure">
-<img src="http://upload-images.jianshu.io/upload_images/8448458-5c14e7234e115d0e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-3.jpg">
-<p class="caption">course2-3.jpg</p>
-</div>
+<h3 id="2-2-logistic-回归模型"><a href="#2-2-logistic-回归模型" class="headerlink" title="2.2 logistic 回归模型"></a>2.2 logistic 回归模型</h3><p><img src="http://upload-images.jianshu.io/upload_images/8448458-5c14e7234e115d0e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-3.jpg"></p>
 <ul>
-<li>线性回归中可用</li>
+<li>线性回归中可用 </li>
 <li>y = w^t * x + b</li>
-<li>缺点： y 应该介于0和1之间</li>
+<li>缺点： y 应该介于0和1之间 </li>
 <li>可用sigmoid(z)函数，也就是上图中的G(z)</li>
 <li>对于参数 w 和 b ：</li>
 <li>b 对应一个拦截器</li>
 </ul>
-<h3 id="logistic-回归损失函数成本函数">2.3 logistic 回归损失函数（成本函数）</h3>
-<ul>
+<h3 id="2-3-logistic-回归损失函数（成本函数）"><a href="#2-3-logistic-回归损失函数（成本函数）" class="headerlink" title="2.3 logistic 回归损失函数（成本函数）"></a>2.3 logistic 回归损失函数（成本函数）</h3><ul>
 <li>损失函数L(^y,y)： 在单个训练样本中定义的，衡量了在单个训练样本上的表现</li>
-<li>成本函数(代价函数) J（w，b）：衡量了在==全部训练样本==上的表现（在logistic函数中寻找合适的 w 和 b 让 y-hat 尽可能的小） <img src="http://upload-images.jianshu.io/upload_images/8448458-4196ae38fef87a62.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-4.jpg"></li>
+<li>成本函数(代价函数) J（w，b）：衡量了在==全部训练样本==上的表现（在logistic函数中寻找合适的 w 和 b 让 y-hat 尽可能的小）<br><img src="http://upload-images.jianshu.io/upload_images/8448458-4196ae38fef87a62.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-4.jpg"></li>
 </ul>
-<h3 id="阶梯下降法">2.4 阶梯下降法</h3>
-<div class="figure">
-<img src="http://upload-images.jianshu.io/upload_images/8448458-14e568c7fba033ec.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-5.jpg">
-<p class="caption">course2-5.jpg</p>
-</div>
+<h3 id="2-4-阶梯下降法"><a href="#2-4-阶梯下降法" class="headerlink" title="2.4 阶梯下降法"></a>2.4 阶梯下降法</h3><p><img src="http://upload-images.jianshu.io/upload_images/8448458-14e568c7fba033ec.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-5.jpg"></p>
 <ul>
-<li>成本函数 J （w，b）是一个凸函数（选择该函数的原因） 阶梯下降法的做法是： 从初始点开始，朝最陡的下坡方向走一步</li>
+<li>成本函数 J （w，b）是一个凸函数（选择该函数的原因）<br>阶梯下降法的做法是： 从初始点开始，朝最陡的下坡方向走一步</li>
 </ul>
-<h3 id="向量化">2.5 向量化</h3>
-<ul>
+<h3 id="2-5-向量化"><a href="#2-5-向量化" class="headerlink" title="2.5 向量化"></a>2.5 向量化</h3><ul>
 <li>注：当你想写循环时，可以先检查numpy中是否有类似的内置函数</li>
-<li>==向量化速度比循环快300倍==（真是个神奇的东西） <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span> = np<span class="selector-class">.random</span><span class="selector-class">.rand</span>(<span class="number">1000000</span>)</span><br><span class="line"><span class="selector-tag">b</span> = np<span class="selector-class">.random</span><span class="selector-class">.rand</span>(<span class="number">1000000</span>)</span><br><span class="line"></span><br><span class="line">tic = <span class="selector-tag">time</span>.time()</span><br><span class="line">c = np.dot(<span class="selector-tag">a</span>,b)</span><br><span class="line">toc = <span class="selector-tag">time</span>.time()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(c)</span></span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"Vectorized version(向量化):"</span> + str(<span class="number">1000</span>*(toc-tic)</span></span>)+<span class="string">"ms"</span>)</span><br><span class="line"></span><br><span class="line">c = <span class="number">0</span></span><br><span class="line">tic = <span class="selector-tag">time</span>.time()</span><br><span class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> range(<span class="number">1000000</span>):</span><br><span class="line">    c += <span class="selector-tag">a</span>[i]*<span class="selector-tag">b</span>[i]</span><br><span class="line">toc = <span class="selector-tag">time</span>.time()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(c)</span></span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"For loop(循环):"</span> + str(<span class="number">1000</span>*(toc-tic)</span></span>)+ <span class="string">"ms"</span>)</span><br></pre></td></tr></table></figure></li>
+<li>==向量化速度比循环快300倍==（真是个神奇的东西）<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span> = np<span class="selector-class">.random</span><span class="selector-class">.rand</span>(<span class="number">1000000</span>)</span><br><span class="line"><span class="selector-tag">b</span> = np<span class="selector-class">.random</span><span class="selector-class">.rand</span>(<span class="number">1000000</span>)</span><br><span class="line"></span><br><span class="line">tic = <span class="selector-tag">time</span>.time()</span><br><span class="line">c = np.dot(<span class="selector-tag">a</span>,b)</span><br><span class="line">toc = <span class="selector-tag">time</span>.time()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(c)</span></span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"Vectorized version(向量化):"</span> + str(<span class="number">1000</span>*(toc-tic)</span></span>)+<span class="string">"ms"</span>)</span><br><span class="line"></span><br><span class="line">c = <span class="number">0</span></span><br><span class="line">tic = <span class="selector-tag">time</span>.time()</span><br><span class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> range(<span class="number">1000000</span>):</span><br><span class="line">    c += <span class="selector-tag">a</span>[i]*<span class="selector-tag">b</span>[i]</span><br><span class="line">toc = <span class="selector-tag">time</span>.time()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(c)</span></span></span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(<span class="string">"For loop(循环):"</span> + str(<span class="number">1000</span>*(toc-tic)</span></span>)+ <span class="string">"ms"</span>)</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 输出</span><br><span class="line">249961<span class="selector-class">.060873</span></span><br><span class="line"><span class="selector-tag">Vectorized</span> <span class="selector-tag">version</span>(向量化)<span class="selector-pseudo">:2.0003318786621094ms</span></span><br><span class="line">249961<span class="selector-class">.060873</span></span><br><span class="line"><span class="selector-tag">For</span> <span class="selector-tag">loop</span>(循环)<span class="selector-pseudo">:779.0098190307617ms</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><strong>np.dot(W,X)</strong>： eg: 计算Z = W^T+ b,向量化可以直接计算w^T(表示W的转置) <figure class="highlight tp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Z</span> = np.dot(<span class="keyword">W</span>.T,<span class="keyword">X</span>)+b</span><br></pre></td></tr></table></figure></li>
+<li><strong>np.dot(W,X)</strong>：<br>eg: 计算Z = W^T+ b,向量化可以直接计算w^T(表示W的转置)<figure class="highlight tp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Z</span> = np.dot(<span class="keyword">W</span>.T,<span class="keyword">X</span>)+b</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="高度向量化的非常高效的逻辑回归的梯度下降算法">2.6 高度向量化的、非常高效的逻辑回归的梯度下降算法</h3>
-<p><img src="http://upload-images.jianshu.io/upload_images/8448458-0d1a10da192e86b1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-6.jpg"> <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Z</span> = wTX + b = np. dot(w. T, X)</span><br><span class="line"><span class="attr">A</span> = σ(Z)</span><br><span class="line"><span class="attr">dZ</span> = A -Y</span><br><span class="line"><span class="attr">dw</span> = <span class="number">1</span>/m ∗ X ∗ dz^T</span><br><span class="line"><span class="attr">db</span> = <span class="number">1</span>/m * np. sum(dZ)</span><br><span class="line"><span class="attr">w</span> = w - α * dw</span><br><span class="line"><span class="attr">b</span> = b - α * db</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-6-高度向量化的、非常高效的逻辑回归的梯度下降算法"><a href="#2-6-高度向量化的、非常高效的逻辑回归的梯度下降算法" class="headerlink" title="2.6 高度向量化的、非常高效的逻辑回归的梯度下降算法"></a>2.6 高度向量化的、非常高效的逻辑回归的梯度下降算法</h3><p><img src="http://upload-images.jianshu.io/upload_images/8448458-0d1a10da192e86b1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-6.jpg"><br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Z</span> = wTX + b = np. dot(w. T, X)</span><br><span class="line"><span class="attr">A</span> = σ(Z)</span><br><span class="line"><span class="attr">dZ</span> = A -Y</span><br><span class="line"><span class="attr">dw</span> = <span class="number">1</span>/m ∗ X ∗ dz^T</span><br><span class="line"><span class="attr">db</span> = <span class="number">1</span>/m * np. sum(dZ)</span><br><span class="line"><span class="attr">w</span> = w - α * dw</span><br><span class="line"><span class="attr">b</span> = b - α * db</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>我们利用前五个公式完成了前向和后向传播，也实现了对所有训练样本进行预测和求 导</li>
+<li>我们利用前五个公式完成了前向和后向传播，也实现了对所有训练样本进行预测和求<br>导</li>
 <li>利用后两个公式，梯度下降更新参数。</li>
-<li>我们的目的是不使用for循环，所以我们就通过一次迭代实现一次梯度下降，但如果你希望多次迭代进行梯度下降，那么仍然需要for循环，放在最外层。不过我们还是觉得一次迭代就进行一次梯度下降，避免使用任何循环比较 舒服一些。</li>
+<li>我们的目的是不使用for循环，所以我们就通过一次迭代实现一次梯度下降，但如果你希望多次迭代进行梯度下降，那么仍然需要for循环，放在最外层。不过我们还是觉得一次迭代就进行一次梯度下降，避免使用任何循环比较<br>舒服一些。</li>
 </ul>
-<h3 id="python中的广播机制-broadcasting-in-python">2.7 python中的广播机制( Broadcasting in Python)</h3>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">A = np.array([[<span class="number">56.0</span>, <span class="number">0.0</span>, <span class="number">4.4</span>, <span class="number">68.0</span>],</span><br><span class="line">              [<span class="number">1.2</span>, <span class="number">104.0</span>, <span class="number">52.0</span>, <span class="number">8.0</span>],</span><br><span class="line">              [<span class="number">1.8</span>, <span class="number">135.0</span>, <span class="number">99.0</span>, <span class="number">0.9</span>]])</span><br><span class="line">print(A)</span><br></pre></td></tr></table></figure>
+<h3 id="2-7-python中的广播机制-Broadcasting-in-Python"><a href="#2-7-python中的广播机制-Broadcasting-in-Python" class="headerlink" title="2.7 python中的广播机制( Broadcasting in Python)"></a>2.7 python中的广播机制( Broadcasting in Python)</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">A = np.array([[<span class="number">56.0</span>, <span class="number">0.0</span>, <span class="number">4.4</span>, <span class="number">68.0</span>],</span><br><span class="line">              [<span class="number">1.2</span>, <span class="number">104.0</span>, <span class="number">52.0</span>, <span class="number">8.0</span>],</span><br><span class="line">              [<span class="number">1.8</span>, <span class="number">135.0</span>, <span class="number">99.0</span>, <span class="number">0.9</span>]])</span><br><span class="line">print(A)</span><br></pre></td></tr></table></figure>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[  <span class="number">56.</span>     <span class="number">0.</span>     <span class="number">4.4</span>   <span class="number">68.</span> ]</span><br><span class="line"> [   <span class="number">1.2</span>  <span class="number">104.</span>    <span class="number">52.</span>     <span class="number">8.</span> ]</span><br><span class="line"> [   <span class="number">1.8</span>  <span class="number">135.</span>    <span class="number">99.</span>     <span class="number">0.9</span>]]</span><br></pre></td></tr></table></figure>
 <ul>
 <li>axis=0 意思是、在竖直方向上求和</li>
-<li>axis=1 是在水平方向上求和 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cal = A.sum(<span class="attribute">axis</span>=0)</span><br><span class="line"><span class="builtin-name">print</span>(cal)</span><br></pre></td></tr></table></figure></li>
+<li>axis=1 是在水平方向上求和<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cal = A.sum(<span class="attribute">axis</span>=0)</span><br><span class="line"><span class="builtin-name">print</span>(cal)</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[  <span class="number">59.</span>   <span class="number">239.</span>   <span class="number">155.4</span>   <span class="number">76.9</span>]</span><br></pre></td></tr></table></figure>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">percentage = <span class="number">100</span>*A/cal.reshape(<span class="number">1</span>,<span class="number">4</span>)</span><br><span class="line">print(percentage)</span><br></pre></td></tr></table></figure>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[ <span class="number">94.91525424</span>   <span class="number">0.</span>           <span class="number">2.83140283</span>  <span class="number">88.42652796</span>]</span><br><span class="line"> [  <span class="number">2.03389831</span>  <span class="number">43.51464435</span>  <span class="number">33.46203346</span>  <span class="number">10.40312094</span>]</span><br><span class="line"> [  <span class="number">3.05084746</span>  <span class="number">56.48535565</span>  <span class="number">63.70656371</span>   <span class="number">1.17035111</span>]]</span><br></pre></td></tr></table></figure>
-<ol style="list-style-type: decimal">
-<li><strong>axis</strong> 用来指明将要进行的运算是沿着 哪个轴执行，在 numpy 中， 0 轴是垂直的，也就是列，而 1 轴是水平的，也就是行</li>
+<ol>
+<li><strong>axis</strong> 用来指明将要进行的运算是沿着<br>哪个轴执行，在 numpy 中， 0 轴是垂直的，也就是列，而 1 轴是水平的，也就是行</li>
 <li>A/cal.reshape(1,4)指令则调用了 numpy 中的<strong>广播机制</strong>。</li>
 </ol>
 <ul>
-<li>这里使用3X4的矩阵 A 除以1X4 的矩阵 cal。技术上来讲，其实并不需要再将矩阵 cal reshape(重塑)成1X4 ，因 为矩阵 cal 本身已经是1X4 了。但是当我们写代码时不确定矩阵维度的时候，通常会对矩阵 进行重塑来确保得到我们想要的列向量或行向量。</li>
-<li>重塑操作 reshape是一个常量时间的操作， 时间复杂度是 O(1)，它的调用代价极低。</li>
+<li>这里使用3X4的矩阵<br>A 除以1X4 的矩阵 cal。技术上来讲，其实并不需要再将矩阵 cal reshape(重塑)成1X4 ，因<br>为矩阵 cal 本身已经是1X4 了。但是当我们写代码时不确定矩阵维度的时候，通常会对矩阵<br>进行重塑来确保得到我们想要的列向量或行向量。</li>
+<li>重塑操作 reshape是一个常量时间的操作，<br>时间复杂度是 O(1)，它的调用代价极低。</li>
 </ul>
-<ol start="3" style="list-style-type: decimal">
+<ol>
 <li>numpy 广播机制</li>
 </ol>
 <ul>
 <li>如果两个数组的后缘维度的轴长度相符或其中一方的轴长度为 1，则认为它们是广播兼容的。</li>
 <li>广播机制与执行的运算种类无关</li>
-<li>广播会在缺失维度和轴长度为 1 的维度上进行。 后缘维度的轴长度： A.shape[-1] 即矩阵维度元组中的最后一个位置的值 <img src="http://upload-images.jianshu.io/upload_images/8448458-372eefe2663e11c7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-7.jpg"></li>
+<li>广播会在缺失维度和轴长度为 1 的维度上进行。<br>后缘维度的轴长度： A.shape[-1] 即矩阵维度元组中的最后一个位置的值<br><img src="http://upload-images.jianshu.io/upload_images/8448458-372eefe2663e11c7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="course2-7.jpg"></li>
 </ul>
 
       
@@ -712,7 +703,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#二分分类"><span class="nav-number">1.</span> <span class="nav-text">2.1 二分分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logistic-回归模型"><span class="nav-number">2.</span> <span class="nav-text">2.2 logistic 回归模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logistic-回归损失函数成本函数"><span class="nav-number">3.</span> <span class="nav-text">2.3 logistic 回归损失函数（成本函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阶梯下降法"><span class="nav-number">4.</span> <span class="nav-text">2.4 阶梯下降法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向量化"><span class="nav-number">5.</span> <span class="nav-text">2.5 向量化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高度向量化的非常高效的逻辑回归的梯度下降算法"><span class="nav-number">6.</span> <span class="nav-text">2.6 高度向量化的、非常高效的逻辑回归的梯度下降算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python中的广播机制-broadcasting-in-python"><span class="nav-number">7.</span> <span class="nav-text">2.7 python中的广播机制( Broadcasting in Python)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-二分分类"><span class="nav-number">1.</span> <span class="nav-text">2.1 二分分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-logistic-回归模型"><span class="nav-number">2.</span> <span class="nav-text">2.2 logistic 回归模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-logistic-回归损失函数（成本函数）"><span class="nav-number">3.</span> <span class="nav-text">2.3 logistic 回归损失函数（成本函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-阶梯下降法"><span class="nav-number">4.</span> <span class="nav-text">2.4 阶梯下降法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-向量化"><span class="nav-number">5.</span> <span class="nav-text">2.5 向量化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-高度向量化的、非常高效的逻辑回归的梯度下降算法"><span class="nav-number">6.</span> <span class="nav-text">2.6 高度向量化的、非常高效的逻辑回归的梯度下降算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-python中的广播机制-Broadcasting-in-Python"><span class="nav-number">7.</span> <span class="nav-text">2.7 python中的广播机制( Broadcasting in Python)</span></a></li></ol></div>
             
 
           </div>
@@ -765,7 +756,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共49.6k字</span>
+  <span class="post-count">博客全站共49.0k字</span>
 </div>
 
 
