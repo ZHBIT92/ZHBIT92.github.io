@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="1.2 什么是神经网络 ReLU函数（修正线性单元）：“修正”指的是取不小于0的值图右是单个神经元：输入面积-&amp;gt;computer运算-&amp;gt;输出价格 多个神经元叠加构成一个更大的神经网络 左边的是输入的特征（输入层-input layer）   中间的圆圈在神经网络中被称为“隐藏单元”（Hidd">
+<meta name="description" content="1.2 什么是神经网络  ReLU函数（修正线性单元）：“修正”指的是取不小于0的值 图右是单个神经元：输入面积-&amp;gt;computer运算-&amp;gt;输出价格  多个神经元叠加构成一个更大的神经网络  左边的是输入的特征（输入层-input layer）   中间的圆圈在神经网络中被称为">
 <meta name="keywords" content="深度学习,机器学习,神经网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第一章-深度学习概论">
 <meta property="og:url" content="http://yoursite.com/2017/10/29/吴恩达深度学习/w第一章-深度学习概论/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="1.2 什么是神经网络 ReLU函数（修正线性单元）：“修正”指的是取不小于0的值图右是单个神经元：输入面积-&amp;gt;computer运算-&amp;gt;输出价格 多个神经元叠加构成一个更大的神经网络 左边的是输入的特征（输入层-input layer）   中间的圆圈在神经网络中被称为“隐藏单元”（Hidden nuit）：每个的输入都来着四个特征，因此是让神经网络自己决定中间的数代表的含义（why，">
+<meta property="og:description" content="1.2 什么是神经网络  ReLU函数（修正线性单元）：“修正”指的是取不小于0的值 图右是单个神经元：输入面积-&amp;gt;computer运算-&amp;gt;输出价格  多个神经元叠加构成一个更大的神经网络  左边的是输入的特征（输入层-input layer）   中间的圆圈在神经网络中被称为“隐藏单元”（Hidden nuit）：每个的输入都来着四个特征，因此是让神经网络自己决定中间的">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-1.jpg">
 <meta property="og:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-2.jpg">
@@ -99,7 +99,7 @@
 <meta property="og:updated_time" content="2017-12-20T15:43:15.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第一章-深度学习概论">
-<meta name="twitter:description" content="1.2 什么是神经网络 ReLU函数（修正线性单元）：“修正”指的是取不小于0的值图右是单个神经元：输入面积-&amp;gt;computer运算-&amp;gt;输出价格 多个神经元叠加构成一个更大的神经网络 左边的是输入的特征（输入层-input layer）   中间的圆圈在神经网络中被称为“隐藏单元”（Hidden nuit）：每个的输入都来着四个特征，因此是让神经网络自己决定中间的数代表的含义（why，">
+<meta name="twitter:description" content="1.2 什么是神经网络  ReLU函数（修正线性单元）：“修正”指的是取不小于0的值 图右是单个神经元：输入面积-&amp;gt;computer运算-&amp;gt;输出价格  多个神经元叠加构成一个更大的神经网络  左边的是输入的特征（输入层-input layer）   中间的圆圈在神经网络中被称为“隐藏单元”（Hidden nuit）：每个的输入都来着四个特征，因此是让神经网络自己决定中间的">
 <meta name="twitter:image" content="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-1.jpg">
 
 
@@ -428,23 +428,23 @@
       
 
       
-        <h3 id="1-2-什么是神经网络"><a href="#1-2-什么是神经网络" class="headerlink" title="1.2 什么是神经网络"></a>1.2 什么是神经网络</h3><ol>
-<li>ReLU函数（修正线性单元）：“修正”指的是取不小于0的值<br>图右是单个神经元：输入面积-&gt;computer运算-&gt;输出价格<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-1.jpg" alt=""></li>
-<li>多个神经元叠加构成一个更大的神经网络<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-2.jpg" alt=""></li>
+        <h3 id="什么是神经网络">1.2 什么是神经网络</h3>
+<ol style="list-style-type: decimal">
+<li>ReLU函数（修正线性单元）：“修正”指的是取不小于0的值 图右是单个神经元：输入面积-&gt;computer运算-&gt;输出价格 <img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-1.jpg"></li>
+<li>多个神经元叠加构成一个更大的神经网络 <img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-2.jpg"></li>
 <li>左边的是输入的特征（输入层-input layer）</li>
 </ol>
 <ul>
-<li>中间的圆圈在神经网络中被称为“隐藏单元”（Hidden nuit）：每个的输入都来着四个特征，因此是让神经网络自己决定中间的数代表的含义（why，这里为什么要这么说？）<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-3.jpg" alt=""><a id="more"></a>
-</li>
+<li>中间的圆圈在神经网络中被称为“隐藏单元”（Hidden nuit）：每个的输入都来着四个特征，因此是让神经网络自己决定中间的数代表的含义（why，这里为什么要这么说？） <img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-3.jpg"> <a id="more"></a></li>
 </ul>
-<h3 id="1-3-用神经网络进行监督学习"><a href="#1-3-用神经网络进行监督学习" class="headerlink" title="1.3 用神经网络进行监督学习"></a>1.3 用神经网络进行监督学习</h3><ul>
+<h3 id="用神经网络进行监督学习">1.3 用神经网络进行监督学习</h3>
+<ul>
 <li>神经网络架构</li>
 <li>1.standard neural network architecture 通用标准的神经网络架构</li>
-<li><ol>
-<li>convolutional neural  network 卷积神经网络（CNN）<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-4.jpg" alt=""><br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-5.jpg" alt=""></li>
-</ol>
-</li>
-<li>数据<br>Structured Data ：结构化数据（数据库），意为着每个特征都有清晰的定义，如数据库表中值的定义<br>Unstructured  Data : 非结构化数据，图像、音频文本中的内容<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-6.jpg" alt=""><h3 id="1-4为什么深度学习流行起来"><a href="#1-4为什么深度学习流行起来" class="headerlink" title="1.4为什么深度学习流行起来"></a>1.4为什么深度学习流行起来</h3>数据量的增加<br>硬件设备的提升<br>算法的不断改进创新<br>规模推动深度学习的发展（神经网络性能随规模、数据的增长不断增长）<br>x轴代表训练的规模 ，y轴代表表现<br>数据集不大时，效果取决于手工设计的组件<br>在图形左边时，各个算法的效率不是很明确<br>ex： 但在大数据方面，足够的M（训练集）的支持使神经网络的效率领先其他算法<br><img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-7.jpg" alt=""></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li>convolutional neural network 卷积神经网络（CNN） <img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-4.jpg"> <img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-5.jpg"></li>
+</ol></li>
+<li>数据 Structured Data ：结构化数据（数据库），意为着每个特征都有清晰的定义，如数据库表中值的定义 Unstructured Data : 非结构化数据，图像、音频文本中的内容 <img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-6.jpg"> ### 1.4为什么深度学习流行起来 数据量的增加 硬件设备的提升 算法的不断改进创新 规模推动深度学习的发展（神经网络性能随规模、数据的增长不断增长） x轴代表训练的规模 ，y轴代表表现 数据集不大时，效果取决于手工设计的组件 在图形左边时，各个算法的效率不是很明确 ex： 但在大数据方面，足够的M（训练集）的支持使神经网络的效率领先其他算法 <img src="https://github.com/ZHBIT92/deep_learn/raw/master/pic/Neural_networks/course1-7.jpg"></li>
 </ul>
 
       
@@ -653,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-什么是神经网络"><span class="nav-number">1.</span> <span class="nav-text">1.2 什么是神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-用神经网络进行监督学习"><span class="nav-number">2.</span> <span class="nav-text">1.3 用神经网络进行监督学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4为什么深度学习流行起来"><span class="nav-number">3.</span> <span class="nav-text">1.4为什么深度学习流行起来</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是神经网络"><span class="nav-number">1.</span> <span class="nav-text">1.2 什么是神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用神经网络进行监督学习"><span class="nav-number">2.</span> <span class="nav-text">1.3 用神经网络进行监督学习</span></a></li></ol></div>
             
 
           </div>
@@ -706,7 +706,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共49.0k字</span>
+  <span class="post-count">博客全站共43.3k字</span>
 </div>
 
 
