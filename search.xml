@@ -3,12 +3,12 @@
   <entry>
     <title><![CDATA[这里是目录]]></title>
     <url>%2F2048%2F03%2F18%2Fhello%2F</url>
-    <content type="text"><![CDATA[Kaggle 数据挖掘 人脸识别相关 深度学习与神经网络-吴恩达 机器学习实战系列 机器学习相关库 ### 基础 hexo建站相关 python基础]]></content>
+    <content type="text"><![CDATA[Kaggle 数据挖掘 人脸识别相关 深度学习与神经网络-吴恩达 机器学习实战系列 机器学习相关库 基础 hexo建站相关 python基础]]></content>
   </entry>
   <entry>
     <title><![CDATA[Kaggle比赛入门-房价预测]]></title>
     <url>%2F2018%2F03%2F21%2FKaggle%2FKaggle%E6%AF%94%E8%B5%9B%E5%85%A5%E9%97%A8-%E6%88%BF%E4%BB%B7%E9%A2%84%E6%B5%8B%2F</url>
-    <content type="text"><![CDATA[步骤 获取数据 探究数据（可视化+清洗） 设计并转换特征和目标变量 建立一个模型 制作并提交预测 获取数据 探究数据 查看目标函数与理解相关业务 123456plt.figure()plt.subplot(1,2,1)plt.hist(train.SalePrice, color='blue')plt.subplot(1,2,2)plt.hist(target, color='blue')plt.show() # 展示 数据分类-&gt; 数值特征和类别特征 方法一 1select_dtypes(include=[np.number]) 方法二 123features = pd.concat([train, test],keys=['train','test'])numeric_feats = features.dtypes[features.dtypes!="object"].indexcategorical_feats = features.dtypes[features.dtypes=="object"].index 查看特征与目标变量的关系 数值特征 通过seaborn的regplot函数作箱形图来显示类别特征与目标变量之间的关系 123456789def jointplot(x,y,**kwargs): try: sns.regplot(x=x,y=y) except Exception: print(x.value_counts()) numeric_feats = numeric_feats.drop("SalePrice")f = pd.melt(train, id_vars=['SalePrice'],value_vars=numeric_feats)g = sns.FacetGrid(f,col='variable',col_wrap=3,sharex=False,sharey=False,size=5)g = g.map(jointplot,"value","SalePrice") 类别特征 通过seaborn的boxplot()函数作箱形图来显示类别特征与目标变量之间的关系 12345678910for c in categorical_feats: train[c] = train[c].astype('category') if train[c].isnull().any(): train[c] = train[c].cat.add_categories(["Missing"]) train[c] = train[c].fillna("Missing")def boxplot(x,y,**kwargs): sns.boxplot(x=x,y=y)f = pd.melt(train,id_vars=['SalePrice'],value_vars=categorical_feats)g = sns.FacetGrid(f,col='variable',col_wrap=3,sharex=False,sharey=False,size=5)g = g.map(boxplot,"value","SalePrice") 整体关系 通过DataFrame.corr()方法显示列之间的相关性（或关系），可以用来研究特征与目标变量的亲密程度 12numeric_features = train.select_dtypes(include=[np.number]) corr = numeric_features.corr() 通过seaborn的heatmap()函数作热力图显示 123plt.subplots(figsize=(12,10))corrmat = train.corr()g = sns.heatmap(train.corr()) 缺失值情况 通过isnull().sum() 源码 参考资料 Getting Started with Kaggle: House Prices Competition Kaggle实践 -- 房价预测top15%方案 scipy.stats.boxcox1p]]></content>
+    <content type="text"><![CDATA[步骤 获取数据 探究数据（可视化+清洗） 设计并转换特征和目标变量 建立一个模型 制作并提交预测 获取数据 探究数据 查看目标函数与理解相关业务 123456plt.figure()plt.subplot(1,2,1)plt.hist(train.SalePrice, color='blue')plt.subplot(1,2,2)plt.hist(target, color='blue')plt.show() # 展示 ### 数据分类-&gt; 数值特征和类别特征 * 方法一 1select_dtypes(include=[np.number]) 方法二 123features = pd.concat([train, test],keys=['train','test'])numeric_feats = features.dtypes[features.dtypes!="object"].indexcategorical_feats = features.dtypes[features.dtypes=="object"].index 查看特征与目标变量的关系 数值特征 通过seaborn的regplot函数作箱形图来显示类别特征与目标变量之间的关系（部分举例） 123456789def jointplot(x,y,**kwargs): try: sns.regplot(x=x,y=y) except Exception: print(x.value_counts()) numeric_feats = numeric_feats.drop("SalePrice")f = pd.melt(train, id_vars=['SalePrice'],value_vars=numeric_feats)g = sns.FacetGrid(f,col='variable',col_wrap=3,sharex=False,sharey=False,size=5)g = g.map(jointplot,"value","SalePrice") mark 类别特征 通过seaborn的boxplot()函数作箱形图来显示类别特征与目标变量之间的关系（部分举例） 12345678910for c in categorical_feats: train[c] = train[c].astype('category') if train[c].isnull().any(): train[c] = train[c].cat.add_categories(["Missing"]) train[c] = train[c].fillna("Missing")def boxplot(x,y,**kwargs): sns.boxplot(x=x,y=y)f = pd.melt(train,id_vars=['SalePrice'],value_vars=categorical_feats)g = sns.FacetGrid(f,col='variable',col_wrap=3,sharex=False,sharey=False,size=5)g = g.map(boxplot,"value","SalePrice") mark 整体关系 通过DataFrame.corr()方法显示列之间的相关性（或关系），可以用来研究特征与目标变量的亲密程度 12numeric_features = train.select_dtypes(include=[np.number]) corr = numeric_features.corr() 123456789101112131415相关性前5OverallQual 0.790982GrLivArea 0.708624GarageCars 0.640409GarageArea 0.623431TotalBsmtSF 0.613581Name: SalePrice, dtype: float64 相关性-5YrSold -0.028923OverallCond -0.077856MSSubClass -0.084284EnclosedPorch -0.128578KitchenAbvGr -0.135907Name: SalePrice, dtype: float64 通过seaborn的heatmap()函数作热力图显示 123plt.subplots(figsize=(12,10))corrmat = train.corr()g = sns.heatmap(train.corr()) mark 缺失值情况 通过isnull().sum()查看缺失值 训练模型 Ridge模型 mark Lasso模型 mark 源码 参考资料 Getting Started with Kaggle: House Prices Competition Kaggle实践 -- 房价预测top15%方案 scipy.stats.boxcox1p]]></content>
       <categories>
         <category>Kaggle</category>
       </categories>
@@ -21,8 +21,8 @@
         <category>人脸检测</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
         <tag>机器学习</tag>
+        <tag>深度学习</tag>
         <tag>神经网络</tag>
         <tag>人脸检测</tag>
       </tags>
@@ -35,8 +35,8 @@
         <category>深度学习与神经网络(吴恩达)</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
         <tag>机器学习</tag>
+        <tag>深度学习</tag>
         <tag>神经网络</tag>
       </tags>
   </entry>
@@ -48,8 +48,8 @@
         <category>深度学习与神经网络(吴恩达)</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
         <tag>机器学习</tag>
+        <tag>深度学习</tag>
         <tag>神经网络</tag>
       </tags>
   </entry>
@@ -61,8 +61,8 @@
         <category>深度学习与神经网络(吴恩达)</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
         <tag>机器学习</tag>
+        <tag>深度学习</tag>
         <tag>神经网络</tag>
       </tags>
   </entry>
@@ -107,8 +107,8 @@
         <category>深度学习与神经网络(吴恩达)</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
         <tag>机器学习</tag>
+        <tag>深度学习</tag>
         <tag>神经网络</tag>
       </tags>
   </entry>
@@ -230,17 +230,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[机器学习实战六（K-均值聚类算法）]]></title>
-    <url>%2F2017%2F12%2F27%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98%E5%85%AD%EF%BC%88K-%E5%9D%87%E5%80%BC%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[一、概述 1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数 2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：计算复杂度高、空间复杂度高，占用存储空间。无法给出数据的内在含义 适用数据范围：数值型和标称型 3. 懒惰算法： 此类学习技术在训练阶段仅仅把样本保存起来 训练开支为零，待收到测试样本后再进行处理 二、算法流程 收集数据 准备数据 分析数据 训练算法（不适合KNN算法，因为K是“懒惰算法”的著名代表） 测试算法 使用算法 三、算法框架 1. classify0()函数的4个输入参数： inX：用于分类的输入向量 dataSet：用于输入的训练样本集 labels：标签向量 k：参数k用于选择最佳邻居的数目 4. 数据的归一化 由于每个属性的取值数量级相差过大，会造成每个属性的权重不同，这显然是海伦不希望的。所以我们还要写一个函数实现数据归一化，公式如下: newValue=(oldValue-min)/(max-min) 这个公式可以将特征值转化为0~1之间的值。 1234567891011121314#归一化特征值def autoNorm(dataSet): #每列的最小值 minVals=dataSet.min(0) #每列的最大值 maxVals=dataSet.max(0) #最大值与最小值的差值 ranges=maxVals-minVals normDataSet=zeros(shape(dataSet)) m=dataSet.shape[0] #minVals是1*3的矩阵，使用tile函数复制成和dataSet同样大小的矩阵，方便计算 normDataSet=dataSet-tile(minVals,(m,1)) normDataSet=normDataSet/tile(ranges,(m,1)) return normDataSet,ranges,minVals 12&gt;&gt;&gt;reload(kNN) &gt;&gt;&gt;normMat,ranges,minVals=kNN.autoNorm(datingDataMat) 5. 原始分类器 1234567891011121314#原始测试分类器def datingClassTest(): hoRatio=0.10 datingDataMat,datingLabels=file2matrix('datingTestSet2.txt') normMat,ranges,minVals=autoNorm(datingDataMat) m=normMat.shape(0) #10%的数据用于测试数据集 numTestVecs=int(m*hoRatio) errorCount=0.0 for i in range(numTestVecs): classifierResults=classify0(normMat[i,:],normMat[numTestVecs:m,:], datingLabels[numTestVecs:m],3) print("the classifier came back with: %d,the real answer id: %d"%(classifierResults,datingLabels[i])) if(classifierResults!=datingLabels[i]):errorCount +=1.0 print("the total error rate is: %f" %(errorCount/float(numTestVecs))) 6. 接口 1234567891011# 约会网站预测函数def classifyPerson(): resultList=['not at all','in small doses','in large doses'] percentTats=float(input("在游戏上花费的时间占比( )?")) ffMiles=float(input("每年航空的里程数?")) iceCream=float(input("每年吃的冰淇淋（升）?")) datingDataMat,datingLabels=file2matrix('datingTestSet2.txt') normMat, ranges, minVals=autoNorm(datingDataMat) inArr=array([ffMiles,percentTats,iceCream]) classifierResult=classify0((inArr-minVals)/ranges,normMat,datingLabels,3) print("你可能是属于以下这类人：",resultList[classifierResult - 1]) 7. 识别手写数字 1234567891011# 将图片格式处理为一个向量（把一个32*32的二进制图形矩阵转换为1*1024的向量）,然后使用分类器处理图形信息def img2vector(filename): # 创建一个1*1024的NumPy数组 returnVect = zeros((1,1024)) fr = open(filename) # 循环读出文件的前32行，并将每行的头32个字符值存储在NumPy数组中，最后返回数组 for i in range(32): lineStr = fr.readline() for j in range(32): returnVect[0,32*i+j] = int(lineStr[j]) return returnVect 123456789101112131415161718192021222324252627282930313233def handwritingClassTest(): hwLabels = [] # 将trainingDigits目录中的文件存储在列表中 trainingFileList = listdir('trainingDigits') # 获得文件数赋值给m m = len(trainingFileList) # 创建一个m行1024列的训练矩阵，每行数据存储一个图像 trainingMat = zeros((m,1024)) for i in range(m): # 从文件名解析分类数字（eg：文件9_45.txt表示数字9的第45个实例） fileNameStr = trainingFileList[i] fileStr = fileNameStr.split('.')[0] #take off .txt classNumStr = int(fileStr.split('_')[0]) # 将类代码存储在 hwLabels向量中 hwLabels.append(classNumStr) # 使用 img2vector函数载入图像 trainingMat[i,:] = img2vector('trainingDigits/%s' % fileNameStr) # 将testDigits目录中的文件存储在列表中，步骤同上 testFileList = listdir('testDigits') #iterate through the test set errorCount = 0.0 mTest = len(testFileList) for i in range(mTest): fileNameStr = testFileList[i] fileStr = fileNameStr.split('.')[0] #take off .txt classNumStr = int(fileStr.split('_')[0]) vectorUnderTest = img2vector('testDigits/%s' % fileNameStr) # 不同的是要使用 classify0函数测试目录下的每个文件（文件中的值介于0-1之间，无需用autoNorm()函数 classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels, 3) print("the classifier came back with: %d, the real answer is: %d" % (classifierResult, classNumStr)) if (classifierResult != classNumStr): errorCount += 1.0 print("\nthe total number of errors is: %d" % errorCount) print("\nthe total error rate is: %f" % (errorCount/float(mTest))) github代码]]></content>
-      <categories>
-        <category>机器学习实战</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[算法概论（聚类）]]></title>
     <url>%2F2017%2F12%2F27%2F%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%2F%E7%AE%97%E6%B3%95%E6%A6%82%E8%AE%BA%EF%BC%88%E8%81%9A%E7%B1%BB%EF%BC%89%2F</url>
     <content type="text"><![CDATA[聚类分析基础 概述 概念 聚类是将数据对象的集合分成相似的对象类的过程。使得同一个簇（或类）中的对象之间具有较高的相似性，而不同簇中的对象具有较高的相异性。 #### 表示形式 聚类分析(clustering analysis)就是根据某种相似性度量标准，将一个没有类别标号的数据集S直接拆分成若干个子集Ci (i=1,2, …,k; m≤n)，并使每个子集内部数据对象之间相似度很高，而不同子集的对象之间不相似或相似度很低。 每个子集Ci称为一个簇，所有簇构成的集合C={C1 ,C2, …,Ck}称为数据集S的一个聚类。 ### 数学定义 称C为S由s(X,Y)生成的一个划分聚类(partitional clustering)，简称C为S的划分聚类，或称为互斥(exclusive)的聚类。 簇的形状 类球状的簇 一般是聚类算法使用距离函数所产生的簇 #### 非球状的簇 非球状的簇，通常由基于密度或基于原型的聚类算法获得的簇。 簇间关系 明显分离的簇 簇中每个数据对象到同簇中其它对象的 距离，比到不同簇中任意对象的距离更近; 显分离的簇不必是球形的，也可以是其它任意的形状。 #### 基于原型的簇 所谓原型其实就是簇中最具代表性的点。对连续属性的数据，簇的原型通常就是质心，即簇中所有点的平均值。 当数据包括分类属性时，簇的原型通常是中心点，即簇中最有代表性的点。 对于许多数据类型，原型可以视为最 靠近中心的点，因此，通常把基于原型的 簇看作基于中心的簇(center-based cluster), 右图就是一个基于中心的簇的例子。 #### 基于连片的簇(contiguity-based cluster) 簇中两个相邻对象的距离都在指定 的阈值之内即将其归为同一个簇。 当簇的形状不规则或缠绕，且数据 集没有噪声时，用这种方式来定义簇会 收到很好的聚类效果。如果存在噪声，其聚类效果就不一定理想。图中的哑铃状簇，就是由线状 (噪声)连接两个球状簇形成的一个簇。 #### 基于密度的簇(density-based cluster) 基于密度的簇由对象间相对稠密的区域组成，且其周围是低密度的区域。一般通过指定簇中任何一个对象周围区域内最少点数(即密度)来实现。 #### 基于概念的簇 即具有某种“共同性质”的数 据对象集合。比如，离相同的质 心或中心点最近，或组成三角形、 梯形，或圆环状(重叠聚类)等。 ### 簇的距离 数据集S的一个聚类C={C1,C2,…,Ck}的质量，包括每个簇Ci的质量和C的总体质量。前者用簇内距离来刻画，后者用簇间距离来衡量。 #### 簇内距离 #### 簇间距离 相似性测度公式 距离相似性度量 通常相似度与距离成反比，在确定好距离函数后，可设计相似度函数如下： ### 密度相似性度量 ### 连通性相似性度量 数据集用图表示，图中结点是对象，而边代表对象之间的联系，这种情况下可以使用连通性相似性，将簇定义为图的连通分支，即图中互相连通但不与组外对象连通的对象组。 也就是说，在同一连通分支中的对象之间的相似性度量大于不同连通分支之间对象的相似性度量。 ### 概念相似性度量 若聚类方法是基于对象具有的概念，则需要采用概念相似性度量，共同性质（比如最近邻）越多的对象越相似。簇定义为有某种共同性质的对象的集合。 ## k-means ### 算法描述 k-means算法也称k-平均算法，它采用距离作为相异度的评价指标，以簇内差异函数w(C)作为聚类质量的优化目标函数，即将所有数据对象到它的簇中心点的距离平方和作为目标函数，算法寻找最优聚类的策略是使目标函数达到最小值(簇中心不变化等价于w(C)达最小)。 ### 算法的优缺点 #### 算法的优点 * k-平均算法简单、经典，常作为其它聚类算法的参照或被改进。 * k-平均算法以k个簇的误差平方和最小为目标，当聚类的每个簇是密集的，且簇与簇之间区别明显时，其聚类效果较好。 * k-平均算法处理大数据集高效，且具较好的可伸缩性，其计算复杂性为O(nkt)，n是数据对象个数，k为簇个数，t是迭代次数。 (2) 算法的缺点 * k-平均算法对初始中心点的选择比较敏感。对同一个数据集，如果初始中心选择不同，其聚类结果也可能不一样。 * k-平均算法对参数k是比较敏感的，即使是同一个数据集，如果k选择不同，其聚类结果可能完全不一样。 * k-平均算法以簇内对象的平均值作为簇中心来计算簇内误差，在连续属性的数据集上很容易实现，但在具有离散属性的数据集上却不能适用。 离群点(Outlier-异常点-噪音) 离群点的产生 数据来源于欺诈、入侵、疾病爆发、不寻常的实验结果等引起的异常。 比如，某人话费平均200元左右，某月突然增加到数千元；某人的信用卡通常每月消费5000元左右，而某个月消费超过3万等。 这类离群点在数据挖掘中通常都是相对有趣的，应用的重点之一。 #### 数据变量固有变化引起，反映了数据分布的自然特征 如气候变化、顾客新的购买模式、基因突变等。也是有趣的重点领域之一。 #### 数据测量和收集误差，主要是由于人为错误、测量设备故障或存在噪音。 例如，一个学生某门课程的成绩为100，可能是由于程序设置默认值引起的；一个公司的高层管理人员的工资明显高于普通员工的工资看上去像是一个离群点，但却是合理的数据。 ### 离群点挖掘问题 #### 定义离群点 由于离群点与实际问题密切相关，明确定义什么样的数据是离群点或异常数据，是离群点挖掘的前提和首要任务，一般需要结合领域专家的经验知识，才能对离群点给出恰当的描述或定义。 #### 挖掘离群点 离群点被明确定义之后，用什么算法有效地识别或挖掘出所定义的离群点则是离群点挖掘的关键任务。离群点挖掘算法通常从数据能够体现的规律角度为用户提供可疑的离群点数据，以便引起用户的注意。 #### 理解离群点 对挖掘结果的合理解释、理解并指导实际应用是离群点挖掘的目标。由于离群点产生的机制是不确定的，离群点挖掘算法检测出来的“离群点”是否真正对应实际的异常行为，不可能由离群点挖掘算法来说明和解释，而只能由行业或领域专家来理解和解释说明。 离群点的相对性 全局或局部的离群点 一个数据对象相对于它的局部近邻对象可能是离群的，但相对于整个数据集却不是离群的。如身高1.9米的同学在我校数学专业1班就是一个离群点，但在包括姚明等职业球员在内的全国人民中就不是了。 #### 离群点的数量 离群点的数量虽是未知的，但正常点的数量应该远远超过离群点的数量，即离群点的数量在大数据集中所占的比例应该是较低的，一般认为离群点数应该低于5%甚至低于1%。 #### 点的离群因子 不能用“是”与“否”来报告对象是否为离群点，而应以对象的偏离程度，即离群因子(Outlier Factor)或离群值得分(Outlier Score)来刻画一个数据偏离群体的程度，然后将离群因子高于某个阈值的对象过滤出来，提供给决策者或领域专家理解和解释，并在实际工作中应用。 判断离群点的方法 基于距离的方法 基于相对密度的方法 聚类算法的评价 一个好的聚类算法产生高质量的簇，即高的簇内相似度和低的簇间相似度。 ### 内部质量评价准则 ### 外部质量评价准则]]></content>
@@ -250,6 +239,17 @@
       <tags>
         <tag>机器学习</tag>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[机器学习实战六（K-均值聚类算法）]]></title>
+    <url>%2F2017%2F12%2F27%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98%E5%85%AD%EF%BC%88K-%E5%9D%87%E5%80%BC%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[一、概述 1. 原理： 工作机制：给定测试样本，基于某种距离度量找出训练集中的与其最靠近的k个训练样本，然后基于这k个“邻居”的信息来进行预测. 通常k是不大于20的整数 2. 优缺点 优点：精度高、对异常值不敏感、无数据输入假定 缺点：计算复杂度高、空间复杂度高，占用存储空间。无法给出数据的内在含义 适用数据范围：数值型和标称型 3. 懒惰算法： 此类学习技术在训练阶段仅仅把样本保存起来 训练开支为零，待收到测试样本后再进行处理 二、算法流程 收集数据 准备数据 分析数据 训练算法（不适合KNN算法，因为K是“懒惰算法”的著名代表） 测试算法 使用算法 三、算法框架 1. classify0()函数的4个输入参数： inX：用于分类的输入向量 dataSet：用于输入的训练样本集 labels：标签向量 k：参数k用于选择最佳邻居的数目 4. 数据的归一化 由于每个属性的取值数量级相差过大，会造成每个属性的权重不同，这显然是海伦不希望的。所以我们还要写一个函数实现数据归一化，公式如下: newValue=(oldValue-min)/(max-min) 这个公式可以将特征值转化为0~1之间的值。 1234567891011121314#归一化特征值def autoNorm(dataSet): #每列的最小值 minVals=dataSet.min(0) #每列的最大值 maxVals=dataSet.max(0) #最大值与最小值的差值 ranges=maxVals-minVals normDataSet=zeros(shape(dataSet)) m=dataSet.shape[0] #minVals是1*3的矩阵，使用tile函数复制成和dataSet同样大小的矩阵，方便计算 normDataSet=dataSet-tile(minVals,(m,1)) normDataSet=normDataSet/tile(ranges,(m,1)) return normDataSet,ranges,minVals 12&gt;&gt;&gt;reload(kNN) &gt;&gt;&gt;normMat,ranges,minVals=kNN.autoNorm(datingDataMat) 5. 原始分类器 1234567891011121314#原始测试分类器def datingClassTest(): hoRatio=0.10 datingDataMat,datingLabels=file2matrix('datingTestSet2.txt') normMat,ranges,minVals=autoNorm(datingDataMat) m=normMat.shape(0) #10%的数据用于测试数据集 numTestVecs=int(m*hoRatio) errorCount=0.0 for i in range(numTestVecs): classifierResults=classify0(normMat[i,:],normMat[numTestVecs:m,:], datingLabels[numTestVecs:m],3) print("the classifier came back with: %d,the real answer id: %d"%(classifierResults,datingLabels[i])) if(classifierResults!=datingLabels[i]):errorCount +=1.0 print("the total error rate is: %f" %(errorCount/float(numTestVecs))) 6. 接口 1234567891011# 约会网站预测函数def classifyPerson(): resultList=['not at all','in small doses','in large doses'] percentTats=float(input("在游戏上花费的时间占比( )?")) ffMiles=float(input("每年航空的里程数?")) iceCream=float(input("每年吃的冰淇淋（升）?")) datingDataMat,datingLabels=file2matrix('datingTestSet2.txt') normMat, ranges, minVals=autoNorm(datingDataMat) inArr=array([ffMiles,percentTats,iceCream]) classifierResult=classify0((inArr-minVals)/ranges,normMat,datingLabels,3) print("你可能是属于以下这类人：",resultList[classifierResult - 1]) 7. 识别手写数字 1234567891011# 将图片格式处理为一个向量（把一个32*32的二进制图形矩阵转换为1*1024的向量）,然后使用分类器处理图形信息def img2vector(filename): # 创建一个1*1024的NumPy数组 returnVect = zeros((1,1024)) fr = open(filename) # 循环读出文件的前32行，并将每行的头32个字符值存储在NumPy数组中，最后返回数组 for i in range(32): lineStr = fr.readline() for j in range(32): returnVect[0,32*i+j] = int(lineStr[j]) return returnVect 123456789101112131415161718192021222324252627282930313233def handwritingClassTest(): hwLabels = [] # 将trainingDigits目录中的文件存储在列表中 trainingFileList = listdir('trainingDigits') # 获得文件数赋值给m m = len(trainingFileList) # 创建一个m行1024列的训练矩阵，每行数据存储一个图像 trainingMat = zeros((m,1024)) for i in range(m): # 从文件名解析分类数字（eg：文件9_45.txt表示数字9的第45个实例） fileNameStr = trainingFileList[i] fileStr = fileNameStr.split('.')[0] #take off .txt classNumStr = int(fileStr.split('_')[0]) # 将类代码存储在 hwLabels向量中 hwLabels.append(classNumStr) # 使用 img2vector函数载入图像 trainingMat[i,:] = img2vector('trainingDigits/%s' % fileNameStr) # 将testDigits目录中的文件存储在列表中，步骤同上 testFileList = listdir('testDigits') #iterate through the test set errorCount = 0.0 mTest = len(testFileList) for i in range(mTest): fileNameStr = testFileList[i] fileStr = fileNameStr.split('.')[0] #take off .txt classNumStr = int(fileStr.split('_')[0]) vectorUnderTest = img2vector('testDigits/%s' % fileNameStr) # 不同的是要使用 classify0函数测试目录下的每个文件（文件中的值介于0-1之间，无需用autoNorm()函数 classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels, 3) print("the classifier came back with: %d, the real answer is: %d" % (classifierResult, classNumStr)) if (classifierResult != classNumStr): errorCount += 1.0 print("\nthe total number of errors is: %d" % errorCount) print("\nthe total error rate is: %f" % (errorCount/float(mTest))) github代码]]></content>
+      <categories>
+        <category>机器学习实战</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -388,8 +388,8 @@
         <category>深度学习与神经网络(吴恩达)</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
         <tag>机器学习</tag>
+        <tag>深度学习</tag>
         <tag>神经网络</tag>
       </tags>
   </entry>
@@ -401,8 +401,8 @@
         <category>深度学习与神经网络(吴恩达)</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
         <tag>机器学习</tag>
+        <tag>深度学习</tag>
         <tag>神经网络</tag>
       </tags>
   </entry>
@@ -414,8 +414,8 @@
         <category>深度学习与神经网络(吴恩达)</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
         <tag>机器学习</tag>
+        <tag>深度学习</tag>
         <tag>神经网络</tag>
       </tags>
   </entry>
@@ -494,8 +494,8 @@
         <category>深度学习与神经网络(吴恩达)</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
         <tag>机器学习</tag>
+        <tag>深度学习</tag>
         <tag>神经网络</tag>
       </tags>
   </entry>
