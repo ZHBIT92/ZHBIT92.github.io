@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="3IFwn6Hbgj" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="软考," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="计算机组成与结构 计算机中数据的表示 数值数据的表示  定点数：所有数据的小数点位置是固定的，小数点位置在数据最高位是定点小数，在最低位是定点整数，会有溢出的情况发生 浮点数：阶符，阶码，数符，尾数 组成， 尾数决定精度，阶码决定数据范围，最适合浮点数阶码的数字编码是移码  数的机器码表示  原码：符">
+<meta name="keywords" content="软考">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软考知识点">
+<meta property="og:url" content="http://yoursite.com/2018/04/16/软考知识点/index.html">
+<meta property="og:site_name" content="LEMON的博客">
+<meta property="og:description" content="计算机组成与结构 计算机中数据的表示 数值数据的表示  定点数：所有数据的小数点位置是固定的，小数点位置在数据最高位是定点小数，在最低位是定点整数，会有溢出的情况发生 浮点数：阶符，阶码，数符，尾数 组成， 尾数决定精度，阶码决定数据范围，最适合浮点数阶码的数字编码是移码  数的机器码表示  原码：符号位表示该数的符号，0正1负 。原码中分+0和-0 反码：符号位表示法和原码一">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180416/8DDIjaLC4F.png?imageslim">
+<meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180416/3CJK1cL4Li.png?imageslim">
+<meta property="og:updated_time" content="2018-04-16T14:28:26.688Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软考知识点">
+<meta name="twitter:description" content="计算机组成与结构 计算机中数据的表示 数值数据的表示  定点数：所有数据的小数点位置是固定的，小数点位置在数据最高位是定点小数，在最低位是定点整数，会有溢出的情况发生 浮点数：阶符，阶码，数符，尾数 组成， 尾数决定精度，阶码决定数据范围，最适合浮点数阶码的数字编码是移码  数的机器码表示  原码：符号位表示该数的符号，0正1负 。原码中分+0和-0 反码：符号位表示法和原码一">
+<meta name="twitter:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180416/8DDIjaLC4F.png?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/16/软考知识点/"/>
+
+
+
+
+
+  <title>软考知识点 | LEMON的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LEMON的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/软考知识点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LEMON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LEMON的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">软考知识点</h1>
+        
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T09:54:21+08:00">
+                2018-04-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-16T22:28:26+08:00">
+                2018-04-16
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软考/" itemprop="url" rel="index">
+                    <span itemprop="name">软考</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/16/软考知识点/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/04/16/软考知识点/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4,274字
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="计算机组成与结构">计算机组成与结构</h2>
+<h3 id="计算机中数据的表示">计算机中数据的表示</h3>
+<h4 id="数值数据的表示">数值数据的表示</h4>
+<ul>
+<li><strong>定点数</strong>：所有数据的小数点位置是固定的，小数点位置在数据最高位是定点小数，在最低位是定点整数，会有溢出的情况发生</li>
+<li><strong>浮点数</strong>：阶符，阶码，数符，尾数 组成， 尾数决定精度，阶码决定数据范围，最适合浮点数阶码的数字编码是移码</li>
+</ul>
+<h4 id="数的机器码表示">数的机器码表示</h4>
+<ul>
+<li><strong>原码</strong>：符号位表示该数的符号，0正1负 。原码中分+0和-0</li>
+<li><strong>反码</strong>：符号位表示法和原码一样，正数不变，负数要取反（除掉符号位）</li>
+<li><strong>补码</strong>：正数和原码相同，负数=反码加一，最适合加减运算的数字编码</li>
+<li><strong>移码</strong>：在数X上增加一个偏移量来定义的，常用于表示浮点数的阶码部分，如果机器字长n，规定偏移量是2的n-1次方，</li>
+<li><strong>移码定义</strong>： <span class="math display">\[v_{db} = \beta v_{dw} + (1-\beta)db\]</span> <span class="math display">\[[X]_移 = 2^n+X(-2^n&lt;=X&lt;2^(n-1)) \]</span></li>
+</ul>
+<a id="more"></a>
+<h4 id="校验码">校验码</h4>
+<ul>
+<li><strong>奇偶检验码</strong>：通过在编码中增加一位校验位来使编码中1的个数为奇数（奇校验）偶数（偶校验）</li>
+<li><strong>海明码</strong>：在数据位中插入k个校验码，通过扩大码距来实现检错和纠错。数据位n 校验位k 2(k次方)-1&gt;=n+k</li>
+<li><strong>循环冗余校验码（CRC）</strong>:利用生成多项式的k个数据位和产生的r个校验码来进行编码，编码长度是k+r</li>
+<li><strong>数制之间转换</strong>：2，8,10,16</li>
+</ul>
+<h3 id="cpu">CPU</h3>
+<ul>
+<li><strong>运算器</strong>：执行所有算术运算，执行所有逻辑运算并进行逻辑测试（与或非，值比较，零值测试）</li>
+<li><strong>指令寄存器（IR）</strong>：CPU执行指令的时候，先把它从内存中加载到缓冲寄存器中，再送入IR暂存，指令译码器根据IR的内容来产生各种微操作指令</li>
+<li><strong>程序计数器（PC）</strong>：PC具有寄存信息和计数两种功能，又称为指令计数器。程序执行分为：顺序执行，转移执行。</li>
+<li><ul>
+<li>程序开始执行之前，将程序的起始地址送入PC，该地址在程序加载到内存时确定，因此PC的内容即是程序第一条指令的地址</li>
+</ul></li>
+<li><ul>
+<li>执行指令时CPU会自动修改PC内容,确保永远是将要执行的下一条指令地址，顺序执行的话，只是简单的加一</li>
+</ul></li>
+<li><ul>
+<li>转移指令时，指令地址根据当前地址加上一个向前或向后的偏移量得到，或者根据转移指令给出的直接转移地址得到</li>
+</ul></li>
+<li><p><strong>地址寄存器（AR）</strong>：AR保存当前CPU所访问的内存单元的地址。是为了解决内存和CPU速度不匹配的问题</p></li>
+<li><strong>指令译码器（ID）</strong>：指令分为操作码和地址码两部分，由该部分进行解析，协调硬件的运行</li>
+<li><ul>
+<li>时序控制逻辑：控制指令的执行时间顺序</li>
+</ul></li>
+<li><ul>
+<li>总线逻辑：为多个功能部件服务的信息通路的控制电路</li>
+</ul></li>
+<li><ul>
+<li>中断逻辑：控制各种中断请求，根据优先级来对中断请求排队。逐个交给CPU执行</li>
+</ul></li>
+<li><strong>寄存器组</strong>：</li>
+<li><ul>
+<li>专用寄存器，通用寄存器。上面的都是专用的，通用的可以给程序猿控制（提高速度，貌似没卵用）</li>
+</ul></li>
+</ul>
+<h3 id="存储系统">存储系统</h3>
+<h4 id="分类">分类</h4>
+<ul>
+<li>读写存储器（RAM）：</li>
+<li>只读存储器（ROM）：</li>
+<li><ul>
+<li>固定只读储存器（ROM）</li>
+</ul></li>
+<li><ul>
+<li>可编程的只读存储器（PROM）</li>
+</ul></li>
+<li><ul>
+<li>可擦除的可编程只读存储器（EPROM）</li>
+</ul></li>
+<li><ul>
+<li>闪速存储器（Flash Memory）</li>
+</ul></li>
+<li>相联存储器 CAM 按内容寻址的存储器</li>
+</ul>
+<h4 id="cache">Cache</h4>
+<p>Cache：高速缓冲存储器：为了解决内存和CPU速度不匹配的问题而存在 * <strong>地址映像</strong>： * * 直接映像：主存按Cache的大小分成区，每个区的块数和Cache总块数相同，块号相同的映像到Cache中同一个块号那里(多个区中的同号块映像到Cache同号块上) * * 全相联映像：主存的块调入Cache不受限制（任意位置） * * 组相联映像：介于全相联和组相联之间 * <strong>替换算法</strong> * * 随机替换算法 RAND：随机的 * * 先进先出 FIFO : 总是把最先调用的Cache替换出去 * * 最近最少使用 LRU：把当前近期Cache使用次数最少的那块替换出去（先看访问，再看修改状态） * * 优化替换算法：先执行一次程序统计Cache使用情况，第二次执行程序再选择最优的算法来替换</p>
+<h3 id="访问方式">访问方式</h3>
+<p>寻址方式访问： 直接 ， 顺序 ， 随机 内容方式访问：相联存储器</p>
+<h4 id="磁盘">磁盘</h4>
+<ul>
+<li>磁盘存储器：由盘片，驱动器，控制器和接口组成。其存储容量有两种指标：格式化容量和非格式化容量。</li>
+<li><ul>
+<li>非格式化容量 = 面数（磁道数/面）内圆周长*最大位密度</li>
+</ul></li>
+<li><ul>
+<li>格式化容量 = 面数 （磁道数/面）（扇区数/道）*（字节数/扇区）</li>
+</ul></li>
+<li>光盘存储器 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">【例题】</span><br><span class="line">内存按字节编址从 A5000H 到 DCFFFH的区域，其存储容量为<span class="number">224</span>KB 若用<span class="number">16</span>K * <span class="number">4</span>bit 的存储器芯片构成该内存，需要（ <span class="number">28</span>） 片 </span><br><span class="line">（因为位数来计算的<span class="number">4</span>bit的话，前面的单位是减半的,所以最好是使用bit来计算） </span><br><span class="line">解析：DCFFFH - A5000H = <span class="number">38000</span>H (<span class="number">16</span>进制) 转换成二进制 <span class="number">0011</span> <span class="number">1000</span> <span class="number">0000</span> <span class="number">0000</span> <span class="number">0000</span>b </span><br><span class="line">去掉十个<span class="number">0</span> 单位就成了kb,然后就是<span class="number">2</span>的<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>次方求和 得到<span class="number">224</span>KB</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="输入输出系统">输入输出系统</h3>
+<ul>
+<li>DMA方式：<br>
+无需CPU介入，流程：向CPU申请DMA传送，获取CPU允许后，DMA控制器接管系统总线的控制权；过程中不需要CPU结束回到CPU控制</li>
+</ul>
+<h3 id="总线系统">总线系统</h3>
+<ul>
+<li>内部总线： 用于芯片一级的互联，分为芯片内总线和元件级总线。芯片内总线用在集成多芯片，元件级总线用于一块电路板内元器件的连接</li>
+<li>系统总线：插件板一级的互联，用于构成计算机各组成部分（CPU，内存，接口）</li>
+<li>外部总线：又称通信总线，用于设备一级的互联，通过该总线与其他设备进行信息与</li>
+</ul>
+<h3 id="加密算法">加密算法</h3>
+<ul>
+<li><strong>非对称加密的算法</strong>中使用了 私钥和公钥，私钥用于解密和数字签名，公钥用于加密和认证证书的真实性</li>
+<li><strong>数字证书</strong>：CA组织会给用户颁发数字证书， 由CA的私钥进行创建数字证书，数字签名，然后接收方使用CA的公钥来检查其真实性和数字签名 （检查文件内容是否被篡改）</li>
+</ul>
+<h2 id="操作系统">操作系统</h2>
+<h3 id="定义">定义</h3>
+<div class="figure">
+<img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180416/8DDIjaLC4F.png?imageslim" alt="mark">
+<p class="caption">mark</p>
+</div>
+<h3 id="进程管理">进程管理</h3>
+<p>进程间的基本关系是 相互独立（进程不相关）与 互相制约（进程相关） * <strong>同步</strong>是进程间的直接制约：进程合作的等待问题 * <strong>互斥</strong>是进程间的间接制约：进程竞争一个资源（进程独占） * PV操作： * * 实现进程同步，互斥的常用方法 * * P操作，S:=S-1 如果S&gt;=0，执行P操作的线程继续执行，否则阻塞 * * V操作，S:=S+1 如果S&gt;0，执行S操作的线程就会继续，否则从阻塞队列中唤醒一个线程</p>
+<ul>
+<li><strong>进程资源图</strong>（分辨死锁，线程竞争）灵活辨别是否是安全序列</li>
+<li><ul>
+<li>临界资源值 = 线程数 × ( 最大需求-1) + 1</li>
+</ul></li>
+<li><ul>
+<li>不发生死锁的临界：即有一个不是阻塞，其他的线程都是只差一个资源（阻塞等待中）</li>
+</ul></li>
+</ul>
+<h3 id="存储管理">存储管理</h3>
+<ul>
+<li>分页</li>
+<li>分段</li>
+<li>页段混合</li>
+</ul>
+<h3 id="处理机">处理机</h3>
+<ul>
+<li>图灵机里：有限和无限的区别就是后继码是否唯一，唯一就是有限</li>
+<li>要特别注意表达式的写法，一般这种题目看读取字符结尾就可以快速选择答案</li>
+</ul>
+<h3 id="设备管理">设备管理</h3>
+<ul>
+<li><strong>磁盘读取</strong></li>
+<li><ul>
+<li>SCAN 扫描算法 磁头按当前运动方向，至最大/最小再逆序折回读取（一来一返）</li>
+</ul></li>
+<li><ul>
+<li>CSCAN 单向扫描算法 磁头按当前运动方向，至最大/小，立马到最小/大又按初始的运动方向进行读取（两个单向）</li>
+</ul></li>
+<li><ul>
+<li>注意：当柱面是一样的时候，比较扇区的顺序</li>
+</ul></li>
+</ul>
+<h3 id="文件管理">文件管理</h3>
+<h4 id="位视图存储">位视图存储</h4>
+<ul>
+<li>概括：用某号物理块除以字长得到第几个字，容量就要再除以物理块的大小再除字长</li>
+<li>系统字长x，物理块大小y，那么第z号物理块需要第z/x个字来描述（注意是字长的区间）。容量为w(G) 需要 w×1024/y/x个字来表示</li>
+</ul>
+<h4 id="文件索引">文件索引</h4>
+<ul>
+<li>分直接索引项，一级间接索引项，二级间接索引项</li>
+<li>公式</li>
+<li><ul>
+<li>a位直接，b位一级，c位二级，数据块和索引块大小是dk，每个地址项是e字节，求逻辑块号X区间：</li>
+</ul></li>
+<li><ul>
+<li>直接 地址索引：0 &lt;= X &lt; a（0开始计数）</li>
+</ul></li>
+<li><ul>
+<li>一级 地址索引：a &lt;= X &lt; d×1024/e×b+a</li>
+</ul></li>
+<li><ul>
+<li>二级 地址索引：d×1024/e×b+a &lt;= X &lt; (d×1024/e)^2×c+d×1024/e×b+a</li>
+</ul></li>
+<li>求指向的内存大小：</li>
+<li><ul>
+<li>直接：直接数×数据块大小 a×d</li>
+</ul></li>
+<li><ul>
+<li>一级：一级数×索引块大小/地址项大小×数据块大小 b×d/e×d</li>
+</ul></li>
+<li><ul>
+<li>二级：二级数×(索引块大小/地址项大小)^2 ×数据块大小 c×(d/e)^2×d</li>
+</ul></li>
+</ul>
+<h4 id="路径问题">路径问题</h4>
+<ul>
+<li>全文件名，从根目录开始加上文件名 eg: .txt</li>
+<li>相对路径从当前路径(当前工作目录)开始的路径 eg:d<br>
+</li>
+<li>绝对路径从根目录开始的路径不含文件名 eg: <br>
+</li>
+</ul>
+<h3 id="作业管理">作业管理</h3>
+<ul>
+<li>调度级别：高级调度（作业调度），中级调度（交换调度），低级调度（进程调度）</li>
+<li>优先级调度算法：将给出的图看成树，左上为根。同层就是并发，父子关系就体现了优先级*</li>
+</ul>
+<h2 id="软件工程基础知识">软件工程基础知识</h2>
+<h3 id="软件生存周期">软件生存周期</h3>
+<ul>
+<li>可行性分析</li>
+<li>需求分析：功能，性能，数据，界面</li>
+<li>概要设计：分模块，定功能和关系，详细的数据库设计，数据结构设计</li>
+<li>详细设计：模块的详细算法设计，数据库的物理设计</li>
+<li>程序编码：</li>
+<li>软件测试</li>
+<li>维护：纠错维护，改错维护</li>
+</ul>
+<h3 id="软件生存周期模型">软件生存周期模型</h3>
+<ul>
+<li>瀑布模型：线性顺序模型，适用于对需求有完善了解，开发周期快</li>
+<li>原型/演化模型：通过原型来不断演化</li>
+<li>螺旋模型：综合了瀑布和原型的优点，增加了风险分析</li>
+<li>增量模型：先发布核心产品，然后根据需求不断增量，调试，直到完善</li>
+<li>喷泉模型：面向对象开发过程，以用户需求为动力，以对象为驱动的模型，使开发具有迭代性和无间隙性</li>
+<li>V模型：瀑布模型演化而来，强调了软件开发过程中若干个测试级别。</li>
+</ul>
+<h3 id="项目管理">项目管理</h3>
+<p>启动-&gt;度量-&gt;估算-&gt;风险分析-&gt;进度安排-&gt;追踪控制</p>
+<h3 id="成本估算">成本估算</h3>
+<h4 id="估算策略">估算策略</h4>
+<ul>
+<li>自顶向下 先确定整体时间，再按模块，分配时间</li>
+<li>自底向上 按模块分析需求时间，再向上累积得出全部时间</li>
+<li>差别估算 和类似项目比较</li>
+</ul>
+<h4 id="估算方法">估算方法</h4>
+<ul>
+<li>专家估算 ：专家一人确定</li>
+<li>类推估算 ：自顶向下是类似项目总体参数对比，自底向上是两个相似的功能单元对比</li>
+<li>算式估算 ：上面两种带有主观性，这个是为了消除主观性</li>
+</ul>
+<h4 id="成本估算模型">成本估算模型</h4>
+<ul>
+<li>IBM 基于60项目的静态模型</li>
+<li>Putnam（普特南）模型：动态多变量模型</li>
+<li>COCOMO模型：</li>
+<li><ul>
+<li>基本COCOMO模型 静态单变量模型</li>
+</ul></li>
+<li><ul>
+<li>中级COCOMO模型 静态多变量模型</li>
+</ul></li>
+<li><ul>
+<li>详细COCOMO模型 将系统分为系统，子系统，模块三层次， 包含了中级并考虑了软件开发流程中每一步的成本驱动影响</li>
+</ul></li>
+</ul>
+<h4 id="风险分析">风险分析</h4>
+<ul>
+<li>风险识别 ：</li>
+<li>风险评估 ：成本，进度，性能是三种典型的风险参考水准</li>
+<li>风险控制 ：</li>
+<li>风险策略管理</li>
+<li><ul>
+<li>避免风险</li>
+</ul></li>
+<li><ul>
+<li>控制风险</li>
+</ul></li>
+<li><ul>
+<li>分散和中和风险</li>
+</ul></li>
+<li><ul>
+<li>转移风险</li>
+</ul></li>
+</ul>
+<h4 id="进度管理">进度管理</h4>
+<ul>
+<li>Gantt 甘特图：描述了任务的开始和结束，并行关系，但是不能体现依赖关系</li>
+<li>PERT技术：</li>
+<li><ul>
+<li>关键路径是耗时最长的路径 <figure class="highlight fix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">任务松弛时间 </span>=<span class="string"> 最迟开始时间 - 任务最早开始时间 </span></span><br><span class="line"><span class="string">最迟开始时间 = 从终点往回推，用最长时间（关键路径耗时）减去终点到该任务的时间</span></span><br></pre></td></tr></table></figure></li>
+</ul></li>
+<li><ul>
+<li>任务的延时，推迟问题。应当计算由于各种原因引起的推迟路径，计算出总时间，减去原时间，不能只看一段。</li>
+</ul></li>
+</ul>
+<h4 id="文档管理">文档管理</h4>
+<ul>
+<li>针对性 分清阅读对象，来适应他们需求</li>
+<li>精确性 确切的语句，不能有二义性</li>
+<li>清晰性 简明，加以图表</li>
+<li>灵活性 各个软件项目，规模复杂性有很多差别，但是能一律看待</li>
+</ul>
+<h4 id="人员管理">人员管理</h4>
+<ul>
+<li>主程序员组 ：住程序员，后备，资料员，若干程序员</li>
+<li>无主程序员组 ：相互平等，调动积极性，但是权责问题不明确</li>
+<li>层次式程序员组 ：组长，高级程序员，普通程序员。适合大型项目</li>
+</ul>
+<h4 id="软件过程管理">软件过程管理</h4>
+<p>UP的结构 * 初始阶段： 建立商业案例，确定项目边界 * 精化阶段： 分析问题领域，建立体系结构基础 * 构建阶段： 剩余的构建和功能开发，集成为产品，此时是beta版 * 移交阶段： 测试，基于反馈调整，交付系统</p>
+<h3 id="敏捷开发方法">敏捷开发方法</h3>
+<h4 id="极限编程">极限编程</h4>
+<ul>
+<li>将项目细分小模块，迭代编写，</li>
+<li>先测试再编程</li>
+<li>结对编程</li>
+<li>水晶法 ： 每一个项目都要有一套不同的策略和方法</li>
+<li>并列争求法 ：该方法使用迭代的方法，将30天一次的迭代，称为冲刺</li>
+</ul>
+<h4 id="自适应软件开发方法">自适应软件开发方法：</h4>
+<p>1.一个使命作为指导 2.特征视为客户的关键点 3.过程中的等待很重要 4.变化视为实际的调整，不看做改正 5.确定的交付时间，迫使开发人员考虑每一个版本的关键需求 6.风险也在考虑范围内</p>
+<h4 id="cmm-能力成熟度模型">CMM 能力成熟度模型</h4>
+<p>五个级别： 初始级 可重复级 已定义级 定量管理级 优化级 CMMI 的任务是将已有的CMM模型结合在一起，构造为集成模型</p>
+<h4 id="程序流程图">程序流程图</h4>
+<p>简单路径：个人看法，看到选择结构就加一，初始是一个路径（输入到输出） McCabe度量法：V(G)=m-n+2p V(G)：路径复杂度 m:所有流程线 n:所有节点数 p:该有向图的强联通分量（图是有几块组成）</p>
+<h4 id="isoiec软件质量模型中">ISO/IEC软件质量模型中，</h4>
+<ul>
+<li>可靠性： 成熟性，容错性，易恢复性，兼容性</li>
+<li>可维护性： 易分析性：为 判定软件修改所需的努力 易改变性：进行修改，适应环境变化所需的努力 稳定性：与修改造成的风险后果相关 易测试性：与确认修改所需的努力。</li>
+</ul>
+<h2 id="计算机网络与多媒体基础知识">计算机网络与多媒体基础知识</h2>
+<h3 id="soosi七层网络体系结构">SO/OSI七层网络体系结构</h3>
+<h3 id="tcpip协议">TCP/IP协议</h3>
+<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180416/3CJK1cL4Li.png?imageslim" alt="mark"> * 物理介质（电信号的配送工具）： 它决定了电信号(0和1)的传输方式，物理介质的不同决定了电信号的传输带宽、速率、传输距离以及抗干扰性等等。 * 链路层：对0和1进行分组，定义数据帧，确认主机的物理地址，传输数据； * 网络层：定义IP地址，确认主机所在的网络位置，并通过IP进行MAC寻址，对外网数据包进行路由转发； * 传输层：定义端口，确认主机上应用程序的身份，并将数据包交给对应的应用程序； * 应用层：定义数据格式，并按照对应的格式解读数据。</p>
+<h2 id="数据结构与算法">数据结构与算法</h2>
+<h3 id="表示时间复杂度的阶">表示时间复杂度的阶</h3>
+<p><span class="math inline">\(O(1)\)</span> ：常量时间阶 <span class="math inline">\(O (n)\)</span>：线性时间阶 <span class="math inline">\(O(㏒n)\)</span> ：对数时间阶 <span class="math inline">\(O(n㏒n)\)</span> ：线性对数时间阶 <span class="math inline">\(O (nk)\)</span>： k≥2 ，k次方时间阶 * 以下六种计算算法时间的多项式是最常用的。其关系为：<br>
+O(1)<o(㏒n)<o(n)<o(n㏒n)<o(n2)<o(n3) 180416="" *="" 指数时间的关系为：="" o(2n)<o(n!)<o(nn)="" **空间复杂度**:="" 随着问题规模="" n="" 的增大，算法运行所需存储量s(n)的增长率与="" g(n)="" 的增长率相同，称s(n)(渐近)空间复杂度。="" $$s(n)="O(g(n))$$" ###="" 表="" 是一种有限且有序的序列。实现的方式有两种：="" 数组-顺序存储结构（所有操作都可以用数组来实现，查找功能、在表尾插入数据删除数据很方便）；="" 链表-非顺序存储结构（每个数据不必存在连续存储，插入、删除数据很方便）。="" 栈：="" 限制数据插入和删除只能在一个位置上进行，就是表的末端，即栈顶（特点先进后出）；用数组和链表（单链表即可）对所有操作（只有push、pop（top）操作）都是常数时间。="" 堆排序只需要一个临时变量空间="" 队列：插入（表的末尾）在一端进行，删除（表的开头）在另一端进行。特点：先进先出；用数组和链表（单链表）实现对所有的操作都是常数时间的。但需注意：用数组实现时，多用的循环数组。="" 二叉树="" 深度：树的层数；="" 度：（对节点来说是）一个节点的孩子数；（对整棵树来说是）其节点的度的最大值。="" 完全二叉树：="" 将满二叉树从右向左删除节点所得的二叉树为完全二叉树。="" 如果一棵树有="" 个="" 叶子节点，那么="" 度为2的节点="" 就有="" -1个。如果我们知道一棵完全二叉树有="" 个叶子节点，那么它的节点数最多="" 2n="" 个。="" 对任意一棵树,设它有n个结点,这n个结点的度数之和为n-1.="" 任何二叉树中度为0的结点比度为2的结点多一个。="" ####="" 例题="" 表达式"$x="A+B*(C-D)/E$"的后缀表示形式是$XABCD-*E/+=$" ![mark](http:="" p1mjzrkoc.bkt.clouddn.com="" blog="" mijhl7j6fb.png?imageslim)="" 排序算法特点总结="" 32gka5ca6m.png?imageslim)="" ##="" 数据库="" 修改表结构="" 增加字段：alter="" table="" 表名="" add="" 字段名="" 字段类型；="" 删除字段：alter="" drop="" column="" 字段列名；="" 增加约束：alter="" check(字段名<="">'')或者 ALTER TABLE 表名 ADD CONSTRAINT 约束名 UNIQUE(字段名)； * 删除约束：ALTER TABLE 表名 DROP CONSTRAINT 约束名； * 修改字段缺省值：ALTER TABLE 表名 ALTER COLUMN 字段名 SET DEFAULT 默认值； * 修改字段数据类型：ALTER TABLE 表名 ALTER COLUMN 字段名TYPE l类型； * 重命名字段：ALTER TABLE 表名 RENAME COLUMN 旧字段名TO 新字段名； * 重命名表：ALTER TABLE 表名 RENAME TO 新表名。</o(㏒n)<o(n)<o(n㏒n)<o(n2)<o(n3)></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软考/" rel="tag"><i class="fa fa-tag"></i> 软考</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/21/Kaggle/Kaggle比赛入门-房价预测/" rel="next" title="Kaggle比赛入门-房价预测">
+                <i class="fa fa-chevron-left"></i> Kaggle比赛入门-房价预测
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2048/03/18/hello/" rel="prev" title="这里是目录">
+                这里是目录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+      
+        <div id="gitment-container"></div>
+        
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="LEMON" />
+            
+              <p class="site-author-name" itemprop="name">LEMON</p>
+              <p class="site-description motion-element" itemprop="description">没有什么是一蹴而就的</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ZHBIT92" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/u/6f9b905040b9" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-globe"></i>简书</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机组成与结构"><span class="nav-number">1.</span> <span class="nav-text">计算机组成与结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机中数据的表示"><span class="nav-number">1.1.</span> <span class="nav-text">计算机中数据的表示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数值数据的表示"><span class="nav-number">1.1.1.</span> <span class="nav-text">数值数据的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数的机器码表示"><span class="nav-number">1.1.2.</span> <span class="nav-text">数的机器码表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#校验码"><span class="nav-number">1.1.3.</span> <span class="nav-text">校验码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cpu"><span class="nav-number">1.2.</span> <span class="nav-text">CPU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储系统"><span class="nav-number">1.3.</span> <span class="nav-text">存储系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类"><span class="nav-number">1.3.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cache"><span class="nav-number">1.3.2.</span> <span class="nav-text">Cache</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问方式"><span class="nav-number">1.4.</span> <span class="nav-text">访问方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#磁盘"><span class="nav-number">1.4.1.</span> <span class="nav-text">磁盘</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出系统"><span class="nav-number">1.5.</span> <span class="nav-text">输入输出系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总线系统"><span class="nav-number">1.6.</span> <span class="nav-text">总线系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加密算法"><span class="nav-number">1.7.</span> <span class="nav-text">加密算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统"><span class="nav-number">2.</span> <span class="nav-text">操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程管理"><span class="nav-number">2.2.</span> <span class="nav-text">进程管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储管理"><span class="nav-number">2.3.</span> <span class="nav-text">存储管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理机"><span class="nav-number">2.4.</span> <span class="nav-text">处理机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备管理"><span class="nav-number">2.5.</span> <span class="nav-text">设备管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件管理"><span class="nav-number">2.6.</span> <span class="nav-text">文件管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#位视图存储"><span class="nav-number">2.6.1.</span> <span class="nav-text">位视图存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件索引"><span class="nav-number">2.6.2.</span> <span class="nav-text">文件索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路径问题"><span class="nav-number">2.6.3.</span> <span class="nav-text">路径问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作业管理"><span class="nav-number">2.7.</span> <span class="nav-text">作业管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件工程基础知识"><span class="nav-number">3.</span> <span class="nav-text">软件工程基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件生存周期"><span class="nav-number">3.1.</span> <span class="nav-text">软件生存周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件生存周期模型"><span class="nav-number">3.2.</span> <span class="nav-text">软件生存周期模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目管理"><span class="nav-number">3.3.</span> <span class="nav-text">项目管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成本估算"><span class="nav-number">3.4.</span> <span class="nav-text">成本估算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#估算策略"><span class="nav-number">3.4.1.</span> <span class="nav-text">估算策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#估算方法"><span class="nav-number">3.4.2.</span> <span class="nav-text">估算方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#成本估算模型"><span class="nav-number">3.4.3.</span> <span class="nav-text">成本估算模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#风险分析"><span class="nav-number">3.4.4.</span> <span class="nav-text">风险分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进度管理"><span class="nav-number">3.4.5.</span> <span class="nav-text">进度管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档管理"><span class="nav-number">3.4.6.</span> <span class="nav-text">文档管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#人员管理"><span class="nav-number">3.4.7.</span> <span class="nav-text">人员管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件过程管理"><span class="nav-number">3.4.8.</span> <span class="nav-text">软件过程管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#敏捷开发方法"><span class="nav-number">3.5.</span> <span class="nav-text">敏捷开发方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#极限编程"><span class="nav-number">3.5.1.</span> <span class="nav-text">极限编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自适应软件开发方法"><span class="nav-number">3.5.2.</span> <span class="nav-text">自适应软件开发方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cmm-能力成熟度模型"><span class="nav-number">3.5.3.</span> <span class="nav-text">CMM 能力成熟度模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序流程图"><span class="nav-number">3.5.4.</span> <span class="nav-text">程序流程图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#isoiec软件质量模型中"><span class="nav-number">3.5.5.</span> <span class="nav-text">ISO/IEC软件质量模型中，</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机网络与多媒体基础知识"><span class="nav-number">4.</span> <span class="nav-text">计算机网络与多媒体基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#soosi七层网络体系结构"><span class="nav-number">4.1.</span> <span class="nav-text">SO/OSI七层网络体系结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tcpip协议"><span class="nav-number">4.2.</span> <span class="nav-text">TCP/IP协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构与算法"><span class="nav-number">5.</span> <span class="nav-text">数据结构与算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表示时间复杂度的阶"><span class="nav-number">5.1.</span> <span class="nav-text">表示时间复杂度的阶</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LEMON</span>
+
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>次
+</span>
+</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共47.0k字</span>
+</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: decodeURI(window.location.pathname), 
+            owner: 'ZHBIT92',
+            repo: 'ZHBIT92.github.io',
+            
+            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'addd2fbd58350cb283df3427a43cb9862c9e83f2',
+            
+                client_id: '2fae74879b4dc777705a'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/z16.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>
