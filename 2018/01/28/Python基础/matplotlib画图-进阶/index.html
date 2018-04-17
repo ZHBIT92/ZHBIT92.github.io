@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="多图合一显示Subplot 多合一显示均匀图中图1234567891011import matplotlib.pyplot as pltplt.figure()plt.subplot(1,2,1)plt.plot([0,1],[0,1])plt.subplot(1,2,2)plt.plot([0,1],[0,2])pl">
+<meta name="description" content="多图合一显示 Subplot 多合一显示 均匀图中图 1234567891011import matplotlib.pyplot as pltplt.figure()plt.subplot(1,2,1)plt.plot([0,1],[0,1])plt.subplot(1,2,2)plt.plot([0,1],[0">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="matplotlib画图(进阶)">
 <meta property="og:url" content="http://yoursite.com/2018/01/28/Python基础/matplotlib画图-进阶/index.html">
 <meta property="og:site_name" content="LEMON的博客">
-<meta property="og:description" content="多图合一显示Subplot 多合一显示均匀图中图1234567891011import matplotlib.pyplot as pltplt.figure()plt.subplot(1,2,1)plt.plot([0,1],[0,1])plt.subplot(1,2,2)plt.plot([0,1],[0,2])plt.show()  # 展示  plt.figure：定义一个图像窗口，小窗口里">
+<meta property="og:description" content="多图合一显示 Subplot 多合一显示 均匀图中图 1234567891011import matplotlib.pyplot as pltplt.figure()plt.subplot(1,2,1)plt.plot([0,1],[0,1])plt.subplot(1,2,2)plt.plot([0,1],[0,2])plt.show()  # 展示  plt.figure：定义一个图">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180321/1288Jfbb6j.png?imageslim">
 <meta property="og:updated_time" content="2018-03-21T14:30:23.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="matplotlib画图(进阶)">
-<meta name="twitter:description" content="多图合一显示Subplot 多合一显示均匀图中图1234567891011import matplotlib.pyplot as pltplt.figure()plt.subplot(1,2,1)plt.plot([0,1],[0,1])plt.subplot(1,2,2)plt.plot([0,1],[0,2])plt.show()  # 展示  plt.figure：定义一个图像窗口，小窗口里">
+<meta name="twitter:description" content="多图合一显示 Subplot 多合一显示 均匀图中图 1234567891011import matplotlib.pyplot as pltplt.figure()plt.subplot(1,2,1)plt.plot([0,1],[0,1])plt.subplot(1,2,2)plt.plot([0,1],[0,2])plt.show()  # 展示  plt.figure：定义一个图">
 <meta name="twitter:image" content="http://p1mjzrkoc.bkt.clouddn.com/blog/180321/1288Jfbb6j.png?imageslim">
 
 
@@ -422,14 +422,18 @@
       
 
       
-        <h2 id="多图合一显示"><a href="#多图合一显示" class="headerlink" title="多图合一显示"></a>多图合一显示</h2><h3 id="Subplot-多合一显示"><a href="#Subplot-多合一显示" class="headerlink" title="Subplot 多合一显示"></a>Subplot 多合一显示</h3><h4 id="均匀图中图"><a href="#均匀图中图" class="headerlink" title="均匀图中图"></a>均匀图中图</h4><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">plt.plot([<span class="number">0</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">plt.plot([<span class="number">0</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">plt.show()  # 展示</span><br></pre></td></tr></table></figure>
+        <h2 id="多图合一显示">多图合一显示</h2>
+<h3 id="subplot-多合一显示">Subplot 多合一显示</h3>
+<h4 id="均匀图中图">均匀图中图</h4>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">plt.plot([<span class="number">0</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">plt.plot([<span class="number">0</span>,<span class="number">1</span>],[<span class="number">0</span>,<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">plt.show()  # 展示</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>plt.figure</code>：定义一个图像窗口，小窗口里面还可以有更多的小图片。</li>
-<li><code>plt.subplo(x, y, n)</code>：表示将整个图像窗口分为<code>x</code>行<code>y</code>列,当前位置为<code>n</code><br>可简写为<code>plt.subplo(xyn)</code></li>
+<li><code>plt.subplo(x, y, n)</code>：表示将整个图像窗口分为<code>x</code>行<code>y</code>列,当前位置为<code>n</code> 可简写为<code>plt.subplo(xyn)</code></li>
 <li><code>plt.plot</code>：画(x ,y)曲线.</li>
 </ul>
-<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180321/1288Jfbb6j.png?imageslim" alt="mark"><br><a id="more"></a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<p><img src="http://p1mjzrkoc.bkt.clouddn.com/blog/180321/1288Jfbb6j.png?imageslim" alt="mark"> <a id="more"></a></p>
+<h2 id="参考">参考</h2>
+<ul>
 <li><a href="https://morvanzhou.github.io/tutorials/data-manipulation/plt/" target="_blank" rel="noopener">莫烦PYTHON</a></li>
 </ul>
 
@@ -462,8 +466,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/22/吴恩达深度学习/w章三习题/" rel="next" title="章三习题">
-                <i class="fa fa-chevron-left"></i> 章三习题
+              <a href="/2018/01/28/Python基础/matplotlib画图/" rel="next" title="matplotlib画图(基础)">
+                <i class="fa fa-chevron-left"></i> matplotlib画图(基础)
               </a>
             
           </div>
@@ -472,8 +476,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/28/Python基础/matplotlib画图/" rel="prev" title="matplotlib画图(基础)">
-                matplotlib画图(基础) <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/15/数据挖掘/分析伯乐在线文章数据/" rel="prev" title="分析伯乐在线文章数据">
+                分析伯乐在线文章数据 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -635,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#多图合一显示"><span class="nav-number">1.</span> <span class="nav-text">多图合一显示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Subplot-多合一显示"><span class="nav-number">1.1.</span> <span class="nav-text">Subplot 多合一显示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#均匀图中图"><span class="nav-number">1.1.1.</span> <span class="nav-text">均匀图中图</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#多图合一显示"><span class="nav-number">1.</span> <span class="nav-text">多图合一显示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#subplot-多合一显示"><span class="nav-number">1.1.</span> <span class="nav-text">Subplot 多合一显示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#均匀图中图"><span class="nav-number">1.1.1.</span> <span class="nav-text">均匀图中图</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -688,7 +692,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共47.0k字</span>
+  <span class="post-count">博客全站共49.3k字</span>
 </div>
 
 
